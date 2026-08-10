@@ -2,7 +2,7 @@ module.exports = {
   cliente: {
     nome: "MR Shawarma",
     subdomain: "mrshawarma-bi",
-    coolify_app_uuid: "",
+    coolify_app_uuid: "x13q56kx7e2rty2obslymcc5",
     cor_primaria: "#ff6b18",
   },
 
