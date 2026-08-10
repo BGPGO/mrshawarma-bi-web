@@ -1,0 +1,18506 @@
+/* BGP BI — gerado por build-data.cjs em 2026-08-10T19:43:35.272Z */
+/* Empresa: MR SHAWARMA FOOD LTDA | Ano ref: 2026 */
+const MONTHS = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+const MONTHS_FULL = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+
+function fmt(n, opts = {}) {
+  const { dec = 2, prefix = "R$", showSign = false } = opts;
+  const sign = n < 0 ? "-" : (showSign ? "+" : "");
+  const abs = Math.abs(n);
+  const parts = abs.toFixed(dec).split(".");
+  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  return `${sign}${prefix}${parts.join(",")}`;
+}
+function fmtK(n) {
+  const abs = Math.abs(n);
+  const sign = n < 0 ? "-" : "";
+  if (abs >= 1e6) return `${sign}R$${(abs / 1e6).toFixed(2).replace(".", ",")} M`;
+  if (abs >= 1e3) return `${sign}R$${(abs / 1e3).toFixed(2).replace(".", ",")} K`;
+  return `${sign}R$${abs.toFixed(0)}`;
+}
+function fmtPct(n, dec = 2) {
+  const sign = n > 0 ? "+" : (n < 0 ? "-" : "");
+  return `${sign}${Math.abs(n).toFixed(dec).replace(".", ",")}%`;
+}
+
+const META = {
+  "empresa": {
+    "nome_fantasia": "MR SHAWARMA FOOD LTDA",
+    "razao_social": "MR SHAWARMA FOOD LTDA",
+    "cnpj": "MR SHAWARMA FOOD LTDA"
+  },
+  "fetched_at": "2026-08-10T19:43:00.618Z",
+  "ref_year": 2026,
+  "counts": {
+    "contas_pagar": 479,
+    "contas_receber": 144,
+    "categorias": 201,
+    "departamentos": 0,
+    "clientes": 85
+  }
+};
+const POSICAO_CAIXA = [
+  {
+    "name": "Saldo realizado YTD",
+    "value": 21200.129999999655
+  },
+  {
+    "name": "A receber (futuro)",
+    "value": 34699.840000000004
+  },
+  {
+    "name": "A pagar (futuro)",
+    "value": 419686.43999999994
+  }
+];
+const COMPOSICAO_DESPESA = [
+  {
+    "name": "400-0 - Custo de Mercadorias Vendidas",
+    "value": 48833.920000000006,
+    "color": "#2dd4bf"
+  },
+  {
+    "name": "201-6 - OP Salarios",
+    "value": 20144.17,
+    "color": "#22c55e"
+  },
+  {
+    "name": "201-6 - Salarios e Ordenados",
+    "value": 14934.1,
+    "color": "#a78bfa"
+  },
+  {
+    "name": "201-5 - Pro-Labore",
+    "value": 11017.67,
+    "color": "#f59e0b"
+  },
+  {
+    "name": "400-0 - Custo de Embalagens",
+    "value": 6480.59,
+    "color": "#ef4444"
+  },
+  {
+    "name": "112-9 - Moveis e Utensilios",
+    "value": 5161.58,
+    "color": "#6b7686"
+  }
+];
+
+const SEGMENTS = {
+  "realizado": {
+    "MONTH_DATA": [
+      {
+        "m": "janeiro",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "fevereiro",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "março",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "abril",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "maio",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "junho",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "julho",
+        "receita": 115659.36999999969,
+        "despesa": 100169.63000000002
+      },
+      {
+        "m": "agosto",
+        "receita": 36353.61999999999,
+        "despesa": 35542.65000000001
+      },
+      {
+        "m": "setembro",
+        "receita": 5599.420000000003,
+        "despesa": 700
+      },
+      {
+        "m": "outubro",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "novembro",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "dezembro",
+        "receita": 0,
+        "despesa": 0
+      }
+    ],
+    "RECEITA_CATEGORIAS": [
+      {
+        "name": "102-1 - Vendas de Produtos - Débito e Crédito",
+        "value": 42740.90999999993,
+        "clientes": 2
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "value": 31270.970000000005,
+        "clientes": 1
+      },
+      {
+        "name": "102-1 - Vendas de Produtos - Delivery",
+        "value": 30376.57000000006,
+        "clientes": 5
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "value": 11585.710000000005,
+        "clientes": 1
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+        "value": 11551.310000000014,
+        "clientes": 3
+      },
+      {
+        "name": "102-1 - Vendas de Produtos - Vouchers",
+        "value": 9613.889999999996,
+        "clientes": 5
+      },
+      {
+        "name": "Repasse de cupom Ifood",
+        "value": 6172.05,
+        "clientes": 1
+      },
+      {
+        "name": "Desconto complementar da operadora Ifood",
+        "value": 4094.2099999999987,
+        "clientes": 1
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "value": 3476.190000000001,
+        "clientes": 3
+      },
+      {
+        "name": "Taxa de entrega Ifood (Despesa)",
+        "value": 3141.4299999999994,
+        "clientes": 1
+      },
+      {
+        "name": "Vendas de Mercadorias",
+        "value": 2039.4,
+        "clientes": 1
+      },
+      {
+        "name": "Outras Receitas Ifood",
+        "value": 601.44,
+        "clientes": 1
+      }
+    ],
+    "DESPESA_CATEGORIAS": [
+      {
+        "name": "400-0 - Custo de Mercadorias Vendidas",
+        "value": 48833.920000000006,
+        "fornecedores": 20
+      },
+      {
+        "name": "201-6 - OP Salarios",
+        "value": 20144.17,
+        "fornecedores": 6
+      },
+      {
+        "name": "201-6 - Salarios e Ordenados",
+        "value": 14934.1,
+        "fornecedores": 2
+      },
+      {
+        "name": "201-5 - Pro-Labore",
+        "value": 11017.67,
+        "fornecedores": 1
+      },
+      {
+        "name": "400-0 - Custo de Embalagens",
+        "value": 6480.59,
+        "fornecedores": 6
+      },
+      {
+        "name": "112-9 - Moveis e Utensilios",
+        "value": 5161.58,
+        "fornecedores": 3
+      },
+      {
+        "name": "434-4 - Marketing Digital",
+        "value": 4200,
+        "fornecedores": 2
+      },
+      {
+        "name": "Taxa de manutenção mensal Ifood",
+        "value": 3867.09,
+        "fornecedores": 1
+      },
+      {
+        "name": "425-6 - Contabilidade",
+        "value": 3500,
+        "fornecedores": 1
+      },
+      {
+        "name": "427-0 - Sistema de Gestao",
+        "value": 2814.55,
+        "fornecedores": 2
+      },
+      {
+        "name": "201-6 - OP Freelancer",
+        "value": 2586.6800000000003,
+        "fornecedores": 2
+      },
+      {
+        "name": "202-0 - Rescisoes",
+        "value": 2212.09,
+        "fornecedores": 1
+      }
+    ],
+    "RECEITA_CLIENTES": [
+      {
+        "name": "GetNet",
+        "value": 83955.69999999995
+      },
+      {
+        "name": "IFood - API",
+        "value": 28053.37000000006
+      },
+      {
+        "name": "99 Food",
+        "value": 13926.930000000004
+      },
+      {
+        "name": "Pluxee / Sodexo",
+        "value": 8279.05
+      },
+      {
+        "name": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        "value": 6172.05
+      },
+      {
+        "name": "Keeta",
+        "value": 5657.050000000003
+      },
+      {
+        "name": "Ticket Restaurante",
+        "value": 2436.44
+      },
+      {
+        "name": "VENDAS DINHEIRO",
+        "value": 2359.7999999999997
+      },
+      {
+        "name": "VENDAS DELIVERY",
+        "value": 1853.04
+      },
+      {
+        "name": "GETNET",
+        "value": 1649.88
+      },
+      {
+        "name": "VR",
+        "value": 1166.9699999999998
+      },
+      {
+        "name": "Alelo",
+        "value": 950.1200000000001
+      }
+    ],
+    "DESPESA_FORNECEDORES": [
+      {
+        "name": "BRUNO EDUARDO PAULIMO DA SILVA",
+        "value": 19582.249999999996
+      },
+      {
+        "name": "SARMAD MAHMOOD MOHAMMED AL",
+        "value": 13395
+      },
+      {
+        "name": "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        "value": 11866.67
+      },
+      {
+        "name": "ZANCHETTA ALIMENTOS LTDA",
+        "value": 11399.880000000001
+      },
+      {
+        "name": "EMPORIO SANTA CATARINA",
+        "value": 7099.53
+      },
+      {
+        "name": "LUCILENE MARTINS DE ARAUJO",
+        "value": 5600.77
+      },
+      {
+        "name": "LUCAS WILLIANS GONCALVES DO AMARAL",
+        "value": 5240.6900000000005
+      },
+      {
+        "name": "GIOVANNA FERNANDES DOS SANTOS",
+        "value": 4066.1499999999996
+      },
+      {
+        "name": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        "value": 3989.93
+      },
+      {
+        "name": "NICOLAS LUIZ RODRIGUES SANTOS",
+        "value": 3528.05
+      },
+      {
+        "name": "EASYCONTABIL",
+        "value": 3500
+      },
+      {
+        "name": "Jean Malak Abdelsayed Farag Abdelsayed",
+        "value": 3237.6
+      }
+    ],
+    "EXTRATO": [
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.92,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.9,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        38.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        14.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.66,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.52,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        45.91,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.62,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.48,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        105.02,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.1,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        48.95,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        38.16,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        6.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.57,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.72,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.86,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.7,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        55.13,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.07,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.19,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        98.07,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.86,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.26,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        35.28,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        44.17,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        67.68,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        39.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.14,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.2,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.23,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.87,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        32.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        4.89,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        40.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        25.93,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        45.54,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        59.54,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.03,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        158.38,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        68.34,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        86.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        63.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        59.13,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.97,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        70.05,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.91,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        34.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        82.63,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.47,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        31.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.18,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        31.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        35.94,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.96,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.97,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        39.71,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.28,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.67,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.46,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        64.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.16,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        88.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.36,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.93,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.46,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.76,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.76,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.43,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        40.51,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        25.15,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        81.09,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.62,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        50.87,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.52,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.82,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.14,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.05,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.89,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "Ajustes a Crédito de Cartão",
+        "IFood - API",
+        12.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        139.11,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        61.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        63.03,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        74.24,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.87,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.23,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        14.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.08,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        77.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        86.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        47.75,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        100.94,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.13,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "Ajustes a Crédito de Cartão",
+        "IFood - API",
+        31.72,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        17.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.39,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.29,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        97.1,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.12,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        43.11,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.34,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.1,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.06,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.9,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        25.4,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.12,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.46,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.46,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        102.15,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.69,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.86,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.03,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        75,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.39,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.29,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ]
+    ],
+    "EXTRATO_RECEITAS": [
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.92,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.9,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        38.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        14.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.66,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.52,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        45.91,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.62,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.48,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        105.02,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.1,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        48.95,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        38.16,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        6.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.57,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.72,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.86,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.7,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        55.13,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.07,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.19,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        98.07,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.86,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.26,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        35.28,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        44.17,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        67.68,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        39.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.14,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.2,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.23,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.87,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        32.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        4.89,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        40.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        25.93,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        45.54,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        59.54,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.03,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        158.38,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        68.34,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        86.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        63.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        59.13,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.97,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        70.05,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.91,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        34.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        82.63,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.47,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        31.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.18,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        31.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        35.94,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.96,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.97,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        39.71,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.28,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.67,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.46,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        64.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.16,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        88.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        69.36,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.93,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.46,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.76,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.76,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.43,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        40.51,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        25.15,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        81.09,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.62,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        50.87,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.52,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.82,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.14,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.05,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        10.99,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.89,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "Ajustes a Crédito de Cartão",
+        "IFood - API",
+        12.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        139.11,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        61.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        63.03,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        74.24,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        24.87,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.23,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        14.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.08,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.83,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        77.35,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        86.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        47.75,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        100.94,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        33.13,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "Ajustes a Crédito de Cartão",
+        "IFood - API",
+        31.72,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        17.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.39,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.29,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        97.1,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.12,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        43.11,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.34,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.1,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.06,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.9,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        25.4,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.12,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.46,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.46,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        102.15,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.69,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.86,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.03,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        75,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.39,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.29,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.39,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.45,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        28.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.39,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        79.26,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.84,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        17.81,
+        "PAGO"
+      ]
+    ],
+    "EXTRATO_DESPESAS": [
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -89.23,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -78.6,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -82.48,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -149.69,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -150,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -95.91,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -104.09,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -94.47,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -105.53,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "12/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "07/08/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "MART DIGITAL - JULIANA",
+        -7.5,
+        "PAGO"
+      ],
+      [
+        "07/08/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "KALUNGA",
+        -25.9,
+        "PAGO"
+      ],
+      [
+        "07/08/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -41.1,
+        "PAGO"
+      ],
+      [
+        "06/08/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -29.9,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1560.62,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -2584.59,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.43,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -875.76,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -44.82,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -75.99,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -79.35,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -105.52,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -102.08,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -118.68,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -153.22,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "MART DIGITAL - JULIANA",
+        -48,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "KALUNGA",
+        -5.9,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SARMAD MAHMOOD MOHAMMED AL",
+        -2875,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "BRASPEL EMBALAGENS",
+        -1964.93,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -1000,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CENTER CARNES TUCURUVI",
+        -302.65,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -132.73,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "REFRICON MERCANTIL LTDA.",
+        -82.15,
+        "PAGO"
+      ],
+      [
+        "05/08/2026",
+        "Operações",
+        "201-6 - OP Freelancer",
+        "FREELANCER",
+        -80,
+        "PAGO"
+      ],
+      [
+        "04/08/2026",
+        "Operações",
+        "432-0 - Juros Passivos",
+        "BANCO ITAU",
+        -169,
+        "PAGO"
+      ],
+      [
+        "04/08/2026",
+        "Operações",
+        "201-6 - OP Freelancer",
+        "FREELANCER",
+        -160,
+        "PAGO"
+      ],
+      [
+        "04/08/2026",
+        "Operações",
+        "201-6 - OP Freelancer",
+        "FREELANCER",
+        -150,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -56,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "MART DIGITAL - JULIANA",
+        -29,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -16.1,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SARMAD MAHMOOD MOHAMMED AL",
+        -2875,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -1725,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "112-9 - Moveis e Utensilios",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -1455.98,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "SWFAST SISTEMAS",
+        -898,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ANAS ABO HARB",
+        -800,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CIANFLONE AGRO COMERCIAL LTDA",
+        -645.72,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CENTER CARNES TUCURUVI",
+        -299.8,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "WAN SAN COMERCIAL LTDA",
+        -628.79,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -211.74,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "201-6 - OP Freelancer",
+        "FREELANCER",
+        -150,
+        "PAGO"
+      ],
+      [
+        "03/08/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -50,
+        "PAGO"
+      ],
+      [
+        "01/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -74.14,
+        "PAGO"
+      ],
+      [
+        "01/08/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -26.61,
+        "PAGO"
+      ],
+      [
+        "31/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -1080,
+        "PAGO"
+      ],
+      [
+        "31/07/2026",
+        "Operações",
+        "421-8 - OP Fretes e carretos",
+        "FORNECEDORES DIVERSOS",
+        -50,
+        "PAGO"
+      ],
+      [
+        "31/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -80,
+        "PAGO"
+      ],
+      [
+        "31/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -51,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -800,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -246.45,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ELIAS SLEIMAN CHAIB",
+        -240,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "REFRICON MERCANTIL LTDA.",
+        -157.08,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "421-8 - OP Fretes e carretos",
+        "UBER",
+        -16.48,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "112-9 - Moveis e Utensilios",
+        "DAISO BRASIL",
+        -22,
+        "PAGO"
+      ],
+      [
+        "30/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -49.5,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -11.05,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -1.3,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -14.54,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -4.86,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -20.94,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -12.54,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -23.64,
+        "PAGO"
+      ],
+      [
+        "29/07/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGO"
+      ],
+      [
+        "28/07/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "CLEANPAPEIS",
+        -405,
+        "PAGO"
+      ],
+      [
+        "28/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "EMPORIO SANTA CATARINA",
+        -1597.03,
+        "PAGO"
+      ],
+      [
+        "28/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -25.95,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -75.6,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "MART DIGITAL - JULIANA",
+        -70,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "MART DIGITAL - JULIANA",
+        -47.9,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "112-9 - Moveis e Utensilios",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -1706.57,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SARMAD MAHMOOD MOHAMMED AL",
+        -1350,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -735.5,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CIANFLONE AGRO COMERCIAL LTDA",
+        -663.55,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -131.93,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "REFRICON MERCANTIL LTDA.",
+        -82.15,
+        "PAGO"
+      ],
+      [
+        "27/07/2026",
+        "Operações",
+        "423-5 - Estacionamento",
+        "TUCURUVI PARKING",
+        -10,
+        "PAGO"
+      ],
+      [
+        "24/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -51.9,
+        "PAGO"
+      ],
+      [
+        "24/07/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGO"
+      ],
+      [
+        "24/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CENTER CARNES TUCURUVI",
+        -300.85,
+        "PAGO"
+      ],
+      [
+        "24/07/2026",
+        "Operações",
+        "422-0 - Uber e Taxi",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -224,
+        "PAGO"
+      ],
+      [
+        "24/07/2026",
+        "Operações",
+        "421-8 - OP Fretes e carretos",
+        "LALAMOVE TECNOLOGIA (BRASIL) LTDA.",
+        -43.5,
+        "PAGO"
+      ],
+      [
+        "23/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -3,
+        "PAGO"
+      ],
+      [
+        "23/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -750.38,
+        "PAGO"
+      ],
+      [
+        "23/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ANAS ABO HARB",
+        -515,
+        "PAGO"
+      ],
+      [
+        "23/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -352.18,
+        "PAGO"
+      ],
+      [
+        "23/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -171.86,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -8.31,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -10.62,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -8.2,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -11.22,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -10.21,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -27,
+        "PAGO"
+      ],
+      [
+        "22/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -1080,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA",
+        -447,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "WAN SAN COMERCIAL LTDA",
+        -200.8,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "EMPORIO SANTA CATARINA",
+        -1597.05,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -145.3,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -783,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -400,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CENTER CARNES TUCURUVI",
+        -299.8,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "423-5 - Estacionamento",
+        "TUCURUVI PARKING",
+        -180,
+        "PAGO"
+      ],
+      [
+        "21/07/2026",
+        "Operações",
+        "422-9 - Material de Escritorio",
+        "MART DIGITAL - JULIANA",
+        -57.5,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "WAN SAN COMERCIAL LTDA",
+        -261.38,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -979.99,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -978.43,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2167,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SARMAD MAHMOOD MOHAMMED AL",
+        -1050,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "201-6 - OP Freelancer",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -1046.68,
+        "PAGO"
+      ],
+      [
+        "20/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CIANFLONE AGRO COMERCIAL LTDA",
+        -549.5,
+        "PAGO"
+      ],
+      [
+        "19/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -30,
+        "PAGO"
+      ],
+      [
+        "18/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -95.9,
+        "PAGO"
+      ],
+      [
+        "17/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -65.8,
+        "PAGO"
+      ],
+      [
+        "17/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -13.25,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "112-9 - Moveis e Utensilios",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -975.46,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TIAGO BATATAS E LEGUMES LTDA",
+        -150,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "EMPORIO SANTA CATARINA",
+        -1597.05,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -777,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FRANCISCO DAS CHAGAS NETO DOCES ARABES",
+        -576,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -89,
+        "PAGO"
+      ],
+      [
+        "16/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -35,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -258.84,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -190.39,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -1800,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -1000,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -78.8,
+        "PAGO"
+      ],
+      [
+        "15/07/2026",
+        "Operações",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+        "99 FOOD",
+        -347.03,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -258.84,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -1080,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+        -335.7,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -35.22,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "Falta de Caixa",
+        "VENDAS DINHEIRO",
+        -19.78,
+        "PAGO"
+      ],
+      [
+        "14/07/2026",
+        "Operações",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -122.84,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "KRAFTBOWLS",
+        -552.26,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "WAN SAN COMERCIAL LTDA",
+        -614.02,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TERRA BRASIL HORTI FRUTI LTDA.",
+        -154.35,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "GRANO ALIMENTOS S/A",
+        -213.51,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -246.11,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2667,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -1848.08,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SARMAD MAHMOOD MOHAMMED AL",
+        -1050,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "SARMAD MAHMOOD MOHAMMED AL",
+        -950,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CENTER CARNES TUCURUVI",
+        -902.85,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ZANCHETTA ALIMENTOS LTDA",
+        -785,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "ELIAS SLEIMAN CHAIB",
+        -240,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -117.03,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "423-5 - Estacionamento",
+        "TUCURUVI PARKING",
+        -10,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "112-9 - Moveis e Utensilios",
+        "MERCADO LIVRE",
+        -28.18,
+        "PAGO"
+      ],
+      [
+        "13/07/2026",
+        "Operações",
+        "421-8 - OP Fretes e carretos",
+        "UBER",
+        -27.99,
+        "PAGO"
+      ],
+      [
+        "12/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -4.35,
+        "PAGO"
+      ],
+      [
+        "12/07/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "TRIMAIS SUPERMERCADOS",
+        -44,
+        "PAGO"
+      ]
+    ],
+    "KPIS": {
+      "TOTAL_RECEITA": 157612.40999999968,
+      "TOTAL_DESPESA": 136412.28000000003,
+      "VALOR_LIQUIDO": 21200.129999999655,
+      "MARGEM_LIQUIDA": 13.450799971905575,
+      "VALOR_LIQ_SERIES": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        15489.73999999967,
+        810.9699999999793,
+        4899.420000000003,
+        0,
+        0,
+        0
+      ]
+    },
+    "RECEITA_DIA": [
+      2810.6400000000003,
+      8117.450000000008,
+      13867.610000000002,
+      2431.4099999999994,
+      10730.960000000005,
+      10726.68,
+      3681.6300000000006,
+      4936.359999999999,
+      2523.0199999999995,
+      12019.269999999995,
+      45,
+      71,
+      4241.370000000001,
+      8277.300000000003,
+      8514.730000000001,
+      2260.8500000000004,
+      1480.3700000000001,
+      136,
+      57.07,
+      8274.519999999995,
+      2574.8599999999997,
+      10128.740000000009,
+      1708.9399999999998,
+      1589.3899999999996,
+      54,
+      6982.2800000000025,
+      8751.230000000001,
+      2324.169999999999,
+      13923.360000000004,
+      2181.56,
+      2190.6400000000003
+    ],
+    "DESPESA_DIA": [
+      1175.71,
+      2427.5,
+      28449.510000000002,
+      525,
+      16713.370000000003,
+      12609.979999999996,
+      2495.55,
+      2747.27,
+      199,
+      2688.7999999999997,
+      30.5,
+      758.35,
+      12739.710000000001,
+      1906.3799999999999,
+      8646.31,
+      4199.51,
+      79.05,
+      95.9,
+      880,
+      14633.64,
+      4110.450000000001,
+      1255.56,
+      1792.42,
+      2020.25,
+      0,
+      700,
+      5873.2,
+      2027.98,
+      1838.87,
+      1531.51,
+      1261
+    ],
+    "SALDOS_MES": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      15489.73999999967,
+      16300.70999999965,
+      21200.12999999965,
+      21200.12999999965,
+      21200.12999999965,
+      21200.12999999965
+    ],
+    "FLUXO_RECEITA": [
+      {
+        "cat": "Outros",
+        "children": [
+          {
+            "cat": "102-1 - Vendas de Produtos - Débito e Crédito",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              31513.08000000003,
+              11227.830000000002,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Débito e Crédito"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              26515.200000000008,
+              4755.77,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão"
+          },
+          {
+            "cat": "102-1 - Vendas de Produtos - Delivery",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              15454.220000000008,
+              9367.060000000005,
+              5555.290000000003,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Delivery"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9653.53,
+              1932.18,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9083.550000000007,
+              2467.76,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery"
+          },
+          {
+            "cat": "102-1 - Vendas de Produtos - Vouchers",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7217.2,
+              2396.69,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Vouchers"
+          },
+          {
+            "cat": "Repasse de cupom Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6172.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Repasse de cupom Ifood"
+          },
+          {
+            "cat": "Desconto complementar da operadora Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3215.5099999999998,
+              878.7,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Desconto complementar da operadora Ifood"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2647.9400000000005,
+              828.2499999999998,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher"
+          },
+          {
+            "cat": "Taxa de entrega Ifood (Despesa)",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1652.1899999999996,
+              1489.2400000000002,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Taxa de entrega Ifood (Despesa)"
+          },
+          {
+            "cat": "Vendas de Mercadorias",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1719.4,
+              320,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Vendas de Mercadorias"
+          },
+          {
+            "cat": "Outras Receitas Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              183.64000000000001,
+              417.8,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Outras Receitas Ifood"
+          },
+          {
+            "cat": "Ajustes a Crédito de Cartão",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              289.18,
+              137.11,
+              44.129999999999995,
+              0,
+              0,
+              0
+            ],
+            "cod": "Ajustes a Crédito de Cartão"
+          },
+          {
+            "cat": "Sobra de Caixa",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              210.3,
+              110.1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Sobra de Caixa"
+          },
+          {
+            "cat": "Estorno de Valores - Entradas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              132.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Estorno de Valores - Entradas"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              24.87,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas"
+          },
+          {
+            "cat": "303-2 - Rendimento de Aplic Financeira",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0.33,
+              0.26,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "303-2 - Rendimento de Aplic Financeira"
+          }
+        ],
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          115659.37000000007,
+          36353.62000000001,
+          5599.420000000003,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "FLUXO_DESPESA": [
+      {
+        "cat": "Outros",
+        "children": [
+          {
+            "cat": "400-0 - Custo de Mercadorias Vendidas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -38753.99,
+              -10079.929999999998,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "400-0 - Custo de Mercadorias Vendidas"
+          },
+          {
+            "cat": "201-6 - OP Salarios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -12427.25,
+              -7716.92,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "201-6 - OP Salarios"
+          },
+          {
+            "cat": "201-6 - Salarios e Ordenados",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -10400.34,
+              -4533.76,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "201-6 - Salarios e Ordenados"
+          },
+          {
+            "cat": "201-5 - Pro-Labore",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -8351,
+              -2666.67,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "201-5 - Pro-Labore"
+          },
+          {
+            "cat": "400-0 - Custo de Embalagens",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3860.97,
+              -2619.6200000000003,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "400-0 - Custo de Embalagens"
+          },
+          {
+            "cat": "112-9 - Moveis e Utensilios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3705.6,
+              -1455.98,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "112-9 - Moveis e Utensilios"
+          },
+          {
+            "cat": "434-4 - Marketing Digital",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4200,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "434-4 - Marketing Digital"
+          },
+          {
+            "cat": "Taxa de manutenção mensal Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -237.43,
+              -2929.66,
+              -700,
+              0,
+              0,
+              0
+            ],
+            "cod": "Taxa de manutenção mensal Ifood"
+          },
+          {
+            "cat": "425-6 - Contabilidade",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3500,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "425-6 - Contabilidade"
+          },
+          {
+            "cat": "427-0 - Sistema de Gestao",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -916.55,
+              -1898,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "427-0 - Sistema de Gestao"
+          },
+          {
+            "cat": "201-6 - OP Freelancer",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -2046.68,
+              -540,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "201-6 - OP Freelancer"
+          },
+          {
+            "cat": "202-0 - Rescisoes",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -2212.09,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "202-0 - Rescisoes"
+          },
+          {
+            "cat": "203-1 - FGTS",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1989.75,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "203-1 - FGTS"
+          },
+          {
+            "cat": "425-5 - Consultoria",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1691.25,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "425-5 - Consultoria"
+          },
+          {
+            "cat": "410-5 - OP Servicos Tecnicos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1400,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "410-5 - OP Servicos Tecnicos"
+          },
+          {
+            "cat": "203-0 - INSS",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -978.43,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "203-0 - INSS"
+          },
+          {
+            "cat": "Falta de Caixa",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -644.89,
+              -113.71000000000001,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Falta de Caixa"
+          },
+          {
+            "cat": "418-3 - Curso e Treinamento",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -625,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "418-3 - Curso e Treinamento"
+          },
+          {
+            "cat": "403-9 - OP Vale Transporte",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -433.6,
+              -54,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "403-9 - OP Vale Transporte"
+          },
+          {
+            "cat": "415-8 - Outras Despesas Com Funcionarios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -355,
+              -50,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "415-8 - Outras Despesas Com Funcionarios"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -347.03,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas"
+          },
+          {
+            "cat": "422-9 - Material de Escritorio",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -239.3,
+              -90.4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "422-9 - Material de Escritorio"
+          },
+          {
+            "cat": "431-3 - Taxas e Emolumentos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -236.35,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-3 - Taxas e Emolumentos"
+          },
+          {
+            "cat": "422-0 - Uber e Taxi",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -224,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "422-0 - Uber e Taxi"
+          },
+          {
+            "cat": "432-0 - Juros Passivos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -44.96,
+              -169,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "432-0 - Juros Passivos"
+          },
+          {
+            "cat": "423-5 - Estacionamento",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -200,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "423-5 - Estacionamento"
+          },
+          {
+            "cat": "431-5 - Despesas Bancarias",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -169,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-5 - Despesas Bancarias"
+          },
+          {
+            "cat": "421-8 - OP Fretes e carretos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -152.97,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "421-8 - OP Fretes e carretos"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -122.84,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação"
+          },
+          {
+            "cat": "Aluguel de POS / Outras Taxas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -107.63,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Aluguel de POS / Outras Taxas"
+          },
+          {
+            "cat": "410-9 - OP Outros Servicos Prestados",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -80,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "410-9 - OP Outros Servicos Prestados"
+          },
+          {
+            "cat": "421-2 - Manutencao e Reparos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -60,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "421-2 - Manutencao e Reparos"
+          },
+          {
+            "cat": "418-0 - Farmacia",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -56.58,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "418-0 - Farmacia"
+          },
+          {
+            "cat": "420-6 - Manut e Conservacao Predial",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -17.5,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "420-6 - Manut e Conservacao Predial"
+          },
+          {
+            "cat": "430-7 - IOF",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -6.65,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "430-7 - IOF"
+          }
+        ],
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          -100169.63,
+          -35542.65,
+          -700,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "COMP_DATA": [
+      {
+        "tipo": "Receita",
+        "isHeader": true,
+        "d1": 0,
+        "d2": 0
+      },
+      {
+        "tipo": "Despesa",
+        "isHeader": true,
+        "d1": 0,
+        "d2": 0
+      }
+    ]
+  },
+  "a_pagar_receber": {
+    "MONTH_DATA": [
+      {
+        "m": "janeiro",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "fevereiro",
+        "receita": 0,
+        "despesa": 12660.3
+      },
+      {
+        "m": "março",
+        "receita": 0,
+        "despesa": 12549
+      },
+      {
+        "m": "abril",
+        "receita": 0,
+        "despesa": 13649
+      },
+      {
+        "m": "maio",
+        "receita": 0,
+        "despesa": 13649
+      },
+      {
+        "m": "junho",
+        "receita": 0,
+        "despesa": 25525.02
+      },
+      {
+        "m": "julho",
+        "receita": 0,
+        "despesa": 25718.64
+      },
+      {
+        "m": "agosto",
+        "receita": 26067.79,
+        "despesa": 64174.840000000004
+      },
+      {
+        "m": "setembro",
+        "receita": 8632.050000000001,
+        "despesa": 62248.40999999999
+      },
+      {
+        "m": "outubro",
+        "receita": 0,
+        "despesa": 62819.40999999999
+      },
+      {
+        "m": "novembro",
+        "receita": 0,
+        "despesa": 63819.40999999999
+      },
+      {
+        "m": "dezembro",
+        "receita": 0,
+        "despesa": 62873.40999999999
+      }
+    ],
+    "RECEITA_CATEGORIAS": [
+      {
+        "name": "102-1 - Vendas de Produtos - Delivery",
+        "value": 13448.99999999998,
+        "clientes": 2
+      },
+      {
+        "name": "102-1 - Vendas de Produtos - Débito e Crédito",
+        "value": 7433.000000000001,
+        "clientes": 1
+      },
+      {
+        "name": "102-1 - Vendas de Produtos - Vouchers",
+        "value": 6434.340000000001,
+        "clientes": 4
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+        "value": 4950.900000000002,
+        "clientes": 2
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "value": 1537.8999999999999,
+        "clientes": 3
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "value": 522.7,
+        "clientes": 1
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "value": 372,
+        "clientes": 1
+      }
+    ],
+    "DESPESA_CATEGORIAS": [
+      {
+        "name": "420-5 - Aluguel",
+        "value": 166442.84,
+        "fornecedores": 1
+      },
+      {
+        "name": "201-6 - Salarios e Ordenados",
+        "value": 62509.79000000002,
+        "fornecedores": 5
+      },
+      {
+        "name": "201-6 - OP Salarios",
+        "value": 47864.37,
+        "fornecedores": 5
+      },
+      {
+        "name": "201-5 - Pro-Labore",
+        "value": 37333.33,
+        "fornecedores": 1
+      },
+      {
+        "name": "205-2 - Simples Nacional",
+        "value": 27164.339999999997,
+        "fornecedores": 1
+      },
+      {
+        "name": "434-4 - Marketing Digital",
+        "value": 21000,
+        "fornecedores": 2
+      },
+      {
+        "name": "112-5 - Maquinas e Equipamentos",
+        "value": 9900,
+        "fornecedores": 1
+      },
+      {
+        "name": "425-6 - Contabilidade",
+        "value": 8750,
+        "fornecedores": 1
+      },
+      {
+        "name": "425-5 - Consultoria",
+        "value": 8456.25,
+        "fornecedores": 1
+      },
+      {
+        "name": "410-5 - OP Servicos Tecnicos",
+        "value": 7000,
+        "fornecedores": 1
+      },
+      {
+        "name": "203-0 - INSS",
+        "value": 5741.04,
+        "fornecedores": 1
+      },
+      {
+        "name": "203-1 - FGTS",
+        "value": 4565.8,
+        "fornecedores": 1
+      }
+    ],
+    "RECEITA_CLIENTES": [
+      {
+        "name": "Keeta",
+        "value": 10206.499999999989
+      },
+      {
+        "name": "GetNet",
+        "value": 8327.7
+      },
+      {
+        "name": "99 Food",
+        "value": 8193.399999999998
+      },
+      {
+        "name": "Ticket Restaurante",
+        "value": 2929.13
+      },
+      {
+        "name": "Alelo",
+        "value": 2053.119999999999
+      },
+      {
+        "name": "Pluxee / Sodexo",
+        "value": 1889.8
+      },
+      {
+        "name": "VR",
+        "value": 1100.1899999999998
+      }
+    ],
+    "DESPESA_FORNECEDORES": [
+      {
+        "name": "GAC ANDORINHA",
+        "value": 166442.84
+      },
+      {
+        "name": "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        "value": 39208.33
+      },
+      {
+        "name": "RECEITA FEDERAL",
+        "value": 32905.38
+      },
+      {
+        "name": "BRUNO EDUARDO PAULIMO DA SILVA",
+        "value": 32666.670000000002
+      },
+      {
+        "name": "Jean Malak Abdelsayed Farag Abdelsayed",
+        "value": 22134
+      },
+      {
+        "name": "LUCILENE MARTINS DE ARAUJO",
+        "value": 14801.36
+      },
+      {
+        "name": "BRUNO CAMILLO MENDES",
+        "value": 14000
+      },
+      {
+        "name": "LUCAS WILLIANS GONCALVES DO AMARAL",
+        "value": 11424.4
+      },
+      {
+        "name": "GIOVANNA FERNANDES DOS SANTOS",
+        "value": 10822.12
+      },
+      {
+        "name": "KOA",
+        "value": 9900
+      },
+      {
+        "name": "GIULIA VERONEZ MARQUES BARROS",
+        "value": 9850.45
+      },
+      {
+        "name": "NICOLAS LUIZ RODRIGUES SANTOS",
+        "value": 9809.16
+      }
+    ],
+    "EXTRATO": [
+      [
+        "31/12/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "08/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "07/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/12/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/12/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "01/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "29/11/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "24/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "17/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "16/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "09/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/11/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "03/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/10/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "27/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "26/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "19/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "13/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "12/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/10/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        15,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        43,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        94,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        82,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        54,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        33,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        58,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        56,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        50,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        87,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        121,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        60,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        114,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        162,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        53,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        74,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        111,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        89,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        61,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        38.7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        23,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        9,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        147,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        159,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ]
+    ],
+    "EXTRATO_RECEITAS": [
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        15,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        43,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        94,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        82,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        54,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        33,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        58,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        56,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        50,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        87,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        121,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        60,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        114,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        162,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        53,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        74,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        111,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        89,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        61,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        38.7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        23,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        9,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        147,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        159,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        115,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        30,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        46,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44.1,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        67,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        92,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        106,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        62,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        46,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        18,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        59.4,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        28.8,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        66,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        37,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        81,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        77,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        70,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        8,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        35,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        108,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        22,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        132,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        59,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        117,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        121,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        75,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        82,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        45,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        71,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        79,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        94,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        18,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        79,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        73,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        3,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        43,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        73.8,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        63,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        10,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        37,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        71,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        52,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        53,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        97,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        88,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        102,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        4.9,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        104,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        77,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        103,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        108,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        106,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        50,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        96,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        113,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        28,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        80.1,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        61,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        79,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        37,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        28,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        28.89,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        40.36,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        40.02,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        35.89,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        27,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        26.12,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        35.14,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        25.58,
+        "RECEBER"
+      ],
+      [
+        "01/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        30.33,
+        "RECEBER"
+      ],
+      [
+        "31/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        104,
+        "RECEBER"
+      ],
+      [
+        "31/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        39,
+        "RECEBER"
+      ],
+      [
+        "31/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        35.72,
+        "RECEBER"
+      ],
+      [
+        "31/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        28.29,
+        "RECEBER"
+      ],
+      [
+        "31/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        41.13,
+        "RECEBER"
+      ],
+      [
+        "31/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "Alelo",
+        40.36,
+        "RECEBER"
+      ],
+      [
+        "28/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        98,
+        "RECEBER"
+      ],
+      [
+        "28/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        28.29,
+        "RECEBER"
+      ],
+      [
+        "27/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        60.23,
+        "RECEBER"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        10,
+        "RECEBER"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        84.57,
+        "RECEBER"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        33.33,
+        "RECEBER"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "26/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "25/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        43.81,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        79,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        26.12,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "Alelo",
+        52.71,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        58.69,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        45,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        42,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        32.62,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        72,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        100.69,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        35.02,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        57,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        57,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        116,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        114,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        39,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        75,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        56,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        8,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        49,
+        "RECEBER"
+      ],
+      [
+        "24/08/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Ticket Restaurante",
+        43.35,
+        "RECEBER"
+      ]
+    ],
+    "EXTRATO_DESPESAS": [
+      [
+        "31/12/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "08/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "07/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/12/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/12/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "01/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "29/11/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "24/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "17/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "16/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "09/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/11/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "03/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/10/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "27/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "26/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "19/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "13/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "12/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/10/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "08/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "07/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/09/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "01/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "31/08/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "30/08/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "25/08/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "24/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/08/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "18/08/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "17/08/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "17/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "17/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "CLEANPAPEIS",
+        -540,
+        "PAGAR"
+      ],
+      [
+        "15/08/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/08/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/08/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/08/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/08/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "15/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA",
+        -567,
+        "PAGAR"
+      ],
+      [
+        "14/08/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "BRASPEL SP EMBALAGENS",
+        -288.55,
+        "PAGAR"
+      ],
+      [
+        "14/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "REFRICON MERCANTIL LTDA.",
+        -157.08,
+        "PAGAR"
+      ],
+      [
+        "14/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+        -251.12,
+        "PAGAR"
+      ],
+      [
+        "13/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "REFRICON MERCANTIL LTDA.",
+        -157.08,
+        "PAGAR"
+      ],
+      [
+        "11/08/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "11/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "REFRICON MERCANTIL LTDA.",
+        -78.54,
+        "PAGAR"
+      ],
+      [
+        "10/08/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -25613.96,
+        "PAGAR"
+      ],
+      [
+        "10/08/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -75,
+        "PAGAR"
+      ],
+      [
+        "10/08/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -162.51,
+        "PAGAR"
+      ],
+      [
+        "10/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/08/2026",
+        "Operações",
+        "400-0 - Custo de Embalagens",
+        "WAN SAN COMERCIAL LTDA",
+        -633.38,
+        "PAGAR"
+      ],
+      [
+        "10/08/2026",
+        "Operações",
+        "400-0 - Custo de Mercadorias Vendidas",
+        "EMPORIO SANTA CATARINA",
+        -933.15,
+        "PAGAR"
+      ]
+    ],
+    "KPIS": {
+      "TOTAL_RECEITA": 34699.840000000004,
+      "TOTAL_DESPESA": 419686.43999999994,
+      "VALOR_LIQUIDO": -384986.5999999999,
+      "MARGEM_LIQUIDA": -1109.4765854828145,
+      "VALOR_LIQ_SERIES": [
+        0,
+        -12660.3,
+        -12549,
+        -13649,
+        -13649,
+        -25525.02,
+        -25718.64,
+        -38107.05,
+        -53616.359999999986,
+        -62819.40999999999,
+        -63819.40999999999,
+        -62873.40999999999
+      ]
+    },
+    "RECEITA_DIA": [
+      30.33,
+      189.76999999999998,
+      0,
+      0,
+      5360.900000000002,
+      155.3,
+      340.66,
+      7332.650000000001,
+      1079.3,
+      717.53,
+      1370.93,
+      13190.019999999982,
+      104.03999999999999,
+      106.03999999999999,
+      0,
+      0,
+      1151.38,
+      331.25,
+      196.60999999999999,
+      416.43,
+      412.4599999999999,
+      0,
+      0,
+      1567.4799999999998,
+      43.81,
+      127.93,
+      60.23,
+      126.28999999999999,
+      0,
+      0,
+      288.5
+    ],
+    "DESPESA_DIA": [
+      108,
+      1845,
+      54,
+      0,
+      49182.52,
+      3614,
+      2000,
+      108,
+      1000,
+      170352.15,
+      132.54000000000002,
+      1000,
+      211.08,
+      2696.75,
+      53447.92,
+      1000,
+      3344,
+      54,
+      1000,
+      70258.48000000001,
+      2000,
+      108,
+      8000,
+      1054,
+      54,
+      1000,
+      54,
+      2000,
+      7108,
+      20400,
+      16500
+    ],
+    "SALDOS_MES": [
+      0,
+      -12660.3,
+      -25209.3,
+      -38858.3,
+      -52507.3,
+      -78032.32,
+      -103750.96,
+      -141858.01,
+      -195474.37,
+      -258293.77999999997,
+      -322113.18999999994,
+      -384986.5999999999
+    ],
+    "FLUXO_RECEITA": [
+      {
+        "cat": "Outros",
+        "children": [
+          {
+            "cat": "102-1 - Vendas de Produtos - Delivery",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              13448.99999999998,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Delivery"
+          },
+          {
+            "cat": "102-1 - Vendas de Produtos - Débito e Crédito",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7433.000000000001,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Débito e Crédito"
+          },
+          {
+            "cat": "102-1 - Vendas de Produtos - Vouchers",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6216.830000000002,
+              217.51,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Vouchers"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              4950.900000000002,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1451.0599999999997,
+              86.84,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              522.7,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              372,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação"
+          }
+        ],
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          26067.789999999983,
+          8632.050000000001,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "FLUXO_DESPESA": [
+      {
+        "cat": "Outros",
+        "children": [
+          {
+            "cat": "420-5 - Aluguel",
+            "values": [
+              0,
+              -12660.3,
+              -12549,
+              -12549,
+              -12549,
+              -19587.56,
+              -20738.02,
+              -25613.96,
+              -12549,
+              -12549,
+              -12549,
+              -12549
+            ],
+            "cod": "420-5 - Aluguel"
+          },
+          {
+            "cat": "201-6 - Salarios e Ordenados",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -5866.67,
+              -10400.34,
+              -15414.26,
+              -15414.26,
+              -15414.26
+            ],
+            "cod": "201-6 - Salarios e Ordenados"
+          },
+          {
+            "cat": "201-6 - OP Salarios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -7013.33,
+              -13723.2,
+              -8709.28,
+              -9709.28,
+              -8709.28
+            ],
+            "cod": "201-6 - OP Salarios"
+          },
+          {
+            "cat": "201-5 - Pro-Labore",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -5333.33,
+              -8000,
+              -8000,
+              -8000,
+              -8000
+            ],
+            "cod": "201-5 - Pro-Labore"
+          },
+          {
+            "cat": "205-2 - Simples Nacional",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62
+            ],
+            "cod": "205-2 - Simples Nacional"
+          },
+          {
+            "cat": "434-4 - Marketing Digital",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4200,
+              -4200,
+              -4200,
+              -4200,
+              -4200
+            ],
+            "cod": "434-4 - Marketing Digital"
+          },
+          {
+            "cat": "112-5 - Maquinas e Equipamentos",
+            "values": [
+              0,
+              0,
+              0,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100
+            ],
+            "cod": "112-5 - Maquinas e Equipamentos"
+          },
+          {
+            "cat": "425-6 - Contabilidade",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1750,
+              -1750,
+              -1750,
+              -1750,
+              -1750
+            ],
+            "cod": "425-6 - Contabilidade"
+          },
+          {
+            "cat": "425-5 - Consultoria",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1691.25,
+              -1691.25,
+              -1691.25,
+              -1691.25,
+              -1691.25
+            ],
+            "cod": "425-5 - Consultoria"
+          },
+          {
+            "cat": "410-5 - OP Servicos Tecnicos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1400,
+              -1400,
+              -1400,
+              -1400,
+              -1400
+            ],
+            "cod": "410-5 - OP Servicos Tecnicos"
+          },
+          {
+            "cat": "203-0 - INSS",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              -956.84,
+              0,
+              -956.84,
+              -956.84,
+              -956.84,
+              -956.84,
+              -956.84
+            ],
+            "cod": "203-0 - INSS"
+          },
+          {
+            "cat": "203-1 - FGTS",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -913.16,
+              -913.16,
+              -913.16,
+              -913.16,
+              -913.16
+            ],
+            "cod": "203-1 - FGTS"
+          },
+          {
+            "cat": "427-0 - Sistema de Gestao",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -890,
+              -890,
+              -890,
+              -890
+            ],
+            "cod": "427-0 - Sistema de Gestao"
+          },
+          {
+            "cat": "400-0 - Custo de Mercadorias Vendidas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -2835.24,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "400-0 - Custo de Mercadorias Vendidas"
+          },
+          {
+            "cat": "418-3 - Curso e Treinamento",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -625,
+              -625,
+              -625
+            ],
+            "cod": "418-3 - Curso e Treinamento"
+          },
+          {
+            "cat": "415-8 - Outras Despesas Com Funcionarios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -367.51,
+              -355,
+              -355,
+              -355,
+              -355
+            ],
+            "cod": "415-8 - Outras Despesas Com Funcionarios"
+          },
+          {
+            "cat": "403-9 - OP Vale Transporte",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -162,
+              -270,
+              -216,
+              -216,
+              -270
+            ],
+            "cod": "403-9 - OP Vale Transporte"
+          },
+          {
+            "cat": "400-0 - Custo de Embalagens",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -921.9300000000001,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "400-0 - Custo de Embalagens"
+          },
+          {
+            "cat": "431-5 - Despesas Bancarias",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -169,
+              -169,
+              -169,
+              -169,
+              -169
+            ],
+            "cod": "431-5 - Despesas Bancarias"
+          }
+        ],
+        "values": [
+          0,
+          -12660.3,
+          -12549,
+          -13649,
+          -13649,
+          -25525.02,
+          -25718.64,
+          -64174.840000000004,
+          -62248.41,
+          -62819.409999999996,
+          -63819.409999999996,
+          -62873.409999999996
+        ]
+      }
+    ],
+    "COMP_DATA": [
+      {
+        "tipo": "Receita",
+        "isHeader": true,
+        "d1": 0,
+        "d2": 0
+      },
+      {
+        "tipo": "Despesa",
+        "isHeader": true,
+        "d1": -25209.3,
+        "d2": -52823.02
+      },
+      {
+        "tipo": "420-5 - Aluguel",
+        "parent": "Despesa",
+        "d1": -25209.3,
+        "d2": -44685.56
+      },
+      {
+        "tipo": "112-5 - Maquinas e Equipamentos",
+        "parent": "Despesa",
+        "d1": 0,
+        "d2": -3300
+      },
+      {
+        "tipo": "203-0 - INSS",
+        "parent": "Despesa",
+        "d1": 0,
+        "d2": -956.84
+      },
+      {
+        "tipo": "205-2 - Simples Nacional",
+        "parent": "Despesa",
+        "d1": 0,
+        "d2": -3880.62
+      }
+    ]
+  },
+  "tudo": {
+    "MONTH_DATA": [
+      {
+        "m": "janeiro",
+        "receita": 0,
+        "despesa": 0
+      },
+      {
+        "m": "fevereiro",
+        "receita": 0,
+        "despesa": 12660.3
+      },
+      {
+        "m": "março",
+        "receita": 0,
+        "despesa": 12549
+      },
+      {
+        "m": "abril",
+        "receita": 0,
+        "despesa": 13649
+      },
+      {
+        "m": "maio",
+        "receita": 0,
+        "despesa": 13649
+      },
+      {
+        "m": "junho",
+        "receita": 0,
+        "despesa": 25525.02
+      },
+      {
+        "m": "julho",
+        "receita": 115659.36999999969,
+        "despesa": 125888.27000000003
+      },
+      {
+        "m": "agosto",
+        "receita": 62421.41000000011,
+        "despesa": 99717.48999999996
+      },
+      {
+        "m": "setembro",
+        "receita": 14231.469999999994,
+        "despesa": 62948.40999999999
+      },
+      {
+        "m": "outubro",
+        "receita": 0,
+        "despesa": 62819.40999999999
+      },
+      {
+        "m": "novembro",
+        "receita": 0,
+        "despesa": 63819.40999999999
+      },
+      {
+        "m": "dezembro",
+        "receita": 0,
+        "despesa": 62873.40999999999
+      }
+    ],
+    "RECEITA_CATEGORIAS": [
+      {
+        "name": "102-1 - Vendas de Produtos - Débito e Crédito",
+        "value": 50173.909999999945,
+        "clientes": 2
+      },
+      {
+        "name": "102-1 - Vendas de Produtos - Delivery",
+        "value": 43825.57000000011,
+        "clientes": 5
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "value": 31793.670000000006,
+        "clientes": 1
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+        "value": 16502.209999999992,
+        "clientes": 3
+      },
+      {
+        "name": "102-1 - Vendas de Produtos - Vouchers",
+        "value": 16048.230000000001,
+        "clientes": 5
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "value": 11957.710000000005,
+        "clientes": 1
+      },
+      {
+        "name": "Repasse de cupom Ifood",
+        "value": 6172.05,
+        "clientes": 1
+      },
+      {
+        "name": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "value": 5014.090000000002,
+        "clientes": 3
+      },
+      {
+        "name": "Desconto complementar da operadora Ifood",
+        "value": 4094.2099999999987,
+        "clientes": 1
+      },
+      {
+        "name": "Taxa de entrega Ifood (Despesa)",
+        "value": 3141.4299999999994,
+        "clientes": 1
+      },
+      {
+        "name": "Vendas de Mercadorias",
+        "value": 2039.4,
+        "clientes": 1
+      },
+      {
+        "name": "Outras Receitas Ifood",
+        "value": 601.44,
+        "clientes": 1
+      }
+    ],
+    "DESPESA_CATEGORIAS": [
+      {
+        "name": "420-5 - Aluguel",
+        "value": 166442.84,
+        "fornecedores": 1
+      },
+      {
+        "name": "201-6 - Salarios e Ordenados",
+        "value": 77443.89000000001,
+        "fornecedores": 5
+      },
+      {
+        "name": "201-6 - OP Salarios",
+        "value": 68008.54,
+        "fornecedores": 6
+      },
+      {
+        "name": "400-0 - Custo de Mercadorias Vendidas",
+        "value": 51669.16000000001,
+        "fornecedores": 21
+      },
+      {
+        "name": "201-5 - Pro-Labore",
+        "value": 48351,
+        "fornecedores": 1
+      },
+      {
+        "name": "205-2 - Simples Nacional",
+        "value": 27164.339999999997,
+        "fornecedores": 1
+      },
+      {
+        "name": "434-4 - Marketing Digital",
+        "value": 25200,
+        "fornecedores": 2
+      },
+      {
+        "name": "425-6 - Contabilidade",
+        "value": 12250,
+        "fornecedores": 1
+      },
+      {
+        "name": "425-5 - Consultoria",
+        "value": 10147.5,
+        "fornecedores": 1
+      },
+      {
+        "name": "112-5 - Maquinas e Equipamentos",
+        "value": 9900,
+        "fornecedores": 1
+      },
+      {
+        "name": "410-5 - OP Servicos Tecnicos",
+        "value": 8400,
+        "fornecedores": 1
+      },
+      {
+        "name": "400-0 - Custo de Embalagens",
+        "value": 7402.52,
+        "fornecedores": 7
+      }
+    ],
+    "RECEITA_CLIENTES": [
+      {
+        "name": "GetNet",
+        "value": 92283.39999999997
+      },
+      {
+        "name": "IFood - API",
+        "value": 28053.37000000006
+      },
+      {
+        "name": "99 Food",
+        "value": 22120.33000000002
+      },
+      {
+        "name": "Keeta",
+        "value": 15863.549999999972
+      },
+      {
+        "name": "Pluxee / Sodexo",
+        "value": 10168.849999999999
+      },
+      {
+        "name": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        "value": 6172.05
+      },
+      {
+        "name": "Ticket Restaurante",
+        "value": 5365.570000000001
+      },
+      {
+        "name": "Alelo",
+        "value": 3003.2400000000002
+      },
+      {
+        "name": "VENDAS DINHEIRO",
+        "value": 2359.7999999999997
+      },
+      {
+        "name": "VR",
+        "value": 2267.16
+      },
+      {
+        "name": "VENDAS DELIVERY",
+        "value": 1853.04
+      },
+      {
+        "name": "GETNET",
+        "value": 1649.88
+      }
+    ],
+    "DESPESA_FORNECEDORES": [
+      {
+        "name": "GAC ANDORINHA",
+        "value": 166442.84
+      },
+      {
+        "name": "BRUNO EDUARDO PAULIMO DA SILVA",
+        "value": 52248.92
+      },
+      {
+        "name": "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        "value": 51075
+      },
+      {
+        "name": "RECEITA FEDERAL",
+        "value": 33883.81
+      },
+      {
+        "name": "Jean Malak Abdelsayed Farag Abdelsayed",
+        "value": 25371.6
+      },
+      {
+        "name": "LUCILENE MARTINS DE ARAUJO",
+        "value": 20402.13
+      },
+      {
+        "name": "BRUNO CAMILLO MENDES",
+        "value": 16800
+      },
+      {
+        "name": "LUCAS WILLIANS GONCALVES DO AMARAL",
+        "value": 16665.090000000004
+      },
+      {
+        "name": "GIOVANNA FERNANDES DOS SANTOS",
+        "value": 14888.27
+      },
+      {
+        "name": "SARMAD MAHMOOD MOHAMMED AL",
+        "value": 13395
+      },
+      {
+        "name": "NICOLAS LUIZ RODRIGUES SANTOS",
+        "value": 13337.210000000003
+      },
+      {
+        "name": "EASYCONTABIL",
+        "value": 12250
+      }
+    ],
+    "EXTRATO": [
+      [
+        "31/12/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "08/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "07/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/12/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/12/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "01/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "29/11/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "24/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "17/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "16/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "09/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/11/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "03/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/10/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "27/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "26/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "19/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "13/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "12/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/10/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        15,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        43,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        94,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        82,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        54,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        33,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        58,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        56,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        50,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        87,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        121,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        60,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        114,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        162,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        53,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        74,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        111,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        89,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        61,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        38.7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        23,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        9,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        147,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        159,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ]
+    ],
+    "EXTRATO_RECEITAS": [
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        15,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        43,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        94,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        82,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        54,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        33,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        58,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        56,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        50,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        87,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44,
+        "RECEBER"
+      ],
+      [
+        "09/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        121,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        60,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        114,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        162,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        53,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        74,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        111,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        89,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        61,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        38.7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+        "GetNet",
+        23,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        9,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        147,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        159,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        32,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        115,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        30,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        46,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44.1,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        67,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        92,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        106,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        62,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        46,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        18,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        59.4,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        28.8,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        66,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        37,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        25,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        81,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        77,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        70,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        8,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        35,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        108,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        22,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        132,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        59,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        117,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        121,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        75,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        82,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        45,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        71,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        79,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        94,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        18,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        7,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        79,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        44,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        73,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        3,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        43,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        38,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        73.8,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        42,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        41,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        63,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        10,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        37,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        36,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        85,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        71,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        52,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        53,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        97,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        34,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        88,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        102,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        4.9,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        104,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        77,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        103,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        39,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        47,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        108,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        106,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        50,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        96,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        113,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        57,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        28,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        80.1,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        61,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        27,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        79,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        6.3,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        37,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        28,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        49,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Débito e Crédito",
+        "GetNet",
+        29,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        28.89,
+        "RECEBER"
+      ],
+      [
+        "08/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "Alelo",
+        40.36,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        40.02,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        35.89,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        27,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        26.12,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+        "VR",
+        35.14,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        41.92,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        27.9,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.41,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        38.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        14.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.66,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.52,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        9.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        45.91,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        15.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        66.8,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.62,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.59,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        21.45,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        36.48,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        49.3,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22.39,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Vouchers",
+        "VR",
+        0.01,
+        "RECEBER"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.77,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        13.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        29.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        105.02,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        42.31,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        18.49,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        20.1,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        48.95,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.12,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        23.84,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        38.16,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        26.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        6.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        11.5,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        19.57,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        12.81,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        22,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "MR SHAWARMA FOOD LTDA",
+        "102-1 - Vendas de Produtos - Delivery",
+        "IFood - API",
+        16.41,
+        "PAGO"
+      ]
+    ],
+    "EXTRATO_DESPESAS": [
+      [
+        "31/12/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/12/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/12/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "08/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "07/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/12/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/12/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/12/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "01/12/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "30/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "29/11/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "24/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "17/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "16/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/11/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "10/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "09/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/11/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/11/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "03/11/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "02/11/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "31/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/10/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "27/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "26/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "19/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/10/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "13/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "12/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/10/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "06/10/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "05/10/2026",
+        "Operações",
+        "418-3 - Curso e Treinamento",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -625,
+        "PAGAR"
+      ],
+      [
+        "02/10/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "425-6 - Contabilidade",
+        "EASYCONTABIL",
+        -1750,
+        "PAGAR"
+      ],
+      [
+        "29/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "28/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "22/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "21/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "410-5 - OP Servicos Tecnicos",
+        "NUTRI MAIS",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "425-5 - Consultoria",
+        "IFINANCE",
+        -1691.25,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDRESTAURANTES - SP",
+        -130,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "15/09/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "BRUNO CAMILLO MENDES",
+        -2800,
+        "PAGAR"
+      ],
+      [
+        "14/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "420-5 - Aluguel",
+        "GAC ANDORINHA",
+        -12549,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -60,
+        "PAGAR"
+      ],
+      [
+        "10/09/2026",
+        "Operações",
+        "415-8 - Outras Despesas Com Funcionarios",
+        "SINDIC FAST FOOD",
+        -165,
+        "PAGAR"
+      ],
+      [
+        "08/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "07/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "06/09/2026",
+        "Operações",
+        "427-0 - Sistema de Gestao",
+        "TAKEAT.APP - GARCOM DIGITAL",
+        -890,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -1705.53,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -1856.1,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -2200.34,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -1452.29,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.67,
+        "PAGAR"
+      ],
+      [
+        "05/09/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -1695.95,
+        "PAGAR"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "431-5 - Despesas Bancarias",
+        "BANCO ITAU",
+        -169,
+        "PAGAR"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "02/09/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "01/09/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "31/08/2026",
+        "Operações",
+        "112-5 - Maquinas e Equipamentos",
+        "KOA",
+        -1100,
+        "PAGAR"
+      ],
+      [
+        "31/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "30/08/2026",
+        "Operações",
+        "201-5 - Pro-Labore",
+        "SABINE MOHAMAD EL HAJJ SLEIMAN",
+        -2666.66,
+        "PAGAR"
+      ],
+      [
+        "30/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.34,
+        "PAGAR"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "26/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "25/08/2026",
+        "Operações",
+        "403-9 - OP Vale Transporte",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -54,
+        "PAGAR"
+      ],
+      [
+        "24/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "Jean Malak Abdelsayed Farag Abdelsayed",
+        -1000,
+        "PAGAR"
+      ],
+      [
+        "23/08/2026",
+        "Operações",
+        "434-4 - Marketing Digital",
+        "AGENCIA NUMERIQUE",
+        -1400,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "203-1 - FGTS",
+        "CEF",
+        -913.16,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "203-0 - INSS",
+        "RECEITA FEDERAL",
+        -956.84,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "205-2 - Simples Nacional",
+        "RECEITA FEDERAL",
+        -3880.62,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "BRUNO EDUARDO PAULIMO DA SILVA",
+        -2333.33,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "NICOLAS LUIZ RODRIGUES SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "LUCAS WILLIANS GONCALVES DO AMARAL",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIULIA VERONEZ MARQUES BARROS",
+        -613.33,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - OP Salarios",
+        "GIOVANNA FERNANDES DOS SANTOS",
+        -800,
+        "PAGAR"
+      ],
+      [
+        "20/08/2026",
+        "Operações",
+        "201-6 - Salarios e Ordenados",
+        "LUCILENE MARTINS DE ARAUJO",
+        -1200,
+        "PAGAR"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -89.23,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -78.6,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -82.48,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -149.69,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -100,
+        "PAGO"
+      ],
+      [
+        "19/08/2026",
+        "Operações",
+        "Taxa de manutenção mensal Ifood",
+        "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        -150,
+        "PAGO"
+      ]
+    ],
+    "KPIS": {
+      "TOTAL_RECEITA": 192312.2499999998,
+      "TOTAL_DESPESA": 556098.7199999999,
+      "VALOR_LIQUIDO": -363786.4700000001,
+      "MARGEM_LIQUIDA": -189.16448120179575,
+      "VALOR_LIQ_SERIES": [
+        0,
+        -12660.3,
+        -12549,
+        -13649,
+        -13649,
+        -25525.02,
+        -10228.900000000343,
+        -37296.07999999985,
+        -48716.939999999995,
+        -62819.40999999999,
+        -63819.40999999999,
+        -62873.40999999999
+      ]
+    },
+    "RECEITA_DIA": [
+      2840.9700000000003,
+      8307.220000000003,
+      13867.610000000002,
+      2431.4099999999994,
+      16091.859999999986,
+      10881.98,
+      4022.2900000000004,
+      12269.009999999997,
+      3602.3199999999997,
+      12736.799999999994,
+      1415.93,
+      13261.01999999998,
+      4345.410000000001,
+      8383.340000000002,
+      8514.730000000001,
+      2260.8500000000004,
+      2631.75,
+      467.25,
+      253.67999999999998,
+      8690.949999999995,
+      2987.3199999999997,
+      10128.740000000009,
+      1708.9399999999998,
+      3156.869999999999,
+      97.81,
+      7110.210000000003,
+      8811.460000000001,
+      2450.459999999999,
+      13923.360000000004,
+      2181.56,
+      2479.1400000000003
+    ],
+    "DESPESA_DIA": [
+      1283.71,
+      4272.5,
+      28503.510000000002,
+      525,
+      65895.88999999998,
+      16223.979999999996,
+      4495.55,
+      2855.27,
+      1199,
+      173040.95,
+      163.04000000000002,
+      1758.35,
+      12950.79,
+      4603.129999999999,
+      62094.23,
+      5199.51,
+      3423.05,
+      149.9,
+      1880,
+      84892.12000000001,
+      6110.450000000001,
+      1363.56,
+      9792.42,
+      3074.25,
+      54,
+      1700,
+      5927.2,
+      4027.98,
+      8946.869999999999,
+      21931.51,
+      17761
+    ],
+    "SALDOS_MES": [
+      0,
+      -12660.3,
+      -25209.3,
+      -38858.3,
+      -52507.3,
+      -78032.32,
+      -88261.22000000035,
+      -125557.30000000019,
+      -174274.2400000002,
+      -237093.6500000002,
+      -300913.0600000002,
+      -363786.47000000015
+    ],
+    "FLUXO_RECEITA": [
+      {
+        "cat": "Outros",
+        "children": [
+          {
+            "cat": "102-1 - Vendas de Produtos - Débito e Crédito",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              31513.08000000003,
+              11227.830000000002,
+              7433.000000000001,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Débito e Crédito"
+          },
+          {
+            "cat": "102-1 - Vendas de Produtos - Delivery",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              15454.220000000008,
+              22816.060000000016,
+              5555.290000000003,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Delivery"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              26515.200000000008,
+              4755.77,
+              522.7,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9083.550000000007,
+              7418.66,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery"
+          },
+          {
+            "cat": "102-1 - Vendas de Produtos - Vouchers",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              7217.2,
+              8613.520000000002,
+              217.51,
+              0,
+              0,
+              0
+            ],
+            "cod": "102-1 - Vendas de Produtos - Vouchers"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              9653.53,
+              1932.18,
+              372,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação"
+          },
+          {
+            "cat": "Repasse de cupom Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              6172.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Repasse de cupom Ifood"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              2647.9400000000005,
+              2279.3100000000004,
+              86.84,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher"
+          },
+          {
+            "cat": "Desconto complementar da operadora Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              3215.5099999999998,
+              878.7,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Desconto complementar da operadora Ifood"
+          },
+          {
+            "cat": "Taxa de entrega Ifood (Despesa)",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1652.1899999999996,
+              1489.2400000000002,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Taxa de entrega Ifood (Despesa)"
+          },
+          {
+            "cat": "Vendas de Mercadorias",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              1719.4,
+              320,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Vendas de Mercadorias"
+          },
+          {
+            "cat": "Outras Receitas Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              183.64000000000001,
+              417.8,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Outras Receitas Ifood"
+          },
+          {
+            "cat": "Ajustes a Crédito de Cartão",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              289.18,
+              137.11,
+              44.129999999999995,
+              0,
+              0,
+              0
+            ],
+            "cod": "Ajustes a Crédito de Cartão"
+          },
+          {
+            "cat": "Sobra de Caixa",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              210.3,
+              110.1,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Sobra de Caixa"
+          },
+          {
+            "cat": "Estorno de Valores - Entradas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              132.05,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Estorno de Valores - Entradas"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              24.87,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas"
+          },
+          {
+            "cat": "303-2 - Rendimento de Aplic Financeira",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0.33,
+              0.26,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "303-2 - Rendimento de Aplic Financeira"
+          }
+        ],
+        "values": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          115659.37000000007,
+          62421.410000000025,
+          14231.470000000005,
+          0,
+          0,
+          0
+        ]
+      }
+    ],
+    "FLUXO_DESPESA": [
+      {
+        "cat": "Outros",
+        "children": [
+          {
+            "cat": "420-5 - Aluguel",
+            "values": [
+              0,
+              -12660.3,
+              -12549,
+              -12549,
+              -12549,
+              -19587.56,
+              -20738.02,
+              -25613.96,
+              -12549,
+              -12549,
+              -12549,
+              -12549
+            ],
+            "cod": "420-5 - Aluguel"
+          },
+          {
+            "cat": "201-6 - Salarios e Ordenados",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -10400.34,
+              -10400.43,
+              -10400.34,
+              -15414.26,
+              -15414.26,
+              -15414.26
+            ],
+            "cod": "201-6 - Salarios e Ordenados"
+          },
+          {
+            "cat": "201-6 - OP Salarios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -12427.25,
+              -14730.250000000002,
+              -13723.2,
+              -8709.28,
+              -9709.28,
+              -8709.28
+            ],
+            "cod": "201-6 - OP Salarios"
+          },
+          {
+            "cat": "400-0 - Custo de Mercadorias Vendidas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -38753.99,
+              -12915.17,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "400-0 - Custo de Mercadorias Vendidas"
+          },
+          {
+            "cat": "201-5 - Pro-Labore",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -8351,
+              -8000,
+              -8000,
+              -8000,
+              -8000,
+              -8000
+            ],
+            "cod": "201-5 - Pro-Labore"
+          },
+          {
+            "cat": "205-2 - Simples Nacional",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62,
+              -3880.62
+            ],
+            "cod": "205-2 - Simples Nacional"
+          },
+          {
+            "cat": "434-4 - Marketing Digital",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -4200,
+              -4200,
+              -4200,
+              -4200,
+              -4200,
+              -4200
+            ],
+            "cod": "434-4 - Marketing Digital"
+          },
+          {
+            "cat": "425-6 - Contabilidade",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3500,
+              -1750,
+              -1750,
+              -1750,
+              -1750,
+              -1750
+            ],
+            "cod": "425-6 - Contabilidade"
+          },
+          {
+            "cat": "425-5 - Consultoria",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1691.25,
+              -1691.25,
+              -1691.25,
+              -1691.25,
+              -1691.25,
+              -1691.25
+            ],
+            "cod": "425-5 - Consultoria"
+          },
+          {
+            "cat": "112-5 - Maquinas e Equipamentos",
+            "values": [
+              0,
+              0,
+              0,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100,
+              -1100
+            ],
+            "cod": "112-5 - Maquinas e Equipamentos"
+          },
+          {
+            "cat": "410-5 - OP Servicos Tecnicos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1400,
+              -1400,
+              -1400,
+              -1400,
+              -1400,
+              -1400
+            ],
+            "cod": "410-5 - OP Servicos Tecnicos"
+          },
+          {
+            "cat": "400-0 - Custo de Embalagens",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3860.97,
+              -3541.5500000000006,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "400-0 - Custo de Embalagens"
+          },
+          {
+            "cat": "203-0 - INSS",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              -956.84,
+              -978.43,
+              -956.84,
+              -956.84,
+              -956.84,
+              -956.84,
+              -956.84
+            ],
+            "cod": "203-0 - INSS"
+          },
+          {
+            "cat": "203-1 - FGTS",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -1989.75,
+              -913.16,
+              -913.16,
+              -913.16,
+              -913.16,
+              -913.16
+            ],
+            "cod": "203-1 - FGTS"
+          },
+          {
+            "cat": "427-0 - Sistema de Gestao",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -916.55,
+              -1898,
+              -890,
+              -890,
+              -890,
+              -890
+            ],
+            "cod": "427-0 - Sistema de Gestao"
+          },
+          {
+            "cat": "112-9 - Moveis e Utensilios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -3705.6,
+              -1455.98,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "112-9 - Moveis e Utensilios"
+          },
+          {
+            "cat": "Taxa de manutenção mensal Ifood",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -237.43,
+              -2929.66,
+              -700,
+              0,
+              0,
+              0
+            ],
+            "cod": "Taxa de manutenção mensal Ifood"
+          },
+          {
+            "cat": "201-6 - OP Freelancer",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -2046.68,
+              -540,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "201-6 - OP Freelancer"
+          },
+          {
+            "cat": "418-3 - Curso e Treinamento",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -625,
+              0,
+              -625,
+              -625,
+              -625
+            ],
+            "cod": "418-3 - Curso e Treinamento"
+          },
+          {
+            "cat": "202-0 - Rescisoes",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -2212.09,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "202-0 - Rescisoes"
+          },
+          {
+            "cat": "415-8 - Outras Despesas Com Funcionarios",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -355,
+              -417.51,
+              -355,
+              -355,
+              -355,
+              -355
+            ],
+            "cod": "415-8 - Outras Despesas Com Funcionarios"
+          },
+          {
+            "cat": "403-9 - OP Vale Transporte",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -433.6,
+              -216,
+              -270,
+              -216,
+              -216,
+              -270
+            ],
+            "cod": "403-9 - OP Vale Transporte"
+          },
+          {
+            "cat": "431-5 - Despesas Bancarias",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -169,
+              -169,
+              -169,
+              -169,
+              -169,
+              -169
+            ],
+            "cod": "431-5 - Despesas Bancarias"
+          },
+          {
+            "cat": "Falta de Caixa",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -644.89,
+              -113.71000000000001,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Falta de Caixa"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -347.03,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas"
+          },
+          {
+            "cat": "422-9 - Material de Escritorio",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -239.3,
+              -90.4,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "422-9 - Material de Escritorio"
+          },
+          {
+            "cat": "431-3 - Taxas e Emolumentos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -236.35,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-3 - Taxas e Emolumentos"
+          },
+          {
+            "cat": "422-0 - Uber e Taxi",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -224,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "422-0 - Uber e Taxi"
+          },
+          {
+            "cat": "432-0 - Juros Passivos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -44.96,
+              -169,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "432-0 - Juros Passivos"
+          },
+          {
+            "cat": "423-5 - Estacionamento",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -200,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "423-5 - Estacionamento"
+          },
+          {
+            "cat": "421-8 - OP Fretes e carretos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -152.97,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "421-8 - OP Fretes e carretos"
+          },
+          {
+            "cat": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -122.84,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação"
+          },
+          {
+            "cat": "Aluguel de POS / Outras Taxas",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -107.63,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "Aluguel de POS / Outras Taxas"
+          },
+          {
+            "cat": "410-9 - OP Outros Servicos Prestados",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -80,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "410-9 - OP Outros Servicos Prestados"
+          },
+          {
+            "cat": "421-2 - Manutencao e Reparos",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -60,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "421-2 - Manutencao e Reparos"
+          },
+          {
+            "cat": "418-0 - Farmacia",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -56.58,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "418-0 - Farmacia"
+          },
+          {
+            "cat": "420-6 - Manut e Conservacao Predial",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -17.5,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "420-6 - Manut e Conservacao Predial"
+          },
+          {
+            "cat": "430-7 - IOF",
+            "values": [
+              0,
+              0,
+              0,
+              0,
+              0,
+              0,
+              -6.65,
+              0,
+              0,
+              0,
+              0,
+              0
+            ],
+            "cod": "430-7 - IOF"
+          }
+        ],
+        "values": [
+          0,
+          -12660.3,
+          -12549,
+          -13649,
+          -13649,
+          -25525.02,
+          -125888.27,
+          -99717.49,
+          -62948.41,
+          -62819.41,
+          -63819.41,
+          -62873.41
+        ]
+      }
+    ],
+    "COMP_DATA": [
+      {
+        "tipo": "Receita",
+        "isHeader": true,
+        "d1": 0,
+        "d2": 0
+      },
+      {
+        "tipo": "Despesa",
+        "isHeader": true,
+        "d1": -25209.3,
+        "d2": -52823.02
+      },
+      {
+        "tipo": "420-5 - Aluguel",
+        "parent": "Despesa",
+        "d1": -25209.3,
+        "d2": -44685.56
+      },
+      {
+        "tipo": "112-5 - Maquinas e Equipamentos",
+        "parent": "Despesa",
+        "d1": 0,
+        "d2": -3300
+      },
+      {
+        "tipo": "203-0 - INSS",
+        "parent": "Despesa",
+        "d1": 0,
+        "d2": -956.84
+      },
+      {
+        "tipo": "205-2 - Simples Nacional",
+        "parent": "Despesa",
+        "d1": 0,
+        "d2": -3880.62
+      }
+    ]
+  }
+};
+
+// ALL_TX: lista flat de TODAS as transacoes normalizadas (despesa + receita,
+// realizadas + a pagar + canceladas excluidas). Usada pra cross-filter real
+// — pagina recalcula KPIs/charts/tabelas em runtime via aggregateTx().
+// Cada row eh tupla compacta pra reduzir tamanho do bundle:
+// [kind, mes, dia, categoria, cliente, valor, realizado, fornecedor, centroCusto, semInvFlag, peClass, empresa, projeto]
+// peClass: 'F'=custo fixo, 'V'=custo variavel, ''=neutro (receita ou grupo 2.10) — usado por computePE.
+// empresa: label da conta Omie (ex: 'Matriz', 'Filial') — usado pelo filtro de empresa.
+// projeto: nome do projeto Omie (ex: '5620 - 3R Petroleum') — usado pelo filtro de projeto.
+const ALL_TX = [["r","2026-07",1,"Vendas de Mercadorias","VENDAS DINHEIRO",58,1,"","",0,"","",""],["r","2026-07",1,"Vendas de Mercadorias","VENDAS DINHEIRO",24,1,"","",0,"","",""],["r","2026-07",4,"Vendas de Mercadorias","VENDAS DINHEIRO",77,1,"","",0,"","",""],["r","2026-07",5,"Vendas de Mercadorias","VENDAS DINHEIRO",32.4,1,"","",0,"","",""],["r","2026-07",5,"Vendas de Mercadorias","VENDAS DINHEIRO",29,1,"","",0,"","",""],["r","2026-07",1,"102-1 - Vendas de Produtos - Débito e Crédito","GETNET",1641.95,1,"","",0,"","",""],["r","2026-07",6,"Vendas de Mercadorias","VENDAS DINHEIRO",25,1,"","",0,"","",""],["r","2026-07",8,"Vendas de Mercadorias","VENDAS DINHEIRO",37,1,"","",0,"","",""],["r","2026-07",8,"Vendas de Mercadorias","VENDAS DINHEIRO",44,1,"","",0,"","",""],["r","2026-07",8,"Vendas de Mercadorias","VENDAS DINHEIRO",166,1,"","",0,"","",""],["r","2026-07",9,"Vendas de Mercadorias","VENDAS DINHEIRO",159,1,"","",0,"","",""],["r","2026-07",9,"Vendas de Mercadorias","VENDAS DINHEIRO",25,1,"","",0,"","",""],["r","2026-07",3,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.09,1,"","",0,"","",""],["r","2026-07",6,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.02,1,"","",0,"","",""],["r","2026-07",11,"Vendas de Mercadorias","VENDAS DINHEIRO",18,1,"","",0,"","",""],["r","2026-07",11,"Vendas de Mercadorias","VENDAS DINHEIRO",27,1,"","",0,"","",""],["r","2026-07",12,"Vendas de Mercadorias","VENDAS DINHEIRO",7,1,"","",0,"","",""],["r","2026-07",12,"Vendas de Mercadorias","VENDAS DINHEIRO",64,1,"","",0,"","",""],["r","2026-07",1,"Sobra de Caixa","VENDAS DINHEIRO",38,1,"","",0,"","",""],["r","2026-07",5,"Sobra de Caixa","VENDAS DINHEIRO",1.1,1,"","",0,"","",""],["r","2026-07",7,"Sobra de Caixa","VENDAS DINHEIRO",34,1,"","",0,"","",""],["r","2026-07",10,"Sobra de Caixa","VENDAS DINHEIRO",37.4,1,"","",0,"","",""],["r","2026-07",14,"Vendas de Mercadorias","VENDAS DINHEIRO",78,1,"","",0,"","",""],["r","2026-07",15,"Vendas de Mercadorias","VENDAS DINHEIRO",32,1,"","",0,"","",""],["r","2026-07",16,"Vendas de Mercadorias","VENDAS DINHEIRO",32,1,"","",0,"","",""],["r","2026-07",16,"Vendas de Mercadorias","VENDAS DINHEIRO",68,1,"","",0,"","",""],["r","2026-07",17,"Vendas de Mercadorias","VENDAS DINHEIRO",9,1,"","",0,"","",""],["r","2026-07",18,"Vendas de Mercadorias","VENDAS DINHEIRO",126,1,"","",0,"","",""],["r","2026-07",1,"102-1 - Vendas de Produtos - Delivery","VENDAS DELIVERY",846.69,1,"","",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Delivery","VENDAS DELIVERY",586.98,1,"","",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","VENDAS DELIVERY",419.37,1,"","",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","VENDAS VOUCHERS",194.74,1,"","",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","VENDAS VOUCHERS",24,1,"","",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Vouchers","VENDAS VOUCHERS",90.78,1,"","",0,"","",""],["r","2026-07",13,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.07,1,"","",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Vouchers","VENDAS VOUCHERS",88.69,1,"","",0,"","",""],["r","2026-07",15,"Estorno de Valores - Entradas","AMAZON.COM.BR",132.05,1,"","",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","VENDAS VOUCHERS",40.42,1,"","",0,"","",""],["r","2026-07",16,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.01,1,"","",0,"","",""],["r","2026-07",21,"Vendas de Mercadorias","VENDAS DINHEIRO",50,1,"","",0,"","",""],["r","2026-07",21,"Vendas de Mercadorias","VENDAS DINHEIRO",7,1,"","",0,"","",""],["r","2026-07",21,"Vendas de Mercadorias","VENDAS DINHEIRO",7,1,"","",0,"","",""],["r","2026-07",21,"Vendas de Mercadorias","VENDAS DINHEIRO",7,1,"","",0,"","",""],["r","2026-07",21,"Vendas de Mercadorias","VENDAS DINHEIRO",7,1,"","",0,"","",""],["r","2026-07",21,"Vendas de Mercadorias","VENDAS DINHEIRO",99,1,"","",0,"","",""],["r","2026-07",15,"Sobra de Caixa","VENDAS DINHEIRO",50.8,1,"","",0,"","",""],["r","2026-07",18,"Sobra de Caixa","VENDAS DINHEIRO",10,1,"","",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Delivery","FOOD TO SAVE S.A.",580.74,1,"","",0,"","",""],["r","2026-07",13,"303-2 - Rendimento de Aplic Financeira","BANCO ITAU",0.06,1,"","",0,"","",""],["r","2026-07",20,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.06,1,"","",0,"","",""],["r","2026-07",21,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.01,1,"","",0,"","",""],["r","2026-07",22,"Vendas de Mercadorias","VENDAS DINHEIRO",9,1,"","",0,"","",""],["r","2026-07",22,"Vendas de Mercadorias","VENDAS DINHEIRO",9,1,"","",0,"","",""],["r","2026-07",22,"Vendas de Mercadorias","VENDAS DINHEIRO",9,1,"","",0,"","",""],["r","2026-07",21,"Sobra de Caixa","VENDAS DINHEIRO",23,1,"","",0,"","",""],["r","2026-07",24,"Vendas de Mercadorias","VENDAS DINHEIRO",43,1,"","",0,"","",""],["r","2026-07",25,"Vendas de Mercadorias","VENDAS DINHEIRO",54,1,"","",0,"","",""],["r","2026-07",26,"Vendas de Mercadorias","VENDAS DINHEIRO",9,1,"","",0,"","",""],["r","2026-07",13,"Ajustes a Crédito de Cartão","GETNET",7.93,1,"","",0,"","",""],["r","2026-07",26,"Sobra de Caixa","VENDAS DINHEIRO",1,1,"","",0,"","",""],["r","2026-07",14,"Repasse de cupom Ifood","IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",6172.05,1,"","",0,"","",""],["r","2026-07",27,"Vendas de Mercadorias","VENDAS DINHEIRO",49,1,"","",0,"","",""],["r","2026-07",28,"Vendas de Mercadorias","VENDAS DINHEIRO",56,1,"","",0,"","",""],["r","2026-07",28,"Vendas de Mercadorias","VENDAS DINHEIRO",25,1,"","",0,"","",""],["r","2026-07",28,"Vendas de Mercadorias","VENDAS DINHEIRO",27,1,"","",0,"","",""],["r","2026-07",29,"Sobra de Caixa","VENDAS DINHEIRO",15,1,"","",0,"","",""],["r","2026-07",23,"303-2 - Rendimento de Aplic Financeira","BANCO ITAU",0.01,1,"","",0,"","",""],["r","2026-07",30,"Vendas de Mercadorias","VENDAS DINHEIRO",63,1,"","",0,"","",""],["r","2026-07",30,"Vendas de Mercadorias","VENDAS DINHEIRO",18,1,"","",0,"","",""],["r","2026-07",31,"Vendas de Mercadorias","VENDAS DINHEIRO",34,1,"","",0,"","",""],["r","2026-08",1,"Vendas de Mercadorias","VENDAS DINHEIRO",100,1,"","",0,"","",""],["r","2026-08",1,"Vendas de Mercadorias","VENDAS DINHEIRO",102,1,"","",0,"","",""],["r","2026-08",3,"Vendas de Mercadorias","VENDAS DINHEIRO",49,1,"","",0,"","",""],["r","2026-08",5,"Vendas de Mercadorias","VENDAS DINHEIRO",9,1,"","",0,"","",""],["r","2026-08",6,"Vendas de Mercadorias","VENDAS DINHEIRO",37,1,"","",0,"","",""],["r","2026-08",5,"Sobra de Caixa","VENDAS DINHEIRO",90.1,1,"","",0,"","",""],["r","2026-08",3,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.17,1,"","",0,"","",""],["r","2026-08",5,"303-2 - Rendimento de Aplic Financeira","BANCO SANTANDER",0.09,1,"","",0,"","",""],["r","2026-08",8,"Vendas de Mercadorias","VENDAS DINHEIRO",16,1,"","",0,"","",""],["r","2026-08",9,"Vendas de Mercadorias","VENDAS DINHEIRO",7,1,"","",0,"","",""],["r","2026-08",8,"Sobra de Caixa","VENDAS DINHEIRO",20,1,"","",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",19.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",43.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",24.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",115.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",77.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",4.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",38.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",27.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",72.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",78.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",78.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",86.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",95.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",25.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",76.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",64.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",52.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",82.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",47.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",87.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",93.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",97.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",110.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",55.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",97.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",44.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",66.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",15.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",60.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",11.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",113.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",84.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",117.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",86.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",5.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",9.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",52.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",94.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",93.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",96.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",26.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",35.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",29.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",61.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",26.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",35.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",27.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",17.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",73.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",2.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",13.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",69.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",51.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",27.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",109.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",30.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",74.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",87.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",34.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",109.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",96.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",56.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",20.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",85.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",55.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",72.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",119.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",91.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",86.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",58.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",73.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",177.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",13.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",68.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",152.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",62.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",80.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",61.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",142.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",44.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",107.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",61.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",70.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",50.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",18.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",89.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",82.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",72.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",120.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",114.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",143.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",113.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",78.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",81.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",95.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",30.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",52.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",81.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",80.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",65.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",61.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",77.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",111.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",72.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",110.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",10.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",17.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",7.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",8.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",34.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",86.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",75.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",30.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",63.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",173.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",98.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",180.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",4.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",74.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",10.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",39.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",17.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",19.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",74.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",30.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",70.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",101.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",41.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",4.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",71.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",104.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",71.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",95.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",25.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",2.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",107.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",67.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",11.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",68.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",43.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",19.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",27.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",69.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",30.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",35.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",25.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",44.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",88.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",21.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",112.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",56.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",56.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",23.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",96.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",111.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",47.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",62.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",58.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",64.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",33.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",73.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",24.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",33.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",52.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",62.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",34.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",60.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",63.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",83.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",24.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",27.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",24.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",90.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",27.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",95.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",80.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",9,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",66.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",21.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",54.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",22.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",70.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",25.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",34.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas","IFood - API",24.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",94.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",24.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",33.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",76.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",39.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",102.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",16.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",92.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",63.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",194.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",99.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",57.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",44.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",112.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",51.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",55.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",101.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",27.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",21.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",67.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",128.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",101.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"Ajustes a Crédito de Cartão","GetNet",0.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"Ajustes a Crédito de Cartão","GetNet",0.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",85.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",73.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",70.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",27.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",112.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",118.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",47.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",35.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",69.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",10.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",13.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",73.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",12.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",47.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",67.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",80.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",70.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",153.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",78.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",116.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",54.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",46.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",91.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",59.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",92.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",93.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",109.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",51.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",101.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",54.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",7.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",15.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",73.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",29.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",91.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",55.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",5.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",77.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",21.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",97.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",65.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",87.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",90.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",52.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",111.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",2.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",106.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",77.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",82.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",129.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",110.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",58.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",108.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",70.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",83.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",92.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",197.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",61.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Outras Receitas Ifood","IFood - API",43.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",68.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",76.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",84.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",45.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",3.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","IFood - API",32.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Taxa de entrega Ifood (Despesa)","IFood - API",142.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Desconto complementar da operadora Ifood","IFood - API",69.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",35.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"Ajustes a Crédito de Cartão","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",97.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",222.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",120.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",52.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",63.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",107.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",121.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",105.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",15.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",95.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",5.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",11.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",28.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",41.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",36.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",24.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",70.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",48.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",37.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",38.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",91.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",33.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",60.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",98.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",74.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",70.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",15.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",85.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",89.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",8.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",24.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",31.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",45.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",91.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",17.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",14.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",41.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",14.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",25.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",71.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",70.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",112.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",68.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",83.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",87.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",25.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",14,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",47.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",31.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",58.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",15.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",32.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",15.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",20.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",63.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",30.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",101.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",88.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",43.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",52.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",64.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",75.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",21.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",70.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",127.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",47.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",127.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",187.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",74.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",82.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",24.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",69.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",26.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",29.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Outras Receitas Ifood","IFood - API",141.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",24.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",14.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",31.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",27.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",30.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",3.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",35.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",31.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",35.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",13.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",81.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",28.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",41.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",41.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",23.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",19.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",7.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",49.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",29.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",27.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",58.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",70.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",32.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",17.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",38.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",11.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",23.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",35.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",50.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",56.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",22.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",29.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",21.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",10.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",38.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",13.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",31.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",66.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",15.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",35.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",15.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",40.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","99 Food",35.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",26.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",13.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",17.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",20.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",22.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",24.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",7.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",28.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",7.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",31.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",23.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",13.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",45.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",49.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",43.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",4.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",34.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",32.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",10.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",38.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",52.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",16.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",23.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",55.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",19.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",29.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",26.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",17.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",29.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",26.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",30.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",26.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",30.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",51.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",108.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",28.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",113.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",27.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",114.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",38.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",50.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",33.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",34.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",37.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",43.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",26.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",21.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",43.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",45.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",60.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",65.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",17.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",80.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",64.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",52.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",7.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",65.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",21.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",45.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",76.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",105.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",22.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",49.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",92.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",40.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",19.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",47.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",34.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",33.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","99 Food",44.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",44.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",39.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",35.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",29.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",39.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",35.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",53.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",20,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",38.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",36.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",22.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",39.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",105.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",33.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",37.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",51.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",37.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",88.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",65.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",91.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",24.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",32.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",22.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",29.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",33.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",30.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",35.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",15.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",55.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",19.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",27.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",67.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",109.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",42.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","VR",31.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",38.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",5.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",123.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","VR",52.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","VR",52.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","VR",20.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",44.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",42.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Alelo",73.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Vouchers","Alelo",35.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",5,"102-1 - Vendas de Produtos - Vouchers","Alelo",119.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",42.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Vouchers","Alelo",27.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",35.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",30.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",58.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Vouchers","Alelo",29.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",33.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",27.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",35.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Vouchers","Alelo",42.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",27.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",25.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",38.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",49.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",21.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",58.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",119.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",34.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",61.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",56.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",44.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",95.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"102-1 - Vendas de Produtos - Delivery","Keeta",68.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",13.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",21.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",32.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",18.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",46.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",38.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",35.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",33.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",33.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",34.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",14.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",81.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",38.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",37.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",86.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",60.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",54.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",27.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",89.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",79.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",50.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",70,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",53.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",37.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",13.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",39.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",53.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",130.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",19.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",15.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",24.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",12.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",32.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",33.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Delivery","Keeta",37.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",27.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",23.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",37.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",40.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",57.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",13.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",24.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",24.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",86.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",13.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",24.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",19.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",86.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",117.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",19.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",15.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",12.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",30.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",63.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",31.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",54.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",54.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",28.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",25.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",11.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",28.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",24.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",61.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",41.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",8.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",51.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",38.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",67.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",93.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",57.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",66.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",10.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",48.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",34.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",59.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",18.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",31.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",20.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",13.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",28.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",21.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",67.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",39.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",113.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",90.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",59.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",95.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",102.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",55.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",100.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",115.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",90.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",44.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",123.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",160.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",91.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",50.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",93.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",71.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",71.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",51.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",69.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",31.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",51.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",31.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",46.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",59.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",60.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",78.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",64.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",136.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",54.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",101.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",12.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",84.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",16.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",8.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",63.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",14.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",106.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",81.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",74.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",106.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",118.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",51.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",100.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",84.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",26.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",3.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",43.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",17.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",23.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",6.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",54.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",28.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",37.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",54.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",32.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",51.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",6.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",17.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",46.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",16.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",45.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",72.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",51.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",41.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",27.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",41.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",45.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",68.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",27.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",34.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",58.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",121.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",45.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",48.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",27.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Desconto complementar da operadora Ifood","IFood - API",40.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",53.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Taxa de entrega Ifood (Despesa)","IFood - API",28.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"Ajustes a Crédito de Cartão","IFood - API",31.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",8.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",54.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",164.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",53.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",30.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",92.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",60.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",12.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",137.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",99.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",113.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",95.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",119.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",140.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",103.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",2,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",46.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",44.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",39.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",30,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",6,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",32.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",22.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",40,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",27.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",63.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",33.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",21.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",120.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",86.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",20.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",33.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",87.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",38.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",74.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",50.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",57.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",53.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",84.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",57.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",45.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",73.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",21.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",21.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",43.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",11.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",115.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",27.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",28.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",41.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",35.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",36.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",35.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",25.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",89.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",12.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",21.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",82.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",69.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",40.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",77.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",15.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",69.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",59.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",23.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","99 Food",21.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",46.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",57.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",26.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",43.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",67.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",41.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",64.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",20.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",65.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",35.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",24.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",13.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",22.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",21.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",16.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",7.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",24.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",32.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",104.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",14.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",149.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",62.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",98.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",0.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",65.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",15.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",49.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",21,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",132,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",16,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",114,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",50,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",159,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",61.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",35.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",107,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",38.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",82.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",62.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",136,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",93,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",30.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Alelo",95.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Alelo",53.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",32.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Alelo",33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",35.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",60,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",91.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","VR",49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","VR",77.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Vouchers","VR",31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",40.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",49.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",31.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",30.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",39.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",36.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",69.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",19.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",16.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",88.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",59.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",22.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",22.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",32.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",30.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",26.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",33.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",52.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",22.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",25.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",35.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",44.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",49.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",77.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",49.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",50.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",47.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",39.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",42.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",63.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",50.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",15.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",23.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",22.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",53.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",51.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",36.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",13.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",32.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",35.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",34.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",18.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",133.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",100.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",39.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",68.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",36.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",7.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",70.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",119.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",81.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",103.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",73.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",20,"Ajustes a Crédito de Cartão","GetNet",0.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",32.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",37.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",27.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",43.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",41.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",34.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",27.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",28.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",60.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",19.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",44.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",23.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",32.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",15,"Ajustes a Crédito de Cartão","VR",181.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",64.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",129.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",21.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",56.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",12.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",31.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",10.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",16.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",16.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",43.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",80.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",26.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",18.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",82.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",65.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",49.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",64.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",79.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",29.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",103.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",100.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",71.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",23,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",11.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",68.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",94.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Ajustes a Crédito de Cartão","IFood - API",1.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",242.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",18.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",22.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Outras Receitas Ifood","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",21.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",102.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",80.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",18.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",30.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",21.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",43.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",92.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",75.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",101.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",70.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",81.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",74.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",89.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",86.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",58.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",51.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",86.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",30.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",28.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",22.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",39.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",29.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",43.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",25.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",46.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",15.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",45.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",38.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",21.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",46.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",26.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",77.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",76.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",21.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",48.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",14.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",24.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",47.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",26.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",59.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",73.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",18.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",34.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",80.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",114.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",61.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",59.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",61.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",60.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",105.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",84.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",82.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",82.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",27.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",150.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",224.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",111.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",35.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",64.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",114.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",85.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",85.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",80.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",135.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",51.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",91.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",58.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",34.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",25.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",72.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",121.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",34.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",69.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",22.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",18.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",28.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",126.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",205.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",61.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",36.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",27.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",78.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",20.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",15.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",13.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",17.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",66.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Vouchers","VR",10,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",22,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",27.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",32.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",56.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",48.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",26.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",55.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",102.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",61.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",103.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",11.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",37.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Taxa de entrega Ifood (Despesa)","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",89.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",70.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",56.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Desconto complementar da operadora Ifood","IFood - API",27.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",30.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",14.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",112.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",72.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",35.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",86.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",102.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",49.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",96.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",73.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",71.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",124.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",89.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",46.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",81.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",27.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",59.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",120.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",98.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",119.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",54.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",155.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",73.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",107.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",132.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",92.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",84.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",44.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",97.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",30.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",57.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",72.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",43.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",70.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",55.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"Ajustes a Crédito de Cartão","IFood - API",66.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",19,"Ajustes a Crédito de Cartão","IFood - API",57.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",30.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",35.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",64.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",180.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",94.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",67.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",45.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",15.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",65.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",91.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",142.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",27,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",15.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",84.57,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",24,"Ajustes a Crédito de Cartão","GetNet",0.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",48.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",17.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",97.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",43.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",66.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",102.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",13.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",88.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",55.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",75.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",103.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",51.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",58.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",91.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",14.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",55.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",21.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",34.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",61.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",61.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",28,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",17.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",16.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",79.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",17.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",32.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",75.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",35.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",65.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",15.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",65.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",70.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",4.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",25.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",43.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",76.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",58.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",93.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",62.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Vouchers","VR",33.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",48,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",31,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",104,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",31,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",39,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",107,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",55,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",28,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",98,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","VR",43.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","VR",43.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",19,"102-1 - Vendas de Produtos - Vouchers","VR",46,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",19,"102-1 - Vendas de Produtos - Vouchers","VR",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"102-1 - Vendas de Produtos - Vouchers","VR",42,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"102-1 - Vendas de Produtos - Vouchers","VR",40.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",86.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",64.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",20,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",41.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",42.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",30.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",71.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",28.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",66.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",36.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",28.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",70.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",42.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",15.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",36.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",20.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",70.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",46.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",70.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",26.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",37.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",52.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",56.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",31.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",60.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",15.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",30.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",21.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",53.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",97.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",49.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",65.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",25.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",100.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",42.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","99 Food",110.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",61.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",28.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",18.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",49.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",64.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",37.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",21.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",17.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",20,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",32.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",94.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",38.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",45.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",35.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",31.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",95.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",18.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",60.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",18.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Alelo",58.03,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Alelo",33.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",44.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",51.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",52.71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Alelo",6.49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Alelo",33.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",25,"102-1 - Vendas de Produtos - Vouchers","Alelo",43.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",33.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Alelo",62.03,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",33.77,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",41.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",27,"102-1 - Vendas de Produtos - Vouchers","Alelo",60.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Vouchers","Alelo",90.79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",60.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",18.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",52.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",34.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",31.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",64.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",30.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",13.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",34.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",11.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",45.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",59.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",10.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",80.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",29,"102-1 - Vendas de Produtos - Delivery","Keeta",99.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",109.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",125.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",45.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",85.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",132.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",107.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",68.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",107.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",70.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",52.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",39.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",27.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",49.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",68.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",14.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",47.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",38.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",120.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",16.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",32.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",31,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",35.72,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",46.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",30.25,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",46.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",27.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",27.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",30.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",26.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",50.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",17.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",13,"102-1 - Vendas de Produtos - Vouchers","Alelo",60.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",13,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",43.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",28,"102-1 - Vendas de Produtos - Vouchers","Alelo",28.29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",57.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",46.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",85.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",110.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",111.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",40.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",74.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",61.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",94.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",73.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",115.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",9.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",27.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",52.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",30.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",67.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",61.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",22.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",58.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",30,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Vouchers","VR",0.01,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",81.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",43.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",70.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",70.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",55.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",32.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",43.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",61.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",79.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",16.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",87.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",137.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",64.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",27.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",140.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",21.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",16.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",122.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",63.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",74.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",73.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",112.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",54.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",27.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",34.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",51.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",91.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",24.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",47.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",34.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-07",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",50.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Vouchers","VR",40.02,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",55.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",90.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",45.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",37.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",108.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",125.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",70.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",10.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",56.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",31.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",30.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",50.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",76.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",91.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",64.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",40.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",98.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",75.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",36.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",23.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",34.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",34.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",107.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",104.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",75.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",81.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",61.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",13.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",132.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",8.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",82.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",58.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",76.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",33.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",20.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",125.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",40,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Vouchers","VR",35.89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",200.41,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Ajustes a Crédito de Cartão","IFood - API",24.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",20.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",26.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",19.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",46.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",45.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",6.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",29.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",31.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",24.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",62.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",19.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",22.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",35.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",27.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",20,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",49.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",65.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",51.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",90.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",116.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",31,"102-1 - Vendas de Produtos - Vouchers","Alelo",28.29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",31,"102-1 - Vendas de Produtos - Vouchers","Alelo",41.13,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",60.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",60.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",32.17,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",45.64,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",14,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",45.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",35,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",52.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",77.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",122.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",63.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",99.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",90.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",62.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",55.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",37.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",50.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",110.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",9.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",119.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",94.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",93.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",73.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",110.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",90.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",91.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",13.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",67.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",87.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",120.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",86.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",49.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",49.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",108.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",110.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",75.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",17.42,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",83.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",99.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",65.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",8.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",117.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",51.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",37.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",83.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",35.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",75.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",23.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",86.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",100.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",103.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",85.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",17.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",28.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",22.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",74.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",131.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",38.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",43.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",52.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",53.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",97.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",28.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",41.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",54.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",53.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",63.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",68.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",50.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Vouchers","VR",0.01,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Vouchers","VR",27,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Ajustes a Crédito de Cartão","IFood - API",7.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",14.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",31.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",92.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",76.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",53.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",50.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",65.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",14.22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",65.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",47.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",52.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",32.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",47.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Ajustes a Crédito de Cartão","IFood - API",6.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",27.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",85.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",73.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",46.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",35.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",103.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",91.55,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",23.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",12.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",44.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",64.85,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",42.58,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",68.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",80.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",136.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",97.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",24.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29.04,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",35.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",32.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",35.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",84.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",79.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",84.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",33.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",39.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",60.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",92.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",106.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",66.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",206.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",88.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",35.14,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",15.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",37.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",39.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",60.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",26.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",43.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",25.27,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",44.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",53.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",39.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",40.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",15.33,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",30.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",16.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",44.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",20.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",36.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",62.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",6.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",74.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",68.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","99 Food",27.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",44.84,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",31,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",40.36,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",45.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",1,"102-1 - Vendas de Produtos - Vouchers","Alelo",30.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",33.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Alelo",24.26,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",122,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",100,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",102,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Vouchers","VR",0.01,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Vouchers","VR",0.01,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",83.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",112.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",105.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",49.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",125.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",90.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",83.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",88.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",107.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",90.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",107.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",62.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",52.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",85.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",144.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",107.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Delivery","Keeta",42.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",41.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",11.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",38.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",14.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",45.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",66.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.48,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",45.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",50.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",40.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",55.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",100.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",78.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",33.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",30.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",4,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",67.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Vouchers","VR",0.01,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",45.89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",16.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",105.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",48.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",38.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",6.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",11.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",16.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",19.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",55.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",24.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",88.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",34.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",40.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",64.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",26.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",34.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",50.79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",56.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",36.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",45.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",50.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",47.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",80.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",26.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",46.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",2.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",117.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",100.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.79,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",65.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",73.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",28.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",24.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",7.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",78.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.06,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",6.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",24.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",118.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",99.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",55.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",54.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",40.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",5.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79.4,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",137.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62.53,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",5,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",12.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",19,"102-1 - Vendas de Produtos - Vouchers","VR",54.22,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",11.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",41.19,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.39,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",98.07,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.86,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",35.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",44.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",42.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",10.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",41,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",44,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",22.3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",41.29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",41.13,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",50.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",44.13,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",27,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",35.13,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",55.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",121.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Outras Receitas Ifood","IFood - API",33.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Desconto complementar da operadora Ifood","IFood - API",54.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Desconto complementar da operadora Ifood","IFood - API",57.9,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",39.1,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",100.01,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Outras Receitas Ifood","IFood - API",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Desconto complementar da operadora Ifood","IFood - API",72.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Taxa de entrega Ifood (Despesa)","IFood - API",41.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Taxa de entrega Ifood (Despesa)","IFood - API",41.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",36.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",23.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","IFood - API",41.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Outras Receitas Ifood","IFood - API",84.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",26,"Taxa de entrega Ifood (Despesa)","IFood - API",18.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",60,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",114,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",85,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",162,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",74,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",111,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",61,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",38.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",39,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",42,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","GetNet",23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",9.92,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",6,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",17.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",25.58,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",43.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",73.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",106.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",53.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",74.3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",107.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",92.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",72.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",59.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",113.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",109.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",142.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",58.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",57.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",72.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",53.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",53.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",48.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",65.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",117.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",99.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",93.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",58.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",53,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",30,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",45.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",17,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",27,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",75.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",31.72,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",26.12,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",30.89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",98,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",25,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",18,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",47.02,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",19,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",40.36,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",19,"102-1 - Vendas de Produtos - Vouchers","Alelo",27.03,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",53.59,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",20,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Alelo",56.79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",95.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",90.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",98.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",55.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",143.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",90.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",74.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",49.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",60.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",77.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",57.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",63.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",69.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",105.2,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",88.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",93.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",67.68,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",66.2,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",32.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",4.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",43.81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",65.23,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",44,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",49.53,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",18.89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",74,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",30.79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",41.2,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","Pluxee / Sodexo",49.89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",97.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",48.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",46.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",53.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",46.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",59.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",57.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",57.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",63.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",58.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",93.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",99.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",91.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",109.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",57.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",121.2,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",109.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Alelo",30.33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",112.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",81.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery","Keeta",109.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",42.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",147,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",159,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",115,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",30,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.1,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",67,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",92,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",106,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",62,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",18,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",59.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",83.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",116.12,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",16.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",110.17,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",2.98,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",97.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",7,"431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão","GetNet",28.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",3,"Ajustes a Crédito de Cartão","GetNet",0.02,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",67.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",66,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",81,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35.73,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",32.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",101.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",9.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",77,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",70,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",35,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",108,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",22,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",132,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",59,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",117,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",121,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",75,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",82,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",45,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",18,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41.69,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",90.32,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",77.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57.56,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44.66,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",14.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",73,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",73.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",42,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",73.44,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",41,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",45.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",59.54,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",18.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",158.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",68.34,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",86.49,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",63.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",28.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",59.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",70.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",10.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.91,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",34.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",82.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",10.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",26.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",31.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",41.18,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",31.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",35.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.97,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",39.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",66.28,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",27.92,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",54.69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",73.69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",59,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",24,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",58.69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",30,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","VR",58.69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","VR",45,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","VR",42,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",64.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.16,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",88.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",69.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",29.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.93,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.84,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.46,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.43,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",40.51,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",25.15,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",81.09,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.62,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",50.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",49.82,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.14,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",21.05,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",12.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",10.99,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",9.89,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.95,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",10,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",65.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",46.65,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",83.37,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33.74,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",24.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.45,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",85,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",53,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",97,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",88,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",102,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",4.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",36.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",84.36,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",86.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47.64,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",51.61,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",26.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",137.96,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",81.38,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",92.3,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",52.6,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43.67,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",63.52,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",7.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",21.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",104,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",77,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",103,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",108,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",106,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",96,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",113,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",80.1,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",61,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",27,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",37,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",23.56,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",37,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",83.69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",36.68,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",52.32,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",37,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",76.38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",11,"102-1 - Vendas de Produtos - Vouchers","Pluxee / Sodexo",67.55,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"Ajustes a Crédito de Cartão","IFood - API",12.41,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",139.11,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",61.77,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",63.03,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",36.31,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",74.24,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",24.87,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",27.23,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",15.5,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",14.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.08,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",23.83,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",77.35,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",86.8,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",20.59,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",47.75,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",100.94,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",22.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",33.13,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"102-1 - Vendas de Produtos - Delivery","IFood - API",13.81,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",2,"Ajustes a Crédito de Cartão","IFood - API",31.72,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Vouchers","VR",15,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher","VR",32.62,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",107.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",109.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",95.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",58.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",109.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",89.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",93.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",103.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",109.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",57.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",63.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",195.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",98.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",59.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",118.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",114.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",44.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",99.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",99.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",99.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",54.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",60.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",176.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",152.6,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","99 Food",63.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",43,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",47,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",82,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",54,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",33,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",58,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",6.3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",50,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",29,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",57,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",87,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",25,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",44,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",9,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",121,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",104.21,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",28.78,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",69.47,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",94.29,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",38.71,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",48.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",98.26,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",15.88,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",31.76,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",34.63,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",39.7,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",10,"102-1 - Vendas de Produtos - Débito e Crédito","GetNet",56.57,1,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",10,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",47.71,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",41,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",31.02,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",41.15,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",21,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",46.02,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",72,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",100.69,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",35.02,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",57,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",57,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",116,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",114,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",39,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",75,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",56,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",49,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",43.35,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Ticket Restaurante",38,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Vouchers","Alelo",28.89,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-09",8,"102-1 - Vendas de Produtos - Vouchers","Alelo",40.36,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",32.79,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",120.87,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",28.1,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",24.35,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",86.13,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",47.64,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",24,"102-1 - Vendas de Produtos - Vouchers","Alelo",31.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",86.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",64.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",97.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",100.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",163.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",109.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",62.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",45.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",138.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",50.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",34.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",107.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",100.5,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",93.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",228.3,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",52.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",86.7,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",62.4,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",35.9,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",72.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["r","2026-08",12,"102-1 - Vendas de Produtos - Delivery","Keeta",71.8,0,"","MR SHAWARMA FOOD LTDA",0,"","",""],["d","2026-02",10,"420-5 - Aluguel","",12660.3,0,"GAC ANDORINHA","",0,"","",""],["d","2026-03",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-04",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-04",30,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-05",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-05",31,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-07",15,"425-6 - Contabilidade","",1750,1,"EASYCONTABIL","",0,"","",""],["d","2026-06",10,"420-5 - Aluguel","",19587.56,0,"GAC ANDORINHA","",0,"","",""],["d","2026-07",3,"203-1 - FGTS","",1009.76,1,"CEF","",0,"","",""],["d","2026-06",30,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-06",20,"203-0 - INSS","",956.84,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-06",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-07",22,"Taxa de manutenção mensal Ifood","",8.31,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",22,"Taxa de manutenção mensal Ifood","",10.62,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",22,"Taxa de manutenção mensal Ifood","",8.2,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",22,"Taxa de manutenção mensal Ifood","",11.22,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",22,"Taxa de manutenção mensal Ifood","",10.21,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",22,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",11.05,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",1.3,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",14.54,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",4.86,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",20.94,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",12.54,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",29,"Taxa de manutenção mensal Ifood","",23.64,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",1,"400-0 - Custo de Mercadorias Vendidas","",930,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",1,"403-9 - OP Vale Transporte","",100,1,"YASSINE ORKHIS","",0,"","",""],["d","2026-07",2,"427-0 - Sistema de Gestao","",916.55,1,"SWFAST SISTEMAS","",0,"","",""],["d","2026-07",2,"400-0 - Custo de Mercadorias Vendidas","",362.05,1,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-07",2,"400-0 - Custo de Mercadorias Vendidas","",170.3,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",29,"425-6 - Contabilidade","",1750,1,"EASYCONTABIL","",0,"","",""],["d","2026-07",15,"410-5 - OP Servicos Tecnicos","",1400,1,"NUTRI MAIS","",0,"","",""],["d","2026-07",10,"420-5 - Aluguel","",20738.02,0,"GAC ANDORINHA","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Embalagens","",552.26,1,"KRAFTBOWLS","",0,"","",""],["d","2026-07",10,"400-0 - Custo de Mercadorias Vendidas","",234.05,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",614.02,1,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",154.35,1,"TERRA BRASIL HORTI FRUTI LTDA.","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",213.51,1,"GRANO ALIMENTOS S/A","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",246.11,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",14,"400-0 - Custo de Mercadorias Vendidas","",258.84,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",15,"425-5 - Consultoria","",1691.25,1,"IFINANCE","",0,"","",""],["d","2026-07",15,"400-0 - Custo de Mercadorias Vendidas","",258.84,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",20,"400-0 - Custo de Mercadorias Vendidas","",261.38,1,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-07",21,"400-0 - Custo de Mercadorias Vendidas","",447,1,"DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA","",0,"","",""],["d","2026-07",21,"400-0 - Custo de Mercadorias Vendidas","",200.8,1,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-07",21,"400-0 - Custo de Mercadorias Vendidas","",1597.05,1,"EMPORIO SANTA CATARINA","",0,"","",""],["d","2026-07",28,"400-0 - Custo de Embalagens","",405,1,"CLEANPAPEIS","",0,"","",""],["d","2026-07",28,"400-0 - Custo de Mercadorias Vendidas","",1597.03,1,"EMPORIO SANTA CATARINA","",0,"","",""],["d","2026-07",8,"201-6 - OP Freelancer","",900,1,"FREELANCER","",0,"","",""],["d","2026-07",8,"112-9 - Moveis e Utensilios","",973.39,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",8,"410-9 - OP Outros Servicos Prestados","",80,1,"MARCOS ELETRICISTA","",0,"","",""],["d","2026-07",10,"415-8 - Outras Despesas Com Funcionarios","",60,1,"SINDIC FAST FOOD","",0,"","",""],["d","2026-07",15,"415-8 - Outras Despesas Com Funcionarios","",130,1,"SINDRESTAURANTES - SP","",0,"","",""],["d","2026-07",10,"415-8 - Outras Despesas Com Funcionarios","",165,1,"SINDIC FAST FOOD","",0,"","",""],["d","2026-07",20,"203-1 - FGTS","",979.99,1,"CEF","",0,"","",""],["d","2026-07",3,"201-6 - OP Salarios","",1705.53,1,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-07",3,"201-6 - OP Salarios","",1856.1,1,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-07",3,"201-6 - Salarios e Ordenados","",2200.34,1,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-07",3,"201-6 - OP Salarios","",1452.29,1,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-07",3,"202-0 - Rescisoes","",2212.09,1,"HENRIQUE DE OLIVEIRA GERALDO","",0,"","",""],["d","2026-07",31,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-07",20,"203-0 - INSS","",978.43,1,"RECEITA FEDERAL","",0,"","",""],["d","2026-07",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-07",6,"201-5 - Pro-Labore","",2667,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-07",13,"201-5 - Pro-Labore","",2667,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-07",20,"201-5 - Pro-Labore","",2167,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-07",6,"201-6 - OP Salarios","",2000,1,"YASSINE ORKHIS","",0,"","",""],["d","2026-07",6,"201-6 - Salarios e Ordenados","",2333.34,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",13,"201-6 - Salarios e Ordenados","",2333.33,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",20,"201-6 - Salarios e Ordenados","",2333.33,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",3,"400-0 - Custo de Embalagens","",871.92,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",3,"400-0 - Custo de Mercadorias Vendidas","",711.35,1,"EMPORIO SANTA CATARINA","",0,"","",""],["d","2026-07",3,"400-0 - Custo de Mercadorias Vendidas","",485,1,"ANAS ABO HARB","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",1080,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",1018.66,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",965,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",645.72,1,"CIANFLONE AGRO COMERCIAL LTDA","",0,"","",""],["d","2026-07",6,"201-5 - Pro-Labore","",500,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",432,1,"DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",299.8,1,"CENTER CARNES TUCURUVI","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Embalagens","",183.71,1,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-07",6,"403-9 - OP Vale Transporte","",150,1,"YASSINE ORKHIS","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",105.72,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",6,"400-0 - Custo de Mercadorias Vendidas","",105.48,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",7,"400-0 - Custo de Mercadorias Vendidas","",1597.05,1,"EMPORIO SANTA CATARINA","",0,"","",""],["d","2026-07",7,"400-0 - Custo de Mercadorias Vendidas","",724,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",7,"201-6 - OP Freelancer","",100,1,"FREELANCER","",0,"","",""],["d","2026-07",8,"400-0 - Custo de Mercadorias Vendidas","",549.5,1,"CIANFLONE AGRO COMERCIAL LTDA","",0,"","",""],["d","2026-07",2,"418-0 - Farmacia","",56.58,1,"FORNECEDORES DIVERSOS","",0,"","",""],["d","2026-07",2,"400-0 - Custo de Mercadorias Vendidas","",41.46,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",2,"Falta de Caixa","",4.91,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",3,"400-0 - Custo de Mercadorias Vendidas","",30,1,"FORNECEDORES DIVERSOS","",0,"","",""],["d","2026-07",3,"Falta de Caixa","",20,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",4,"Falta de Caixa","",46,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",6,"422-9 - Material de Escritorio","",47.9,1,"KALUNGA","",0,"","",""],["d","2026-07",6,"422-9 - Material de Escritorio","",6,1,"FORNECEDORES DIVERSOS","",0,"","",""],["d","2026-07",6,"Falta de Caixa","",39.75,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",8,"421-2 - Manutencao e Reparos","",24,1,"ELETRONICA TUCURUVI","",0,"","",""],["d","2026-07",8,"Falta de Caixa","",112.75,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",9,"421-8 - OP Fretes e carretos","",15,1,"FORNECEDORES DIVERSOS","",0,"","",""],["d","2026-07",9,"Falta de Caixa","",184,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",10,"400-0 - Custo de Mercadorias Vendidas","",107.4,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",10,"421-2 - Manutencao e Reparos","",36,1,"ELETRONICA TUCURUVI","",0,"","",""],["d","2026-07",11,"420-6 - Manut e Conservacao Predial","",17.5,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",11,"Falta de Caixa","",13,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",12,"400-0 - Custo de Mercadorias Vendidas","",4.35,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",12,"400-0 - Custo de Mercadorias Vendidas","",44,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",12,"422-9 - Material de Escritorio","",10,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-07",1,"432-0 - Juros Passivos","",44.96,1,"BANCO ITAU","",0,"","",""],["d","2026-07",2,"431-5 - Despesas Bancarias","",169,1,"BANCO ITAU","",0,"","",""],["d","2026-07",2,"430-7 - IOF","",6.65,1,"BANCO ITAU","",0,"","",""],["d","2026-07",10,"400-0 - Custo de Mercadorias Vendidas","",1350,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",10,"201-5 - Pro-Labore","",350,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-07",10,"400-0 - Custo de Mercadorias Vendidas","",150,1,"AL AMIR MERCADO","",0,"","",""],["d","2026-07",10,"431-3 - Taxas e Emolumentos","",236.35,1,"PREFEITURA MUNICIPAL DE SAO PAULO","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Embalagens","",1848.08,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",1050,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",950,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",902.85,1,"CENTER CARNES TUCURUVI","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",785,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",8,"Aluguel de POS / Outras Taxas","",107.63,1,"99 FOOD","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",240,1,"ELIAS SLEIMAN CHAIB","",0,"","",""],["d","2026-07",13,"400-0 - Custo de Mercadorias Vendidas","",117.03,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",13,"423-5 - Estacionamento","",10,1,"TUCURUVI PARKING","",0,"","",""],["d","2026-07",13,"112-9 - Moveis e Utensilios","",28.18,1,"MERCADO LIVRE","",0,"","",""],["d","2026-07",13,"421-8 - OP Fretes e carretos","",27.99,1,"UBER","",0,"","",""],["d","2026-07",14,"400-0 - Custo de Mercadorias Vendidas","",1080,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",14,"400-0 - Custo de Mercadorias Vendidas","",335.7,1,"SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A","",0,"","",""],["d","2026-07",14,"403-9 - OP Vale Transporte","",54,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-07",20,"403-9 - OP Vale Transporte","",54,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-07",27,"403-9 - OP Vale Transporte","",75.6,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-07",15,"400-0 - Custo de Mercadorias Vendidas","",190.39,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",15,"434-4 - Marketing Digital","",1800,1,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-07",15,"434-4 - Marketing Digital","",1000,1,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-07",16,"112-9 - Moveis e Utensilios","",975.46,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",16,"400-0 - Custo de Mercadorias Vendidas","",150,1,"TIAGO BATATAS E LEGUMES LTDA","",0,"","",""],["d","2026-07",16,"400-0 - Custo de Mercadorias Vendidas","",1597.05,1,"EMPORIO SANTA CATARINA","",0,"","",""],["d","2026-07",16,"400-0 - Custo de Mercadorias Vendidas","",777,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",16,"400-0 - Custo de Mercadorias Vendidas","",576,1,"FRANCISCO DAS CHAGAS NETO DOCES ARABES","",0,"","",""],["d","2026-07",14,"400-0 - Custo de Mercadorias Vendidas","",35.22,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",14,"Falta de Caixa","",19.78,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",15,"400-0 - Custo de Mercadorias Vendidas","",78.8,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",16,"400-0 - Custo de Mercadorias Vendidas","",89,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",16,"Falta de Caixa","",35,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",17,"400-0 - Custo de Mercadorias Vendidas","",65.8,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",17,"Falta de Caixa","",13.25,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",18,"400-0 - Custo de Mercadorias Vendidas","",95.9,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",19,"400-0 - Custo de Mercadorias Vendidas","",30,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",21,"400-0 - Custo de Mercadorias Vendidas","",145.3,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",22,"Falta de Caixa","",27,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",15,"431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas","",347.03,1,"99 FOOD","",0,"","",""],["d","2026-07",20,"400-0 - Custo de Mercadorias Vendidas","",1050,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",20,"201-6 - OP Salarios","",1000,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-07",27,"201-6 - OP Salarios","",1000,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-07",20,"201-6 - OP Salarios","",800,1,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-07",20,"201-6 - OP Salarios","",800,1,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-07",20,"201-6 - OP Salarios","",613.33,1,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-07",20,"201-6 - OP Salarios","",800,1,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-07",20,"201-6 - Salarios e Ordenados","",1200,1,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-07",20,"201-6 - OP Freelancer","",1046.68,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",20,"400-0 - Custo de Mercadorias Vendidas","",549.5,1,"CIANFLONE AGRO COMERCIAL LTDA","",0,"","",""],["d","2026-07",21,"400-0 - Custo de Mercadorias Vendidas","",783,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",21,"201-6 - OP Salarios","",400,1,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-07",21,"400-0 - Custo de Mercadorias Vendidas","",299.8,1,"CENTER CARNES TUCURUVI","",0,"","",""],["d","2026-07",21,"423-5 - Estacionamento","",180,1,"TUCURUVI PARKING","",0,"","",""],["d","2026-07",21,"422-9 - Material de Escritorio","",57.5,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-07",23,"Falta de Caixa","",3,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",22,"400-0 - Custo de Mercadorias Vendidas","",1080,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",24,"400-0 - Custo de Mercadorias Vendidas","",51.9,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",23,"400-0 - Custo de Mercadorias Vendidas","",750.38,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",23,"400-0 - Custo de Mercadorias Vendidas","",515,1,"ANAS ABO HARB","",0,"","",""],["d","2026-07",23,"400-0 - Custo de Mercadorias Vendidas","",352.18,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",23,"400-0 - Custo de Mercadorias Vendidas","",171.86,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",24,"434-4 - Marketing Digital","",1400,1,"AGENCIA NUMERIQUE","",0,"","",""],["d","2026-07",24,"400-0 - Custo de Mercadorias Vendidas","",300.85,1,"CENTER CARNES TUCURUVI","",0,"","",""],["d","2026-07",24,"422-0 - Uber e Taxi","",224,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-07",24,"421-8 - OP Fretes e carretos","",43.5,1,"LALAMOVE TECNOLOGIA (BRASIL) LTDA.","",0,"","",""],["d","2026-07",14,"431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação","",122.84,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-07",27,"422-9 - Material de Escritorio","",70,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-07",27,"422-9 - Material de Escritorio","",47.9,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-07",28,"Falta de Caixa","",25.95,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",27,"112-9 - Moveis e Utensilios","",1706.57,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-07",27,"400-0 - Custo de Mercadorias Vendidas","",1350,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-07",27,"400-0 - Custo de Mercadorias Vendidas","",735.5,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",27,"400-0 - Custo de Mercadorias Vendidas","",663.55,1,"CIANFLONE AGRO COMERCIAL LTDA","",0,"","",""],["d","2026-07",27,"400-0 - Custo de Mercadorias Vendidas","",131.93,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",27,"400-0 - Custo de Mercadorias Vendidas","",82.15,1,"REFRICON MERCANTIL LTDA.","",0,"","",""],["d","2026-07",27,"423-5 - Estacionamento","",10,1,"TUCURUVI PARKING","",0,"","",""],["d","2026-07",30,"400-0 - Custo de Mercadorias Vendidas","",800,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",30,"400-0 - Custo de Mercadorias Vendidas","",246.45,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-07",30,"400-0 - Custo de Mercadorias Vendidas","",240,1,"ELIAS SLEIMAN CHAIB","",0,"","",""],["d","2026-07",30,"400-0 - Custo de Mercadorias Vendidas","",157.08,1,"REFRICON MERCANTIL LTDA.","",0,"","",""],["d","2026-07",30,"421-8 - OP Fretes e carretos","",16.48,1,"UBER","",0,"","",""],["d","2026-07",31,"400-0 - Custo de Mercadorias Vendidas","",1080,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-07",31,"421-8 - OP Fretes e carretos","",50,1,"FORNECEDORES DIVERSOS","",0,"","",""],["d","2026-07",30,"112-9 - Moveis e Utensilios","",22,1,"DAISO BRASIL","",0,"","",""],["d","2026-07",30,"Falta de Caixa","",49.5,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-07",31,"400-0 - Custo de Mercadorias Vendidas","",80,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-07",31,"Falta de Caixa","",51,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-08",17,"425-6 - Contabilidade","",1750,0,"EASYCONTABIL","",0,"","",""],["d","2026-08",15,"410-5 - OP Servicos Tecnicos","",1400,0,"NUTRI MAIS","",0,"","",""],["d","2026-08",10,"420-5 - Aluguel","",25613.96,0,"GAC ANDORINHA","",0,"","",""],["d","2026-08",15,"425-5 - Consultoria","",1691.25,0,"IFINANCE","",0,"","",""],["d","2026-08",10,"415-8 - Outras Despesas Com Funcionarios","",75,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-08",15,"415-8 - Outras Despesas Com Funcionarios","",130,0,"SINDRESTAURANTES - SP","",0,"","",""],["d","2026-08",10,"415-8 - Outras Despesas Com Funcionarios","",162.51,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-08",20,"203-1 - FGTS","",913.16,0,"CEF","",0,"","",""],["d","2026-08",5,"201-6 - OP Salarios","",1560.62,1,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-08",5,"201-6 - OP Salarios","",2584.59,1,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-08",5,"201-6 - Salarios e Ordenados","",2200.43,1,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-08",5,"201-6 - OP Salarios","",875.76,1,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-08",31,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-08",20,"203-0 - INSS","",956.84,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-08",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-08",3,"201-5 - Pro-Labore","",2666.67,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-08",15,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-08",30,"201-5 - Pro-Labore","",2666.66,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-08",3,"201-6 - Salarios e Ordenados","",2333.33,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-08",20,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-08",30,"201-6 - Salarios e Ordenados","",2333.34,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",44.82,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",75.99,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",79.35,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",105.52,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",102.08,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",118.68,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",5,"Taxa de manutenção mensal Ifood","",153.22,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",2,"431-5 - Despesas Bancarias","",169,0,"BANCO ITAU","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",95.91,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",104.09,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",94.47,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",105.53,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",12,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",3,"403-9 - OP Vale Transporte","",54,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",11,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",18,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",25,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",15,"434-4 - Marketing Digital","",2800,0,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-08",3,"201-6 - OP Salarios","",1000,1,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",10,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",17,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",24,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",31,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-08",20,"201-6 - OP Salarios","",800,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-08",20,"201-6 - OP Salarios","",800,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-08",20,"201-6 - OP Salarios","",613.33,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-08",20,"201-6 - OP Salarios","",800,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-08",20,"201-6 - Salarios e Ordenados","",1200,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",89.23,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",78.6,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",82.48,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",149.69,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",23,"434-4 - Marketing Digital","",1400,0,"AGENCIA NUMERIQUE","",0,"","",""],["d","2026-08",19,"Taxa de manutenção mensal Ifood","",150,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",26,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-08",1,"400-0 - Custo de Mercadorias Vendidas","",74.14,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-08",1,"Falta de Caixa","",26.61,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",56,1,"TRIMAIS SUPERMERCADOS","",0,"","",""],["d","2026-08",3,"422-9 - Material de Escritorio","",29,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-08",3,"Falta de Caixa","",16.1,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-08",5,"422-9 - Material de Escritorio","",48,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-08",5,"422-9 - Material de Escritorio","",5.9,1,"KALUNGA","",0,"","",""],["d","2026-08",6,"Falta de Caixa","",29.9,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-08",4,"432-0 - Juros Passivos","",169,1,"BANCO ITAU","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",2875,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",1725,1,"ZANCHETTA ALIMENTOS LTDA","",0,"","",""],["d","2026-08",3,"112-9 - Moveis e Utensilios","",1455.98,1,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-08",3,"427-0 - Sistema de Gestao","",898,1,"SWFAST SISTEMAS","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",800,1,"ANAS ABO HARB","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",645.72,1,"CIANFLONE AGRO COMERCIAL LTDA","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",299.8,1,"CENTER CARNES TUCURUVI","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Embalagens","",628.79,1,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-08",3,"400-0 - Custo de Mercadorias Vendidas","",211.74,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-08",3,"201-6 - OP Freelancer","",150,1,"FREELANCER","",0,"","",""],["d","2026-08",3,"415-8 - Outras Despesas Com Funcionarios","",50,1,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-08",4,"201-6 - OP Freelancer","",160,1,"FREELANCER","",0,"","",""],["d","2026-08",4,"201-6 - OP Freelancer","",150,1,"FREELANCER","",0,"","",""],["d","2026-08",5,"400-0 - Custo de Mercadorias Vendidas","",2875,1,"SARMAD MAHMOOD MOHAMMED AL","",0,"","",""],["d","2026-08",5,"400-0 - Custo de Embalagens","",1964.93,1,"BRASPEL EMBALAGENS","",0,"","",""],["d","2026-08",5,"201-6 - OP Salarios","",1695.95,1,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-08",5,"427-0 - Sistema de Gestao","",1000,1,"TAKEAT.APP - GARCOM DIGITAL","",0,"","",""],["d","2026-08",5,"418-3 - Curso e Treinamento","",625,1,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-08",5,"400-0 - Custo de Mercadorias Vendidas","",302.65,1,"CENTER CARNES TUCURUVI","",0,"","",""],["d","2026-08",5,"400-0 - Custo de Mercadorias Vendidas","",132.73,1,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-08",5,"400-0 - Custo de Mercadorias Vendidas","",82.15,1,"REFRICON MERCANTIL LTDA.","",0,"","",""],["d","2026-08",5,"201-6 - OP Freelancer","",80,1,"FREELANCER","",0,"","",""],["d","2026-08",7,"422-9 - Material de Escritorio","",7.5,1,"MART DIGITAL - JULIANA","",0,"","",""],["d","2026-08",7,"400-0 - Custo de Embalagens","",25.9,1,"KALUNGA","",0,"","",""],["d","2026-08",7,"Falta de Caixa","",41.1,1,"VENDAS DINHEIRO","",0,"","",""],["d","2026-08",10,"400-0 - Custo de Embalagens","",633.38,0,"WAN SAN COMERCIAL LTDA","",0,"","",""],["d","2026-08",10,"400-0 - Custo de Mercadorias Vendidas","",933.15,0,"EMPORIO SANTA CATARINA","",0,"","",""],["d","2026-08",10,"400-0 - Custo de Mercadorias Vendidas","",151.27,0,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-08",11,"400-0 - Custo de Mercadorias Vendidas","",78.54,0,"REFRICON MERCANTIL LTDA.","",0,"","",""],["d","2026-08",13,"400-0 - Custo de Mercadorias Vendidas","",157.08,0,"REFRICON MERCANTIL LTDA.","",0,"","",""],["d","2026-08",14,"400-0 - Custo de Embalagens","",288.55,0,"BRASPEL SP EMBALAGENS","",0,"","",""],["d","2026-08",14,"400-0 - Custo de Mercadorias Vendidas","",157.08,0,"REFRICON MERCANTIL LTDA.","",0,"","",""],["d","2026-08",14,"400-0 - Custo de Mercadorias Vendidas","",251.12,0,"FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.","",0,"","",""],["d","2026-08",15,"400-0 - Custo de Mercadorias Vendidas","",567,0,"DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA","",0,"","",""],["d","2026-08",17,"400-0 - Custo de Mercadorias Vendidas","",540,0,"CLEANPAPEIS","",0,"","",""],["d","2026-09",29,"425-6 - Contabilidade","",1750,0,"EASYCONTABIL","",0,"","",""],["d","2026-09",15,"410-5 - OP Servicos Tecnicos","",1400,0,"NUTRI MAIS","",0,"","",""],["d","2026-09",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-09",15,"425-5 - Consultoria","",1691.25,0,"IFINANCE","",0,"","",""],["d","2026-09",10,"415-8 - Outras Despesas Com Funcionarios","",60,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-09",15,"415-8 - Outras Despesas Com Funcionarios","",130,0,"SINDRESTAURANTES - SP","",0,"","",""],["d","2026-09",10,"415-8 - Outras Despesas Com Funcionarios","",165,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-09",20,"203-1 - FGTS","",913.16,0,"CEF","",0,"","",""],["d","2026-09",5,"201-6 - OP Salarios","",1705.53,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-09",5,"201-6 - OP Salarios","",1856.1,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-09",5,"201-6 - Salarios e Ordenados","",2200.34,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-09",5,"201-6 - OP Salarios","",1452.29,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-09",30,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-09",20,"203-0 - INSS","",956.84,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-09",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-09",5,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-09",15,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-09",30,"201-5 - Pro-Labore","",2666.66,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-09",15,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-09",20,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-09",30,"201-6 - Salarios e Ordenados","",2333.34,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-09",2,"431-5 - Despesas Bancarias","",169,0,"BANCO ITAU","",0,"","",""],["d","2026-09",1,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",8,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",15,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",22,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",29,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",15,"434-4 - Marketing Digital","",2800,0,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-09",7,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",14,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",21,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",28,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-09",20,"201-6 - OP Salarios","",800,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-09",20,"201-6 - OP Salarios","",800,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-09",20,"201-6 - OP Salarios","",613.33,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-09",20,"201-6 - OP Salarios","",800,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-09",20,"201-6 - Salarios e Ordenados","",1200,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-09",23,"434-4 - Marketing Digital","",1400,0,"AGENCIA NUMERIQUE","",0,"","",""],["d","2026-09",5,"201-6 - OP Salarios","",1695.95,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-09",6,"427-0 - Sistema de Gestao","",890,0,"TAKEAT.APP - GARCOM DIGITAL","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-09",2,"Taxa de manutenção mensal Ifood","",100,1,"IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA","",0,"","",""],["d","2026-10",29,"425-6 - Contabilidade","",1750,0,"EASYCONTABIL","",0,"","",""],["d","2026-10",15,"410-5 - OP Servicos Tecnicos","",1400,0,"NUTRI MAIS","",0,"","",""],["d","2026-10",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-10",15,"425-5 - Consultoria","",1691.25,0,"IFINANCE","",0,"","",""],["d","2026-10",10,"415-8 - Outras Despesas Com Funcionarios","",60,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-10",15,"415-8 - Outras Despesas Com Funcionarios","",130,0,"SINDRESTAURANTES - SP","",0,"","",""],["d","2026-10",10,"415-8 - Outras Despesas Com Funcionarios","",165,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-10",20,"203-1 - FGTS","",913.16,0,"CEF","",0,"","",""],["d","2026-10",5,"201-6 - Salarios e Ordenados","",1705.53,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-10",5,"201-6 - Salarios e Ordenados","",1856.1,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-10",5,"201-6 - Salarios e Ordenados","",2200.34,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-10",5,"201-6 - Salarios e Ordenados","",1452.29,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-10",31,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-10",20,"203-0 - INSS","",956.84,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-10",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-10",5,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-10",15,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-10",31,"201-5 - Pro-Labore","",2666.66,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-10",15,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-10",20,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-10",31,"201-6 - Salarios e Ordenados","",2333.34,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-10",2,"431-5 - Despesas Bancarias","",169,0,"BANCO ITAU","",0,"","",""],["d","2026-10",6,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",13,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",20,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",27,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",15,"434-4 - Marketing Digital","",2800,0,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-10",5,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",12,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",19,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",26,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-10",20,"201-6 - OP Salarios","",800,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-10",20,"201-6 - OP Salarios","",800,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-10",20,"201-6 - OP Salarios","",613.33,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-10",20,"201-6 - OP Salarios","",800,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-10",20,"201-6 - Salarios e Ordenados","",1200,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-10",23,"434-4 - Marketing Digital","",1400,0,"AGENCIA NUMERIQUE","",0,"","",""],["d","2026-10",5,"201-6 - OP Salarios","",1695.95,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-10",6,"427-0 - Sistema de Gestao","",890,0,"TAKEAT.APP - GARCOM DIGITAL","",0,"","",""],["d","2026-10",5,"418-3 - Curso e Treinamento","",625,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-11",29,"425-6 - Contabilidade","",1750,0,"EASYCONTABIL","",0,"","",""],["d","2026-11",15,"410-5 - OP Servicos Tecnicos","",1400,0,"NUTRI MAIS","",0,"","",""],["d","2026-11",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-11",15,"425-5 - Consultoria","",1691.25,0,"IFINANCE","",0,"","",""],["d","2026-11",10,"415-8 - Outras Despesas Com Funcionarios","",60,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-11",15,"415-8 - Outras Despesas Com Funcionarios","",130,0,"SINDRESTAURANTES - SP","",0,"","",""],["d","2026-11",10,"415-8 - Outras Despesas Com Funcionarios","",165,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-11",20,"203-1 - FGTS","",913.16,0,"CEF","",0,"","",""],["d","2026-11",5,"201-6 - Salarios e Ordenados","",1705.53,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-11",5,"201-6 - Salarios e Ordenados","",1856.1,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-11",5,"201-6 - Salarios e Ordenados","",2200.34,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-11",5,"201-6 - Salarios e Ordenados","",1452.29,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-11",30,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-11",20,"203-0 - INSS","",956.84,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-11",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-11",5,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-11",15,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-11",30,"201-5 - Pro-Labore","",2666.66,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-11",15,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-11",20,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-11",30,"201-6 - Salarios e Ordenados","",2333.34,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-11",2,"431-5 - Despesas Bancarias","",169,0,"BANCO ITAU","",0,"","",""],["d","2026-11",3,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",10,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",17,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",24,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",15,"434-4 - Marketing Digital","",2800,0,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-11",2,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",9,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",16,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",23,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",30,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-11",20,"201-6 - OP Salarios","",800,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-11",20,"201-6 - OP Salarios","",800,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-11",20,"201-6 - OP Salarios","",613.33,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-11",20,"201-6 - OP Salarios","",800,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-11",20,"201-6 - Salarios e Ordenados","",1200,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-11",23,"434-4 - Marketing Digital","",1400,0,"AGENCIA NUMERIQUE","",0,"","",""],["d","2026-11",5,"201-6 - OP Salarios","",1695.95,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-11",6,"427-0 - Sistema de Gestao","",890,0,"TAKEAT.APP - GARCOM DIGITAL","",0,"","",""],["d","2026-11",5,"418-3 - Curso e Treinamento","",625,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-12",29,"425-6 - Contabilidade","",1750,0,"EASYCONTABIL","",0,"","",""],["d","2026-12",15,"410-5 - OP Servicos Tecnicos","",1400,0,"NUTRI MAIS","",0,"","",""],["d","2026-12",10,"420-5 - Aluguel","",12549,0,"GAC ANDORINHA","",0,"","",""],["d","2026-12",15,"425-5 - Consultoria","",1691.25,0,"IFINANCE","",0,"","",""],["d","2026-12",10,"415-8 - Outras Despesas Com Funcionarios","",60,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-12",15,"415-8 - Outras Despesas Com Funcionarios","",130,0,"SINDRESTAURANTES - SP","",0,"","",""],["d","2026-12",10,"415-8 - Outras Despesas Com Funcionarios","",165,0,"SINDIC FAST FOOD","",0,"","",""],["d","2026-12",20,"203-1 - FGTS","",913.16,0,"CEF","",0,"","",""],["d","2026-12",5,"201-6 - Salarios e Ordenados","",1705.53,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-12",5,"201-6 - Salarios e Ordenados","",1856.1,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-12",5,"201-6 - Salarios e Ordenados","",2200.34,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-12",5,"201-6 - Salarios e Ordenados","",1452.29,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-12",31,"112-5 - Maquinas e Equipamentos","",1100,0,"KOA","",0,"","",""],["d","2026-12",20,"203-0 - INSS","",956.84,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-12",20,"205-2 - Simples Nacional","",3880.62,0,"RECEITA FEDERAL","",0,"","",""],["d","2026-12",5,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-12",15,"201-5 - Pro-Labore","",2666.67,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-12",31,"201-5 - Pro-Labore","",2666.66,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""],["d","2026-12",15,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-12",20,"201-6 - Salarios e Ordenados","",2333.33,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-12",31,"201-6 - Salarios e Ordenados","",2333.34,0,"BRUNO EDUARDO PAULIMO DA SILVA","",0,"","",""],["d","2026-12",2,"431-5 - Despesas Bancarias","",169,0,"BANCO ITAU","",0,"","",""],["d","2026-12",1,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",8,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",15,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",22,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",29,"403-9 - OP Vale Transporte","",54,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",15,"434-4 - Marketing Digital","",2800,0,"BRUNO CAMILLO MENDES","",0,"","",""],["d","2026-12",7,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",14,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",21,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",28,"201-6 - OP Salarios","",1000,0,"Jean Malak Abdelsayed Farag Abdelsayed","",0,"","",""],["d","2026-12",20,"201-6 - OP Salarios","",800,0,"NICOLAS LUIZ RODRIGUES SANTOS","",0,"","",""],["d","2026-12",20,"201-6 - OP Salarios","",800,0,"LUCAS WILLIANS GONCALVES DO AMARAL","",0,"","",""],["d","2026-12",20,"201-6 - OP Salarios","",613.33,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-12",20,"201-6 - OP Salarios","",800,0,"GIOVANNA FERNANDES DOS SANTOS","",0,"","",""],["d","2026-12",20,"201-6 - Salarios e Ordenados","",1200,0,"LUCILENE MARTINS DE ARAUJO","",0,"","",""],["d","2026-12",23,"434-4 - Marketing Digital","",1400,0,"AGENCIA NUMERIQUE","",0,"","",""],["d","2026-12",5,"201-6 - OP Salarios","",1695.95,0,"GIULIA VERONEZ MARQUES BARROS","",0,"","",""],["d","2026-12",6,"427-0 - Sistema de Gestao","",890,0,"TAKEAT.APP - GARCOM DIGITAL","",0,"","",""],["d","2026-12",5,"418-3 - Curso e Treinamento","",625,0,"SABINE MOHAMAD EL HAJJ SLEIMAN","",0,"","",""]];
+
+const REF_YEAR = 2026;
+const AVAILABLE_YEARS = [2026];
+
+// aggregateTx: recomputa MONTH_DATA, KPIS, top categorias/clientes/fornecedores
+// e EXTRATO a partir de uma lista filtrada de transacoes. Chamada pelas Pages
+// quando drilldown ou statusFilter estao ativos.
+function aggregateTx(txList, year) {
+  year = year || REF_YEAR;
+  const months = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+  const MONTH_DATA = months.map(m => ({ m, receita: 0, despesa: 0 }));
+  const recCat = new Map(), despCat = new Map();
+  const recCli = new Map(), despForn = new Map();
+  const extratoArr = [];
+  const extratoRecArr = [], extratoDespArr = [];
+  let totalReceita = 0, totalDespesa = 0;
+
+  for (const row of txList) {
+    const [kind, mes, dia, categoria, cliente, valor, realizado, fornecedor, cc] = row;
+    if (!mes) continue;
+    const ymonth = mes.slice(0,4);
+    if (Number(ymonth) !== year) continue;
+    const mIdx = parseInt(mes.slice(5,7), 10) - 1;
+    if (mIdx < 0 || mIdx > 11) continue;
+    if (kind === 'r') {
+      MONTH_DATA[mIdx].receita += valor;
+      totalReceita += valor;
+      recCat.set(categoria, (recCat.get(categoria) || 0) + valor);
+      if (cliente) recCli.set(cliente, (recCli.get(cliente) || 0) + valor);
+    } else {
+      MONTH_DATA[mIdx].despesa += valor;
+      totalDespesa += valor;
+      despCat.set(categoria, (despCat.get(categoria) || 0) + valor);
+      if (fornecedor) despForn.set(fornecedor, (despForn.get(fornecedor) || 0) + valor);
+    }
+    // Extrato compacto pra tabela (renomeado pra extRow porque outer for já usa 'row')
+    const dataStr = String(dia).padStart(2,'0') + '/' + mes.slice(5,7) + '/' + mes.slice(0,4);
+    const extRow = [dataStr, cc || 'Operações', categoria, kind === 'r' ? cliente : fornecedor, kind === 'r' ? valor : -valor, realizado ? 'PAGO' : ''];
+    extratoArr.push(extRow);
+    if (kind === 'r') extratoRecArr.push(extRow); else extratoDespArr.push(extRow);
+  }
+
+  // sort por data desc (string DD/MM/YYYY → Date) — aplica nos 3 arrays
+  const sortByDateDesc = (a, b) => {
+    const [da,ma,ya] = a[0].split('/').map(Number);
+    const [db,mb,yb] = b[0].split('/').map(Number);
+    return new Date(yb,mb-1,db) - new Date(ya,ma-1,da);
+  };
+  extratoArr.sort(sortByDateDesc);
+  extratoRecArr.sort(sortByDateDesc);
+  extratoDespArr.sort(sortByDateDesc);
+
+  const topN = (mp, n) => Array.from(mp.entries()).map(([name,value]) => ({name,value})).sort((a,b)=>b.value-a.value).slice(0,n);
+  const VALOR_LIQUIDO = totalReceita - totalDespesa;
+  const MARGEM_LIQUIDA = totalReceita > 0 ? (VALOR_LIQUIDO / totalReceita) * 100 : 0;
+
+  return {
+    MONTH_DATA,
+    RECEITA_CATEGORIAS: topN(recCat, 12),
+    DESPESA_CATEGORIAS: topN(despCat, 12),
+    RECEITA_CLIENTES: topN(recCli, 12),
+    DESPESA_FORNECEDORES: topN(despForn, 12),
+    TOTAL_CLIENTES: recCli.size,
+    TOTAL_FORNECEDORES: despForn.size,
+    EXTRATO: extratoArr.slice(0, 200),
+    EXTRATO_RECEITAS: extratoRecArr.slice(0, 200),
+    EXTRATO_DESPESAS: extratoDespArr.slice(0, 200),
+    KPIS: {
+      TOTAL_RECEITA: totalReceita,
+      TOTAL_DESPESA: totalDespesa,
+      VALOR_LIQUIDO,
+      MARGEM_LIQUIDA,
+      VALOR_LIQ_SERIES: MONTH_DATA.map(m => m.receita - m.despesa),
+    },
+  };
+}
+
+// applyDrilldown: filtra ALL_TX baseado em statusFilter + drilldown.
+// statusFilter: 'realizado' | 'a_pagar_receber' | 'tudo'
+// drilldown: null | { type: 'mes'|'categoria'|'cliente'|'fornecedor', value: ... }
+function filterTx(allTx, statusFilter, drilldown) {
+  let out = allTx;
+  if (statusFilter === 'realizado') out = out.filter(r => r[6] === 1);
+  else if (statusFilter === 'a_pagar_receber') out = out.filter(r => r[6] === 0);
+  if (drilldown) {
+    if (drilldown.type === 'mes') out = out.filter(r => r[1] === drilldown.value);
+    else if (drilldown.type === 'categoria') out = out.filter(r => r[3] === drilldown.value);
+    else if (drilldown.type === 'cliente') out = out.filter(r => r[0] === 'r' && r[4] === drilldown.value);
+    else if (drilldown.type === 'fornecedor') out = out.filter(r => r[0] === 'd' && r[7] === drilldown.value);
+    else if (drilldown.type === 'dia') out = out.filter(r => r[2] === drilldown.value);
+  }
+  return out;
+}
+function filterTxSemInv(out) { return out.filter(r => !r[9]); }
+
+// Sintetiza um BIT "flat" baseado no filtro escolhido (window.BIT_FILTER).
+// Default: 'realizado' (PAGO).
+function _makeBit(filter) {
+  const seg = SEGMENTS[filter] || SEGMENTS.realizado;
+  const K = seg.KPIS;
+  const indicadores = {
+    TOTAL_RECEITA: K.TOTAL_RECEITA,
+    TOTAL_DESPESA: K.TOTAL_DESPESA,
+    VALOR_LIQUIDO: K.VALOR_LIQUIDO,
+    MARGEM_LIQUIDA: K.MARGEM_LIQUIDA,
+    IMPOSTOS: 0,
+    EBITDA: K.VALOR_LIQUIDO,
+    RESULTADO_OPERACIONAL: K.VALOR_LIQUIDO,
+    CAPEX: 0,
+    MARGEM_CONTRIB: K.MARGEM_LIQUIDA,
+    EBITDA_PCT: K.MARGEM_LIQUIDA,
+    IMPOSTOS_PCT: 0,
+  };
+  return Object.assign({
+    META, POSICAO_CAIXA, COMPOSICAO_DESPESA,
+    MONTHS, MONTHS_FULL, fmt, fmtK, fmtPct,
+    SEGMENTS,
+    MONTH_DATA: seg.MONTH_DATA,
+    RECEITA_CATEGORIAS: seg.RECEITA_CATEGORIAS,
+    DESPESA_CATEGORIAS: seg.DESPESA_CATEGORIAS,
+    RECEITA_CLIENTES: seg.RECEITA_CLIENTES,
+    DESPESA_FORNECEDORES: seg.DESPESA_FORNECEDORES,
+    TOTAL_CLIENTES: seg.TOTAL_CLIENTES,
+    TOTAL_FORNECEDORES: seg.TOTAL_FORNECEDORES,
+    EXTRATO: seg.EXTRATO,
+    DIAS: Array.from({ length: 31 }, (_, i) => i + 1),
+    RECEITA_DIA: seg.RECEITA_DIA,
+    DESPESA_DIA: seg.DESPESA_DIA,
+    SALDOS_MES: seg.SALDOS_MES,
+    VALOR_LIQ_SERIES: K.VALOR_LIQ_SERIES,
+    FLUXO_RECEITA: seg.FLUXO_RECEITA,
+    FLUXO_DESPESA: seg.FLUXO_DESPESA,
+    COMP_DATA: seg.COMP_DATA,
+    RECDESP_AREA: seg.MONTH_DATA.map(m => ({ m: m.m.slice(0,3), receita: m.receita, despesa: m.despesa })),
+  }, indicadores);
+}
+
+window.BIT = _makeBit(window.BIT_FILTER || 'realizado');
+window._makeBit = _makeBit;
+window.BIT_SEGMENTS = SEGMENTS;
+window.BIT_META = META;
+window.ALL_TX = ALL_TX;
+window.REF_YEAR = REF_YEAR;
+window.AVAILABLE_YEARS = AVAILABLE_YEARS;
+window.aggregateTx = aggregateTx;
+window.filterTx = filterTx;
+// Listas únicas de natureza DRE e categoria extraídas de ALL_TX
+window.ALL_NATUREZAS = (function () {
+  const s = new Set();
+  for (const r of ALL_TX) { if (r[8]) s.add(r[8]); }
+  return Array.from(s).sort();
+})();
+window.ALL_CATEGORIAS = (function () {
+  const s = new Set();
+  for (const r of ALL_TX) { if (r[3]) s.add(r[3]); }
+  return Array.from(s).sort();
+})();
+window.ALL_EMPRESAS = (function () {
+  const s = new Set();
+  for (const r of ALL_TX) { if (r[11]) s.add(r[11]); }
+  return Array.from(s).sort();
+})();
+window.ALL_PROJETOS = [];
+window.FLUXO_PROJETADO = {"totais":[],"contas":[],"rows":[],"updatedAt":null,"error":"execute fetch-saldos.cjs to generate"};
+window.BI_CMV = {"anos":[],"anoRef":2026,"porAno":{}};
+// getBit: SEMPRE recomputa via recomputeBit (sem cache de window.BIT).
+// Evita lag no toggle Previsto/Realizado e suporta year/month arbitrario.
+// month: 0 = ano completo, 1-12 = mes especifico.
+window.getBit = function (statusFilter, drilldown, year, month, semInv, extraFilters) {
+  const sf = statusFilter || window.BIT_FILTER || 'realizado';
+  const y = year || window.REF_YEAR;
+  let dd = drilldown;
+  if (!dd && month && month >= 1 && month <= 12) {
+    const mm = String(month).padStart(2, '0');
+    const ym = y + '-' + mm;
+    dd = { type: 'mes', value: ym, label: ym };
+  }
+  return window.recomputeBit(sf, dd, y, semInv, extraFilters);
+};
+// Cross-filter helper: combina statusFilter + drilldown + semInv + extraFilters e retorna BIT-like
+// com KPIs/charts/extrato recalculados em ~10ms (17k rows).
+// extraFilters: { centroCusto: string[], categoria: string[], empresa: string[] } — arrays vazios = sem filtro
+window.recomputeBit = function (statusFilter, drilldown, year, semInv, extraFilters) {
+  let filtered = filterTx(ALL_TX, statusFilter, drilldown);
+  if (semInv) filtered = filterTxSemInv(filtered);
+  if (extraFilters) {
+    const cc = extraFilters.centroCusto;
+    const cat = extraFilters.categoria;
+    const emp = extraFilters.empresa;
+    if (cc && cc.length > 0) {
+      const ccSet = new Set(cc);
+      filtered = filtered.filter(r => ccSet.has(r[8] || ''));
+    }
+    if (cat && cat.length > 0) {
+      const catSet = new Set(cat);
+      filtered = filtered.filter(r => catSet.has(r[3]));
+    }
+    if (emp && emp.length > 0) {
+      const empSet = new Set(emp);
+      filtered = filtered.filter(r => empSet.has(r[11] || ''));
+    }
+  }
+  const agg = aggregateTx(filtered, year || REF_YEAR);
+  // Mescla com BIT base pra preservar META, helpers (fmt, fmtK), MONTHS etc.
+  const base = window.BIT || {};
+  return Object.assign({}, base, agg, {
+    TOTAL_RECEITA: agg.KPIS.TOTAL_RECEITA,
+    TOTAL_DESPESA: agg.KPIS.TOTAL_DESPESA,
+    VALOR_LIQUIDO: agg.KPIS.VALOR_LIQUIDO,
+    MARGEM_LIQUIDA: agg.KPIS.MARGEM_LIQUIDA,
+  });
+};
+// computePE: indicadores de Ponto de Equilibrio (break-even) sob o MESMO contexto
+// de filtro do resto da Visao Geral (statusFilter + drilldown + ano/mes + semInv),
+// pra a receita aqui bater com BIT.TOTAL_RECEITA. Espelha o DAX do cliente:
+//   Margem de Contribuicao % = (Receita - Custos Variaveis) / Receita
+//   Ponto de Equilibrio      = Custos Fixos / Margem de Contribuicao %
+//   Margem de Seguranca %     = (Receita - Ponto de Equilibrio) / Receita
+// Custos Fixos/Variaveis sao classificados em build-data via categoria_superior (row[10]).
+window.computePE = function (statusFilter, drilldown, year, month, semInv, extraFilters) {
+  const sf = statusFilter || window.BIT_FILTER || 'realizado';
+  const y = year || window.REF_YEAR;
+  let dd = drilldown;
+  if (!dd && month && month >= 1 && month <= 12) {
+    const mm = String(month).padStart(2, '0');
+    dd = { type: 'mes', value: y + '-' + mm, label: y + '-' + mm };
+  }
+  let filtered = filterTx(ALL_TX, sf, dd);
+  if (semInv) filtered = filterTxSemInv(filtered);
+  if (extraFilters) {
+    const cc = extraFilters.centroCusto;
+    const cat = extraFilters.categoria;
+    const emp = extraFilters.empresa;
+    if (cc && cc.length > 0) { const s = new Set(cc); filtered = filtered.filter(r => s.has(r[8] || '')); }
+    if (cat && cat.length > 0) { const s = new Set(cat); filtered = filtered.filter(r => s.has(r[3])); }
+    if (emp && emp.length > 0) { const s = new Set(emp); filtered = filtered.filter(r => s.has(r[11] || '')); }
+  }
+  let receita = 0, custosFixos = 0, custosVariaveis = 0;
+  for (let i = 0; i < filtered.length; i++) {
+    const row = filtered[i];
+    if (!row[1] || Number(row[1].slice(0, 4)) !== y) continue;
+    if (row[0] === 'r') { receita += row[5]; continue; }
+    if (row[10] === 'F') custosFixos += row[5];
+    else if (row[10] === 'V') custosVariaveis += row[5];
+  }
+  const margemContrib = receita > 0 ? (receita - custosVariaveis) / receita : null;
+  const pontoEquilibrio = (margemContrib != null && margemContrib > 0) ? custosFixos / margemContrib : null;
+  const margemSeguranca = (pontoEquilibrio != null && receita > 0) ? (receita - pontoEquilibrio) / receita : null;
+  return {
+    receita: receita,
+    custosFixos: custosFixos,
+    custosVariaveis: custosVariaveis,
+    margemContrib: margemContrib,
+    pontoEquilibrio: pontoEquilibrio,
+    margemSeguranca: margemSeguranca,
+  };
+};
+
+window.BI_REPORTS = {"report-2026-07.json":{"generated_at":"2026-08-10T19:38:32.004Z","empresa":"MR SHAWARMA FOOD LTDA","periodo":"Julho/2026","year":2026,"month":7,"filter":"realizado","secoes":{"visao_geral":{"title":"Visão Geral","analysis":"A MR SHAWARMA FOOD LTDA apresentou sua primeira movimentação financeira em julho de 2026 após seis meses de inatividade operacional. O período registrou receita total de R$ 12.756,42, com a maior parte proveniente do repasse de cupom Ifood no valor de R$ 6.172,05, representando aproximadamente 48,4% da receita. As vendas por delivery contribuíram com R$ 2.433,78, enquanto vendas de mercadorias totalizaram R$ 1.719,40. Contudo, as despesas totalizaram R$ 100.169,63, gerando um resultado líquido negativo de R$ 87.413,21 com margem líquida de -685,25%. Os principais gastos concentraram-se no custo de mercadorias vendidas com R$ 38.753,99, seguido por despesas com salários e operações que somaram R$ 22.827,59, além de R$ 4.200,00 investidos em marketing digital.\n\nA situação financeira da empresa revela desafios críticos que demandam atenção imediata. O resultado extremamente negativo em julho reflete um descompasso significativo entre receitas operacionais e despesas, sugerindo que julho pode ter sido um mês de implantação ou reorganização com custos iniciais elevados. Com pendências a pagar de R$ 25.718,64 e nenhuma receita projetada para os meses subsequentes conforme os dados apresentados, existe risco substancial de liquidez. A ausência total de movimentação entre janeiro e junho levanta questionamentos sobre a regularidade operacional da empresa. É essencial investigar se julho representa um padrão sustentável ou uma anomalia, especialmente considerando se as despesas foram custos pontuais de abertura ou se representam despesas recorrentes mensais que devem ser equilibradas por receitas significativamente maiores.","error":null},"receita":{"title":"Receita","analysis":"ANÁLISE EXECUTIVA - RECEITA\n\nA MR Shawarma Food LTDA registrou receita total realizada de R$ 12.756,42 no mês de julho de 2026, sendo este o primeiro mês operacional com movimentação financeira registrada. A estrutura de receita demonstra diversificação de canais de venda, sendo a plataforma Ifood o principal gerador de faturamento com R$ 6.172,05, representando 48,38% da receita total. As vendas por delivery somam R$ 2.433,78 (19,08%), seguidas pelas vendas de mercadorias em R$ 1.719,40 (13,48%) e pelas transações com débito e crédito em R$ 1.641,95 (12,87%). Os canais de pagamento em dinheiro e por vouchers contribuem respectivamente com R$ 1.929,70 e R$ 438,63, completando a composição das principais fontes de receita. Não há receitas a receber em aberto, indicando que todos os valores capturados até o momento foram efetivamente realizados.\n\nApesar da diversificação de canais de receita, a empresa apresenta um cenário de operação muito recente e com volume ainda incipiente. A dependência de 48% da receita em uma única fonte, a plataforma Ifood, configura uma concentração de receita que demanda atenção estratégica, especialmente considerando potenciais variações em comissões ou políticas da plataforma. A ausência de movimento nos meses anteriores a julho sugere que a operação iniciou neste período, o que requer análise contínua de estabilidade e crescimento. Recomenda-se acompanhar closely a evolução mensal das receitas, particularmente o desempenho das vendas diretas em relação às vendas intermediadas por plataformas, buscando equilibrar a matriz de receita e reduzir riscos de dependência excessiva de parceiros terceirizados.","error":null},"despesa":{"title":"Despesa","analysis":"# Análise Executiva - Despesa MR SHAWARMA FOOD LTDA (Julho/2026)\n\nO mês de julho registrou despesa total realizada de R$ 100.169,63, concentrando a totalidade das movimentações financeiras do período de análise, sendo que nenhum registro de despesa foi contabilizado entre janeiro e junho ou nos meses subsequentes até dezembro. A estrutura de custos revela uma composição típica de operação de food service, sendo liderada pela categoria Custo de Mercadorias Vendidas em R$ 38.753,99, representando 41,61% do total, seguida pelas despesas com pessoal que somam R$ 31.178,59 quando se agregam Salários (R$ 12.427,25), Salários e Ordenados (R$ 10.400,34) e Pro-Labore (R$ 8.351,00), totalizando 33,48% das despesas. As demais categorias distribuem-se entre Marketing Digital (R$ 4.200,00), Embalagens (R$ 3.860,97), Móveis e Utensílios (R$ 3.705,60) e Serviços Contábeis (R$ 3.500,00), completando a estrutura operacional do negócio.\n\nA análise aponta questões críticas que requerem atenção gerencial imediata. A concentração de toda movimentação em um único mês sugere possível acúmulo de registros ou procedimento atípico de contabilização que demanda investigação, especialmente considerando que despesas ainda a pagar totalizam R$ 25.718,64, sinalizando passivos não contabilizados no período realizado. Adicionalmente, a base de fornecedores apresenta elevada concentração, com Bruno Eduardo Paulimo da Silva representando R$ 15.792,94 (15,76% do total) e os cinco principais fornecedores concentrando R$ 48.787,35 (48,73% das despesas), criando dependência operacional e risco de interrupção de suprimentos. Recomenda-se revisão imediata da política de desembolsos, diversificação da base fornecedora e reconciliação das despesas ainda a pagar para assegurar acurácia do fluxo de caixa projetado.","error":null},"fluxo_caixa":{"title":"Fluxo de Caixa","analysis":"ANÁLISE EXECUTIVA - FLUXO DE CAIXA\n\nO fluxo de caixa de julho de 2026 apresenta uma situação crítica para a MR SHAWARMA FOOD LTDA, com um resultado líquido negativo de R$ 87.413,21. A receita total registrada foi de apenas R$ 12.756,42, enquanto as despesas alcançaram R$ 100.169,63, gerando uma margem líquida alarmante de menos 685,25%. Este desempenho indica uma desconexão severa entre a geração de receitas e a estrutura de custos operacionais, onde as despesas são aproximadamente 7,85 vezes superiores às receitas do período. A concentração de toda a atividade financeira em um único mês, com registros zerados para todos os demais períodos, sugere possíveis questões na estrutura de dados contábil ou operacional da empresa.\n\nAs inconsistências observadas no relatório demandam investigação imediata, particularmente a divergência entre o valor líquido mensal de julho (negativo em R$ 87.413,21) e o saldo acumulado que permanece zerado durante todo o ano. Esta anomalia indica possível erro na consolidação dos dados ou na metodologia de apuração do caixa, comprometendo a confiabilidade da análise. Simultaneamente, a margem operacional negativa de 685% representa um risco existencial, sinalizando que a empresa está operando com estrutura de custos insustentável ou enfrentando um período atípico que não reflete a normalidade operacional. Recomenda-se urgentemente uma auditoria contábil completa, verificação de todas as transações de julho e uma revisão profunda dos processos de registro financeiro antes de qualquer decisão estratégica baseada nestes números.","error":null},"tesouraria":{"title":"Tesouraria","analysis":"# Análise Executiva - Tesouraria - Julho/2026\n\nA posição de caixa da MR SHAWARMA FOOD LTDA em julho de 2026 apresenta um cenário de fluxo financeiro negativo significativo. Durante o período, a empresa recebeu R$ 12.756,42 em pagamentos, enquanto desembolsou R$ 100.169,63, gerando um déficit operacional de R$ 87.413,21. Complementarmente, existe um passivo pendente de R$ 25.718,64 a ser pago, indicando que as obrigações contraídas ainda não foram liquidadas. A ausência de saldo acumulado positivo em todo o período analisado demonstra que a empresa operou em regime de caixa zerado mês a mês, consumindo integralmente seus recebimentos para cobrir despesas operacionais.\n\nA situação requer atenção imediata ao fluxo de caixa, visto que a diferença entre contas a receber e a pagar apresenta um gap de menos R$ 25.718,64, sinalizando dependência de novos ingressos para honrar compromissos já assumidos. A relação entre recebimentos (R$ 12.756,42) e pagamentos (R$ 100.169,63) revela uma desproporcionalidade crítica, com saídas aproximadamente sete vezes superiores às entradas. Este padrão sugere tanto desafios na conversão de vendas em recebimentos quanto a necessidade de revisão urgente da estrutura de custos operacionais e prazos de pagamento com fornecedores para evitar comprometimento da liquidez e possíveis atrasos nos pagamentos de obrigações futuras.","error":null},"comparativo":{"title":"Comparativo","analysis":"# ANÁLISE EXECUTIVA - SEÇÃO COMPARATIVO\n\nA análise comparativa entre o primeiro trimestre e o segundo trimestre de 2026 apresenta uma limitação crítica para avaliação: todos os registros de receita, despesa e valor líquido retornam valores zerados, impossibilitando qualquer comparação meaningful entre os períodos. Tanto no trimestre 1 (janeiro a março) quanto no trimestre 2 (abril a junho), os dados consolidados demonstram ausência total de movimento financeiro registrado, com diferenças também nulas em todas as métricas analisadas. Essa situação sugere que não houve atividade financeira capturada nos sistemas para esses períodos ou que os dados não foram devidamente integrados ao relatório.\n\nRecomenda-se averiguação imediata da integridade dos dados contábeis e financeiros da empresa relativos aos dois primeiros trimestres de 2026. É essencial validar se os registros estão sendo processados corretamente nos sistemas de contabilidade e gestão financeira, investigando possíveis falhas em integração de dados, períodos de inatividade operacional ou lacunas no processo de consolidação trimestral. Sem dados concretos disponíveis, não é possível realizar análise de performance operacional, identificar tendências de crescimento ou redução, ou estabelecer comparativos que subsidiem decisões estratégicas. A correção dessa deficiência de dados é prioritária para continuidade do acompanhamento financeiro estruturado da MR Shawarma Food LTDA.","error":null}},"conclusao":"# CONCLUSÃO EXECUTIVA E RECOMENDAÇÕES ESTRATÉGICAS\n\nA MR SHAWARMA FOOD LTDA encontra-se em situação financeira crítica que demanda intervenção imediata. A empresa iniciou operações em julho de 2026 com receita total de R$ 12.756,42, porém enfrentou despesas de R$ 100.169,63, resultando em prejuízo líquido de R$ 87.413,21 com margem negativa de 685%. A receita concentra-se fortemente na plataforma Ifood com 48,4% do faturamento, enquanto os custos são liderados pelo custo de mercadorias vendidas representando 41,6% das despesas. As informações apresentam inconsistências críticas incluindo ausência total de movimentação nos seis primeiros meses de 2026, divergências entre fluxo mensal e saldo acumulado anual, e pendências a pagar de R$ 25.718,64 não refletidas adequadamente. Essa configuração sugere que julho pode representar um período de implantação com custos iniciais concentrados, porém existe risco substancial à continuidade operacional caso as receitas não se expandam significativamente.\n\nRecomenda-se como prioridade máxima a realização de auditoria contábil completa para validar a integridade dos dados financeiros e contábeis, esclarecendo as anomalias detectadas nos registros e reconciliando todas as transações de julho com a documentação suporte. Em segundo lugar, deve-se desenvolver imediatamente um plano de ação para diversificação de receitas reduzindo a dependência da plataforma Ifood através da intensificação de vendas diretas e parcerias complementares, objetivando elevar receitas para patamares que sustentem a estrutura de custos operacionais. Por fim, é essencial revisar e otimizar a estrutura de despesas operacionais, particularmente renegociando contratos de pessoal, diversificando a base fornecedora que apresenta concentração excessiva, e reavaliando investimentos em marketing digital para garantir sustentabilidade financeira da operação nos próximos meses."},"report-2026-08.json":{"generated_at":"2026-08-10T19:38:45.028Z","empresa":"MR SHAWARMA FOOD LTDA","periodo":"Agosto/2026","year":2026,"month":8,"filter":"realizado","secoes":{"visao_geral":{"title":"Visão Geral","analysis":"A MR SHAWARMA FOOD LTDA apresentou em agosto de 2026 um cenário crítico de operações, com receita total de R$ 430,36 contra despesas de R$ 35.542,65, resultando em um prejuízo líquido de R$ 35.112,29. Este é o primeiro mês com movimentação registrada no período analisado, após sete meses consecutivos sem qualquer atividade contábil. A receita foi composta principalmente por vendas de mercadorias no valor de R$ 320,00, complementadas por sobra de caixa de R$ 110,10 e rendimento financeiro de R$ 0,26. As despesas foram concentradas no Custo de Mercadorias Vendidas (R$ 10.079,93), folha de pagamento envolvendo salários operacionais (R$ 7.716,92), salários e ordenados (R$ 4.533,76), pro-labore (R$ 2.666,67) e taxa de manutenção da plataforma Ifood (R$ 2.929,66), totalizando aproximadamente 82% das despesas totais nestas cinco categorias principais.\n\nA situação financeira exige atenção imediata, uma vez que a empresa registrou uma margem líquida de menos 8.158,82%, indicando desproporção severa entre receitas capturadas e custos operacionais incorridos. Destaca-se ainda o passivo de R$ 63.634,84 a pagar sem correspondência em contas a receber, sugerindo acúmulo de obrigações. O padrão de atividade nula durante janeiro a julho seguido de operação em agosto levanta questões sobre a regularidade operacional e a possibilidade de problemas com registro de transações anteriores ou início recente das operações. A relação custo-benefício evidencia inadequação estrutural entre a escala de receitas alcançadas e a estrutura de custos mantida, com particular atenção aos custos de mercadorias que superaram em 23 vezes o volume de vendas realizadas.","error":null},"receita":{"title":"Receita","analysis":"A empresa MR Shawarma Food LTDA registrou receita total realizada de R$ 430,36 no mês de agosto de 2026, sendo este o primeiro e único mês com movimentação financeira no período analisado. A composição da receita revela uma estrutura baseada principalmente em vendas de mercadorias, que representaram R$ 320,00 ou 74,36% do total, seguida pela sobra de caixa no valor de R$ 110,10 equivalente a 25,58%, e rendimento de aplicação financeira de R$ 0,26 correspondendo a 0,06%. Os dados mostram ainda que a maior parte das operações foi realizada em dinheiro, com o cliente VENDAS DINHEIRO respondendo por R$ 430,10 da receita total, enquanto o Banco Santander registrou apenas R$ 0,26 relativo aos rendimentos financeiros.\n\nÉ fundamental atentar para o fato de que toda a movimentação financeira da empresa concentrou-se em um único mês, com ausência completa de receitas nos demais onze meses do exercício. Este padrão altamente concentrado levanta questões significativas sobre a continuidade operacional da empresa, sugerindo possível desativação, interrupção de atividades ou início recente de operações. A presença relevante de sobra de caixa na composição da receita mensal também merece análise cuidadosa, indicando possível classificação inadequada de recursos ou movimentações contábeis que carecem de investigação mais profunda. Recomenda-se verificar o status operacional da empresa e validar se agosto representa um período representativo ou atípico da atividade comercial.","error":null},"despesa":{"title":"Despesa","analysis":"## Análise Executiva - Despesa\n\nA empresa registrou despesa realizada de R$ 35.542,65 em agosto de 2026, marcando o primeiro mês com movimentação financeira no período analisado. A estrutura de despesas concentra-se em três pilares principais: custo de mercadorias vendidas representando 28,52% do total com R$ 10.079,93, folha de pagamento operacional e pro-labore totalizando 42,20% da despesa (R$ 14.917,35 entre salários, ordenados e pro-labore), e despesas operacionais e administrativas correspondendo aos 29,28% restantes. Destaca-se também o impacto significativo da taxa de manutenção do iFood em 8,29% das despesas, evidenciando dependência relevante da plataforma de delivery. O passivo de curto prazo relacionado a despesas ainda não pagas atinge R$ 63.634,84, superior em 78,9% ao valor já realizado, sinalizando fluxo de pagamentos pendentes substancial.\n\nA análise dos fornecedores revela concentração em pessoas físicas, com os três principais (Sarmad Mahmood Mohammed Al, Bruno Eduardo Paulimo da Silva e Sabine Mohamad El Hajj Sleiman) respondendo por aproximadamente 30% das despesas do mês. Esta distribuição entre fornecedores pessoas físicas sugere relações comerciais customizadas, possivelmente relacionadas a fornecimento de matérias-primas e insumos. A presença expressiva de despesas com embalagens, sistema de gestão e moveis/utensílios indica investimento em infraestrutura operacional. Recomenda-se monitoramento contínuo da taxa iFood considerando seu impacto no resultado operacional e análise da composição do passivo pendente de R$ 63.634,84 para melhor gestão do fluxo de caixa futuro.","error":null},"fluxo_caixa":{"title":"Fluxo de Caixa","analysis":"ANÁLISE EXECUTIVA - FLUXO DE CAIXA\n\nA MR SHAWARMA FOOD LTDA apresentou uma situação crítica no fluxo de caixa referente ao período de agosto de 2026. Durante este mês, a empresa registrou receita total de R$ 430,36, enquanto as despesas totalizaram R$ 35.542,65, resultando em um déficit líquido de R$ 35.112,29. Este desempenho reflete uma margem líquida extremamente negativa de menos 8.158,82%, indicando que as despesas operacionais superaram as receitas em mais de 80 vezes. Os dados evidenciam que apenas em agosto houve registro de movimentação financeira, enquanto os demais meses do ano apresentaram resultado nulo.\n\nO padrão observado nos dados sugere questões estruturais graves que demandam investigação imediata. A disparidade extraordinária entre receitas e despesas, associada ao fato de apenas agosto apresentar movimento enquanto o saldo acumulado permanece zerado durante todo o ano, indica possível inconsistência nas apurações contábeis ou uma operação apenas iniciada no período analisado. A empresa necessita revisar urgentemente sua estrutura de custos fixos, que aparentemente estão em níveis insustentáveis frente à capacidade de geração de receita, além de implementar ações imediatas para aumentar o volume de vendas ou reduzir significativamente as despesas operacionais. Sem intervenção estratégica rápida, a continuidade operacional da empresa encontra-se em risco elevado.","error":null},"tesouraria":{"title":"Tesouraria","analysis":"Análise Executiva - Tesouraria (Agosto/2026)\n\nA posição de tesouraria da MR SHAWARMA FOOD LTDA apresenta uma situação crítica no mês de agosto de 2026. O fluxo de caixa efetivo demonstra receitas muito reduzidas, com apenas R$ 430,36 recebido no período, enquanto os pagamentos realizados somaram R$ 35.542,65. O quadro se agrava ao considerar os compromissos pendentes, com R$ 63.634,84 a pagar e nenhum valor a receber, evidenciando uma desconexão severa entre as entradas e saídas de recursos. Os saldos acumulados mantêm-se em zero ao longo de todo o ano, indicando que a empresa tem consumido integralmente seus recursos de caixa conforme necessário para honrar as obrigações.\n\nA empresa encontra-se em situação de déficit operacional preocupante, com uma diferença negativa de R$ 63.634,84 entre recebimentos e pagamentos pendentes. A quase inexistência de fluxo de entrada combinada com uma carteira substantiva a pagar representa um risco imediato de insolvência técnica e incapacidade de honrar compromissos. Recomenda-se ação imediata na cobrança de valores em aberto e renegociação de prazos com fornecedores, além de análise profunda da estrutura de custos operacionais que se mostram completamente desproporcionais às receitas geradas no período.","error":null},"comparativo":{"title":"Comparativo","analysis":"# Análise Executiva - Seção Comparativo\n\nA análise comparativa entre o Trimestre 1 (janeiro a março) e Trimestre 2 (abril a junho) de 2026 apresenta uma situação atípica para a MR SHAWARMA FOOD LTDA, com ausência total de movimentação financeira em ambos os períodos. Os registros indicam receita de R$ 0,00 no Trim 1 e R$ 0,00 no Trim 2, resultando em variação nula de 0,00%. Da mesma forma, as despesas operacionais também permanecem zeradas em ambos os trimestres, gerando um valor líquido igualmente nulo. Esta uniformidade completa entre os períodos analisados sugere uma descontinuidade nas operações ou uma lacuna crítica na coleta de dados financeiros durante o primeiro semestre de 2026.\n\nA ausência total de dados financeiros nesses trimestres representa um risco significativo à continuidade operacional da empresa e impossibilita uma avaliação adequada de performance, lucratividade e saúde financeira. Recomenda-se uma investigação imediata para identificar se houve suspensão das operações, falha nos sistemas de registro contábil ou problemas na consolidação de dados. A normalização dessa situação é fundamental para estabelecer um baseline confiável de desempenho e para viabilizar análises prospectivas adequadas que orientem decisões gerenciais e estratégicas futuras.","error":null}},"conclusao":"CONCLUSÃO EXECUTIVA\n\nA MR SHAWARMA FOOD LTDA apresenta uma situação financeira crítica que demanda intervenção estratégica imediata. A empresa registrou no período analisado apenas um mês operacional (agosto de 2026) com receita total de R$ 430,36 contra despesas de R$ 35.542,65, gerando prejuízo de R$ 35.112,29 com margem líquida de menos 8.158,82%. A estrutura de custos está completamente desproporcionada à capacidade de geração de receitas, com despesas de pessoal, plataformas e custos de mercadorias representando 82% das despesas totais enquanto as vendas foram irrelevantes. O passivo pendente de R$ 63.634,84 sem correspondência em contas a receber sinaliza acúmulo crítico de obrigações, e a ausência total de movimentação nos sete primeiros meses do ano levanta questões graves sobre a continuidade operacional e a confiabilidade dos registros contábeis. Os dados indicam ou descontinuidade operacional ou início muito recente das atividades, ambos os cenários exigindo esclarecimentos urgentes para que se possa proceder com análises confiáveis.\n\nRecomenda-se, em primeiro lugar, realizar investigação imediata sobre o status operacional real da empresa e validar os registros contábeis, particularmente esclarecendo por que apenas agosto apresentou movimentação. Em segundo lugar, implementar reestruturação severa de custos fixos reduzindo a folha de pagamento e renegociando urgentemente as taxas da plataforma iFood, que representa quase 3% das despesas totais, buscando reduzir a estrutura de custos em pelo menos 60% para níveis proporcionais à receita capturada. Em terceiro lugar, estabelecer um plano agressivo de aumento de vendas com foco em ampliação de pedidos na plataforma de delivery e canais diretos, com meta de atingir no mínimo R$ 15 mil em receita mensal nos próximos noventa dias, enquanto se negocia com fornecedores a extensão de prazos para as obrigações de R$ 63.634,84 pendentes de pagamento."},"report.json":{"generated_at":"2026-08-10T19:43:34.886Z","empresa":"MR SHAWARMA FOOD LTDA","periodo":"Ano 2026 (YTD)","year":2026,"month":null,"filter":"realizado","secoes":{"visao_geral":{"title":"Visão Geral","analysis":"# Análise Executiva - Visão Geral\n\nA MR SHAWARMA FOOD LTDA apresentou uma receita acumulada de R$ 157.612,41 no ano de 2026 até setembro, gerando um resultado líquido de R$ 21.200,13 com margem líquida de 13,45%. A operação concentrou-se entre julho e setembro, período em que foram realizadas as atividades comerciais, com destaque para julho que respondeu por 73,4% da receita total do ano, atingindo R$ 115.659,37. As vendas de produtos representaram R$ 73.117,48 (46,4% da receita), enquanto as tarifas de meios de pagamento totalizaram R$ 54.408,00 (34,5%), refletindo a dependência de transações eletrônicas. A estrutura de custos foi liderada pelo custo de mercadorias vendidas em R$ 48.833,92 e despesas com pessoal totalizando R$ 46.095,94, demonstrando uma operação enxuta em termos de estrutura administrativa.\n\nA situação financeira apresenta, contudo, pontos críticos que requerem atenção imediata. O passivo circulante a pagar de R$ 419.686,44 é significativamente superior à receita acumulada, criando um descasamento de fluxo de caixa preocupante, enquanto o ativo a receber de R$ 34.699,84 representa 22% da receita realizada. A inatividade operacional nos meses de janeiro a junho e outubro a dezembro sugere uma operação descontinuada ou em fase de reestruturação, o que compromete a previsibilidade de receitas. Adicionalmente, a forte queda de receita em agosto (R$ 36.353,62) e ainda mais crítica em setembro (R$ 5.599,42) indica tendência de deterioração do desempenho no período, levantando questionamentos sobre a sustentabilidade operacional da empresa e a capacidade de honrar seus compromissos financeiros sem injeção de capital ou renegociação de dívidas.","error":null},"receita":{"title":"Receita","analysis":"A MR Shawarma Food registrou receita total realizada de R$ 157.612,41 no período acumulado do ano, complementada por R$ 34.699,84 ainda a receber, indicando movimento financeiro relevante apesar da concentração temporal. A operação apresentou desempenho significativo entre julho e setembro, com julho como mês-chave respondendo por R$ 115.659,37, equivalente a 73,4% de toda a receita acumulada, seguido por agosto com R$ 36.353,62 e setembro com R$ 5.599,42. Os primeiros seis meses do ano não geraram receita registrada, sugerindo início de operações ou mudanças estruturais no período. As receitas originam-se principalmente de vendas de produtos através de múltiplos canais, com destaque para débito e crédito representando R$ 42.740,91, delivery em R$ 30.376,57 e vouchers em R$ 9.613,89. As tarifas de meio de pagamento constituem parcela expressiva da receita declarada, totalizando R$ 57.883,99 entre suas variações, refletindo o modelo de operação dependente de processamento de cartões.\n\nA estrutura de receita revela dependência crítica de poucos parceiros, com GetNet respondendo isoladamente por R$ 83.955,70 de forma não segregada e as plataformas de delivery concentrando parcela substancial do faturamento entre IFood, 99 Food e Keeta. O padrão de concentração em três meses consecutivos, particularmente a queda abrupta após setembro com zeramento nos últimos trimestres, representa risco significativo que demanda investigação imediata sobre causas operacionais ou comerciais. Adicionalmente, observa-se que R$ 34.699,84 em contas a receber representam aproximadamente 22% da receita realizada, exigindo monitoramento rigoroso de fluxos de caixa futuro. A composição entre receita operacional e tarifas de processamento sugere margem operacional comprimida, recomendando análise detalhada de custos e estrutura de margem para validar sustentabilidade do modelo de negócio apresentado.","error":null},"despesa":{"title":"Despesa","analysis":"ANÁLISE EXECUTIVA - SEÇÃO DESPESA\n\nA empresa apresenta um perfil de despesa concentrado e irregular ao longo de 2026, com realização de R$ 136.412,28 contra R$ 419.686,44 ainda a pagar, indicando compromissos futuros significativos. O desempenho das despesas concentra-se em dois meses críticos: julho representa a maior movimentação com R$ 100.169,63, seguido por agosto com R$ 35.542,65, enquanto os demais meses apresentam valores praticamente nulos exceto setembro com R$ 700,00. A estrutura de gastos mostra-se equilibrada entre operacional e custo direto, com o Custo de Mercadorias Vendidas liderando em 38,83%, complementado por despesas de pessoal representando 36,66% do total através de três categorias relacionadas: OP Salários, Salários e Ordenados e Pro-Labore. Despesas operacionais como embalagens, marketing digital e plataformas de delivery somam 11,57%, demonstrando investimento em ferramentas de distribuição e visibilidade.\n\nA saúde financeira requer atenção imediata considerando o passivo de curto prazo elevado. A concentração de pagamentos realizada em apenas dois meses sugere possível sazonalidade operacional ou atraso no ciclo de compras e pagamentos que merece investigação. A base de fornecedores mostra-se diversificada com dispersão entre pessoas físicas, particularmente for salários e pro-labore, o que pode indicar estrutura de equipe enxuta ou terceirização. A presença de R$ 419.686,44 em despesas a pagar exige planejamento de fluxo de caixa rigoroso para os próximos períodos, sendo recomendada revisão das políticas de crediário com fornecedores e avaliação da necessidade de capital de giro adicional para honrar esses compromissos conforme vencem.","error":null},"fluxo_caixa":{"title":"Fluxo de Caixa","analysis":"ANÁLISE EXECUTIVA - FLUXO DE CAIXA\n\nA MR SHAWARMA FOOD LTDA apresentou um fluxo de caixa operacional desafiador no período de janeiro a dezembro de 2026, com resultado líquido positivo de R$ 21.200,13 sobre uma receita total de R$ 157.612,41 e despesas de R$ 136.412,28, resultando em margem líquida de 13,45%. No entanto, a geração de caixa concentrou-se exclusivamente em três meses, com destaque para julho que gerou R$ 15.489,74, seguido por setembro com R$ 4.899,42 e agosto com apenas R$ 810,97. Os primeiros seis meses do ano apresentaram fluxo operacional zerado, indicando que a empresa operou sem capacidade de gerar excedente de caixa durante esse período crítico.\n\nA discrepância entre o resultado líquido positivo e o saldo acumulado zerado em dezembro representa um ponto de atenção crítico. Embora o caixa tenha sido positivo em julho, agosto e setembro, o não reflexo desses valores no saldo acumulado final sugere saídas extraordinárias ou alocações de caixa não explicitadas neste período, possivelmente relacionadas a pagamentos de dívidas, investimentos ou retiradas. A volatilidade extrema do fluxo mensal, especialmente a queda abrupta de R$ 15.489,74 em julho para R$ 810,97 em agosto, aliada aos seis meses iniciais com geração zero de caixa, evidencia instabilidade operacional severa que compromete a previsibilidade e a saúde financeira de curto prazo da organização. Recomenda-se investigação urgente dos fatores causadores dessa sazonalidade anormal e implementação de medidas para normalizar o fluxo ao longo do ano.","error":null},"tesouraria":{"title":"Tesouraria","analysis":"# ANÁLISE EXECUTIVA - TESOURARIA\n## MR SHAWARMA FOOD LTDA - YTD 2026\n\nA posição de tesouraria da empresa apresenta um cenário crítico que demanda atenção imediata. No período acumulado de janeiro a dezembro de 2026, foram recebidos R$ 157.612,41 contra R$ 136.412,28 em pagamentos realizados, gerando um fluxo positivo de R$ 21.200,13 em termos de caixa efetivo. Contudo, este resultado é contrabalanceado por uma significativa diferença entre obrigações e direitos: existem R$ 34.699,84 a receber enquanto pendências a pagar totalizam R$ 419.686,44, revelando um gap de R$ 384.986,60 em desfavor da empresa. Os saldos mensais acumulados permaneceram em zero durante todo o período, indicando que não há reserva de caixa constituída ou que a empresa operou com gestão de fluxo extremamente ajustada mês a mês.\n\nO principal ponto de atenção reside no elevado volume de contas a pagar em relação às contas a receber, configurando uma situação de desequilíbrio estrutural nas obrigações da empresa. A diferença negativa de R$ 384.986,60 sugere que a MR Shawarma Food enfrenta pressões significativas para honrar seus compromissos, potencialmente derivadas de investimentos em infraestrutura, ampliação de operações ou acúmulo de passivos não controlados. A ausência de saldo de caixa ao longo de todos os meses sinaliza risco de liquidez, deixando a empresa vulnerável a flutuações operacionais ou oportunidades de crescimento que requeiram capital imediato. Recomenda-se urgentemente uma estratégia de renegociação de prazos com credores, aceleração da cobrança dos R$ 34.699,84 em recebíveis e revisão profunda da política de despesas para restabelecer a saúde financeira da operação.","error":null},"comparativo":{"title":"Comparativo","analysis":"# Análise Executiva - Seção Comparativo\n\nA análise comparativa entre o primeiro e segundo trimestre de 2026 apresenta resultado inconclusivo devido à ausência total de dados financeiros registrados em ambos os períodos. Tanto a receita quanto as despesas operacionais retornam valores zerados para o Trimestre 1 (janeiro a março) e Trimestre 2 (abril a junho), resultando em um valor líquido igualmente nulo em ambos os trimestres. A variação percentual de zero por cento reflete apenas a equivalência entre períodos vazios, impossibilitando qualquer análise comparativa significativa sobre o desempenho operacional da MR Shawarma Food LTDA.\n\nA situação atual requer atenção imediata, pois a falta de dados financeiros registrados pode indicar problemas críticos no sistema de contabilidade, falta de movimentação comercial real ou falha na integração dos dados ao período analisado. Recomenda-se verificar urgentemente se há transações pendentes de lançamento, problemas técnicos na plataforma de registros ou se a empresa estava em fase de inatividade durante o período em questão. Sem informações financeiras concretas, não é possível avaliar a saúde operacional do negócio ou identificar tendências de crescimento ou redução, tornando essencial a regularização imediata dos registros contábeis para análises futuras.","error":null}},"conclusao":"CONCLUSÃO EXECUTIVA E RECOMENDAÇÕES ESTRATÉGICAS\n\nA MR SHAWARMA FOOD LTDA apresenta uma situação financeira crítica que demanda intervenção imediata. Embora tenha registrado uma margem líquida positiva de 13,45% sobre receita acumulada de R$ 157.612,41, a empresa enfrenta desafios estruturais severos que comprometem sua viabilidade operacional. O principal ponto crítico é o descasamento extremo entre passivos e ativos circulantes, com contas a pagar de R$ 419.686,44 frente a receita total de apenas R$ 157.612,41, criando um gap de R$ 384.986,60 que evidencia insolvência iminente. A operação concentrou-se em apenas três meses consecutivos com forte deterioração da receita em setembro, enquanto seis meses apresentaram inatividade total e nenhum saldo de caixa foi mantido ao longo do ano. Esta volatilidade extrema, combinada à falta de registros nos trimestres iniciais, sugere uma empresa em fase de reestruturação ou transição operacional com graves falhas na gestão financeira e controle de fluxo de caixa.\n\nAs recomendações estratégicas são as seguintes: primeiro, realizar imediatamente uma renegociação estruturada de prazos com os principais credores, buscando alongar o perfil de vencimentos das contas a pagar e criar breathing room para normalização operacional, paralelamente acelerando a cobrança dos R$ 34.699,84 em recebíveis pendentes; segundo, implementar um plano de recuperação operacional que estabilize a receita mensal através de análise das causas da queda abrupta pós-julho, otimização das parcerias de delivery e revisão do modelo de precificação para aumentar a margem operacional comprimida pelas tarifas de processamento; terceiro, injetar capital de giro imediato ou buscar financiamento estruturado para cobrir o déficit de R$ 384.986,60, associado a implementação de controles contábeis rigorosos que permitam rastreamento preciso de fluxos e eliminação das anomalias registrais nos trimestres iniciais."}};

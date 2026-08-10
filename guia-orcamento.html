@@ -1,0 +1,1264 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guia — Tela de Orçamento · SubSea BI</title>
+  <style>
+    /* ── Reset & base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #181c23;
+      --card:      #23272f;
+      --card2:     #2a2f3a;
+      --border:    #2e3440;
+      --text:      #f3f4f6;
+      --text2:     #9ca3af;
+      --accent:    #0ea5e9;
+      --accent-lo: rgba(14,165,233,0.12);
+      --green:     #22c55e;
+      --green-lo:  rgba(34,197,94,0.14);
+      --yellow:    #eab308;
+      --yellow-lo: rgba(234,179,8,0.14);
+      --red:       #ef4444;
+      --red-lo:    rgba(239,68,68,0.14);
+      --cyan:      rgba(34,211,238,0.55);
+    }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      padding: 0 0 60px;
+    }
+
+    /* ── Header ── */
+    .header {
+      background: linear-gradient(135deg, #0e1521 0%, #1a2035 100%);
+      border-bottom: 2px solid var(--accent);
+      padding: 36px 48px 28px;
+      display: flex;
+      align-items: flex-end;
+      gap: 24px;
+    }
+    .header-logo {
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .header-logo span { color: var(--text); }
+    .header-meta { color: var(--text2); font-size: 13px; margin-top: 4px; }
+    .header-badge {
+      margin-left: auto;
+      background: var(--accent-lo);
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 32px;
+    }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 10px;
+      padding: 22px 28px;
+      margin: 36px 0 8px;
+    }
+    .toc h3 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .toc ol {
+      padding-left: 20px;
+      color: var(--text2);
+      font-size: 14px;
+      line-height: 2;
+    }
+    .toc a { color: var(--text2); text-decoration: none; }
+    .toc a:hover { color: var(--accent); }
+
+    /* ── Section ── */
+    .section {
+      margin-top: 48px;
+    }
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+    .section-label::before {
+      content: '';
+      display: inline-block;
+      width: 20px;
+      height: 2px;
+      background: var(--accent);
+      border-radius: 2px;
+    }
+    .section h2 {
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 14px;
+    }
+    .section p {
+      color: var(--text2);
+      margin-bottom: 12px;
+      max-width: 720px;
+    }
+    .section p strong { color: var(--text); }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      margin-top: 20px;
+    }
+    .card-title {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      color: var(--text2);
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    /* ── Info box ── */
+    .info-box {
+      background: var(--accent-lo);
+      border: 1px solid rgba(14,165,233,0.25);
+      border-radius: 10px;
+      padding: 16px 20px;
+      margin-top: 16px;
+      font-size: 14px;
+      color: var(--text);
+    }
+    .info-box.warn {
+      background: rgba(234,179,8,0.08);
+      border-color: rgba(234,179,8,0.3);
+    }
+    .info-box.danger {
+      background: var(--red-lo);
+      border-color: rgba(239,68,68,0.3);
+    }
+    .info-box-title {
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .info-box-title.accent { color: var(--accent); }
+    .info-box-title.warn   { color: var(--yellow); }
+    .info-box-title.danger { color: var(--red); }
+
+    /* ── Mockup table ── */
+    .mock-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .mock-table th {
+      background: #1e2330;
+      color: var(--text2);
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 10px 14px;
+      text-align: left;
+      border-bottom: 1px solid var(--border);
+    }
+    .mock-table th.num { text-align: right; }
+    .mock-table td {
+      padding: 11px 14px;
+      border-bottom: 1px solid #1e2330;
+      color: var(--text2);
+      vertical-align: middle;
+    }
+    .mock-table td.num { text-align: right; font-variant-numeric: tabular-nums; }
+    .mock-table td.cat { color: var(--text); font-weight: 500; }
+    .mock-table tr:last-child td { border-bottom: none; }
+    .mock-table tr.total td {
+      border-top: 1px solid var(--border);
+      font-weight: 700;
+      color: var(--text);
+      background: #1e2330;
+    }
+
+    /* ── Budget input mockup ── */
+    .budget-input-mock {
+      display: inline-block;
+      background: #181c23;
+      border: 1px solid var(--accent);
+      border-radius: 6px;
+      padding: 5px 10px;
+      color: var(--text);
+      font-size: 13px;
+      width: 130px;
+      text-align: right;
+    }
+
+    /* ── Progress bars ── */
+    .bar-wrap {
+      background: #1a1e28;
+      border-radius: 4px;
+      height: 8px;
+      overflow: hidden;
+      width: 100%;
+    }
+    .bar-fill {
+      height: 100%;
+      border-radius: 4px;
+      transition: width 0.4s;
+    }
+    .bar-green  { background: var(--green); }
+    .bar-yellow { background: var(--yellow); }
+    .bar-red    { background: var(--red); }
+    .bar-accent { background: var(--accent); }
+
+    /* ── Color legend strips ── */
+    .color-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .color-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 10px 16px;
+      font-size: 13px;
+      flex: 1;
+      min-width: 200px;
+    }
+    .chip-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .chip-label { color: var(--text); font-weight: 600; }
+    .chip-sub   { color: var(--text2); font-size: 12px; margin-top: 1px; }
+
+    /* ── Chart mockup ── */
+    .chart-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    @media (max-width: 680px) { .chart-wrap { grid-template-columns: 1fr; } }
+    .chart-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .chart-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--text2);
+      text-transform: uppercase;
+      letter-spacing: 0.4px;
+      margin-bottom: 14px;
+    }
+    .chart-legend {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 14px;
+    }
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--text2);
+    }
+    .legend-dot {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .bar-plot {
+      display: flex;
+      align-items: flex-end;
+      gap: 6px;
+      height: 100px;
+      padding-bottom: 4px;
+    }
+    .bar-group {
+      display: flex;
+      align-items: flex-end;
+      gap: 2px;
+      flex: 1;
+    }
+    .bar-col {
+      flex: 1;
+      border-radius: 3px 3px 0 0;
+      min-height: 2px;
+    }
+    .bar-x {
+      display: flex;
+      gap: 6px;
+      margin-top: 6px;
+    }
+    .bar-x span {
+      flex: 1;
+      text-align: center;
+      font-size: 10px;
+      color: var(--text2);
+    }
+
+    /* ── Filters mockup ── */
+    .filter-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .filter-btn {
+      background: var(--card2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 8px 18px;
+      font-size: 13px;
+      color: var(--text2);
+      cursor: default;
+    }
+    .filter-btn.active {
+      background: var(--accent-lo);
+      border-color: var(--accent);
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    /* ── Action buttons mockup ── */
+    .action-row {
+      display: flex;
+      gap: 10px;
+      margin-top: 16px;
+    }
+    .btn-mock {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: default;
+      border: 1px solid;
+    }
+    .btn-mock.primary {
+      background: var(--accent-lo);
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .btn-mock.danger {
+      background: var(--red-lo);
+      border-color: rgba(239,68,68,0.4);
+      color: var(--red);
+    }
+
+    /* ── Step list ── */
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      margin-top: 16px;
+    }
+    .steps li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      margin-bottom: 18px;
+      align-items: flex-start;
+    }
+    .steps li::before {
+      content: counter(step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      background: var(--accent-lo);
+      border: 1px solid var(--accent);
+      border-radius: 50%;
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 700;
+      margin-top: 1px;
+    }
+    .steps li .step-body { color: var(--text2); font-size: 14px; }
+    .steps li .step-body strong { color: var(--text); }
+
+    /* ── CSV preview ── */
+    .csv-preview {
+      background: #111418;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 16px 20px;
+      font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+      font-size: 12px;
+      color: #7dd3fc;
+      margin-top: 14px;
+      overflow-x: auto;
+      white-space: pre;
+      line-height: 1.8;
+    }
+
+    /* ── Divider ── */
+    hr.divider {
+      border: none;
+      border-top: 1px solid var(--border);
+      margin: 48px 0 0;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      text-align: center;
+      color: var(--text2);
+      font-size: 12px;
+      padding: 32px 0 0;
+      border-top: 1px solid var(--border);
+      margin-top: 60px;
+    }
+    .footer strong { color: var(--accent); }
+
+    /* ── Print ── */
+    @media print {
+      body { background: #fff; color: #111; font-size: 13px; }
+      .header { background: #0ea5e9; color: #fff; border: none; }
+      .header-logo, .header-logo span { color: #fff; }
+      .header-badge { border-color: #fff; color: #fff; }
+      .card, .chart-card, .toc { background: #f8f9fa; border: 1px solid #dee2e6; }
+      .mock-table th { background: #e9ecef; color: #495057; }
+      .mock-table td.cat { color: #212529; }
+      .bar-wrap { background: #dee2e6; }
+      .csv-preview { background: #f1f3f5; color: #0ea5e9; }
+      .info-box { background: #e8f4fd; border-color: #bee3f8; }
+      .filter-btn { background: #f8f9fa; border-color: #dee2e6; }
+      .section p, .steps li .step-body { color: #555; }
+      .section-label, .card-title, .chart-title { color: #0ea5e9; }
+      .color-chip { background: #f8f9fa; border-color: #dee2e6; }
+      .chip-label { color: #212529; }
+      .chip-sub { color: #6c757d; }
+      .btn-mock.primary, .btn-mock.danger { background: #f8f9fa; }
+      a { color: inherit; text-decoration: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div>
+      <div class="header-logo">Sub<span>Sea</span> BI</div>
+      <div class="header-meta">SubSea Drilling · Dashboard Financeiro</div>
+    </div>
+    <div class="header-badge">Guia do Usuário</div>
+  </div>
+
+  <div class="container">
+
+    <!-- Page title -->
+    <div class="section" style="margin-top:40px;">
+      <div class="section-label">Documentação</div>
+      <h2 style="font-size:30px; margin-bottom:6px;">Tela de Orçamento</h2>
+      <p style="font-size:16px; color:var(--text2);">
+        Guia completo sobre como usar a tela <strong>Orçamento</strong> no SubSea BI —
+        planejamento versus realizado por categoria.
+      </p>
+    </div>
+
+    <!-- TOC -->
+    <div class="toc">
+      <h3>Neste guia</h3>
+      <ol>
+        <li><a href="#s1">O que é a tela de Orçamento</a></li>
+        <li><a href="#s2">Como preencher o orçamento</a></li>
+        <li><a href="#s3">Lógica das cores e variação</a></li>
+        <li><a href="#s4">Gráficos mensais</a></li>
+        <li><a href="#s5">Filtros disponíveis</a></li>
+        <li><a href="#s6">Exportar para Excel</a></li>
+        <li><a href="#s7">Persistência dos dados (localStorage)</a></li>
+        <li><a href="#s8">Limpar orçamento do ano</a></li>
+      </ol>
+    </div>
+
+
+    <!-- ─── SEÇÃO 1 ─── -->
+    <div class="section" id="s1">
+      <div class="section-label">Seção 1</div>
+      <h2>O que é a tela de Orçamento</h2>
+      <p>
+        A tela de <strong>Orçamento</strong> permite comparar, categoria por categoria,
+        quanto foi <strong>planejado</strong> (orçamento anual digitado por você) versus
+        quanto foi <strong>realizado</strong> (dados reais vindos do sistema Omie).
+      </p>
+      <p>
+        A tela é dividida em dois blocos: <strong>Receita</strong> e <strong>Despesa</strong>.
+        Cada bloco exibe uma tabela com todas as categorias financeiras, os valores orçados,
+        os valores realizados, a variação e um indicador de progresso visual.
+      </p>
+
+      <div class="card">
+        <div class="card-title">Exemplo de tabela — Receita</div>
+        <table class="mock-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th class="num">Orçamento anual</th>
+              <th class="num">Realizado</th>
+              <th class="num">Variação</th>
+              <th class="num">% Atingido</th>
+              <th>Progresso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Prestação de Serviços</td>
+              <td class="num"><span class="budget-input-mock">1.200.000</span></td>
+              <td class="num" style="color:var(--green);">R$ 1.380.000,00</td>
+              <td class="num" style="color:var(--green);">+R$ 180.000,00</td>
+              <td class="num" style="color:var(--green);">115,0%</td>
+              <td style="width:140px;">
+                <div class="bar-wrap"><div class="bar-fill bar-accent" style="width:100%"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td class="cat">Aluguel de Equipamentos</td>
+              <td class="num"><span class="budget-input-mock">600.000</span></td>
+              <td class="num" style="color:var(--green);">R$ 410.000,00</td>
+              <td class="num" style="color:var(--red);">-R$ 190.000,00</td>
+              <td class="num">68,3%</td>
+              <td style="width:140px;">
+                <div class="bar-wrap"><div class="bar-fill bar-accent" style="width:68%"></div></div>
+              </td>
+            </tr>
+            <tr class="total">
+              <td>Total Receita</td>
+              <td class="num">R$ 1.800.000,00</td>
+              <td class="num" style="color:var(--green);">R$ 1.790.000,00</td>
+              <td class="num" style="color:var(--red);">-R$ 10.000,00</td>
+              <td class="num">99,4%</td>
+              <td></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box">
+        <div class="info-box-title accent">Ponto de atenção</div>
+        As categorias exibidas são as mesmas que aparecem nas transações reais do Omie.
+        Categorias que nunca tiveram movimentação não aparecem na lista.
+        Se você orçar uma categoria que ainda não tem movimentação real, ela aparecerá
+        assim que a primeira transação for lançada.
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 2 ─── -->
+    <div class="section" id="s2">
+      <div class="section-label">Seção 2</div>
+      <h2>Como preencher o orçamento</h2>
+      <p>
+        Cada linha da tabela possui um <strong>campo editável</strong> na coluna
+        "Orçamento anual". Basta clicar no campo da categoria desejada, digitar o
+        valor planejado para o ano inteiro e pressionar <strong>Tab</strong> ou clicar
+        fora do campo para salvar.
+      </p>
+
+      <ul class="steps">
+        <li>
+          <div class="step-body">
+            Navegue até a tela <strong>Orçamento</strong> no menu lateral do BI.
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            Selecione o <strong>ano</strong> desejado no filtro de período no topo da
+            tela (ex.: 2026).
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            Na tabela de <strong>Receita</strong> ou <strong>Despesa</strong>, clique no
+            campo branco da coluna "Orçamento anual" na linha da categoria que deseja orçar.
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            Digite o <strong>valor anual total</strong> em reais (ex.: <code>1200000</code>
+            para R$ 1.200.000). Use ponto ou vírgula como separador decimal se precisar
+            de centavos.
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            Pressione <strong>Tab</strong> para avançar para a próxima categoria,
+            ou clique fora do campo. O valor é salvo automaticamente.
+          </div>
+        </li>
+        <li>
+          <div class="step-body">
+            Repita para todas as categorias. Não há botão "Salvar" — o salvamento é
+            imediato e automático a cada campo preenchido.
+          </div>
+        </li>
+      </ul>
+
+      <div class="card" style="margin-top:20px;">
+        <div class="card-title">Campos do formulário</div>
+        <table class="mock-table">
+          <thead>
+            <tr>
+              <th>Categoria</th>
+              <th class="num">Orçamento anual</th>
+              <th class="num">Realizado</th>
+              <th class="num">Variação</th>
+              <th class="num">% Atingido</th>
+              <th>Progresso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Consultoria Offshore</td>
+              <td class="num">
+                <span class="budget-input-mock" style="border-color:var(--accent); outline:2px solid rgba(14,165,233,0.3);">900000</span>
+                &nbsp;<span style="color:var(--accent); font-size:11px;">← campo editável</span>
+              </td>
+              <td class="num" style="color:var(--green);">R$ 642.000,00</td>
+              <td class="num" style="color:var(--red);">-R$ 258.000,00</td>
+              <td class="num">71,3%</td>
+              <td style="width:140px;">
+                <div class="bar-wrap"><div class="bar-fill bar-yellow" style="width:71%"></div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box">
+        <div class="info-box-title accent">Dica</div>
+        O valor digitado é sempre o <strong>total anual</strong>. O sistema divide
+        automaticamente por 12 para calcular o orçamento mensal exibido nos gráficos.
+        Você não precisa lançar mês a mês — basta o total do ano.
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 3 ─── -->
+    <div class="section" id="s3">
+      <div class="section-label">Seção 3</div>
+      <h2>Lógica das cores e variação</h2>
+      <p>
+        A tela usa cores diferentes para <strong>Receita</strong> e <strong>Despesa</strong>,
+        porque a lógica de "bom" e "ruim" é oposta para cada tipo.
+      </p>
+
+      <div class="card">
+        <div class="card-title">Receita — barra de progresso</div>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">
+          Na receita, quanto mais se realizou em relação ao orçado, melhor.
+          A barra fica <strong style="color:var(--accent);">azul</strong> enquanto está abaixo do
+          orçamento e muda para <strong style="color:var(--green);">verde</strong>
+          quando atinge ou supera 100%.
+        </p>
+        <div class="color-row">
+          <div class="color-chip">
+            <div class="chip-dot" style="background:var(--accent);"></div>
+            <div>
+              <div class="chip-label">Abaixo do orçado (0–99%)</div>
+              <div class="chip-sub">Realizado &lt; Orçamento</div>
+            </div>
+          </div>
+          <div class="color-chip">
+            <div class="chip-dot" style="background:var(--green);"></div>
+            <div>
+              <div class="chip-label">Meta atingida ou superada (≥ 100%)</div>
+              <div class="chip-sub">Realizado ≥ Orçamento — excelente!</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px;">
+          <div style="font-size:12px; color:var(--text2); margin-bottom:6px;">Exemplo: 115% atingido (acima do orçado = verde)</div>
+          <div class="bar-wrap" style="height:10px;">
+            <div class="bar-fill bar-green" style="width:100%;"></div>
+          </div>
+        </div>
+        <div style="margin-top:12px;">
+          <div style="font-size:12px; color:var(--text2); margin-bottom:6px;">Exemplo: 68% atingido (abaixo do orçado = azul)</div>
+          <div class="bar-wrap" style="height:10px;">
+            <div class="bar-fill bar-accent" style="width:68%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Despesa — barra de progresso (semáforo)</div>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">
+          Na despesa, o raciocínio é invertido: gastar muito além do orçado é ruim.
+          O sistema usa um semáforo de três faixas com base no percentual do orçamento consumido.
+        </p>
+        <div class="color-row">
+          <div class="color-chip">
+            <div class="chip-dot" style="background:var(--green);"></div>
+            <div>
+              <div class="chip-label">Verde · 0 – 30%</div>
+              <div class="chip-sub">Dentro do limite, sob controle</div>
+            </div>
+          </div>
+          <div class="color-chip">
+            <div class="chip-dot" style="background:var(--yellow);"></div>
+            <div>
+              <div class="chip-label">Amarelo · 31 – 70%</div>
+              <div class="chip-sub">Consumo intermediário, atenção</div>
+            </div>
+          </div>
+          <div class="color-chip">
+            <div class="chip-dot" style="background:var(--red);"></div>
+            <div>
+              <div class="chip-label">Vermelho · 71 – 100%+</div>
+              <div class="chip-sub">Próximo ou acima do limite, alerta</div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top:20px; display:flex; flex-direction:column; gap:12px;">
+          <div>
+            <div style="font-size:12px; color:var(--text2); margin-bottom:5px;">Despesa em 22% do orçado → Verde</div>
+            <div class="bar-wrap" style="height:10px;">
+              <div class="bar-fill bar-green" style="width:22%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px; color:var(--text2); margin-bottom:5px;">Despesa em 55% do orçado → Amarelo</div>
+            <div class="bar-wrap" style="height:10px;">
+              <div class="bar-fill bar-yellow" style="width:55%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px; color:var(--text2); margin-bottom:5px;">Despesa em 88% do orçado → Vermelho</div>
+            <div class="bar-wrap" style="height:10px;">
+              <div class="bar-fill bar-red" style="width:88%;"></div>
+            </div>
+          </div>
+          <div>
+            <div style="font-size:12px; color:var(--text2); margin-bottom:5px;">Despesa em 105% do orçado → Vermelho (barra cheia)</div>
+            <div class="bar-wrap" style="height:10px;">
+              <div class="bar-fill bar-red" style="width:100%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Coluna "Variação" — como interpretar</div>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:16px;">
+          A variação é sempre calculada como <strong>Realizado − Orçado</strong>.
+          A cor da variação muda conforme o tipo:
+        </p>
+        <table class="mock-table">
+          <thead>
+            <tr>
+              <th>Tipo</th>
+              <th>Variação positiva (+)</th>
+              <th>Variação negativa (−)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Receita</td>
+              <td style="color:var(--green);">Verde ✓ — realizou mais do que o planejado</td>
+              <td style="color:var(--red);">Vermelho — ficou abaixo do planejado</td>
+            </tr>
+            <tr>
+              <td class="cat">Despesa</td>
+              <td style="color:var(--red);">Vermelho — gastou mais do que o planejado</td>
+              <td style="color:var(--green);">Verde ✓ — gastou menos do que o planejado</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 4 ─── -->
+    <div class="section" id="s4">
+      <div class="section-label">Seção 4</div>
+      <h2>Gráficos mensais</h2>
+      <p>
+        No topo da tela existem <strong>dois gráficos de barras</strong> lado a lado:
+        um para Receita e outro para Despesa. Cada gráfico mostra os 12 meses do ano
+        com duas barras por mês: o orçamento mensal e o realizado.
+      </p>
+
+      <div class="info-box">
+        <div class="info-box-title accent">Como o orçamento mensal é calculado</div>
+        O BI divide automaticamente o orçamento anual por 12 para obter uma meta mensal
+        linear. Por exemplo: se você orçou R$ 1.200.000 para "Prestação de Serviços",
+        o gráfico exibirá R$ 100.000 como referência em cada mês.
+        <br><br>
+        <strong>Fórmula:</strong> Orçamento Mensal = Orçamento Anual ÷ 12
+      </div>
+
+      <div class="chart-wrap">
+        <div class="chart-card">
+          <div class="chart-title">Receita: Orçamento vs Realizado</div>
+          <div class="chart-legend">
+            <span class="legend-item">
+              <span class="legend-dot" style="background:var(--cyan);"></span> Orçamento
+            </span>
+            <span class="legend-item">
+              <span class="legend-dot" style="background:var(--green);"></span> Realizado
+            </span>
+          </div>
+          <div class="bar-plot">
+            <!-- Jan -->
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); height:85px;"></div>
+            </div>
+            <!-- Fev -->
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); height:60px;"></div>
+            </div>
+            <!-- Mar -->
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); height:100px;"></div>
+            </div>
+            <!-- Abr -->
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); height:78px;"></div>
+            </div>
+            <!-- Mai -->
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); height:90px;"></div>
+            </div>
+            <!-- Jun–Dez: sem realizado (futuro) -->
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.15; height:20px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.1; height:8px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--green); opacity:0.1; height:4px;"></div>
+            </div>
+          </div>
+          <div class="bar-x">
+            <span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span>
+            <span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span>
+            <span>nov</span><span>dez</span>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-title">Despesa: Orçamento vs Realizado</div>
+          <div class="chart-legend">
+            <span class="legend-item">
+              <span class="legend-dot" style="background:var(--cyan);"></span> Orçamento
+            </span>
+            <span class="legend-item">
+              <span class="legend-dot" style="background:var(--red);"></span> Realizado
+            </span>
+          </div>
+          <div class="bar-plot">
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); height:55px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); height:80px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); height:100px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); height:65px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); height:50px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.15; height:20px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.1; height:8px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.1; height:4px;"></div>
+            </div>
+            <div class="bar-group">
+              <div class="bar-col" style="background:var(--cyan); height:72px;"></div>
+              <div class="bar-col" style="background:var(--red); opacity:0.1; height:4px;"></div>
+            </div>
+          </div>
+          <div class="bar-x">
+            <span>jan</span><span>fev</span><span>mar</span><span>abr</span><span>mai</span>
+            <span>jun</span><span>jul</span><span>ago</span><span>set</span><span>out</span>
+            <span>nov</span><span>dez</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:16px;">
+        <div class="info-box-title accent">Como ler os gráficos</div>
+        Passe o mouse sobre qualquer grupo de barras para ver o tooltip com o mês, o valor
+        orçado daquele mês e o valor realizado. Meses futuros aparecem com barras de realizado
+        muito pequenas (próximas de zero) enquanto os dados ainda não foram lançados no Omie.
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 5 ─── -->
+    <div class="section" id="s5">
+      <div class="section-label">Seção 5</div>
+      <h2>Filtros disponíveis</h2>
+      <p>
+        A tela de Orçamento respeita os filtros globais do BI aplicados no topo da página.
+        Os dois filtros que afetam os dados são:
+      </p>
+
+      <div class="card">
+        <div class="card-title">Filtro de Empresa</div>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:12px;">
+          A SubSea tem duas empresas cadastradas: <strong style="color:var(--text);">Matriz</strong>
+          e <strong style="color:var(--text);">Filial</strong>. Use os botões abaixo para
+          ver o orçamento consolidado ou separado por empresa.
+        </p>
+        <div class="filter-row">
+          <div class="filter-btn active">Todas</div>
+          <div class="filter-btn">Matriz</div>
+          <div class="filter-btn">Filial</div>
+        </div>
+        <p style="color:var(--text2); font-size:13px; margin-top:14px;">
+          Quando "Matriz" ou "Filial" está selecionado, apenas as transações daquela
+          empresa são consideradas no cálculo do realizado. O orçamento digitado, porém,
+          é compartilhado (não é segregado por empresa).
+        </p>
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Filtro de Ano</div>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:12px;">
+          O filtro de ano no topo da tela controla qual exercício está sendo analisado.
+          Cada ano tem seu próprio orçamento independente — o que você digitou para 2025
+          não interfere em 2026 e vice-versa.
+        </p>
+        <div class="filter-row">
+          <div class="filter-btn">2024</div>
+          <div class="filter-btn">2025</div>
+          <div class="filter-btn active">2026</div>
+        </div>
+      </div>
+
+      <div class="info-box" style="margin-top:16px;">
+        <div class="info-box-title accent">Outros filtros</div>
+        O filtro de <strong>status</strong> (Realizado / A Receber/Pagar / Todos) também
+        é respeitado. Se você selecionar apenas "Realizado", o realizado exibido na tela
+        de Orçamento considerará apenas lançamentos com baixa confirmada no Omie.
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 6 ─── -->
+    <div class="section" id="s6">
+      <div class="section-label">Seção 6</div>
+      <h2>Exportar para Excel</h2>
+      <p>
+        O botão <strong>Exportar Excel</strong> gera um arquivo <code>.csv</code> com
+        todos os dados da tela de Orçamento para o ano selecionado. O arquivo é aberto
+        corretamente no Excel (com acentuação) e contém todas as categorias com seus
+        respectivos valores.
+      </p>
+
+      <div class="action-row">
+        <div class="btn-mock primary">
+          ↓ Exportar Excel
+        </div>
+      </div>
+
+      <div class="card" style="margin-top:20px;">
+        <div class="card-title">Estrutura do arquivo exportado</div>
+        <p style="color:var(--text2); font-size:14px; margin-bottom:4px;">
+          O arquivo é nomeado automaticamente como <code>orcamento_2026.csv</code>
+          (ou o ano selecionado) e contém as seguintes colunas:
+        </p>
+        <div class="csv-preview">Tipo;Categoria;Orçamento Anual;Realizado;Variação;% Atingido
+Receita;Prestação de Serviços;1200000.00;1380000.00;180000.00;115.0
+Receita;Aluguel de Equipamentos;600000.00;410000.00;-190000.00;68.3
+Receita;TOTAL;1800000.00;1790000.00;-10000.00;99.4
+
+Despesa;Pessoal e Encargos;480000.00;512000.00;32000.00;106.7
+Despesa;Manutenção de Equipamentos;360000.00;198000.00;-162000.00;55.0
+Despesa;TOTAL;840000.00;710000.00;-130000.00;84.5</div>
+      </div>
+
+      <div class="info-box" style="margin-top:14px;">
+        <div class="info-box-title accent">Como abrir no Excel</div>
+        Se o Excel não abrir o arquivo corretamente com ponto e vírgula como separador,
+        vá em <strong>Dados &rarr; De Texto/CSV</strong> e escolha o delimitador
+        <strong>Ponto e vírgula</strong>. O arquivo já vem com o BOM Unicode para
+        garantir que os caracteres especiais (ç, ã, é, etc.) apareçam corretamente.
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 7 ─── -->
+    <div class="section" id="s7">
+      <div class="section-label">Seção 7</div>
+      <h2>Persistência dos dados (localStorage)</h2>
+      <p>
+        Os valores de orçamento que você digita são salvos <strong>no navegador</strong>,
+        usando uma tecnologia chamada <em>localStorage</em>. Isso significa que os dados
+        ficam armazenados localmente no computador onde você acessa o BI.
+      </p>
+
+      <div class="info-box warn" style="margin-top:16px;">
+        <div class="info-box-title warn">Atenção — dados no navegador</div>
+        Se você <strong>limpar o cache ou o histórico do navegador</strong> (incluindo
+        "dados de sites"), os valores de orçamento serão apagados permanentemente.
+        Também serão perdidos se você acessar o BI em um <strong>navegador diferente</strong>
+        ou em um <strong>computador diferente</strong> — pois o localStorage não é
+        sincronizado entre dispositivos.
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Comportamento por situação</div>
+        <table class="mock-table">
+          <thead>
+            <tr>
+              <th>Situação</th>
+              <th>Os dados de orçamento...</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="cat">Fechar e reabrir a aba do BI</td>
+              <td style="color:var(--green);">Permanecem salvos</td>
+            </tr>
+            <tr>
+              <td class="cat">Reiniciar o computador</td>
+              <td style="color:var(--green);">Permanecem salvos</td>
+            </tr>
+            <tr>
+              <td class="cat">Acessar em outro navegador (ex: Chrome → Edge)</td>
+              <td style="color:var(--red);">Não aparecem (cada navegador tem seu próprio localStorage)</td>
+            </tr>
+            <tr>
+              <td class="cat">Acessar em outro computador</td>
+              <td style="color:var(--red);">Não aparecem</td>
+            </tr>
+            <tr>
+              <td class="cat">Limpar cache do navegador</td>
+              <td style="color:var(--red);">Apagados permanentemente</td>
+            </tr>
+            <tr>
+              <td class="cat">Limpar apenas cookies (sem "dados de sites")</td>
+              <td style="color:var(--green);">Permanecem salvos</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="info-box danger" style="margin-top:14px;">
+        <div class="info-box-title danger">Recomendação</div>
+        Após preencher o orçamento do ano, use o botão <strong>Exportar Excel</strong>
+        para guardar uma cópia do arquivo <code>.csv</code>. Isso garante que você sempre
+        tenha um backup dos valores caso precise restaurar manualmente.
+      </div>
+    </div>
+
+
+    <!-- ─── SEÇÃO 8 ─── -->
+    <div class="section" id="s8">
+      <div class="section-label">Seção 8</div>
+      <h2>Limpar orçamento do ano</h2>
+      <p>
+        O botão <strong>Limpar [ano]</strong> apaga todos os valores de orçamento digitados
+        para o ano atualmente selecionado. Essa ação é irreversível — uma caixa de
+        confirmação é exibida antes de prosseguir.
+      </p>
+
+      <div class="action-row">
+        <div class="btn-mock danger">
+          Limpar 2026
+        </div>
+      </div>
+
+      <div class="info-box warn" style="margin-top:20px;">
+        <div class="info-box-title warn">Quando usar</div>
+        Use este botão quando quiser <strong>recomeçar o orçamento do zero</strong> para
+        um determinado ano. Por exemplo, se você preencheu valores errados e prefere
+        apagar tudo e redigitar do que corrigir campo por campo.
+      </div>
+
+      <div class="card" style="margin-top:16px;">
+        <div class="card-title">Comportamento do botão Limpar</div>
+        <ul class="steps">
+          <li>
+            <div class="step-body">
+              Clique em <strong>Limpar [ano]</strong>. Uma janela de confirmação aparecerá
+              com a mensagem: <em>"Limpar todo o orçamento de 2026?"</em>
+            </div>
+          </li>
+          <li>
+            <div class="step-body">
+              Clique em <strong>OK</strong> para confirmar. Todos os campos de orçamento
+              do ano voltam para zero e as barras de progresso ficam vazias.
+            </div>
+          </li>
+          <li>
+            <div class="step-body">
+              Clique em <strong>Cancelar</strong> para desistir. Nenhum dado é alterado.
+            </div>
+          </li>
+        </ul>
+
+        <div class="info-box" style="margin-top:8px;">
+          <div class="info-box-title accent">Atenção sobre outros anos</div>
+          O botão "Limpar" afeta <strong>apenas o ano exibido no filtro</strong>.
+          Os orçamentos de outros anos não são apagados. Para limpar 2025, mude o filtro
+          de ano para 2025 e clique em "Limpar 2025".
+        </div>
+      </div>
+    </div>
+
+
+    <!-- ─── Resumo visual ─── -->
+    <div class="section" id="resumo">
+      <div class="section-label">Resumo</div>
+      <h2>Visão geral rápida</h2>
+
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:14px; margin-top:16px;">
+
+        <div class="card" style="text-align:center; padding:20px 16px;">
+          <div style="font-size:28px; margin-bottom:8px;">📝</div>
+          <div style="font-weight:700; font-size:14px; color:var(--text); margin-bottom:6px;">Entrada manual</div>
+          <div style="font-size:13px; color:var(--text2);">Digite o valor anual diretamente na tabela. Sem formulários separados.</div>
+        </div>
+
+        <div class="card" style="text-align:center; padding:20px 16px;">
+          <div style="font-size:28px; margin-bottom:8px;">💾</div>
+          <div style="font-weight:700; font-size:14px; color:var(--text); margin-bottom:6px;">Salva automático</div>
+          <div style="font-size:13px; color:var(--text2);">Cada campo é salvo ao perder o foco. Não há botão "Salvar".</div>
+        </div>
+
+        <div class="card" style="text-align:center; padding:20px 16px;">
+          <div style="font-size:28px; margin-bottom:8px;">📊</div>
+          <div style="font-weight:700; font-size:14px; color:var(--text); margin-bottom:6px;">Gráficos mensais</div>
+          <div style="font-size:13px; color:var(--text2);">Orçamento anual ÷ 12 = meta mensal exibida nos gráficos.</div>
+        </div>
+
+        <div class="card" style="text-align:center; padding:20px 16px;">
+          <div style="font-size:28px; margin-bottom:8px;">📁</div>
+          <div style="font-weight:700; font-size:14px; color:var(--text); margin-bottom:6px;">Exportar CSV</div>
+          <div style="font-size:13px; color:var(--text2);">Gera arquivo <code>.csv</code> compatível com Excel para backup.</div>
+        </div>
+
+        <div class="card" style="text-align:center; padding:20px 16px;">
+          <div style="font-size:28px; margin-bottom:8px;">⚠️</div>
+          <div style="font-weight:700; font-size:14px; color:var(--text); margin-bottom:6px;">localStorage</div>
+          <div style="font-size:13px; color:var(--text2);">Dados ficam no navegador. Sempre exporte um backup após preencher.</div>
+        </div>
+
+        <div class="card" style="text-align:center; padding:20px 16px;">
+          <div style="font-size:28px; margin-bottom:8px;">🗑️</div>
+          <div style="font-weight:700; font-size:14px; color:var(--text); margin-bottom:6px;">Limpar por ano</div>
+          <div style="font-size:13px; color:var(--text2);">Zera somente o ano selecionado. Outros anos ficam intactos.</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <p>
+        <strong>SubSea BI</strong> · Desenvolvido por BGP Consultoria · subsea-bi.187.77.238.125.sslip.io
+      </p>
+      <p style="margin-top:6px;">
+        Este guia foi gerado automaticamente com base no código-fonte da tela de Orçamento.
+        Para suporte técnico, entre em contato com a equipe BGP.
+      </p>
+    </div>
+
+  </div>
+</body>
+</html>
