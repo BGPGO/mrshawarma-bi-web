@@ -141,7 +141,7 @@ const GRUPO_OMIE_ORDEM = [
 
 /* Classifica uma categoria nas DUAS hierarquias, com dois flags separados:
  *
- *   mapeada     — o grupo do Omie é conhecido (usado pelo Fluxo de Caixa)
+ *   mapeada     — o grupo da fonte é conhecido (usado pelo Fluxo de Caixa)
  *   mapeadaDre  — a categoria tem linha na DRE gerencial dela
  *
  * São coisas diferentes: empréstimo recebido tem grupo no Omie e NÃO tem linha

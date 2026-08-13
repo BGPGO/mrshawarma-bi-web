@@ -5,7 +5,7 @@ const { useState, useMemo, useEffect } = React;
 // concatenado (build-jsx.cjs). Reutilizado aqui pra ajustar height/showLabels dos
 // TrendCharts em mobile.
 
-/* Grupos do Omie que são entrada de caixa. O resto (deduções, impostos,
+/* Grupos que são entrada de caixa. O resto (deduções, impostos,
  * despesas, retiradas) é saída. Usado só pra ordenar as seções — o lado de
  * cada lançamento vem do próprio kind da row, não daqui, pra estorno e
  * ajuste de cartão não caírem na seção errada. */
