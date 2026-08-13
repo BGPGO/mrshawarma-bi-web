@@ -238,6 +238,19 @@ const CLIENTE_PROPRIO_RE = /mr\s*shawarma/i;
 let _cfgCatExcluir = [];
 try { _cfgCatExcluir = require('./bi.config.js').fontes?.omie?.categorias_excluir || []; } catch(e) {}
 const CATEGORIAS_EXCLUIR = new Set(_cfgCatExcluir);
+// categorias_nao_operacionais: dinheiro que passa pelo caixa e nao e resultado
+// do negocio. Neste BI a lista esta VAZIA de proposito — o modelo de DRE da
+// iFinance pro Shawarma ja tem linha propria pra investimento (14) e trata
+// pro-labore como despesa de pessoal (6), entao nao ha o que separar. Com a
+// lista vazia nenhuma row recebe o flag e o toggle Operacional/Completo se
+// esconde sozinho.
+let _cfgCatNaoOp = [];
+try { _cfgCatNaoOp = require('./bi.config.js').fontes?.f360?.categorias_nao_operacionais || []; } catch (e) {}
+const CATEGORIAS_NAO_OP = new Set(_cfgCatNaoOp);
+// Hoje de referencia pro flag de atrasado. Calculado UMA vez no build: usar
+// new Date() dentro do loop daria resultado diferente por row se o build
+// cruzasse a meia-noite.
+const _HOJE = (function () { const d = new Date(); d.setHours(0, 0, 0, 0); return d; })();
 
 function normalizeMovimento(m) {
   const d = m.detalhes || {};
@@ -324,6 +337,11 @@ function normalizeF360(m) {
   const dataVenc = parseBR(d.dDtVencimento) || parseBR(d.dDtPrevisao);
   const data_efetiva = realizado ? (dataPago || dataVenc) : dataVenc;
   if (!data_efetiva) return null;
+  // COMPETENCIA: o fetch-f360.cjs grava a Emissao do titulo em dDtRegistro.
+  // Fallback pro vencimento e depois pro pagamento — parcela sem emissao
+  // existe (rows de cartao/adquirente), e descartar no regime de competencia
+  // esvaziaria a DRE sem avisar.
+  const dataComp = parseBR(d.dDtRegistro) || dataVenc || dataPago;
 
   let valor = realizado ? (num(d.nValorPago) || num(d.nValorTitulo)) : num(d.nValorTitulo);
   if (!valor) return null;
@@ -346,6 +364,20 @@ function normalizeF360(m) {
     parcela: '',
     empresa: d._f360_empresa || '',
     projeto: '',
+    data_comp: dataComp,
+    comp_fallback: !parseBR(d.dDtRegistro),
+    // No F360 o nCodCC ja vem com o NOME da conta ("MR SHAWARMA - SANTANDER -
+    // C.C.-130059365"), nao um codigo — nao precisa resolver contra
+    // contas_correntes.json. O campo _f360_conta existe no fetch mas so no
+    // caminho de dados de cartao; nas parcelas de titulo vem vazio.
+    conta: d.nCodCC || '',
+    naoop: CATEGORIAS_NAO_OP.has(categoria),
+    // ATRASADO derivado por data. O F360 nao classifica vencido: o status vem
+    // como PAGO / PAGAR / RECEBER / CANCELADO. Entao aqui e "sem baixa e
+    // vencido antes de hoje" — a mesma definicao que o Henrique deu pra
+    // cliente na reuniao ("ja passou da data de vencimento e ainda nao tem uma
+    // data de baixa"). No BI da MedConsulting isso vem do cStatus do Omie.
+    atrasado: !realizado && !!dataVenc && dataVenc < _HOJE,
   };
 }
 
@@ -729,7 +761,14 @@ const SEGMENTS = ${JSON.stringify({ realizado, a_pagar_receber, tudo }, null, 2)
 // realizadas + a pagar + canceladas excluidas). Usada pra cross-filter real
 // — pagina recalcula KPIs/charts/tabelas em runtime via aggregateTx().
 // Cada row eh tupla compacta pra reduzir tamanho do bundle:
-// [kind, mes, dia, categoria, cliente, valor, realizado, fornecedor, centroCusto, semInvFlag, peClass, empresa, projeto]
+// [kind, mes, dia, categoria, cliente, valor, realizado, fornecedor, centroCusto, semInvFlag, peClass, empresa, projeto, atrasado, naoop, ym_comp, dia_comp, conta, comp_fallback]
+// atrasado (13): sem baixa e vencido antes de hoje. No F360 e derivado por data
+//   — o ERP nao tem status ATRASADO, diferente do Omie.
+// naoop (14): nao-operacional. Lista vazia neste BI, ver bi.config.
+// ym_comp/dia_comp (15,16): a mesma data em regime de COMPETENCIA (emissao,
+//   gravada em dDtRegistro pelo fetch-f360).
+// conta (17): conta bancaria do F360 (_f360_conta), pro filtro de conta.
+// comp_fallback (18): 1 = nao tinha emissao, a competencia veio de outra data.
 // peClass: 'F'=custo fixo, 'V'=custo variavel, ''=neutro (receita ou grupo 2.10) — usado por computePE.
 // empresa: label da conta Omie (ex: 'Matriz', 'Filial') — usado pelo filtro de empresa.
 // projeto: nome do projeto Omie (ex: '5620 - 3R Petroleum') — usado pelo filtro de projeto.
@@ -748,6 +787,12 @@ const ALL_TX = ${JSON.stringify([
     '',
     t.empresa || '',
     t.projeto || '',
+    t.atrasado ? 1 : 0,
+    t.naoop ? 1 : 0,
+    t.data_comp ? t.data_comp.toISOString().slice(0,7) : '',
+    t.data_comp ? t.data_comp.getDate() : 0,
+    t.conta || '',
+    t.comp_fallback ? 1 : 0,
   ]),
   ...despNorm.map(t => [
     'd',
@@ -763,6 +808,12 @@ const ALL_TX = ${JSON.stringify([
     peClassOf(t.codCateg),
     t.empresa || '',
     t.projeto || '',
+    t.atrasado ? 1 : 0,
+    t.naoop ? 1 : 0,
+    t.data_comp ? t.data_comp.toISOString().slice(0,7) : '',
+    t.data_comp ? t.data_comp.getDate() : 0,
+    t.conta || '',
+    t.comp_fallback ? 1 : 0,
   ]),
 ])};
 
@@ -829,9 +880,17 @@ function aggregateTx(txList, year) {
     DESPESA_FORNECEDORES: topN(despForn, 12),
     TOTAL_CLIENTES: recCli.size,
     TOTAL_FORNECEDORES: despForn.size,
-    EXTRATO: extratoArr.slice(0, 200),
-    EXTRATO_RECEITAS: extratoRecArr.slice(0, 200),
-    EXTRATO_DESPESAS: extratoDespArr.slice(0, 200),
+    // SEM cap. O aggregateTx roda no BROWSER a cada troca de filtro, sobre o
+    // ALL_TX que ja foi baixado inteiro — o slice nunca economizou download, so
+    // escondia linhas. E o comprimento destes arrays e o DENOMINADOR do KPI
+    // "Ticket medio" nas pages, entao o cap saia pela tela como numero errado.
+    // Aqui o BI tem 4.652 rows contra um cap de 200: o ticket estava 20x errado.
+    //
+    // Nao confundir com buildExtrato(r, d, 200), que e BUILD-TIME e entra
+    // embutido no data.js: esse sim cresce o arquivo e fica como esta.
+    EXTRATO: extratoArr,
+    EXTRATO_RECEITAS: extratoRecArr,
+    EXTRATO_DESPESAS: extratoDespArr,
     KPIS: {
       TOTAL_RECEITA: totalReceita,
       TOTAL_DESPESA: totalDespesa,
@@ -843,12 +902,16 @@ function aggregateTx(txList, year) {
 }
 
 // applyDrilldown: filtra ALL_TX baseado em statusFilter + drilldown.
-// statusFilter: 'realizado' | 'a_pagar_receber' | 'tudo'
+// statusFilter: 'realizado' | 'a_pagar_receber' | 'atrasado' | 'tudo'
+// 'atrasado' e um SUBCONJUNTO de 'a_pagar_receber': vencido e sem baixa. A
+// Silmara pediu na reuniao de 12/08 ("esse a pagar e receber no futuro o
+// atrasado nao aparece junto") — sao dois olhares e ela quer os dois.
 // drilldown: null | { type: 'mes'|'categoria'|'cliente'|'fornecedor', value: ... }
 function filterTx(allTx, statusFilter, drilldown) {
   let out = allTx;
   if (statusFilter === 'realizado') out = out.filter(r => r[6] === 1);
   else if (statusFilter === 'a_pagar_receber') out = out.filter(r => r[6] === 0);
+  else if (statusFilter === 'atrasado') out = out.filter(r => r[6] === 0 && r[13] === 1);
   if (drilldown) {
     if (drilldown.type === 'mes') out = out.filter(r => r[1] === drilldown.value);
     else if (drilldown.type === 'categoria') out = out.filter(r => r[3] === drilldown.value);
@@ -907,6 +970,27 @@ window._makeBit = _makeBit;
 window.BIT_SEGMENTS = SEGMENTS;
 window.BIT_META = META;
 window.ALL_TX = ALL_TX;
+// Flags de capacidade: cada controle da UI so aparece se o campo existe no
+// data.js. Sem isso um data.js gerado por versao antiga mostraria botao morto.
+window.BIT_HAS_ATRASADO = ALL_TX.some(r => r[13] === 1);
+window.BIT_HAS_NAOOP = ALL_TX.some(r => r[14] === 1);
+window.BIT_HAS_COMPETENCIA = ALL_TX.some(r => r[15]);
+window.ALL_CONTAS = (function () {
+  const s = new Set();
+  for (const r of ALL_TX) { if (r[17]) s.add(r[17]); }
+  return Array.from(s).sort();
+})();
+window.BIT_NAOOP_TOTAL = (function () {
+  const porCat = {};
+  let rec = 0, desp = 0, n = 0;
+  for (const r of ALL_TX) {
+    if (!r[14]) continue;
+    n++;
+    if (r[0] === 'r') rec += r[5]; else desp += r[5];
+    porCat[r[3]] = (porCat[r[3]] || 0) + r[5];
+  }
+  return { receita: rec, despesa: desp, lancamentos: n, porCategoria: porCat };
+})();
 window.REF_YEAR = REF_YEAR;
 window.AVAILABLE_YEARS = AVAILABLE_YEARS;
 window.aggregateTx = aggregateTx;
@@ -954,7 +1038,20 @@ window.getBit = function (statusFilter, drilldown, year, month, semInv, extraFil
 // com KPIs/charts/extrato recalculados em ~10ms (17k rows).
 // extraFilters: { centroCusto: string[], categoria: string[], empresa: string[] } — arrays vazios = sem filtro
 window.recomputeBit = function (statusFilter, drilldown, year, semInv, extraFilters) {
-  let filtered = filterTx(ALL_TX, statusFilter, drilldown);
+  // REGIME. Em competencia, remapeia mes/dia pra data de emissao ANTES de
+  // filtrar — senao o recorte de mes e o drilldown continuariam usando a data
+  // de caixa e a tela misturaria os dois regimes sem avisar.
+  let fonte = ALL_TX;
+  if (extraFilters && extraFilters.regime === 'competencia') {
+    fonte = [];
+    for (const r of ALL_TX) {
+      if (!r[15]) continue;
+      const c = r.slice();
+      c[1] = r[15]; c[2] = r[16];
+      fonte.push(c);
+    }
+  }
+  let filtered = filterTx(fonte, statusFilter, drilldown);
   if (semInv) filtered = filterTxSemInv(filtered);
   if (extraFilters) {
     const cc = extraFilters.centroCusto;
@@ -972,6 +1069,16 @@ window.recomputeBit = function (statusFilter, drilldown, year, semInv, extraFilt
       const empSet = new Set(emp);
       filtered = filtered.filter(r => empSet.has(r[11] || ''));
     }
+    const cta = extraFilters.conta;
+    if (cta && cta.length > 0) {
+      const ctaSet = new Set(cta);
+      filtered = filtered.filter(r => ctaSet.has(r[17] || ''));
+    }
+  }
+  // Visao Operacional (default) tira o nao-operacional. Num data.js antigo
+  // r[14] e undefined e nada e filtrado, entao BI velho nao muda de numero.
+  if (!extraFilters || extraFilters.visao !== 'completo') {
+    filtered = filtered.filter(r => !r[14]);
   }
   const agg = aggregateTx(filtered, year || REF_YEAR);
   // Mescla com BIT base pra preservar META, helpers (fmt, fmtK), MONTHS etc.

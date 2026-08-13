@@ -15,7 +15,12 @@ COPY adapters/ ./adapters/
 COPY fetch-f360.cjs fetch-data.cjs fetch-saldos.cjs fetch-pedidos.cjs generate-report.cjs ./
 COPY build-data.cjs build-data-extras.cjs build-jsx.cjs ./
 COPY bi.config.js ./
-COPY components.jsx pages-1.jsx pages-2.jsx pages-3.jsx pages-4.jsx upsell-pages.jsx ./
+# report*.json tambem em /app: o build-data.cjs que roda no refresh DENTRO do
+# container embute os relatorios em window.BI_REPORTS lendo do proprio
+# diretorio. Sem esta linha o refresh gera data.js com BI_REPORTS vazio e a
+# tela cai no fallback de fetch HTTP.
+COPY report*.json ./
+COPY components.jsx pages-1.jsx pages-2.jsx pages-3.jsx pages-4.jsx page-dre.jsx upsell-pages.jsx ./
 
 # Site estático servido pelo nginx
 COPY index.html styles.css /usr/share/nginx/html/

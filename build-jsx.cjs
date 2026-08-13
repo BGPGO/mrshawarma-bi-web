@@ -23,6 +23,7 @@ const SOURCES = [
   'pages-2.jsx',
   'pages-3.jsx',
   'pages-4.jsx',
+  'page-dre.jsx',
   'upsell-pages.jsx',
 ];
 
@@ -39,7 +40,17 @@ try {
 } catch (e) {
   // Sem config — todas as pages ativas (default)
 }
-const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.js > pages\nwindow.BI_PAGE_MODE = ${JSON.stringify(pageModes)};\n`;
+// Finalidade das contas bancárias (bi.config > fontes.omie.contas_finalidade).
+// A Tesouraria usa pra rotular cada saldo — conta sem rótulo é saldo que o
+// cliente não sabe se deve considerar.
+let contasFinalidade = {};
+try {
+  const _f = require(path.join(ROOT, 'bi.config.js')).fontes || {};
+  contasFinalidade = _f.f360?.contas_finalidade || _f.omie?.contas_finalidade || {};
+} catch (e) {}
+
+const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.js > pages\nwindow.BI_PAGE_MODE = ${JSON.stringify(pageModes)};\n`
+  + `window.BI_CONTAS_FINALIDADE = ${JSON.stringify(contasFinalidade)};\n`;
 
 (async () => {
   // Cada .jsx redeclara `const { useState } = React;` no topo (era pra Babel-
@@ -68,6 +79,7 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     fluxo: '05 Fluxo de caixa',
     tesouraria: '06 Tesouraria',
     comparativo: '07 Comparativo',
+    dre: '07 DRE Gerencial',
     orcamento_mensal: '08 Orçamento Mensal',
     relatorio: '09 Relatório IA',
     fluxo_projetado: '09 Fluxo Projetado',
@@ -127,9 +139,25 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     });
     var semInvestimento = si[0], setSemInvestimento = si[1];
 
+    // visao: 'operacional' (default) tira financiamento e socios de
+    // receita/despesa/margem; 'completo' devolve tudo. Ver
+    // categorias_nao_operacionais no bi.config.js.
+    var vs = useState(function () {
+      try { return localStorage.getItem('bi.visao') === 'completo' ? 'completo' : 'operacional'; } catch (e) { return 'operacional'; }
+    });
+    var visao = vs[0], setVisao = vs[1];
+
+    // regime: 'caixa' (default) | 'competencia'. Competencia usa a data de
+    // emissao do titulo — conferido contra o relatorio de julho da Silmara.
+    var rg = useState(function () {
+      try { return localStorage.getItem('bi.regime') === 'competencia' ? 'competencia' : 'caixa'; } catch (e) { return 'caixa'; }
+    });
+    var regime = rg[0], setRegime = rg[1];
+
     var fcc = useState([]); var filterCentroCusto = fcc[0], setFilterCentroCusto = fcc[1];
     var fcat = useState([]); var filterCategoria = fcat[0], setFilterCategoria = fcat[1];
     var femp = useState([]); var filterEmpresa = femp[0], setFilterEmpresa = femp[1];
+    var fcta = useState([]); var filterConta = fcta[0], setFilterConta = fcta[1];
 
     // BI export multi-tela: array de page-ids ou null. Quando setado, renderiza
     // todas as telas em sequencia + chama window.print() depois do layout pintar.
@@ -242,6 +270,14 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       try { localStorage.setItem('bi.semInvestimento', String(semInvestimento)); } catch (e) {}
     }, [semInvestimento]);
 
+    useEffect(function () {
+      try { localStorage.setItem('bi.visao', String(visao)); } catch (e) {}
+    }, [visao]);
+
+    useEffect(function () {
+      try { localStorage.setItem('bi.regime', String(regime)); } catch (e) {}
+    }, [regime]);
+
     var handleSetPage = function (newPage) {
       setPage(newPage);
       setSidebarOpen(false);
@@ -276,6 +312,7 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       fluxo: PageFluxo,
       tesouraria: PageTesouraria,
       comparativo: PageComparativo,
+      dre: PageDRE,
       orcamento: PageOrcamento,
       orcamento_mensal: PageOrcamentoMensal,
       relatorio: PageRelatorio,
@@ -297,8 +334,24 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
       : PAGE_COMPS[page];
 
     var PAGES_WITH_INVESTIMENTO = ['overview', 'despesa', 'fluxo', 'tesouraria', 'comparativo'];
-    var extraFilters = (filterCentroCusto.length > 0 || filterCategoria.length > 0 || filterEmpresa.length > 0)
-      ? { centroCusto: filterCentroCusto, categoria: filterCategoria, empresa: filterEmpresa } : undefined;
+    // extraFilters agora carrega tambem a visao (Operacional | Completo), e por
+    // isso esta memoizado: antes era objeto literal criado a cada render, o que
+    // invalidava o useMemo de TODA page em todo render sempre que houvesse
+    // filtro ativo. Com a visao ele passaria a ser sempre definido, e o
+    // recalculo viraria constante. As deps sao primitivas + as tres listas.
+    var extraFilters = useMemo(function () {
+      var temFiltro = filterCentroCusto.length > 0 || filterCategoria.length > 0
+        || filterEmpresa.length > 0 || filterConta.length > 0;
+      if (!temFiltro && visao === 'operacional' && regime === 'caixa') return undefined;  // default: nada a passar
+      return {
+        centroCusto: filterCentroCusto,
+        categoria: filterCategoria,
+        empresa: filterEmpresa,
+        conta: filterConta,
+        visao: visao,
+        regime: regime,
+      };
+    }, [filterCentroCusto, filterCategoria, filterEmpresa, filterConta, visao, regime]);
 
     var commonProps = {
       filters: filters,
@@ -363,6 +416,12 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
             setDayTo={setDayTo}
             week={week}
             setWeek={setWeek}
+            visao={visao}
+            setVisao={setVisao}
+            regime={regime}
+            setRegime={setRegime}
+            filterConta={filterConta}
+            setFilterConta={setFilterConta}
             semInvestimento={semInvestimento}
             setSemInvestimento={PAGES_WITH_INVESTIMENTO.indexOf(page) !== -1 ? setSemInvestimento : null}
             filterCentroCusto={filterCentroCusto}

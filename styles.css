@@ -3427,3 +3427,463 @@ table.t tr.total td {
   border-radius: 2px;
   flex-shrink: 0;
 }
+
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --bg-1: #efefef;
+  --surface: #ffffff;
+  --surface-2: #f0f0f0;
+  --surface-3: #e8e8e8;
+  --border: #ddd;
+  --border-2: #ccc;
+  --text: #1a1a1a;
+  --fg: #1a1a1a;
+  --text-2: #444;
+  --fg-2: #444;
+  --mute: #888;
+  --fg-3: #888;
+  --mute-2: #bbb;
+  --fg-4: #bbb;
+  --cyan: #0891b2;
+  --cyan-2: #06b6d4;
+  --cyan-3: #22d3ee;
+  --cyan-dim: #cffafe;
+  --cyan-glow: rgba(8,145,178,0.12);
+  --cyan-glow-strong: rgba(8,145,178,0.25);
+  --green: #059669;
+  --green-2: #10b981;
+  --green-3: #34d399;
+  --green-dim: #d1fae5;
+  --green-soft: rgba(5,150,105,0.12);
+  --red: #dc2626;
+  --red-2: #ef4444;
+  --red-3: #f87171;
+  --red-dim: #fee2e2;
+  --red-soft: rgba(220,38,38,0.10);
+  --amber: #d97706;
+  --violet: #7c3aed;
+  --line: #e0e0e0;
+  --line-soft: #eee;
+  --line-strong: #ccc;
+  --bg-3: #f0f0f0;
+  --bg-4: #e8e8e8;
+}
+/* --- Light theme overrides (comprehensive) --- */
+/* Layout */
+[data-theme="light"] .sidebar { background: #fff; border-color: #e0e0e0; }
+[data-theme="light"] .header { background: #fff; border-color: #e0e0e0; }
+[data-theme="light"] .card { background: #fff; border-color: #e0e0e0; box-shadow: 0 1px 4px rgba(0,0,0,0.08); }
+[data-theme="light"] .main { background: #f0f2f5; }
+[data-theme="light"] .page { color: #1a1a1a; background: transparent; }
+[data-theme="light"] .page::before { display: none; }
+
+/* Sidebar */
+[data-theme="light"] .sb-item.active { background: rgba(8,145,178,0.10); color: var(--cyan); border-color: rgba(8,145,178,0.2); }
+[data-theme="light"] .sb-item:hover { background: rgba(0,0,0,0.04); }
+[data-theme="light"] .sb-section { color: #888; }
+[data-theme="light"] .sb-brand { border-color: #e0e0e0; }
+[data-theme="light"] .sb-user { border-color: #e0e0e0; background: transparent; }
+[data-theme="light"] .sb-user .who span { color: #888; }
+[data-theme="light"] .sb-item .badge { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.12); }
+[data-theme="light"] .sb-item-badge-pro { background: linear-gradient(135deg, #d97706, #b45309); }
+
+/* Selects, inputs */
+[data-theme="light"] select,
+[data-theme="light"] .header-year,
+[data-theme="light"] .header-month { background: #f5f5f5; border-color: #ddd; color: #1a1a1a; }
+[data-theme="light"] .hd-icon-btn:hover { border-color: rgba(0,0,0,0.15); background: rgba(0,0,0,0.04); }
+
+/* Seg/range pills */
+[data-theme="light"] .seg button.active,
+[data-theme="light"] .range-pills button.active { background: rgba(8,145,178,0.12); border-color: rgba(8,145,178,0.3); color: var(--cyan); }
+[data-theme="light"] .ind-pill { background: rgba(0,0,0,0.06); color: #444; border-color: #ddd; }
+[data-theme="light"] .ind-pill.active { background: var(--cyan); color: #fff; border-color: var(--cyan); }
+
+/* Chips */
+[data-theme="light"] .chip { background: rgba(0,0,0,0.05); border-color: rgba(0,0,0,0.12); color: #333; }
+[data-theme="light"] .chip.green { background: rgba(5,150,105,0.12); color: #047857; }
+[data-theme="light"] .chip.red { background: rgba(220,38,38,0.10); color: #b91c1c; }
+[data-theme="light"] .chip.cyan { background: rgba(8,145,178,0.10); color: #0e7490; border-color: rgba(8,145,178,0.25); }
+[data-theme="light"] .legend-pill { background: rgba(0,0,0,0.04); border-color: #ddd; color: #444; }
+
+/* KPI stack */
+[data-theme="light"] .kpi-stack-item { border-color: #e0e0e0; }
+[data-theme="light"] .kpi-stack-item.receita { background: rgba(5,150,105,0.06); border-color: rgba(5,150,105,0.25); }
+[data-theme="light"] .kpi-stack-item.despesa { background: rgba(220,38,38,0.05); border-color: rgba(220,38,38,0.2); }
+[data-theme="light"] .kpi-stack-value { color: #1a1a1a; }
+[data-theme="light"] .kpi-stack-label { color: #555; }
+[data-theme="light"] .kpi-stack-pct { color: var(--cyan); }
+
+/* Resultado card */
+[data-theme="light"] .resultado-card { background: rgba(8,145,178,0.05); border-color: rgba(8,145,178,0.25); }
+[data-theme="light"] .resultado-val { color: var(--cyan); }
+
+/* Bar charts — OverviewBars */
+[data-theme="light"] .ov-bar-chip { background: #fff; color: #1a1a1a; text-shadow: none; border: 1px solid #ddd; }
+[data-theme="light"] .ov-bars-tick { border-color: rgba(0,0,0,0.08); }
+[data-theme="light"] .ov-bars-tick span { color: #888; }
+[data-theme="light"] .ov-bars-x span { color: #555; }
+[data-theme="light"] .ov-bars-year span { color: #888; }
+[data-theme="light"] .ov-bars-year::before,
+[data-theme="light"] .ov-bars-year::after { background: linear-gradient(90deg, transparent, rgba(0,0,0,0.10), transparent); }
+[data-theme="light"] .ov-bar-col.dimmed { opacity: 0.4; }
+
+/* Metric strip (Fluxo de Caixa, Indicadores) */
+[data-theme="light"] .metric-strip { background: #fff; border-color: #e0e0e0; }
+[data-theme="light"] .metric { border-color: #e0e0e0; }
+[data-theme="light"] .metric .m-label { color: #333; }
+[data-theme="light"] .metric .m-value { color: #1a1a1a; }
+[data-theme="light"] .metric .m-pct { color: #666; }
+[data-theme="light"] .metric .m-bar { background: #e8e8e8; }
+
+/* KPI tiles */
+[data-theme="light"] .kpi-tile { background: #fff; border-color: #e0e0e0; }
+[data-theme="light"] .kpi-tile:hover { background: #fafafa; }
+[data-theme="light"] .kpi-tile .kpi-value { color: #1a1a1a; }
+[data-theme="light"] .kpi-tile .kpi-label { color: #555; }
+[data-theme="light"] .kpi-tile.cyan::before { background: radial-gradient(560px 280px at 100% 0%, rgba(8,145,178,0.12), transparent 62%); }
+
+/* Tables */
+[data-theme="light"] .t-scroll { border-color: #e0e0e0; }
+[data-theme="light"] th { background: #f5f5f5; color: #333; border-color: #e0e0e0; }
+[data-theme="light"] td { color: #1a1a1a; border-color: #eee; }
+[data-theme="light"] tr:hover td { background: rgba(8,145,178,0.04); }
+[data-theme="light"] table.t tr.active td { background: rgba(8,145,178,0.06); }
+[data-theme="light"] .clickable-th:hover { background: rgba(8,145,178,0.06); }
+[data-theme="light"] .clickable-th.active { background: rgba(8,145,178,0.10); }
+
+/* Fluxo table */
+[data-theme="light"] .fluxo-table th { background: #f0f2f5; color: #333; }
+[data-theme="light"] .fluxo-table td { color: #1a1a1a; }
+[data-theme="light"] .fluxo-table thead th:first-child { background: #f5f5f5 !important; }
+[data-theme="light"] .fluxo-table tr.section td:first-child { background: #e8ecf0 !important; }
+[data-theme="light"] .fluxo-table tr.total td:first-child { background: rgba(8,145,178,0.10) !important; }
+[data-theme="light"] .fluxo-cat-row.expanded td:first-child { background: rgba(8,145,178,0.06) !important; }
+[data-theme="light"] .fluxo-forn-row.expanded td:first-child { background: rgba(8,145,178,0.04) !important; }
+[data-theme="light"] .fluxo-table tr.section td { background: rgba(0,0,0,0.03) !important; }
+[data-theme="light"] .fluxo-table tr.total td { background: rgba(8,145,178,0.06) !important; }
+[data-theme="light"] .fluxo-row-header td { background: rgba(8,145,178,0.08); color: #0e7490; }
+[data-theme="light"] .fluxo-lanc-row td { border-color: rgba(0,0,0,0.06); }
+[data-theme="light"] .fluxo-outros-row td { background: rgba(0,0,0,0.02) !important; }
+
+/* Vertical bar axis */
+[data-theme="light"] .vbar-axis .grid { border-color: rgba(0,0,0,0.08); }
+
+/* SVG charts — line/trend */
+[data-theme="light"] .ind-line text { fill: #333; }
+
+/* Page title */
+[data-theme="light"] .page-title h1 { color: #1a1a1a; }
+[data-theme="light"] .status-line { color: #666; }
+
+/* Capa page */
+[data-theme="light"] .page-capa { background: linear-gradient(135deg, rgba(240,242,245,0.97), rgba(255,255,255,0.95)); }
+[data-theme="light"] .capa-title { color: var(--cyan); }
+[data-theme="light"] .capa-subtitle { color: #555; }
+[data-theme="light"] .capa-desc { color: #666; }
+[data-theme="light"] .capa-resultado { border-color: var(--cyan); background: rgba(8,145,178,0.04); }
+[data-theme="light"] .capa-resultado-title { color: var(--cyan); }
+[data-theme="light"] .capa-resultado-label { color: #333; }
+[data-theme="light"] .capa-resultado-value { color: #1a1a1a; }
+[data-theme="light"] .capa-metricas-title { color: var(--cyan); }
+[data-theme="light"] .capa-metric-label { color: #333; }
+[data-theme="light"] .capa-metric-value { color: #1a1a1a; }
+[data-theme="light"] .capa-metric-bar { background: var(--cyan); }
+[data-theme="light"] .capa-metric-bar-sep { background: rgba(0,0,0,0.12); }
+[data-theme="light"] .capa-metric-row { border-color: rgba(0,0,0,0.06); }
+
+/* Organograma */
+[data-theme="light"] .org-node { box-shadow: 0 1px 4px rgba(0,0,0,0.12); }
+[data-theme="light"] .org-children > .org-branch::before,
+[data-theme="light"] .org-children::before,
+[data-theme="light"] .org-children > .org-branch::after { background: #bbb; }
+[data-theme="light"] .org-children > .org-branch { border-color: #bbb; }
+
+/* Drilldown badge */
+[data-theme="light"] .drilldown-badge { background: rgba(8,145,178,0.08); border-color: rgba(8,145,178,0.2); color: #0e7490; }
+
+/* Status filter seg */
+[data-theme="light"] .status-seg { background: #f0f0f0; border-color: #ddd; }
+[data-theme="light"] .status-seg button { color: #555; }
+[data-theme="light"] .status-seg button.active { background: var(--cyan); color: #fff; }
+[data-theme="light"] .status-filter-seg button.active { color: #047857; }
+
+/* Indicator cards (Tesouraria etc) */
+[data-theme="light"] .indicator-card { background: #f8f8f8; border-color: #e0e0e0; }
+
+/* Report page */
+[data-theme="light"] .report-cover { background: linear-gradient(135deg, #f0f4f8, #e8ecf0); }
+[data-theme="light"] .report-title { color: #1a1a1a; }
+[data-theme="light"] .report-subtitle { color: #444; }
+[data-theme="light"] .report-meta { color: #666; }
+[data-theme="light"] .report-section h2 { color: #1a1a1a; }
+[data-theme="light"] .report-analysis { color: #333; }
+[data-theme="light"] .report-kpi { background: #f8f8f8; border-color: #e0e0e0; }
+[data-theme="light"] .report-kpi .lbl { color: #555; }
+
+/* Extrato / scroll tables */
+[data-theme="light"] .ext-row { border-color: #eee; }
+[data-theme="light"] .ext-row:hover { background: rgba(8,145,178,0.03); }
+
+/* Global filter bar */
+[data-theme="light"] .global-filter-bar { background: #fff; border-color: #e0e0e0; }
+[data-theme="light"] .global-filter-bar select { background: #f5f5f5; color: #1a1a1a; border-color: #ddd; }
+
+/* BarList component */
+[data-theme="light"] .bar-list-bar { background: #f0f0f0; }
+
+/* Comparativo */
+[data-theme="light"] .comp-table th { background: #f0f2f5; color: #333; }
+[data-theme="light"] .comp-table td { color: #1a1a1a; }
+
+/* Drawer */
+[data-theme="light"] .drawer { background: #fff; }
+[data-theme="light"] .drawer-footer { background: #f8f8f8; border-color: #e0e0e0; }
+
+/* Hierarchy / Detalhado / CRM (amber colored titles) */
+[data-theme="light"] .hier-stage { background: #f8f9fa; }
+[data-theme="light"] .hier-cols-header > div { color: #92400e; }
+[data-theme="light"] .radke-bars-card .card-title { color: #92400e; }
+[data-theme="light"] .rd-bar { background: rgba(0,0,0,0.06); }
+[data-theme="light"] .rd-bar-label { color: #1a1a1a; text-shadow: none; }
+[data-theme="light"] .rd-bar-value { color: #92400e; }
+[data-theme="light"] .pc-header { color: #92400e; }
+[data-theme="light"] .pc-val { color: #92400e; }
+[data-theme="light"] .crm-funnel-card .card-title { color: #92400e; }
+[data-theme="light"] .cff-val { color: #92400e; }
+[data-theme="light"] .crm-proj-card .card-title { color: #92400e; }
+[data-theme="light"] .fat-barrow-track { background: rgba(0,0,0,0.06); }
+[data-theme="light"] .mkt-barrow-track { background: rgba(0,0,0,0.06); }
+[data-theme="light"] .crm-meta-track { background: rgba(0,0,0,0.08); }
+
+/* Upsell */
+[data-theme="light"] .upsell-hero { border-color: rgba(0,0,0,0.12); }
+
+/* Scrollbar */
+[data-theme="light"] ::-webkit-scrollbar-track { background: #f0f0f0; }
+[data-theme="light"] ::-webkit-scrollbar-thumb { background: #ccc; }
+[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #aaa; }
+
+/* ==========================================================================
+ * Overrides light que o bloco herdado do sknprime nao cobria (24 seletores).
+ * Levantados varrendo o styles.css por prop de cor NAO-token com luminancia
+ * extrema (<0.35 ou >0.9) mais rgba de branco/preto. Token nao precisa de
+ * override: os 43 tokens de cor do :root sao redefinidos no bloco acima.
+ * ========================================================================== */
+
+/* texto sobre botao de acento: no light o --cyan escurece pra #0891b2, e texto
+ * escuro sobre ele fica ilegivel */
+[data-theme="light"] .btn-primary,
+[data-theme="light"] .filters-badge,
+[data-theme="light"] .multi-select-badge { color: #fff; }
+
+/* grid de grafico e barras de fundo: inverte o veu branco em veu preto */
+[data-theme="light"] .trend .grid { stroke: rgba(0,0,0,0.08); }
+[data-theme="light"] .cmb-bar,
+[data-theme="light"] .orcamento-bar { background: rgba(0,0,0,0.07); }
+[data-theme="light"] .orcamento-total { background: rgba(0,0,0,0.04) !important; }
+[data-theme="light"] .crm-meta-fill { background: linear-gradient(90deg, rgba(0,0,0,0.20), rgba(0,0,0,0)); }
+[data-theme="light"] .crm-meta-target { background: rgba(0,0,0,0.30); }
+
+/* valores que eram #fff chapado dentro de barra */
+[data-theme="light"] .fat-barrow-val,
+[data-theme="light"] .mkt-barrow-val,
+[data-theme="light"] .orc-bar-group:hover .orc-bar-label { color: var(--fg); }
+
+/* caixas que usavam poco escuro (rgba preto forte) pra afundar */
+[data-theme="light"] .bi-export-grid,
+[data-theme="light"] .upsell-preview-mock { background: rgba(0,0,0,0.04); }
+[data-theme="light"] .ifb-search-trigger,
+[data-theme="light"] .ifb-search-input { background: #fff; border-color: var(--border); color: var(--fg); }
+
+/* divisorias de 1px que eram branco translucido */
+[data-theme="light"] .upsell-beneficios li,
+[data-theme="light"] .orcamento-table tbody tr { border-bottom-color: rgba(0,0,0,0.07); }
+[data-theme="light"] .orcamento-table tbody tr:hover { background: rgba(0,0,0,0.03); }
+
+/* a conclusao do Relatorio IA ja nasce #f5f5f5 (clara) — no dark isso e um bug
+ * separado; aqui ela precisa se distinguir do card branco atras dela */
+[data-theme="light"] .report-conclusion { background: #eef2f6; border-color: #dbe3ea; }
+
+/* ---- logo ----
+ * O BI usa bgp-logo-white.png (branco chapado), invisivel em fundo claro.
+ * Os dois arquivos ja estao em assets/, entao o JSX renderiza os dois <img> e
+ * o CSS mostra o certo — sem replumbing de estado do tema no React.
+ * O bgp-logo.png e cinza-azulado claro (luminancia ~0.75), fraco em #f5f5f5:
+ * o brightness() abaixo escurece pra dar contraste. */
+.logo-light { display: none; }
+[data-theme="light"] .logo-dark { display: none; }
+[data-theme="light"] .logo-light { display: block; filter: brightness(0.58) saturate(1.25); }
+
+
+/* ==========================================================================
+ * .filterbar — segunda faixa do header, só recorte
+ * ==========================================================================
+ * A .header tem height:70px fixo e nowrap. Com 11 controles o último saía
+ * cortado da tela. Aqui a faixa É wrap: em telas estreitas as pílulas descem
+ * de linha em vez de sumir. Nada foi escondido pra caber.
+ * ========================================================================== */
+.filterbar {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px 32px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg-1);
+  position: relative;
+  z-index: 9;
+}
+.fb-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 12px 5px 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+.fb-group.fb-on { border-color: var(--cyan); box-shadow: 0 0 0 3px var(--cyan-glow); }
+.fb-label {
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  color: var(--fg-3);
+  white-space: nowrap;
+}
+.fb-group.fb-on .fb-label { color: var(--cyan); }
+.fb-clear {
+  border: 1px solid var(--cyan);
+  background: transparent;
+  color: var(--cyan);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 11.5px;
+  font-family: var(--font-ui);
+  cursor: pointer;
+}
+.fb-clear:hover { background: var(--cyan-glow); }
+.fb-hint { font-size: 11.5px; color: var(--fg-3); }
+
+@media (max-width: 820px) {
+  .filterbar { padding: 10px 16px; }
+  .fb-group { flex: 1 1 100%; }
+}
+
+[data-theme="light"] .filterbar { background: #f7f8fa; border-color: #e0e0e0; }
+[data-theme="light"] .fb-group { background: #fff; border-color: #ddd; }
+
+
+/* ==========================================================================
+ * DRE Gerencial
+ * ==========================================================================
+ * Hierarquia visual em 3 niveis, porque a cascata dela tem 3 tipos de linha e
+ * sem diferenca visual a tabela vira uma parede de numeros:
+ *   .dre-tipo  = linha de tipo (01, 02, 04...), soma dos grupos abaixo
+ *   .dre-grupo = grupo (01.01, 04.03...), onde os lancamentos caem
+ *   .dre-calc  = linha CALCULADA (03, 05, 08) — resultado, nao lancamento
+ * ========================================================================== */
+.t-dre .dre-tipo > td { font-weight: 600; }
+.t-dre .dre-grupo > td { color: var(--fg-2); }
+.t-dre .dre-calc > td {
+  font-weight: 700;
+  background: var(--surface-2);
+  border-top: 1px solid var(--border-2);
+  border-bottom: 1px solid var(--border-2);
+}
+.t-dre .dre-nao-mapeada > td {
+  border-top: 1px dashed var(--border-2);
+  color: var(--fg-2);
+  font-style: italic;
+}
+.t-dre th.active { color: var(--cyan); }
+
+.t-ind td { padding: 5px 8px; font-size: 12px; }
+.t-ind td.num { font-variant-numeric: tabular-nums; }
+.t-ind tr.total td { font-weight: 700; border-top: 1px solid var(--border-2); }
+
+/* Avisos que a tela da sobre si mesma, antes dos numeros. Divergencia
+ * intencional entre telas tem que ser dita, senao volta como ticket. */
+.dre-avisos { display: flex; flex-direction: column; gap: 8px; margin-bottom: 12px; }
+.dre-aviso {
+  font-size: 11.5px;
+  line-height: 1.6;
+  color: var(--fg-2);
+  padding: 9px 12px;
+  border-left: 3px solid var(--cyan);
+  background: var(--surface-2);
+  border-radius: 0 var(--radius-xs) var(--radius-xs) 0;
+}
+.dre-aviso-atencao { border-left-color: var(--amber, #f59e0b); }
+
+[data-theme="light"] .t-dre .dre-calc > td { background: #f2f5f7; }
+[data-theme="light"] .dre-aviso { background: #f4f7f9; }
+
+
+/* Busca do extrato. Seletor COMPOSTO .t-scroll.t-scroll-extrato de proposito:
+ * com uma classe so a especificidade empata com .t-scroll e quem ganha e quem
+ * vier depois no arquivo — a regra sumiria calada. */
+.ext-busca {
+  flex: 1 1 240px;
+  min-width: 180px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  padding: 7px 10px;
+}
+.ext-busca:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px var(--cyan-glow); }
+.ext-busca::placeholder { color: var(--fg-3); }
+.t-scroll.t-scroll-extrato { max-height: 550px; }
+.t-scroll.t-scroll-extrato tr.total td { position: sticky; bottom: 0; background: var(--surface); }
+[data-theme="light"] .ext-busca { background: #fff; border-color: #ddd; }
+[data-theme="light"] .t-scroll.t-scroll-extrato tr.total td { background: #fff; }
+
+
+/* ==========================================================================
+ * Resumo do mes (Visao Geral)
+ * ==========================================================================
+ * "um resumo ali do mes, como foi, o que passou, o que fechou, antes de entrar
+ * no detalhe" — Silmara, 12/08/2026. Insight box no topo: sinaliza o que olhar
+ * primeiro em vez de deixar a conclusao enterrada nos KPIs (principio 4).
+ * ========================================================================== */
+.resumo-mes {
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--cyan);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+  padding: 14px 18px;
+  margin-bottom: 16px;
+}
+.resumo-mes.resumo-neg { border-left-color: var(--red); }
+.resumo-head { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 12px; }
+.resumo-mes-nome {
+  font-size: 14px; font-weight: 700; text-transform: capitalize; color: var(--fg);
+}
+.resumo-tag {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: .6px; color: var(--fg-3);
+  border: 1px solid var(--border-2); border-radius: 999px; padding: 2px 9px;
+}
+.resumo-grid {
+  display: grid; gap: 14px 26px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+}
+.resumo-label {
+  font-size: 10.5px; text-transform: uppercase; letter-spacing: .6px;
+  color: var(--fg-3); margin-bottom: 3px;
+}
+.resumo-valor { font-family: var(--font-mono); font-size: 17px; font-weight: 600; color: var(--fg); }
+.resumo-valor.green { color: var(--green); }
+.resumo-valor.red { color: var(--red); }
+.resumo-leitura {
+  margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--border);
+  font-size: 11.5px; line-height: 1.7; color: var(--fg-2);
+}
+.resumo-leitura .green { color: var(--green); }
+.resumo-leitura .red { color: var(--red); }
+
+@media (max-width: 820px) { .resumo-mes { padding: 12px 14px; } }
+
+[data-theme="light"] .resumo-mes { background: #fff; border-color: #e0e0e0; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }

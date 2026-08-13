@@ -1,6 +1,273 @@
 /* BIT/BGP Finance — shared components v2 */
 const { useState, useEffect, useMemo, useRef } = React;
 
+/* ==========================================================================
+ * CLASSIFICAÇÃO DE CATEGORIAS — modelo "Padrão iFinance" (Mr Shawarma)
+ * ==========================================================================
+ * Extraído de "DRE GERENCIAL - JULHO26 - REGIME COMPETENCIA - SHAWARMA.xlsx",
+ * enviado pela Silmara/iFinance em 12/08/2026. A aba "Filtros Escolhidos" do
+ * próprio arquivo diz o modelo: **Padrão iFinance**, com Status "Ambos" e
+ * Regime "Competência" — é esse recorte que reproduz os números dela.
+ *
+ * Diferente do BI da MedConsulting, aqui NÃO existem dois mapas: o F360 não
+ * entrega um agrupamento próprio (o centro de custo vem com o nome da empresa
+ * em todas as rows). Então o grupo do Fluxo de Caixa É a linha da DRE dela —
+ * o que é melhor, porque as duas telas passam a falar a mesma língua.
+ * ========================================================================== */
+const DRE_MAP = {
+  // linha 1 — RECEITAS OPERACIONAIS
+  "102-1 - Vendas de Produtos - Delivery":                                      { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  "102-1 - Vendas de Produtos - Débito e Crédito":                              { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  "102-1 - Vendas de Produtos - Transferência / PIX":                           { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  "102-1 - Vendas de Produtos - Vouchers":                                      { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  "Ajustes a Crédito de Cartão":                                                { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  "Outras Receitas Ifood":                                                      { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  "Vendas de Mercadorias":                                                      { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  // linha 2 — Deduções de Receitas
+  "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas":{ grupo: "Deduções de Receitas",              dre: "2" },
+  "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação":                { grupo: "Deduções de Receitas",              dre: "2" },
+  "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery":                   { grupo: "Deduções de Receitas",              dre: "2" },
+  "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão":                     { grupo: "Deduções de Receitas",              dre: "2" },
+  "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher":                    { grupo: "Deduções de Receitas",              dre: "2" },
+  "Ajustes a Débito de Cartão":                                                 { grupo: "Deduções de Receitas",              dre: "2" },
+  "Desconto complementar da operadora Ifood":                                   { grupo: "Deduções de Receitas",              dre: "2" },
+  "Taxa Administrativa de Cartões":                                             { grupo: "Deduções de Receitas",              dre: "2" },
+  "Taxa de entrega Ifood (Despesa)":                                            { grupo: "Deduções de Receitas",              dre: "2" },
+  // linha 3 — Impostos Sobre o Faturamento
+  "205-2 - Simples Nacional":                                                   { grupo: "Impostos Sobre o Faturamento",      dre: "3" },
+  // linha 4 — Despesas Operacionais
+  "112-9 - Moveis e Utensilios":                                                { grupo: "Despesas Operacionais",             dre: "4" },
+  "201-6 - OP Freelancer":                                                      { grupo: "Despesas Operacionais",             dre: "4" },
+  "201-6 - OP Salarios":                                                        { grupo: "Despesas Operacionais",             dre: "4" },
+  "400-0 - Custo de Embalagens":                                                { grupo: "Despesas Operacionais",             dre: "4" },
+  "400-0 - Custo de Mercadorias Vendidas":                                      { grupo: "Despesas Operacionais",             dre: "4" },
+  "403-9 - OP Vale Transporte":                                                 { grupo: "Despesas Operacionais",             dre: "4" },
+  "410-5 - OP Servicos Tecnicos":                                               { grupo: "Despesas Operacionais",             dre: "4" },
+  "410-9 - OP Outros Servicos Prestados":                                       { grupo: "Despesas Operacionais",             dre: "4" },
+  "421-8 - OP Fretes e carretos":                                               { grupo: "Despesas Operacionais",             dre: "4" },
+  // linha 6 — Despesas Com Pessoal
+  "201-5 - Pro-Labore":                                                         { grupo: "Despesas Com Pessoal",              dre: "6" },
+  "201-6 - Salarios e Ordenados":                                               { grupo: "Despesas Com Pessoal",              dre: "6" },
+  "202-0 - Rescisoes":                                                          { grupo: "Despesas Com Pessoal",              dre: "6" },   // via código irmão; não estava na planilha de julho
+  "203-0 - INSS":                                                               { grupo: "Despesas Com Pessoal",              dre: "6" },
+  "203-1 - FGTS":                                                               { grupo: "Despesas Com Pessoal",              dre: "6" },
+  "415-8 - Outras Despesas Com Funcionarios":                                   { grupo: "Despesas Com Pessoal",              dre: "6" },
+  "418-0 - Farmacia":                                                           { grupo: "Despesas Com Pessoal",              dre: "6" },
+  "418-3 - Curso e Treinamento":                                                { grupo: "Despesas Com Pessoal",              dre: "6" },   // via código irmão; não estava na planilha de julho
+  // linha 7 — Despesas Administrativas
+  "420-5 - Aluguel":                                                            { grupo: "Despesas Administrativas",          dre: "7" },
+  "420-6 - Manut e Conservacao Predial":                                        { grupo: "Despesas Administrativas",          dre: "7" },
+  "421-2 - Manutencao e Reparos":                                               { grupo: "Despesas Administrativas",          dre: "7" },
+  "422-0 - Uber e Taxi":                                                        { grupo: "Despesas Administrativas",          dre: "7" },
+  "422-9 - Material de Escritorio":                                             { grupo: "Despesas Administrativas",          dre: "7" },
+  "423-5 - Estacionamento":                                                     { grupo: "Despesas Administrativas",          dre: "7" },
+  "425-5 - Consultoria":                                                        { grupo: "Despesas Administrativas",          dre: "7" },
+  "425-6 - Contabilidade":                                                      { grupo: "Despesas Administrativas",          dre: "7" },
+  "431-3 - Taxas e Emolumentos":                                                { grupo: "Despesas Administrativas",          dre: "7" },
+  // linha 8 — Despesas Com TI
+  "427-0 - Sistema de Gestao":                                                  { grupo: "Despesas Com TI",                   dre: "8" },   // via código irmão; não estava na planilha de julho
+  // linha 9 — Despesas Comerciais e Marketing
+  "434-4 - Marketing Digital":                                                  { grupo: "Despesas Comerciais e Marketing",   dre: "9" },
+  "Aluguel de POS / Outras Taxas":                                              { grupo: "Despesas Comerciais e Marketing",   dre: "9" },
+  "Taxa de manutenção mensal Ifood":                                            { grupo: "Despesas Comerciais e Marketing",   dre: "9" },
+  // linha 11 — Receitas Financeiras
+  "303-2 - Rendimento de Aplic Financeira":                                     { grupo: "Receitas Financeiras",              dre: "11" },
+  "Estorno de Valores - Entradas":                                              { grupo: "Receitas Financeiras",              dre: "11" },
+  "Sobra de Caixa":                                                             { grupo: "Receitas Financeiras",              dre: "11" },
+  // linha 12 — Despesas Financeiras
+  "430-7 - IOF":                                                                { grupo: "Despesas Financeiras",              dre: "12" },   // via código irmão; não estava na planilha de julho
+  "431-5 - Despesas Bancarias":                                                 { grupo: "Despesas Financeiras",              dre: "12" },
+  "432-0 - Juros Passivos":                                                     { grupo: "Despesas Financeiras",              dre: "12" },
+  "Falta de Caixa":                                                             { grupo: "Despesas Financeiras",              dre: "12" },
+  // linha 14 — Investimentos e Outros
+  "112-5 - Maquinas e Equipamentos":                                            { grupo: "Investimentos e Outros",            dre: "14" },
+};
+
+/* Sem fallback por prefixo de código aqui. No F360 o "código" é parte da
+ * descrição da categoria e ela reaproveita prefixo em linhas diferentes
+ * (431-9 aparece em Deduções e em Comerciais; 201-6 em Despesas Operacionais
+ * e em Despesas Com Pessoal, dependendo de ser "OP Salarios" ou "Salarios e
+ * Ordenados"). Prefixo aqui erraria mais do que acertaria. Categoria nova cai
+ * como não mapeada de propósito, pra ela classificar. */
+const DRE_PREFIXO = {};
+
+/* A cascata do modelo dela, na ordem e com os sinais do relatório.
+ * `calc` = linha calculada (soma as anteriores, não recebe lançamento).
+ * Não há nível intermediário de "tipo" como no MedConsulting: aqui as linhas
+ * de 1 a 14 recebem categoria direto. */
+const DRE_ESTRUTURA = [
+  { id: "1",   label: "1 - RECEITAS OPERACIONAIS",               sinal: +1 },
+  { id: "2",   label: "2 - Deduções de Receitas",                sinal: -1 },
+  { id: "3",   label: "3 - Impostos Sobre o Faturamento",        sinal: -1 },
+  { id: "4",   label: "4 - Despesas Operacionais",               sinal: -1 },
+  { id: "5",   label: "5 - = Margem de Contribuição",            calc: true, formula: ["1","2","3","4"] },
+  { id: "6",   label: "6 - Despesas Com Pessoal",                sinal: -1 },
+  { id: "7",   label: "7 - Despesas Administrativas",            sinal: -1 },
+  { id: "8",   label: "8 - Despesas Com TI",                     sinal: -1 },
+  { id: "9",   label: "9 - Despesas Comerciais e Marketing",     sinal: -1 },
+  { id: "10",  label: "10 - = EBITDA / Resultado Operacional",   calc: true, formula: ["5","6","7","8","9"] },
+  { id: "11",  label: "11 - Receitas Financeiras",               sinal: +1 },
+  { id: "12",  label: "12 - Despesas Financeiras",               sinal: -1 },
+  { id: "13",  label: "13 - = Resultado Líquido Gerencial",      calc: true, formula: ["10","11","12"] },
+  { id: "14",  label: "14 - Investimentos e Outros",             sinal: -1 },
+  { id: "15",  label: "15 - = Superávit/Déficit de Caixa",       calc: true, formula: ["13","14"] },
+];
+
+/* Ordem de exibição dos grupos no Fluxo de Caixa = a ordem da própria DRE. */
+const GRUPO_OMIE_ORDEM = [
+  "RECEITAS OPERACIONAIS",
+  "Deduções de Receitas",
+  "Impostos Sobre o Faturamento",
+  "Despesas Operacionais",
+  "Despesas Com Pessoal",
+  "Despesas Administrativas",
+  "Despesas Com TI",
+  "Despesas Comerciais e Marketing",
+  "Receitas Financeiras",
+  "Despesas Financeiras",
+  "Investimentos e Outros",
+  "NÃO MAPEADAS",
+];
+
+/* Classifica uma categoria nas DUAS hierarquias, com dois flags separados:
+ *
+ *   mapeada     — o grupo do Omie é conhecido (usado pelo Fluxo de Caixa)
+ *   mapeadaDre  — a categoria tem linha na DRE gerencial dela
+ *
+ * São coisas diferentes: empréstimo recebido tem grupo no Omie e NÃO tem linha
+ * na DRE dela. Tratar como um flag só forçaria a escolha entre mentir no Fluxo
+ * ou mentir na DRE.
+ *
+ * Quem consome DEVE mostrar o não mapeado numa linha própria em vez de
+ * descartar em silêncio — o `continue` calado já engoliu R$ 232k num outro BI
+ * da frota, e virou ticket que custou horas pra reproduzir. */
+const dreClassify = (categoria) => {
+  const cat = String(categoria || "").trim();
+  const exato = DRE_MAP[cat];
+  if (exato) {
+    // `omie` no retorno e o nome herdado do BI da MedConsulting, onde o grupo
+    // vinha do Omie. Aqui ele carrega a linha da DRE dela — o consumidor
+    // (buildFluxoOmie) nao precisa saber a diferenca.
+    return {
+      omie: exato.grupo,
+      dre: exato.dre || "99",
+      mapeada: true,
+      mapeadaDre: !!exato.dre,
+    };
+  }
+  const pref = cat.match(/^(\d{3}-\d)/);
+  const viaPrefixo = pref && DRE_PREFIXO[pref[1]];
+  if (viaPrefixo) {
+    return { omie: viaPrefixo.omie, dre: viaPrefixo.dre, mapeada: true, mapeadaDre: true, viaPrefixo: true };
+  }
+  return { omie: "NÃO MAPEADAS", dre: "99", mapeada: false, mapeadaDre: false };
+};
+window.dreClassify = dreClassify;
+window.DRE_ESTRUTURA = DRE_ESTRUTURA;
+window.GRUPO_OMIE_ORDEM = GRUPO_OMIE_ORDEM;
+
+/* txNoContexto — devolve as rows do ALL_TX sob o MESMO contexto de filtro que
+ * o `recomputeBit` aplica (status + drilldown + semInvestimento + extraFilters).
+ *
+ * Existe porque `aggregateTx` não emite FLUXO_RECEITA/FLUXO_DESPESA/COMP_DATA:
+ * o `recomputeBit` faz `Object.assign({}, base, agg, …)` e, sem esses campos no
+ * `agg`, sobrevive o `base` — que é o segmento 'realizado' pré-computado em
+ * build-time. Resultado: a tabela do Fluxo e o Comparativo ficavam CONGELADOS
+ * (idênticos byte-a-byte em realizado / a pagar-receber / tudo) enquanto o KPI
+ * logo acima, na mesma tela, se movia. Quem precisa reagir a filtro recalcula
+ * daqui, do ALL_TX, em vez de ler B.FLUXO_*.
+ *
+ * Índices do ALL_TX: 0 kind · 1 'YYYY-MM' · 2 dia · 3 categoria · 4 cliente
+ * 5 valor · 6 realizado · 7 fornecedor · 8 centroCusto · 9 investimento
+ * 10 peClass · 11 empresa · 12 projeto */
+const txNoContexto = (statusFilter, drilldown, semInv, extraFilters) => {
+  let out = window.filterTx(window.ALL_TX || [], statusFilter, drilldown);
+  if (semInv) out = out.filter(r => !r[9]);
+  if (extraFilters) {
+    const cc = extraFilters.centroCusto, cat = extraFilters.categoria, emp = extraFilters.empresa;
+    if (cc && cc.length) { const s = new Set(cc); out = out.filter(r => s.has(r[8] || "")); }
+    if (cat && cat.length) { const s = new Set(cat); out = out.filter(r => s.has(r[3])); }
+    if (emp && emp.length) { const s = new Set(emp); out = out.filter(r => s.has(r[11] || "")); }
+  }
+  // Espelha o recomputeBit: visao Operacional (default) tira o nao-operacional.
+  // Quem quer o caixa cheio (Fluxo, Tesouraria) passa visao: 'completo'.
+  if (!extraFilters || extraFilters.visao !== "completo") out = out.filter(r => !r[14]);
+  return out;
+};
+window.txNoContexto = txNoContexto;
+
+/* Janela de meses a exibir. O bug original era `MONTHS_FULL.slice(0, 6)`:
+ * janela FIXA em jan–jun, independente de onde o dado estava. Aqui a janela
+ * segue o dado. */
+const mesesComDado = (txList, year) => {
+  const has = new Set();
+  for (const r of txList) {
+    if (!r[1] || Number(r[1].slice(0, 4)) !== year) continue;
+    has.add(parseInt(r[1].slice(5, 7), 10) - 1);
+  }
+  return has;
+};
+/* Duas janelas, as duas honestas:
+ *   'dado' (default) — do primeiro ao último mês que TEM lançamento, somando
+ *                      realizados e a vencer. É o que conserta o bug original.
+ *   'ano'            — jan–dez, pra quem quer ver o ano fechado com os zeros.
+ *
+ * Deliberadamente NÃO existe janela rolante de 6 meses pra frente cruzando o
+ * ano: o `aggregateTx` do data.js filtra `Number(ymonth) !== year` e descarta
+ * tudo fora do ano selecionado, então uma janela ago/26–jan/27 mostraria
+ * janeiro zerado mesmo tendo dado. Enquanto esse filtro existir, a janela
+ * rolante seria uma mentira na tela. */
+const janelaMeses = (txList, year, range) => {
+  const has = mesesComDado(txList, year);
+  if (range === "ano" || has.size === 0) return Array.from({ length: 12 }, (_, i) => i);
+  const idx = Array.from(has).sort((a, b) => a - b);
+  const out = [];
+  for (let i = idx[0]; i <= idx[idx.length - 1]; i++) out.push(i);
+  return out;
+};
+window.janelaMeses = janelaMeses;
+
+/* ==========================================================================
+ * TEMA CLARO / ESCURO
+ * ==========================================================================
+ * Pedido da Silmara na reunião de 12/08: "tá, e como que eu tiro do escuro?
+ * (...) aqui é tudo quase 40, os clientes é 40 a mais, então tem que ser
+ * clarinho". Por isso o DEFAULT deste BI é claro, não escuro — o toggle existe
+ * pra quem preferir o escuro, e a escolha fica no localStorage.
+ *
+ * O atributo é aplicado no carregamento do módulo, não num useEffect: o
+ * components.jsx vem antes do App no bundle concatenado, então isso roda antes
+ * do primeiro paint. Num useEffect a tela piscaria escura antes de clarear.
+ * ========================================================================== */
+const TEMA_DEFAULT = "light";
+const temaSalvo = () => {
+  try { return localStorage.getItem("bi.theme") || TEMA_DEFAULT; } catch (e) { return TEMA_DEFAULT; }
+};
+const aplicaTema = (tema) => {
+  try {
+    if (tema === "light") document.documentElement.setAttribute("data-theme", "light");
+    else document.documentElement.removeAttribute("data-theme");
+  } catch (e) {}
+};
+aplicaTema(temaSalvo());
+
+const ThemeToggle = () => {
+  const [tema, setTema] = useState(temaSalvo);
+  useEffect(() => {
+    aplicaTema(tema);
+    try { localStorage.setItem("bi.theme", tema); } catch (e) {}
+  }, [tema]);
+  const claro = tema === "light";
+  return (
+    <button className="hd-icon-btn" title={claro ? "Mudar para o modo escuro" : "Mudar para o modo claro"}
+      aria-label={claro ? "Mudar para o modo escuro" : "Mudar para o modo claro"}
+      onClick={() => setTema(claro ? "dark" : "light")}
+      style={{ fontSize: 17, width: 34, height: 34, display: "flex", alignItems: "center", justifyContent: "center" }}>
+      {claro ? "🌙" : "☀"}
+    </button>
+  );
+};
+
 const Icon = ({ name, ...props }) => {
   const paths = {
     home: <><path d="M3 10l9-7 9 7v10a2 2 0 01-2 2h-4v-7H9v7H5a2 2 0 01-2-2V10z"/></>,
@@ -45,6 +312,7 @@ const Sidebar = ({ active, onSelect, open }) => {
     { id: "fluxo", icon: "flow", label: "Fluxo de Caixa" },
     { id: "tesouraria", icon: "treasury", label: "Tesouraria" },
     { id: "comparativo", icon: "compare", label: "Comparativo" },
+    { id: "dre", icon: "report", label: "DRE Gerencial" },
     { id: "orcamento", icon: "accrual", label: "Orçamento Anual" },
     { id: "orcamento_mensal", icon: "accrual", label: "Orçamento Mensal" },
     { id: "relatorio", icon: "fileText", label: "Relatório IA" },
@@ -91,7 +359,9 @@ const Sidebar = ({ active, onSelect, open }) => {
   return (
     <aside className={`sidebar ${open ? "open" : ""}`}>
       <div className="sb-brand">
-        <img src="assets/bgp-logo-white.png" alt="BGP" className="sb-logo-img" />
+        {/* dois <img>, o CSS mostra o do tema ativo — ver ".logo-light" no styles.css */}
+        <img src="assets/bgp-logo-white.png" alt="BGP" className="sb-logo-img logo-dark" />
+        <img src="assets/bgp-logo.png" alt="BGP" className="sb-logo-img logo-light" />
       </div>
       <div className="sb-section">Geral</div>
       {general.map(renderItem)}
@@ -117,6 +387,7 @@ const PAGE_TITLES = {
   fluxo: "Fluxo de Caixa",
   tesouraria: "Tesouraria",
   comparativo: "Comparativo",
+  dre: "DRE Gerencial",
   orcamento: "Orçamento Anual",
   orcamento_mensal: "Orçamento Mensal",
   relatorio: "Relatório IA",
@@ -147,19 +418,32 @@ const DateRangeSeg = ({ value, onChange }) => (
   </div>
 );
 
+/* `requer` = flag que o data.js precisa expor pro filtro aparecer. 'Atrasado'
+ * depende do índice 13 do ALL_TX, que só existe em data.js gerado pela versão
+ * nova do build-data.cjs. Sem a guarda, num data.js antigo o botão apareceria
+ * e se comportaria como "Tudo" — filtro decorativo é anti-pattern (A20). */
 const STATUS_FILTERS = [
-  { id: "realizado", label: "Realizado" },
-  { id: "a_pagar_receber", label: "A pagar/receber" },
-  { id: "tudo", label: "Tudo" },
+  { id: "realizado", label: "Realizado", dica: "Já entrou ou saiu do caixa (tem data de baixa)" },
+  { id: "a_pagar_receber", label: "A pagar/receber", dica: "Lançado e ainda sem baixa — inclui o que já venceu" },
+  { id: "atrasado", label: "Atrasado", dica: "Venceu e não tem baixa. É um subconjunto de A pagar/receber, não some dele", requer: "BIT_HAS_ATRASADO" },
+  { id: "tudo", label: "Tudo", dica: "Realizado + a pagar/receber" },
 ];
 
-const StatusFilterSeg = ({ value, onChange }) => (
-  <div className="seg status-filter-seg" title="Filtro de status do lançamento">
-    {STATUS_FILTERS.map(s => (
-      <button key={s.id} className={value === s.id ? "active" : ""} onClick={() => onChange(s.id)}>{s.label}</button>
-    ))}
-  </div>
-);
+const StatusFilterSeg = ({ value, onChange }) => {
+  const opcoes = STATUS_FILTERS.filter(s => !s.requer || window[s.requer]);
+  // Se o filtro salvo no localStorage deixou de existir (data.js revertido pra
+  // uma versão sem o campo), volta pro default em vez de filtrar errado calado.
+  useEffect(() => {
+    if (!opcoes.some(s => s.id === value)) onChange("realizado");
+  }, [value, opcoes.length]);
+  return (
+    <div className="seg status-filter-seg" title="Filtro de status do lançamento">
+      {opcoes.map(s => (
+        <button key={s.id} className={value === s.id ? "active" : ""} title={s.dica} onClick={() => onChange(s.id)}>{s.label}</button>
+      ))}
+    </div>
+  );
+};
 
 const InvestimentoToggle = ({ value, onChange }) => (
   <div className="seg status-filter-seg" title="Filtro de investimento">
@@ -284,6 +568,7 @@ const BI_EXPORT_ALL_PAGES = [
   { id: "fluxo", label: "Fluxo de Caixa" },
   { id: "tesouraria", label: "Tesouraria" },
   { id: "comparativo", label: "Comparativo" },
+  { id: "dre", label: "DRE Gerencial" },
   { id: "relatorio", label: "Relatório IA" },
   { id: "valuation", label: "Valuation" },
   { id: "indicators", label: "Indicadores" },
@@ -445,38 +730,268 @@ const MultiSelectFilter = ({ label, options, selected, onChange }) => {
   );
 };
 
-// Header: breadcrumb + YearSelect + MonthSelect + StatusFilter + MultiSelectFilters
-const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, setYear, month, setMonth, dayMode, setDayMode, day, setDay, dayFrom, setDayFrom, dayTo, setDayTo, week, setWeek, semInvestimento, setSemInvestimento, filterCentroCusto, setFilterCentroCusto, filterCategoria, setFilterCategoria, filterEmpresa, setFilterEmpresa }) => {
+/* RegimeToggle — Caixa | Competência.
+ *
+ * Pedido dela na reunião: "eu vou adicionar para você também um botão para você
+ * conseguir trocar da visão de caixa para a visão de competência", e ela
+ * fechou com "às vezes a gente vê os dois".
+ *
+ * Caixa (default) = data de pagamento/recebimento; sem baixa, cai na data de
+ * vencimento. Competência = data de EMISSÃO do título.
+ *
+ * Que a competência é a emissão não foi chute: testei emissão contra
+ * vencimento na Receita Bruta de julho/2026 do relatório dela (R$ 88.936,46).
+ * Emissão, fora a conta CONGELADOS, deu R$ 88.959,55 — delta de R$ 23,09
+ * (0,026%). Vencimento deu R$ 93.209,55, delta de R$ 4.273. */
+const RegimeToggle = ({ value, onChange }) => {
+  if (!window.BIT_HAS_COMPETENCIA) return null;
+  const comp = value === "competencia";
+  return (
+    <div className="seg" title={comp
+      ? "Competência: pela data de emissão do título — quando o fato aconteceu"
+      : "Caixa: pela data de pagamento/recebimento. Sem baixa, usa o vencimento"}>
+      <button className={!comp ? "active" : ""} onClick={() => onChange("caixa")}>Caixa</button>
+      <button className={comp ? "active" : ""} onClick={() => onChange("competencia")}>Competência</button>
+    </div>
+  );
+};
+
+/* VisaoSeg — Operacional | Completo.
+ *
+ * Operacional (default) tira do resultado o dinheiro que passa pelo caixa mas
+ * não é resultado do negócio: financiamento e sócios. Completo devolve tudo.
+ *
+ * Neste BI a lista `categorias_nao_operacionais` do bi.config está VAZIA: o
+ * modelo de DRE da iFinance pro Shawarma já tem linha própria pra investimento
+ * (14) e trata pró-labore como despesa de pessoal (6), então não há nada a
+ * separar. Com a lista vazia nenhuma row recebe o flag e o botão se esconde
+ * sozinho — é pra isso que a guarda existe.
+ *
+ * Quando houver algo, o botão DECLARA quanto está sendo separado. Toggle que
+ * muda número sem dizer o que mudou é como o cliente perde confiança no BI. */
+const VisaoSeg = ({ value, onChange }) => {
+  if (!window.BIT_HAS_NAOOP) return null;   // data.js sem o campo: nada a separar
+  const t = window.BIT_NAOOP_TOTAL || { receita: 0, despesa: 0, lancamentos: 0 };
+  const fmtBR = (v) => "R$ " + Number(v || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const cats = Object.keys(t.porCategoria || {}).join(" · ");
+  const dica = `Operacional deixa de fora ${t.lancamentos} lançamentos não-operacionais `
+    + `(${fmtBR(t.receita)} de entrada e ${fmtBR(t.despesa)} de saída): ${cats}. `
+    + `Eles continuam no Fluxo de Caixa — o dinheiro passou pelo caixa de verdade.`;
+  return (
+    <div className="seg" title={dica}>
+      <button className={value !== "completo" ? "active" : ""} onClick={() => onChange("operacional")}>Operacional</button>
+      <button className={value === "completo" ? "active" : ""} onClick={() => onChange("completo")}>Completo</button>
+    </div>
+  );
+};
+
+/* ExtratoTabela — extrato com busca, ordenação e contagem declarada.
+ *
+ * Pedido dela na reunião: "essa telinha do extrato ela tem alguma ordem? dá
+ * para ordenar de alguma forma?".
+ *
+ * Cada row é a tupla do extrato: [data, conta, categoria, contraparte, valor, status].
+ *
+ * Por que a contagem aparece no cabeçalho: havia DOIS caps empilhados aqui — 200
+ * no aggregateTx e mais um de 30 no render (quando não havia mês filtrado). O
+ * cliente via 30 de 376 linhas e nada na tela dizia isso. Corte que não se
+ * declara vira ticket caro de reproduzir; corte declarado vira pedido honesto.
+ */
+const ExtratoTabela = ({ rows, tone, fmt, colContraparte, vazio, altura }) => {
+  const [busca, setBusca] = useState("");
+  const [ord, setOrd] = useState({ col: 0, dir: -1 });   // data desc, como antes
+
+  const filtradas = useMemo(() => {
+    const termos = busca.trim().toLowerCase().split(/\s+/).filter(Boolean);
+    if (!termos.length) return rows;
+    // AND entre termos; casa data, categoria, contraparte e o valor nos dois
+    // formatos (1.234,56 e 1234.56), pra busca por valor funcionar como a
+    // pessoa digita.
+    return rows.filter(r => {
+      const v = Math.abs(r[4]);
+      const alvo = [r[0], r[2], r[3], v.toFixed(2), v.toLocaleString("pt-BR", { minimumFractionDigits: 2 })]
+        .join(" ").toLowerCase();
+      return termos.every(t => alvo.includes(t));
+    });
+  }, [rows, busca]);
+
+  const ordenadas = useMemo(() => {
+    const out = filtradas.slice();
+    const { col, dir } = ord;
+    const dataNum = (s) => { const [d, m, y] = String(s).split("/"); return (y || "") + (m || "") + (d || ""); };
+    out.sort((a, b) => {
+      let x, y;
+      if (col === 4) { x = Math.abs(a[4]); y = Math.abs(b[4]); }
+      else if (col === 0) { x = dataNum(a[0]); y = dataNum(b[0]); }
+      else { x = String(a[col] || "").toLowerCase(); y = String(b[col] || "").toLowerCase(); }
+      return x < y ? -dir : (x > y ? dir : 0);
+    });
+    return out;
+  }, [filtradas, ord]);
+
+  const total = useMemo(() => ordenadas.reduce((s, r) => s + Math.abs(r[4]), 0), [ordenadas]);
+  const clicar = (col) => setOrd(o => (o.col === col ? { col, dir: -o.dir } : { col, dir: col === 4 ? -1 : 1 }));
+  const seta = (col) => (ord.col === col ? (ord.dir === 1 ? " ▲" : " ▼") : "");
+  const th = (col, label, cls) => (
+    <th className={(cls || "") + " clickable-th"} onClick={() => clicar(col)}
+        style={{ cursor: "pointer" }} title="Clique pra ordenar por esta coluna">
+      {label}{seta(col)}
+    </th>
+  );
+
+  return (
+    <React.Fragment>
+      <div style={{ display: "flex", gap: 8, alignItems: "center", marginBottom: 8, flexWrap: "wrap" }}>
+        <input className="ext-busca" value={busca} onChange={(e) => setBusca(e.target.value)}
+          placeholder="Buscar por cliente, categoria, data ou valor…"
+          title="Vários termos funcionam juntos: 'ortopedico 7.000' acha o lançamento de R$ 7.000 desse cliente" />
+        {busca && <button className="btn-ghost" onClick={() => setBusca("")}>limpar</button>}
+        <span className="status-line" style={{ fontSize: 11, marginLeft: "auto" }}>
+          {busca
+            ? <span><strong>{ordenadas.length}</strong> de {rows.length} lançamentos</span>
+            : <span><strong>{rows.length}</strong> lançamento{rows.length === 1 ? "" : "s"}</span>}
+        </span>
+      </div>
+      <div className="t-scroll t-scroll-extrato" style={altura ? { maxHeight: altura } : undefined}>
+        <table className="t">
+          <thead>
+            <tr>
+              {th(0, "Data")}
+              {th(2, "Categoria")}
+              {th(3, colContraparte || "Contraparte")}
+              {th(4, "Valor", "num")}
+            </tr>
+          </thead>
+          <tbody>
+            {ordenadas.map((e, i) => (
+              <tr key={i}>
+                <td style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>{e[0]}</td>
+                <td>{e[2]}</td>
+                <td>{e[3]}</td>
+                <td className={"num " + tone}>{fmt(Math.abs(e[4]))}</td>
+              </tr>
+            ))}
+            {ordenadas.length === 0 && (
+              <tr><td colSpan="4" style={{ color: "var(--mute)", textAlign: "center", padding: 18 }}>
+                {busca ? `Nada casou com "${busca}"` : (vazio || "Sem lançamentos no filtro selecionado")}
+              </td></tr>
+            )}
+            <tr className="total">
+              <td colSpan="3">Total{busca ? " (busca)" : ""} · {ordenadas.length} lançamentos</td>
+              <td className={"num " + tone}>{fmt(total)}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </React.Fragment>
+  );
+};
+
+/* FbGroup — uma pílula rotulada da faixa de filtros. O rótulo vive DENTRO da
+ * pílula: com "Natureza", "Categoria", "Mês", "Dia do mês" soltos entre os
+ * campos ninguém sabe qual label pertence a qual controle. `on` acende a borda
+ * quando o grupo tem recorte ativo (princípio 2 do design system: toda
+ * interação e todo estado precisam de pista visual). */
+const FbGroup = ({ label, on, children, dica }) => (
+  <div className={"fb-group" + (on ? " fb-on" : "")} title={dica}>
+    <span className="fb-label">{label}</span>
+    {children}
+  </div>
+);
+
+/* Header — DUAS faixas.
+ *
+ * Antes era uma linha só de 70px com `nowrap`. Com Natureza + Categoria + Ano
+ * + Mês + Dia do mês + Status + Tema + Exportar, o último controle saía
+ * cortado da tela (pegadinha já catalogada na frota, latente em 5 repos).
+ * Adicionar o botão de tema e o status "Atrasado" empurrava de vez.
+ *
+ * Divisão: faixa 1 = identidade e contexto global (quem sou, que tela, que
+ * ano, que status, tema, exportar). Faixa 2 = RECORTE do período e do plano de
+ * contas. O ano fica na faixa 1 de propósito — é contexto, não recorte.
+ *
+ * Nada foi escondido pra "organizar": o FiltersDrawer seria a tentação óbvia,
+ * mas tirar filtro da tela contraria o princípio 1 (informação máxima). */
+const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, setYear, month, setMonth, dayMode, setDayMode, day, setDay, dayFrom, setDayFrom, dayTo, setDayTo, week, setWeek, visao, setVisao, regime, setRegime, semInvestimento, setSemInvestimento, filterCentroCusto, setFilterCentroCusto, filterCategoria, setFilterCategoria, filterEmpresa, setFilterEmpresa, filterConta, setFilterConta }) => {
   const naturezas = useMemo(() => window.ALL_NATUREZAS || [], []);
   const categorias = useMemo(() => window.ALL_CATEGORIAS || [], []);
   const empresas = useMemo(() => window.ALL_EMPRESAS || [], []);
+  const contas = useMemo(() => window.ALL_CONTAS || [], []);
+  const temEmpresa = setFilterEmpresa && empresas.length > 1;
+  const temConta = setFilterConta && contas.length > 1;
+  // > 1 e nao > 0: no F360 o centro de custo vem com o nome da empresa em todas
+  // as rows, entao a lista tem UM item e o filtro nao filtra nada. Controle que
+  // existe e nao muda nada e pior que controle ausente.
+  const temNatureza = setFilterCentroCusto && naturezas.length > 1;
+  const temCategoria = setFilterCategoria && categorias.length > 0;
+  const nRecorte = (filterCentroCusto || []).length + (filterCategoria || []).length
+    + (filterEmpresa || []).length + (filterConta || []).length + (month > 0 ? 1 : 0);
+  const limpar = () => {
+    if (setFilterCentroCusto) setFilterCentroCusto([]);
+    if (setFilterCategoria) setFilterCategoria([]);
+    if (setFilterEmpresa) setFilterEmpresa([]);
+    if (setFilterConta) setFilterConta([]);
+    if (setMonth) setMonth(0);
+  };
   return (
-    <header className="header">
-      <button className="hd-icon-btn hd-menu-btn" title="Menu" onClick={onToggleSidebar}><Icon name="menu" /></button>
-      <div className="breadcrumb">
-        <span>SubSea</span>
-        <Icon name="chevronRight" />
-        <span>BI Financeiro</span>
-        <Icon name="chevronRight" />
-        <b>{PAGE_TITLES[page] || "Visão Geral"}</b>
+    <React.Fragment>
+      <header className="header">
+        <button className="hd-icon-btn hd-menu-btn" title="Menu" onClick={onToggleSidebar}><Icon name="menu" /></button>
+        <div className="breadcrumb">
+          {/* Era "SubSea" — nome de outro cliente, herdado do repo de onde este
+              foi clonado. O breadcrumb diz em qual dos dois BIs da iFinance
+              (este e o da MedConsulting) ela está. */}
+          <span>Mr Shawarma</span>
+          <Icon name="chevronRight" />
+          <span>BI Financeiro</span>
+          <Icon name="chevronRight" />
+          <b>{PAGE_TITLES[page] || "Visão Geral"}</b>
+        </div>
+        <div style={{ flex: 1 }} />
+        {setYear && <YearSelect value={year} onChange={setYear} available={window.AVAILABLE_YEARS} />}
+        {setRegime && <RegimeToggle value={regime} onChange={setRegime} />}
+        {setVisao && <VisaoSeg value={visao} onChange={setVisao} />}
+        {setStatusFilter && <StatusFilterSeg value={statusFilter} onChange={setStatusFilter} />}
+        <ThemeToggle />
+        <BiExportButton />
+      </header>
+      <div className="filterbar no-print">
+        {temEmpresa && (
+          <FbGroup label="Empresa" on={(filterEmpresa || []).length > 0} dica="Qual empresa do grupo entra na conta">
+            <EmpresaFilter options={empresas} selected={filterEmpresa || []} onChange={setFilterEmpresa} />
+          </FbGroup>
+        )}
+        {setMonth && (
+          <FbGroup label="Mês" on={month > 0} dica="Recorta o período. Sem mês, mostra o ano inteiro">
+            <MonthSelect value={month} onChange={setMonth} />
+            {month > 0 && setDayMode && (
+              <DayFilterGroup dayMode={dayMode} setDayMode={setDayMode} day={day} setDay={setDay}
+                dayFrom={dayFrom} setDayFrom={setDayFrom} dayTo={dayTo} setDayTo={setDayTo} week={week} setWeek={setWeek} />
+            )}
+          </FbGroup>
+        )}
+        {temConta && (
+          <FbGroup label="Conta" on={(filterConta || []).length > 0}
+            dica="Vazio = consolidado (todas as contas). A conta de clientes congelados vive aqui — selecione as outras pra deixá-la de fora.">
+            <MultiSelectFilter label="Conta" options={contas} selected={filterConta || []} onChange={setFilterConta} />
+          </FbGroup>
+        )}
+        {temNatureza && (
+          <FbGroup label="Natureza" on={(filterCentroCusto || []).length > 0} dica="Grupo do plano de contas (Receita Bruta, Despesas com Pessoal…)">
+            <MultiSelectFilter label="Natureza" options={naturezas} selected={filterCentroCusto || []} onChange={setFilterCentroCusto} />
+          </FbGroup>
+        )}
+        {temCategoria && (
+          <FbGroup label="Categoria" on={(filterCategoria || []).length > 0} dica="Categoria do Omie, dentro da natureza">
+            <MultiSelectFilter label="Categoria" options={categorias} selected={filterCategoria || []} onChange={setFilterCategoria} />
+          </FbGroup>
+        )}
+        <div style={{ flex: 1 }} />
+        {nRecorte > 0
+          ? <button className="fb-clear" onClick={limpar} title="Volta pro ano inteiro, sem recorte">limpar recorte ({nRecorte})</button>
+          : <span className="fb-hint">sem recorte — mostrando {year} inteiro</span>}
       </div>
-      <div style={{ flex: 1 }} />
-      {setFilterEmpresa && empresas.length > 1 && (
-        <EmpresaFilter options={empresas} selected={filterEmpresa || []} onChange={setFilterEmpresa} />
-      )}
-      {setFilterCentroCusto && naturezas.length > 0 && (
-        <MultiSelectFilter label="Natureza" options={naturezas} selected={filterCentroCusto || []} onChange={setFilterCentroCusto} />
-      )}
-      {setFilterCategoria && categorias.length > 0 && (
-        <MultiSelectFilter label="Categoria" options={categorias} selected={filterCategoria || []} onChange={setFilterCategoria} />
-      )}
-      {setYear && <YearSelect value={year} onChange={setYear} available={window.AVAILABLE_YEARS} />}
-      {setMonth && <MonthSelect value={month} onChange={setMonth} />}
-      {setDayMode && month > 0 && <DayFilterGroup dayMode={dayMode} setDayMode={setDayMode} day={day} setDay={setDay} dayFrom={dayFrom} setDayFrom={setDayFrom} dayTo={dayTo} setDayTo={setDayTo} week={week} setWeek={setWeek} />}
-      {/* Toggle investimento removido */}
-      {setStatusFilter && <StatusFilterSeg value={statusFilter} onChange={setStatusFilter} />}
-      <BiExportButton />
-    </header>
+    </React.Fragment>
   );
 };
 

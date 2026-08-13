@@ -5,25 +5,168 @@ const { useState, useMemo, useEffect } = React;
 // concatenado (build-jsx.cjs). Reutilizado aqui pra ajustar height/showLabels dos
 // TrendCharts em mobile.
 
+/* Grupos do Omie que são entrada de caixa. O resto (deduções, impostos,
+ * despesas, retiradas) é saída. Usado só pra ordenar as seções — o lado de
+ * cada lançamento vem do próprio kind da row, não daqui, pra estorno e
+ * ajuste de cartão não caírem na seção errada. */
+const FLUXO_GRUPOS_RECEITA = new Set(["RECEITAS OPERACIONAIS", "RECEITAS FINANCEIRAS", "OUTRAS RECEITAS"]);
+
+/* buildFluxoOmie — reconstrói a hierarquia Grupo → Categoria × mês a partir das
+ * rows JÁ FILTRADAS pelo contexto da tela.
+ *
+ * Antes esta tabela lia `B.FLUXO_RECEITA` / `B.FLUXO_DESPESA`, que vêm do
+ * segmento pré-computado em build-time e NÃO são recalculados pelo
+ * `recomputeBit` — a tabela ficava idêntica em realizado / a pagar-receber /
+ * tudo, enquanto o KPI acima dela mudava. Ver txNoContexto em components.jsx.
+ *
+ * A seção (Receita/Despesa) vem do kind da row; o rótulo do grupo vem do mapa
+ * da planilha do cliente. Um grupo com rows dos dois lados aparece nas duas
+ * seções, cada uma com as suas — é o que o Omie mostra. */
+const buildFluxoOmie = (txList, year) => {
+  const secoes = { r: new Map(), d: new Map() };
+  let naoMapeado = 0;
+  for (const row of txList) {
+    if (!row[1] || Number(row[1].slice(0, 4)) !== year) continue;
+    const mi = parseInt(row[1].slice(5, 7), 10) - 1;
+    if (mi < 0 || mi > 11) continue;
+    const z = window.dreClassify(row[3]);
+    if (!z.mapeada) naoMapeado += row[5];
+    const bucket = secoes[row[0] === "r" ? "r" : "d"];
+    if (!bucket.has(z.omie)) bucket.set(z.omie, { cat: z.omie, values: Array(12).fill(0), kids: new Map(), mapeada: z.mapeada });
+    const g = bucket.get(z.omie);
+    g.values[mi] += row[5];
+    if (!g.kids.has(row[3])) g.kids.set(row[3], Array(12).fill(0));
+    g.kids.get(row[3])[mi] += row[5];
+  }
+  const ordem = window.GRUPO_OMIE_ORDEM || [];
+  const finish = (bucket) => Array.from(bucket.values())
+    .map(g => ({
+      cat: g.cat, values: g.values, mapeada: g.mapeada,
+      children: Array.from(g.kids.entries())
+        .map(([cat, values]) => ({ cat, values }))
+        .sort((a, b) => b.values.reduce((s, v) => s + v, 0) - a.values.reduce((s, v) => s + v, 0)),
+    }))
+    // grupo com um filho só de mesmo nome não ganha hierarquia
+    .map(g => (g.children.length === 1 && g.children[0].cat === g.cat ? { ...g, children: [] } : g))
+    .sort((a, b) => {
+      const ia = ordem.indexOf(a.cat), ib = ordem.indexOf(b.cat);
+      return (ia === -1 ? 999 : ia) - (ib === -1 ? 999 : ib);
+    });
+  return { rec: finish(secoes.r), desp: finish(secoes.d), naoMapeado };
+};
+
+/* FluxoRows — uma linha de grupo + as categorias dentro dela. A lógica de %
+ * vive no `pctDe` do pai (era duplicada 6× na versão anterior desta tabela). */
+const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe }) => {
+  const hasKids = row.children && row.children.length > 0;
+  return (
+    <React.Fragment>
+      <tr style={hasKids ? { cursor: "pointer" } : undefined}
+          onClick={hasKids ? onToggle : undefined}
+          title={hasKids ? "Clique pra abrir as categorias deste grupo" : undefined}>
+        <td>
+          <span className="chev" style={hasKids
+            ? { display: "inline-block", transition: "transform 0.2s", transform: open ? "rotate(90deg)" : "rotate(0deg)" }
+            : { visibility: "hidden" }}>▶</span>
+          {row.cat}
+          {row.mapeada === false && (
+            <span style={{ marginLeft: 6, color: "var(--amber, #f59e0b)", fontWeight: 700 }}
+                  title="Categoria que o mapa de DRE do cliente ainda não classifica — o valor está aqui, só falta o cliente dizer onde ela entra">?</span>
+          )}
+        </td>
+        {mesesIdx.map(i => (
+          <React.Fragment key={i}>
+            <td className={"num " + tone}>{fmt(row.values[i] || 0)}</td>
+            <td className="num" style={{ color: "var(--fg-3)" }}>{pctDe(row.values, i)}</td>
+          </React.Fragment>
+        ))}
+      </tr>
+      {hasKids && open && row.children.map(kid => (
+        <tr key={kid.cat} className="child-row" style={{ opacity: 0.85 }}>
+          <td style={{ paddingLeft: 28 }}>{kid.cat}</td>
+          {mesesIdx.map(i => (
+            <React.Fragment key={i}>
+              <td className={"num " + tone} style={{ fontSize: 11 }}>{fmt(kid.values[i] || 0)}</td>
+              <td className="num" style={{ color: "var(--fg-3)", fontSize: 11 }}>{pctDe(kid.values, i)}</td>
+            </React.Fragment>
+          ))}
+        </tr>
+      ))}
+    </React.Fragment>
+  );
+};
+
 const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown, setDrilldown, year, month, semInvestimento, extraFilters }) => {
-  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, month, semInvestimento, extraFilters), [statusFilter, drilldown, year, month, semInvestimento, extraFilters]);
+  // O Fluxo de Caixa é a tela do CAIXA, então roda sempre na visão Completo,
+  // independente do toggle do header: financiamento e retirada de sócios
+  // passaram pela conta de verdade, e tirá-los daqui seria esconder caixa.
+  // Eles aparecem em grupo próprio (INVESTIMENTOS E OUTROS, DESPESAS COM
+  // SOCIOS, OUTRAS RECEITAS), separados do resto — é o que o Omie mostra.
+  // A tela declara isso no rodapé pra ninguém achar que divergiu da Visão Geral.
+  const efCompleto = useMemo(
+    () => Object.assign({ centroCusto: [], categoria: [], empresa: [] }, extraFilters, { visao: "completo" }),
+    [extraFilters]
+  );
+  const B = useMemo(() => window.getBit(statusFilter, drilldown, year, month, semInvestimento, efCompleto), [statusFilter, drilldown, year, month, semInvestimento, efCompleto]);
   const isMobile = useIsMobile();
   const [view, setView] = useState("horizontal");
-  const [range, setRange] = useState("12M");
+  const [range, setRange] = useState("dado");
   const [expandedRec, setExpandedRec] = useState({});
   const [expandedDesp, setExpandedDesp] = useState({});
   const toggleRec = (cat) => setExpandedRec(prev => ({ ...prev, [cat]: !prev[cat] }));
   const toggleDesp = (cat) => setExpandedDesp(prev => ({ ...prev, [cat]: !prev[cat] }));
-  const months6 = B.MONTHS_FULL.slice(0, 6);
   const refYear = (B.META && B.META.ref_year) || new Date().getFullYear();
+
+  // Rows sob o MESMO contexto de filtro dos KPIs — é isto que faz a tabela
+  // deixar de ser estática. `month` entra via drilldown montado pelo getBit,
+  // então aqui reproduzimos o mesmo: se há mês selecionado sem drilldown
+  // explícito, o drilldown de mês é o efetivo.
+  const ddEfetivo = useMemo(() => {
+    if (drilldown) return drilldown;
+    if (month && month >= 1 && month <= 12) {
+      const ym = `${refYear}-${String(month).padStart(2, "0")}`;
+      return { type: "mes", value: ym, label: ym };
+    }
+    return null;
+  }, [drilldown, month, refYear]);
+  // A tabela mensal precisa das 12 colunas pra ter contexto, então a janela de
+  // meses ignora o recorte de mês — mas os VALORES respeitam todo o resto.
+  const txJanela = useMemo(
+    () => window.txNoContexto(statusFilter, null, semInvestimento, efCompleto),
+    [statusFilter, semInvestimento, efCompleto]
+  );
+  const txCtx = useMemo(
+    () => window.txNoContexto(statusFilter, ddEfetivo && ddEfetivo.type !== "mes" ? ddEfetivo : null, semInvestimento, efCompleto),
+    [statusFilter, ddEfetivo, semInvestimento, efCompleto]
+  );
+  const mesesIdx = useMemo(() => window.janelaMeses(txJanela, refYear, range), [txJanela, refYear, range]);
+  const FX = useMemo(() => buildFluxoOmie(txCtx, refYear), [txCtx, refYear]);
+  const FLUXO_RECEITA = FX.rec;
+  const FLUXO_DESPESA = FX.desp;
+  const totalMesRec = (i) => FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
+  const totalMesDesp = (i) => FLUXO_DESPESA.reduce((s, r) => s + (r.values[i] || 0), 0);
+  const somaLinha = (vals) => mesesIdx.reduce((s, i) => s + (vals[i] || 0), 0);
+  // % exibido: horizontal = o mês como % do total da própria linha na janela;
+  // vertical = a linha como % da receita daquele mês.
+  const pctDe = (vals, i) => {
+    if (view === "vertical") {
+      const base = totalMesRec(i);
+      return base ? ((vals[i] || 0) / base * 100).toFixed(2).replace(".", ",") + "%" : "—";
+    }
+    const tot = somaLinha(vals);
+    return tot ? ((vals[i] || 0) / tot * 100).toFixed(1).replace(".", ",") + "%" : "—";
+  };
   const handleMonthHeader = (i) => {
     const mm = String(i + 1).padStart(2, "0");
     const ym = `${refYear}-${mm}`;
     const mn = B.MONTHS_FULL[i] || "";
     setDrilldown({ type: "mes", value: ym, label: `${mn.charAt(0).toUpperCase() + mn.slice(1, 3)}/${refYear}` });
   };
-  const activeMonthIdx = (drilldown && drilldown.type === "mes")
-    ? parseInt(drilldown.value.slice(5, 7), 10) - 1 : -1;
+  // Destaque da coluna: vale tanto pro clique no cabeçalho (drilldown) quanto
+  // pro seletor de mês do header (month). Sem o segundo, filtrar julho no
+  // header não destacava nada e a tela parecia ignorar o filtro.
+  const activeMonthIdx = (ddEfetivo && ddEfetivo.type === "mes")
+    ? parseInt(String(ddEfetivo.value).slice(5, 7), 10) - 1 : -1;
 
   return (
     <div className="page">
@@ -74,30 +217,59 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
         <div className="card">
           <div className="card-title-row">
             <h2 className="card-title">Fluxo de caixa</h2>
-            <div className="seg">
-              <button className={view === "horizontal" ? "active" : ""} onClick={() => setView("horizontal")}>Análise horizontal</button>
-              <button className={view === "vertical" ? "active" : ""} onClick={() => setView("vertical")}>Análise vertical</button>
+            <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+              <div className="seg" title="Quais meses aparecem nas colunas">
+                <button className={range === "dado" ? "active" : ""} onClick={() => setRange("dado")}>Meses com lançamento</button>
+                <button className={range === "ano" ? "active" : ""} onClick={() => setRange("ano")}>Ano inteiro</button>
+              </div>
+              <div className="seg">
+                <button className={view === "horizontal" ? "active" : ""} onClick={() => setView("horizontal")}>Análise horizontal</button>
+                <button className={view === "vertical" ? "active" : ""} onClick={() => setView("vertical")}>Análise vertical</button>
+              </div>
             </div>
           </div>
           <div className="status-line" style={{ marginBottom: 8, fontSize: 11 }}>
             {view === "vertical"
-              ? "Vertical: todas as linhas (receita e despesa) como % da receita do mês"
-              : "Horizontal: cada mês como % do total anual da linha"}
+              ? "Vertical: cada linha como % da receita do próprio mês"
+              : "Horizontal: cada mês como % do total da linha na janela exibida"}
+            {" · "}
+            {mesesIdx.length === 12
+              ? "jan–dez"
+              : `${B.MONTHS_FULL[mesesIdx[0]]}–${B.MONTHS_FULL[mesesIdx[mesesIdx.length - 1]]}`}
+            {" de "}{refYear}
+            {" · grupos do Omie"}
+            {activeMonthIdx >= 0 && (
+              <span>
+                {" · "}<strong>{B.MONTHS_FULL[activeMonthIdx]}</strong> está selecionado no filtro
+                {" (coluna destacada) — a tabela mantém os outros meses pra comparação; os KPIs acima são só do mês"}
+              </span>
+            )}
+            {window.BIT_HAS_NAOOP && (window.BIT_NAOOP_TOTAL || {}).lancamentos > 0 && (
+              <span>
+                {" · inclui financiamento e retirada de sócios"}
+                {" (a Visão Geral, no modo Operacional, deixa isso de fora)"}
+              </span>
+            )}
+            {FX.naoMapeado > 0 && (
+              <span style={{ color: "var(--amber, #f59e0b)" }}>
+                {" · "}{B.fmt(FX.naoMapeado)} em categoria fora do mapa de DRE do cliente (marcada com ?)
+              </span>
+            )}
           </div>
-          <div className="t-scroll" style={{ maxHeight: 320 }}>
+          <div className="t-scroll" style={{ maxHeight: 560 }}>
             <table className="t">
               <thead>
                 <tr>
-                  <th style={{ minWidth: 200 }}>Receita / Despesa</th>
-                  {months6.map((m, i) => {
+                  <th style={{ minWidth: 220 }}>Receita / Despesa</th>
+                  {mesesIdx.map((i) => {
                     const isActive = i === activeMonthIdx;
                     return (
-                      <React.Fragment key={m}>
+                      <React.Fragment key={i}>
                         <th className={`num clickable-th ${isActive ? "active" : ""}`}
                             onClick={() => handleMonthHeader(i)}
                             style={{ cursor: "pointer" }}
                             title="Clique para filtrar este mês">
-                          {m}
+                          {B.MONTHS_FULL[i]}
                         </th>
                         <th className="num">{view === "horizontal" ? "Δ%" : "%"}</th>
                       </React.Fragment>
@@ -106,193 +278,68 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                 </tr>
               </thead>
               <tbody>
-                {/* Pre-calcula totais usados nas duas análises */}
-                {(() => null)()}
                 <tr className="section">
                   <td>Receita</td>
-                  {months6.map((_, i) => {
-                    const total = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                    let pctLabel = "100%";
-                    let pctColor = "var(--fg-3)";
-                    if (view === "horizontal") {
-                      // Total ANUAL da seção Receita (soma todos os meses)
-                      const totalAno = B.FLUXO_RECEITA.reduce((s, r) => s + r.values.reduce((a, b) => a + (b || 0), 0), 0);
-                      pctLabel = totalAno ? ((total / totalAno) * 100).toFixed(1).replace(".", ",") + "%" : "—";
-                    } else {
-                      // Vertical: receita do mês = 100% da base
-                      pctLabel = "100%";
-                    }
+                  {mesesIdx.map((i) => {
+                    const total = totalMesRec(i);
+                    const totJanela = FLUXO_RECEITA.reduce((s, r) => s + somaLinha(r.values), 0);
+                    const pctLabel = view === "vertical"
+                      ? "100%"
+                      : (totJanela ? ((total / totJanela) * 100).toFixed(1).replace(".", ",") + "%" : "—");
                     return (
                       <React.Fragment key={i}>
                         <td className="num green">{B.fmt(total)}</td>
-                        <td className="num" style={{ color: pctColor, fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>
+                        <td className="num" style={{ color: "var(--fg-3)", fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>
                       </React.Fragment>
                     );
                   })}
                 </tr>
-                {B.FLUXO_RECEITA.map(row => {
-                  const hasChildren = row.children && row.children.length > 0;
-                  const isOpen = expandedRec[row.cat];
-                  return (
-                    <React.Fragment key={row.cat}>
-                      <tr style={hasChildren ? { cursor: "pointer" } : {}} onClick={hasChildren ? () => toggleRec(row.cat) : undefined}>
-                        <td>
-                          {hasChildren
-                            ? <span className="chev" style={{ display: "inline-block", transition: "transform 0.2s", transform: isOpen ? "rotate(90deg)" : "rotate(0deg)" }}>▶</span>
-                            : <span className="chev" style={{ visibility: "hidden" }}>▶</span>}
-                          {row.cat}
-                        </td>
-                        {months6.map((_, i) => {
-                          const v = row.values[i] || 0;
-                          let pctLabel = "0,00%";
-                          let pctColor = "var(--fg-3)";
-                          if (view === "vertical") {
-                            const totalReceitaMes = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                            const pct = totalReceitaMes ? (v / totalReceitaMes) * 100 : 0;
-                            pctLabel = pct.toFixed(2).replace(".", ",") + "%";
-                          } else {
-                            const totalAnoLinha = row.values.reduce((s, x) => s + (x || 0), 0);
-                            pctLabel = totalAnoLinha ? ((v / totalAnoLinha) * 100).toFixed(1).replace(".", ",") + "%" : "—";
-                          }
-                          return (
-                            <React.Fragment key={i}>
-                              <td className="num green">{B.fmt(v)}</td>
-                              <td className="num" style={{ color: pctColor }}>{pctLabel}</td>
-                            </React.Fragment>
-                          );
-                        })}
-                      </tr>
-                      {hasChildren && isOpen && row.children.map(child => (
-                        <tr key={child.cat} className="child-row" style={{ opacity: 0.85 }}>
-                          <td style={{ paddingLeft: 28 }}>{child.cat}</td>
-                          {months6.map((_, i) => {
-                            const v = child.values[i] || 0;
-                            let pctLabel = "0,00%";
-                            let pctColor = "var(--fg-3)";
-                            if (view === "vertical") {
-                              const totalReceitaMes = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                              const pct = totalReceitaMes ? (v / totalReceitaMes) * 100 : 0;
-                              pctLabel = pct.toFixed(2).replace(".", ",") + "%";
-                            } else {
-                              const totalAnoLinha = child.values.reduce((s, x) => s + (x || 0), 0);
-                              pctLabel = totalAnoLinha ? ((v / totalAnoLinha) * 100).toFixed(1).replace(".", ",") + "%" : "—";
-                            }
-                            return (
-                              <React.Fragment key={i}>
-                                <td className="num green" style={{ fontSize: 11 }}>{B.fmt(v)}</td>
-                                <td className="num" style={{ color: pctColor, fontSize: 11 }}>{pctLabel}</td>
-                              </React.Fragment>
-                            );
-                          })}
-                        </tr>
-                      ))}
-                    </React.Fragment>
-                  );
-                })}
+                {FLUXO_RECEITA.map(row => (
+                  <FluxoRows key={"r-" + row.cat} row={row} mesesIdx={mesesIdx} open={!!expandedRec[row.cat]}
+                             onToggle={() => toggleRec(row.cat)} tone="green" fmt={B.fmt} pctDe={pctDe} />
+                ))}
                 <tr className="section">
                   <td>Despesa</td>
-                  {months6.map((_, i) => {
-                    const totalDespesa = B.FLUXO_DESPESA.reduce((s, r) => s + (r.values[i] || 0), 0);
+                  {mesesIdx.map((i) => {
+                    const total = totalMesDesp(i);
                     let pctLabel = "—";
                     let pctColor = "var(--fg-3)";
                     if (view === "vertical") {
-                      // Despesa total do mês como % da receita do mês
-                      const totalReceitaMes = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                      pctLabel = totalReceitaMes ? ((totalDespesa / totalReceitaMes) * 100).toFixed(2).replace(".", ",") + "%" : "—";
-                      pctColor = totalDespesa > totalReceitaMes ? "var(--red)" : "var(--fg-3)";
+                      const base = totalMesRec(i);
+                      pctLabel = base ? ((total / base) * 100).toFixed(2).replace(".", ",") + "%" : "—";
+                      pctColor = total > base ? "var(--red)" : "var(--fg-3)";
                     } else {
-                      // Horizontal: % do total anual da seção Despesa
-                      const totalAnoDesp = B.FLUXO_DESPESA.reduce((s, r) => s + r.values.reduce((a, b) => a + (b || 0), 0), 0);
-                      pctLabel = totalAnoDesp ? ((totalDespesa / totalAnoDesp) * 100).toFixed(1).replace(".", ",") + "%" : "—";
+                      const totJanela = FLUXO_DESPESA.reduce((s, r) => s + somaLinha(r.values), 0);
+                      pctLabel = totJanela ? ((total / totJanela) * 100).toFixed(1).replace(".", ",") + "%" : "—";
                     }
                     return (
                       <React.Fragment key={i}>
-                        <td className="num red">{B.fmt(totalDespesa)}</td>
+                        <td className="num red">{B.fmt(total)}</td>
                         <td className="num" style={{ color: pctColor, fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>
                       </React.Fragment>
                     );
                   })}
                 </tr>
-                {B.FLUXO_DESPESA.map(row => {
-                  const hasChildren = row.children && row.children.length > 0;
-                  const isOpen = expandedDesp[row.cat];
-                  return (
-                    <React.Fragment key={row.cat}>
-                      <tr style={hasChildren ? { cursor: "pointer" } : {}} onClick={hasChildren ? () => toggleDesp(row.cat) : undefined}>
-                        <td>
-                          {hasChildren
-                            ? <span className="chev" style={{ display: "inline-block", transition: "transform 0.2s", transform: isOpen ? "rotate(90deg)" : "rotate(0deg)" }}>▶</span>
-                            : <span className="chev" style={{ visibility: "hidden" }}>▶</span>}
-                          {row.cat}
-                        </td>
-                        {months6.map((_, i) => {
-                          const v = row.values[i] || 0;
-                          let pctLabel = "0,00%";
-                          let pctColor = "var(--fg-3)";
-                          if (view === "vertical") {
-                            const totalReceitaMes = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                            const pct = totalReceitaMes ? (v / totalReceitaMes) * 100 : 0;
-                            pctLabel = pct.toFixed(2).replace(".", ",") + "%";
-                          } else {
-                            const totalAnoLinha = row.values.reduce((s, x) => s + (x || 0), 0);
-                            pctLabel = totalAnoLinha ? ((v / totalAnoLinha) * 100).toFixed(1).replace(".", ",") + "%" : "—";
-                          }
-                          return (
-                            <React.Fragment key={i}>
-                              <td className="num red">{B.fmt(v)}</td>
-                              <td className="num" style={{ color: pctColor }}>{pctLabel}</td>
-                            </React.Fragment>
-                          );
-                        })}
-                      </tr>
-                      {hasChildren && isOpen && row.children.map(child => (
-                        <tr key={child.cat} className="child-row" style={{ opacity: 0.85 }}>
-                          <td style={{ paddingLeft: 28 }}>{child.cat}</td>
-                          {months6.map((_, i) => {
-                            const v = child.values[i] || 0;
-                            let pctLabel = "0,00%";
-                            let pctColor = "var(--fg-3)";
-                            if (view === "vertical") {
-                              const totalReceitaMes = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                              const pct = totalReceitaMes ? (v / totalReceitaMes) * 100 : 0;
-                              pctLabel = pct.toFixed(2).replace(".", ",") + "%";
-                            } else {
-                              const totalAnoLinha = child.values.reduce((s, x) => s + (x || 0), 0);
-                              pctLabel = totalAnoLinha ? ((v / totalAnoLinha) * 100).toFixed(1).replace(".", ",") + "%" : "—";
-                            }
-                            return (
-                              <React.Fragment key={i}>
-                                <td className="num red" style={{ fontSize: 11 }}>{B.fmt(v)}</td>
-                                <td className="num" style={{ color: pctColor, fontSize: 11 }}>{pctLabel}</td>
-                              </React.Fragment>
-                            );
-                          })}
-                        </tr>
-                      ))}
-                    </React.Fragment>
-                  );
-                })}
+                {FLUXO_DESPESA.map(row => (
+                  <FluxoRows key={"d-" + row.cat} row={row} mesesIdx={mesesIdx} open={!!expandedDesp[row.cat]}
+                             onToggle={() => toggleDesp(row.cat)} tone="red" fmt={B.fmt} pctDe={pctDe} />
+                ))}
                 <tr className="total">
                   <td>Total Líquido</td>
-                  {months6.map((_, i) => {
-                    const r = B.FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                    const d = B.FLUXO_DESPESA.reduce((s, r) => s + (r.values[i] || 0), 0);
-                    const liq = r - d;
+                  {mesesIdx.map((i) => {
+                    const liq = totalMesRec(i) - totalMesDesp(i);
                     let pctLabel = "—";
-                    let pctColor = liq >= 0 ? "var(--green)" : "var(--red)";
                     if (view === "vertical") {
-                      // Margem líquida: liq / receita do mês
-                      pctLabel = r ? ((liq / r) * 100).toFixed(2).replace(".", ",") + "%" : "—";
+                      const base = totalMesRec(i);
+                      pctLabel = base ? ((liq / base) * 100).toFixed(2).replace(".", ",") + "%" : "—";
                     } else {
-                      // Horizontal: cada mês como % do total liquido anual
-                      const liqAno = B.FLUXO_RECEITA.reduce((s, rr) => s + rr.values.reduce((a, b) => a + (b || 0), 0), 0)
-                                   - B.FLUXO_DESPESA.reduce((s, rr) => s + rr.values.reduce((a, b) => a + (b || 0), 0), 0);
-                      pctLabel = liqAno ? ((liq / liqAno) * 100).toFixed(1).replace(".", ",") + "%" : "—";
+                      const liqJanela = mesesIdx.reduce((s, k) => s + totalMesRec(k) - totalMesDesp(k), 0);
+                      pctLabel = liqJanela ? ((liq / liqJanela) * 100).toFixed(1).replace(".", ",") + "%" : "—";
                     }
                     return (
                       <React.Fragment key={i}>
                         <td className="num" style={{ color: liq >= 0 ? "var(--green)" : "var(--red)" }}>{B.fmt(liq)}</td>
-                        <td className="num" style={{ color: pctColor, fontWeight: 600 }}>{pctLabel}</td>
+                        <td className="num" style={{ color: liq >= 0 ? "var(--green)" : "var(--red)", fontWeight: 600 }}>{pctLabel}</td>
                       </React.Fragment>
                     );
                   })}
@@ -338,21 +385,54 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
   const aPagarDiaSeg   = Bpend.DESPESA_DIA;
 
   const saldosMes = Btudo.SALDOS_MES;
-  const SALDOS_REAIS = (window.BIT_EXTRAS && window.BIT_EXTRAS.saldos) || null;
+
+  /* SALDO REAL DO OMIE.
+   *
+   * Na reunião de 12/08 isto ficou pendente: "ele não está puxando ainda lá de
+   * dentro do OMIE do saldo do OMIE principalmente porque a gente precisa ter
+   * essa conversa de o que cada um dos bancos é referente a o que".
+   *
+   * O código já tentava se ancorar em window.BIT_EXTRAS.saldos — só que
+   * BIT_EXTRAS é UNDEFINED neste BI (o data-extras.js nunca é gerado), então
+   * saldoInicial caía em 0 e a curva era pura variação do valor líquido,
+   * começando do zero. Agora a âncora vem do FLUXO_PROJETADO, que o
+   * fetch-saldos.cjs gera com o saldo bancário de verdade. */
+  const contasReais = (window.FLUXO_PROJETADO || {}).contas || [];
+  const finalidades = window.BI_CONTAS_FINALIDADE || {};
+  const finalidadeDe = (desc) => {
+    // o fetch-saldos sufixa a conta com " (Principal)" — o mapa é sem sufixo
+    const limpo = String(desc || "").replace(/\s*\([^)]*\)\s*$/, "").trim();
+    return finalidades[limpo] || finalidades[desc] || null;
+  };
+  const saldoRealPorConta = contasReais.map(c => {
+    const r = (c.rows || [])[0];
+    return { descricao: c.descricao, saldo: r ? r.saldoFinal : 0, fin: finalidadeDe(c.descricao) };
+  }).sort((a, b) => b.saldo - a.saldo);
+  const saldoRealTotal = saldoRealPorConta.reduce((s, c) => s + c.saldo, 0);
+  const saldoRealOperacional = saldoRealPorConta
+    .filter(c => !c.fin || c.fin.operacional !== false)
+    .reduce((s, c) => s + c.saldo, 0);
+  const temSaldoReal = saldoRealPorConta.length > 0;
+
   const saldoInicial = (function() {
-    if (!SALDOS_REAIS || !SALDOS_REAIS.last) return 0;
-    const lastDate = new Date(SALDOS_REAIS.last.data);
-    const lastMonthIdx = lastDate.getMonth();
+    if (!temSaldoReal) return 0;
+    // Desconta o acumulado do ano até o mês corrente pra que a curva CHEGUE no
+    // saldo real de hoje em vez de começar nele.
+    const mesAtual = new Date().getMonth();
     let acumAteAgora = 0;
-    for (let i = 0; i <= lastMonthIdx; i++) acumAteAgora += saldosMes[i] || 0;
-    return SALDOS_REAIS.last.total - acumAteAgora;
+    for (let i = 0; i <= mesAtual; i++) acumAteAgora += saldosMes[i] || 0;
+    return saldoRealTotal - acumAteAgora;
   })();
   const saldosCum = saldosMes.reduce((acc, v, i) => {
     acc.push((acc[i - 1] != null ? acc[i - 1] : saldoInicial) + (v || 0));
     return acc;
   }, []);
-  const sMax = Math.max(...saldosCum, 0);
-  const sMin = Math.min(...saldosCum, 0);
+  // O `, 0` que existia aqui como proteção pra array vazio corrompia o
+  // resultado: Math.min(...curva, 0) nunca passa de zero, então "Saldo Mínimo"
+  // exibia R$ 0,00 mesmo com a curva inteira acima de R$ 340 mil. Max tinha o
+  // espelho do problema. A proteção agora é o guard de length.
+  const sMax = saldosCum.length ? Math.max(...saldosCum) : 0;
+  const sMin = saldosCum.length ? Math.min(...saldosCum) : 0;
   const sMed = saldosCum.length ? saldosCum.reduce((s, v) => s + v, 0) / saldosCum.length : 0;
 
   // Fluxo Projetado (fonte: FLUXO_PROJETADO.totais gerado por fetch-saldos.cjs)
@@ -635,6 +715,51 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
         );
       })()}
 
+      {temSaldoReal && (
+        <div className="card">
+          <div className="card-title-row">
+            <h2 className="card-title">Saldos bancários por conta</h2>
+            <span className="status-line" style={{ fontSize: 11 }}>
+              lido do Omie em {new Date(((window.FLUXO_PROJETADO || {}).updatedAt) || Date.now()).toLocaleDateString("pt-BR")}
+            </span>
+          </div>
+          <table className="t">
+            <thead>
+              <tr><th>Conta</th><th>Finalidade</th><th className="num">Saldo</th></tr>
+            </thead>
+            <tbody>
+              {saldoRealPorConta.map(c => {
+                const naoOp = c.fin && c.fin.operacional === false;
+                return (
+                  <tr key={c.descricao} style={naoOp ? { opacity: 0.7 } : undefined}>
+                    <td>{c.descricao}</td>
+                    <td style={{ color: "var(--fg-3)", fontSize: 11.5 }}>
+                      {c.fin ? c.fin.finalidade : <span style={{ color: "var(--amber, #f59e0b)" }}>não mapeada — diga o que é essa conta</span>}
+                      {naoOp && <span style={{ color: "var(--amber, #f59e0b)" }}> · fora do caixa operacional</span>}
+                    </td>
+                    <td className="num" style={{ fontWeight: 600 }}>{B.fmt(c.saldo)}</td>
+                  </tr>
+                );
+              })}
+              <tr className="total">
+                <td>Consolidado</td>
+                <td style={{ color: "var(--fg-3)", fontSize: 11.5 }}>
+                  {Math.abs(saldoRealOperacional - saldoRealTotal) > 0.005
+                    ? <span>operacional: <strong>{B.fmt(saldoRealOperacional)}</strong></span>
+                    : "todas as contas são operacionais"}
+                </td>
+                <td className="num">{B.fmt(saldoRealTotal)}</td>
+              </tr>
+            </tbody>
+          </table>
+          <div className="status-line" style={{ marginTop: 8, fontSize: 11, lineHeight: 1.6 }}>
+            Conta que o fetch não trouxe saldo não aparece aqui, mesmo tendo lançamento — o Omie só
+            devolve extrato de conta com movimento no período. Use o filtro de Conta no cabeçalho pra
+            recortar o resto do BI por conta.
+          </div>
+        </div>
+      )}
+
       <div className="row" style={{ gridTemplateColumns: "minmax(0, 7fr) minmax(0, 5fr)" }}>
         <div className="card">
           <h2 className="card-title">Saldo acumulado por mês</h2>
@@ -642,13 +767,22 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
             <div><div className="kpi-label">Saldo Máximo</div><div style={{ fontFamily: "var(--font-mono)", fontWeight: 600, color: "var(--green)" }}>{B.fmt(sMax)}</div></div>
             <div><div className="kpi-label">Saldo Mínimo</div><div style={{ fontFamily: "var(--font-mono)", fontWeight: 600, color: "var(--red)" }}>{B.fmt(sMin)}</div></div>
             <div><div className="kpi-label">Saldo Médio</div><div style={{ fontFamily: "var(--font-mono)", fontWeight: 600, color: "var(--cyan)" }}>{B.fmt(sMed)}</div></div>
-            {SALDOS_REAIS && SALDOS_REAIS.last && (
-              <div><div className="kpi-label">Saldo atual (planilha)</div><div style={{ fontFamily: "var(--font-mono)", fontWeight: 600, color: "var(--cyan)" }}>{B.fmt(SALDOS_REAIS.last.total)}</div></div>
+            {temSaldoReal && (
+              <div title="Saldo bancário lido do Omie, não derivado de receita menos despesa">
+                <div className="kpi-label">Saldo real hoje (Omie)</div>
+                <div style={{ fontFamily: "var(--font-mono)", fontWeight: 700, color: "var(--cyan)" }}>{B.fmt(saldoRealTotal)}</div>
+              </div>
             )}
           </div>
           <TrendChart values={saldosCum} labels={B.MONTHS} color="var(--cyan)" height={isMobile ? 160 : 200} showPoints={true} showLabels={!isMobile} gradientId="ts-saldo" />
           <div className="status-line" style={{ marginTop: 6 }}>
-            Saldo cumulativo: parte de R$ {(B.fmt(saldoInicial) || "0").replace("R$ ", "")} no início do ano e acumula receitas − despesas mês a mês.
+            {temSaldoReal
+              ? <span>Ancorado no <strong>saldo bancário real do Omie</strong> ({B.fmt(saldoRealTotal)} hoje): a curva
+                  parte de {B.fmt(saldoInicial)} em janeiro e acumula receitas − despesas até chegar nele.
+                  {" "}Os meses <strong>à frente de hoje são projeção</strong> — incluem o que está lançado
+                  a pagar e a receber e ainda não tem baixa.</span>
+              : <span>Sem saldo bancário do Omie disponível — a curva parte de zero e mostra apenas a
+                  <strong> variação</strong> acumulada de receitas − despesas, não o saldo da conta.</span>}
           </div>
         </div>
 
@@ -796,6 +930,11 @@ const PageComparativo = ({ statusFilter, drilldown, setDrilldown, year, month, s
   const [p1, setP1] = useState({ y: refYear, kind: "trim", val: 1 });
   const [p2, setP2] = useState({ y: refYear, kind: "trim", val: 2 });
   const [expanded, setExpanded] = useState({ Receita: true, Despesa: true });
+  // 3o nivel da hierarquia: quais categorias estao abertas mostrando as
+  // contrapartes. Pedido da reuniao: "normalmente eu coloco aqui a opcao de
+  // poder expandir e ver quais sao os clientes que geraram essa comparacao".
+  const [catAberta, setCatAberta] = useState({});
+  const toggleCat = (lado, cat) => setCatAberta(s => ({ ...s, [lado + "|" + cat]: !s[lado + "|" + cat] }));
 
   // Calcula bounds de mes do periodo
   const periodBounds = (p) => {
@@ -818,31 +957,70 @@ const PageComparativo = ({ statusFilter, drilldown, setDrilldown, year, month, s
 
   // Filtra ALL_TX por periodo + statusFilter; agrega receitas/despesas por categoria
   const aggregate = (p) => {
-    const allTx = window.ALL_TX || [];
-    const filterTx = window.filterTx;
+    // txNoContexto, nao filterTx cru: esta tela ignorava o extraFilters inteiro,
+    // entao o toggle Operacional/Completo, o regime Caixa/Competencia, o filtro
+    // de conta e os de natureza/categoria nao chegavam aqui. O emprestimo de
+    // R$ 199.627,92 aparecia como receita no Comparativo mesmo com a Visao Geral
+    // no modo Operacional — duas telas contando historias diferentes.
     const sf = statusFilter || window.BIT_FILTER || "realizado";
-    const txFiltered = filterTx ? filterTx(allTx, sf, null) : allTx;
+    const txFiltered = window.txNoContexto(sf, null, semInvestimento, extraFilters);
     const { y, mIni, mFim } = periodBounds(p);
     const mIniStr = `${y}-${String(mIni).padStart(2, "0")}`;
     const mFimStr = `${y}-${String(mFim).padStart(2, "0")}`;
     let totalRec = 0, totalDesp = 0;
     const recCat = new Map(), despCat = new Map();
+    // contraparte por categoria: cliente na receita, fornecedor na despesa
+    const recCli = new Map(), despForn = new Map();
+    const põe = (mapa, cat, quem, valor) => {
+      if (!mapa.has(cat)) mapa.set(cat, new Map());
+      const m = mapa.get(cat);
+      const k = quem || "(sem identificação)";
+      m.set(k, (m.get(k) || 0) + valor);
+    };
     for (const row of txFiltered) {
-      const [kind, mes, , categoria, , valor] = row;
+      const kind = row[0], mes = row[1], categoria = row[3], valor = row[5];
       if (!mes || mes < mIniStr || mes > mFimStr) continue;
       if (kind === "r") {
         totalRec += valor;
         recCat.set(categoria, (recCat.get(categoria) || 0) + valor);
+        põe(recCli, categoria, row[4], valor);
       } else {
         totalDesp += valor;
         despCat.set(categoria, (despCat.get(categoria) || 0) + valor);
+        põe(despForn, categoria, row[7], valor);
       }
     }
-    return { totalRec, totalDesp, liq: totalRec - totalDesp, recCat, despCat };
+    return { totalRec, totalDesp, liq: totalRec - totalDesp, recCat, despCat, recCli, despForn };
   };
 
-  const a1 = useMemo(() => aggregate(p1), [p1, statusFilter]);
-  const a2 = useMemo(() => aggregate(p2), [p2, statusFilter]);
+  const a1 = useMemo(() => aggregate(p1), [p1, statusFilter, semInvestimento, extraFilters]);
+  const a2 = useMemo(() => aggregate(p2), [p2, statusFilter, semInvestimento, extraFilters]);
+
+  /* Linhas de contraparte de uma categoria, comparando os dois periodos.
+   * Ordena pela maior diferenca em modulo — o que se quer ver primeiro num
+   * comparativo e quem mais mudou, nao quem e maior. */
+  const contrapartes = (lado, cat) => {
+    const m1 = (lado === "r" ? a1.recCli : a1.despForn).get(cat) || new Map();
+    const m2 = (lado === "r" ? a2.recCli : a2.despForn).get(cat) || new Map();
+    const nomes = new Set([...m1.keys(), ...m2.keys()]);
+    return [...nomes]
+      .map(n => ({ nome: n, v1: m1.get(n) || 0, v2: m2.get(n) || 0 }))
+      .sort((x, y) => Math.abs(y.v2 - y.v1) - Math.abs(x.v2 - x.v1));
+  };
+  const LinhasContraparte = ({ lado, cat }) => contrapartes(lado, cat).map((c, j) => {
+    const d = c.v2 - c.v1;
+    return (
+      <tr key={lado + cat + j} className="child-row" style={{ opacity: 0.85 }}>
+        <td style={{ paddingLeft: 46, fontSize: 11 }}>{c.nome}</td>
+        <td className="num" style={{ fontSize: 11 }}>{c.v1 !== 0 ? fmt(c.v1) : "—"}</td>
+        <td className="num" style={{ fontSize: 11 }}>{c.v2 !== 0 ? fmt(c.v2) : "—"}</td>
+        <td className={`num ${d >= 0 ? "green" : "red"}`} style={{ fontSize: 11 }}>{fmt(d)}</td>
+        <td className={`num ${d >= 0 ? "green" : "red"}`} style={{ fontSize: 11 }}>
+          {c.v1 !== 0 ? fmtPct(safePct(d, c.v1)) : (c.v2 !== 0 ? "novo" : "—")}
+        </td>
+      </tr>
+    );
+  });
 
   const safePct = (a, b) => b !== 0 ? (a / b) * 100 : (a !== 0 ? 100 : 0);
   const diffReceita = a2.totalRec - a1.totalRec;
@@ -967,14 +1145,19 @@ const PageComparativo = ({ statusFilter, drilldown, setDrilldown, year, month, s
                   const v2 = a2.recCat.get(cat) || 0;
                   const diff = v2 - v1;
                   const pct = safePct(diff, v1);
+                  const aberta = !!catAberta["r|" + cat];
                   return (
-                    <tr key={`r${i}`}>
-                      <td style={{ paddingLeft: 24 }}><span className="chev">+</span>{cat}</td>
-                      <td className="num green">{v1 !== 0 ? fmt(v1) : "—"}</td>
-                      <td className="num green">{v2 !== 0 ? fmt(v2) : "—"}</td>
-                      <td className={`num ${diff >= 0 ? "green" : "red"}`}>{fmt(diff)}</td>
-                      <td className={`num ${diff >= 0 ? "green" : "red"}`}>{fmtPct(pct)}</td>
-                    </tr>
+                    <React.Fragment key={`r${i}`}>
+                      <tr style={{ cursor: "pointer" }} onClick={() => toggleCat("r", cat)}
+                          title="Clique pra ver quais clientes explicam essa diferença">
+                        <td style={{ paddingLeft: 24 }}><span className="chev">{aberta ? "−" : "+"}</span>{cat}</td>
+                        <td className="num green">{v1 !== 0 ? fmt(v1) : "—"}</td>
+                        <td className="num green">{v2 !== 0 ? fmt(v2) : "—"}</td>
+                        <td className={`num ${diff >= 0 ? "green" : "red"}`}>{fmt(diff)}</td>
+                        <td className={`num ${diff >= 0 ? "green" : "red"}`}>{fmtPct(pct)}</td>
+                      </tr>
+                      {aberta && <LinhasContraparte lado="r" cat={cat} />}
+                    </React.Fragment>
                   );
                 })}
                 {/* Header Despesa */}
@@ -994,14 +1177,19 @@ const PageComparativo = ({ statusFilter, drilldown, setDrilldown, year, month, s
                   const v2 = a2.despCat.get(cat) || 0;
                   const diff = v2 - v1;
                   const pct = safePct(diff, v1);
+                  const aberta = !!catAberta["d|" + cat];
                   return (
-                    <tr key={`d${i}`}>
-                      <td style={{ paddingLeft: 24 }}><span className="chev">+</span>{cat}</td>
-                      <td className="num red">{v1 !== 0 ? fmt(v1) : "—"}</td>
-                      <td className="num red">{v2 !== 0 ? fmt(v2) : "—"}</td>
-                      <td className={`num ${diff <= 0 ? "green" : "red"}`}>{fmt(diff)}</td>
-                      <td className={`num ${diff <= 0 ? "green" : "red"}`}>{fmtPct(pct)}</td>
-                    </tr>
+                    <React.Fragment key={`d${i}`}>
+                      <tr style={{ cursor: "pointer" }} onClick={() => toggleCat("d", cat)}
+                          title="Clique pra ver quais fornecedores explicam essa diferença">
+                        <td style={{ paddingLeft: 24 }}><span className="chev">{aberta ? "−" : "+"}</span>{cat}</td>
+                        <td className="num red">{v1 !== 0 ? fmt(v1) : "—"}</td>
+                        <td className="num red">{v2 !== 0 ? fmt(v2) : "—"}</td>
+                        <td className={`num ${diff <= 0 ? "green" : "red"}`}>{fmt(diff)}</td>
+                        <td className={`num ${diff <= 0 ? "green" : "red"}`}>{fmtPct(pct)}</td>
+                      </tr>
+                      {aberta && <LinhasContraparte lado="d" cat={cat} />}
+                    </React.Fragment>
                   );
                 })}
                 <tr className="total">
@@ -1280,7 +1468,8 @@ node generate-report.cjs --force
       {/* Relatorio imprimivel */}
       <article className="report">
         <header className="report-cover">
-          <img src="assets/bgp-logo-white.png" alt="BGP" className="report-logo" />
+          <img src="assets/bgp-logo-white.png" alt="BGP" className="report-logo logo-dark" />
+          <img src="assets/bgp-logo.png" alt="BGP" className="report-logo logo-light" />
           <h1 className="report-title">BGP GO BI — Relatório Executivo</h1>
           <p className="report-subtitle">{report.empresa}</p>
           <p className="report-meta">Período: {report.periodo} — Realizado</p>

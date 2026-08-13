@@ -196,6 +196,62 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
     setDrilldown({ type: "mes", value: ym, label: lbl });
   };
 
+  /* RESUMO DO MÊS.
+   *
+   * Ela, no fim da reunião: "mas já tendo, para apresentar para ela nessa
+   * primeira tela, um resumo ali do mês, como foi, o que passou, o que fechou,
+   * antes de entrar no detalhe, é mais interessante também".
+   *
+   * Então: o mês de referência (o selecionado, ou o último com movimento),
+   * comparado com o anterior, mais o que ainda está em aberto naquele mês —
+   * que é o "o que passou, o que fechou". Lê do ALL_TX pra não depender do
+   * recorte de status da tela: o resumo tem que mostrar realizado E aberto ao
+   * mesmo tempo, senão não responde à pergunta.
+   */
+  const resumo = useMemo(() => {
+    const tx = window.txNoContexto("tudo", null, semInvestimento, extraFilters)
+      .filter(r => r[1] && Number(r[1].slice(0, 4)) === refYear);
+    if (!tx.length) return null;
+    const mesSel = (drilldown && drilldown.type === "mes")
+      ? parseInt(String(drilldown.value).slice(5, 7), 10) - 1
+      : (month > 0 ? month - 1 : -1);
+    const comRealizado = new Set(tx.filter(r => r[6] === 1).map(r => parseInt(r[1].slice(5, 7), 10) - 1));
+    const idx = mesSel >= 0 ? mesSel : (comRealizado.size ? Math.max(...comRealizado) : -1);
+    if (idx < 0) return null;
+    const acc = (mi, pred) => {
+      let rec = 0, desp = 0, n = 0;
+      for (const r of tx) {
+        if (parseInt(r[1].slice(5, 7), 10) - 1 !== mi) continue;
+        if (!pred(r)) continue;
+        if (r[0] === "r") rec += r[5]; else desp += r[5];
+        n++;
+      }
+      return { rec, desp, liq: rec - desp, n };
+    };
+    const fechado = acc(idx, r => r[6] === 1);
+    const aberto = acc(idx, r => r[6] === 0);
+    const anterior = idx > 0 ? acc(idx - 1, r => r[6] === 1) : null;
+    // maior variação de categoria contra o mês anterior — o "por que mudou"
+    let mover = null;
+    if (anterior) {
+      const porCat = new Map();
+      for (const r of tx) {
+        const mi = parseInt(r[1].slice(5, 7), 10) - 1;
+        if (r[6] !== 1 || (mi !== idx && mi !== idx - 1)) continue;
+        const sinal = r[0] === "r" ? 1 : -1;
+        const k = r[3];
+        porCat.set(k, (porCat.get(k) || 0) + sinal * r[5] * (mi === idx ? 1 : -1));
+      }
+      for (const [cat, d] of porCat) if (!mover || Math.abs(d) > Math.abs(mover.delta)) mover = { cat, delta: d };
+    }
+    return {
+      idx, mes: B.MONTHS_FULL[idx], fechado, aberto, anterior, mover,
+      margem: fechado.rec > 0 ? (fechado.liq / fechado.rec) * 100 : null,
+      variacaoLiq: anterior ? fechado.liq - anterior.liq : null,
+      ehSelecionado: mesSel >= 0,
+    };
+  }, [refYear, drilldown, month, semInvestimento, extraFilters, B.MONTHS_FULL]);
+
   // Indicator series for the toggle chart (derived da MONTH_DATA real)
   const margemSeries = B.MONTH_DATA.map(m => m.receita > 0 ? ((m.receita - m.despesa) / m.receita) * 100 : 0);
   const indicatorSeries = {
@@ -228,6 +284,59 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
       </div>
 
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
+
+      {resumo && (
+        <div className={"resumo-mes " + (resumo.fechado.liq >= 0 ? "resumo-ok" : "resumo-neg")}>
+          <div className="resumo-head">
+            <span className="resumo-mes-nome">{resumo.mes} de {refYear}</span>
+            <span className="resumo-tag">
+              {resumo.ehSelecionado ? "mês selecionado no filtro" : "último mês com movimento"}
+            </span>
+          </div>
+          <div className="resumo-grid">
+            <div>
+              <div className="resumo-label">Entrou</div>
+              <div className="resumo-valor green">{B.fmt(resumo.fechado.rec)}</div>
+            </div>
+            <div>
+              <div className="resumo-label">Saiu</div>
+              <div className="resumo-valor red">{B.fmt(resumo.fechado.desp)}</div>
+            </div>
+            <div>
+              <div className="resumo-label">Resultado</div>
+              <div className={"resumo-valor " + (resumo.fechado.liq >= 0 ? "green" : "red")}>{B.fmt(resumo.fechado.liq)}</div>
+            </div>
+            <div>
+              <div className="resumo-label">Margem</div>
+              <div className="resumo-valor">{resumo.margem == null ? "—" : resumo.margem.toFixed(1).replace(".", ",") + "%"}</div>
+            </div>
+            <div>
+              <div className="resumo-label">Ainda em aberto no mês</div>
+              <div className="resumo-valor" style={{ fontSize: 15 }}>
+                {resumo.aberto.n === 0
+                  ? <span style={{ color: "var(--fg-3)" }}>nada — mês fechado</span>
+                  : <span>a receber <b className="green">{B.fmt(resumo.aberto.rec)}</b> · a pagar <b className="red">{B.fmt(resumo.aberto.desp)}</b></span>}
+              </div>
+            </div>
+          </div>
+          <div className="resumo-leitura">
+            {resumo.fechado.n} lançamento{resumo.fechado.n === 1 ? "" : "s"} com baixa
+            {resumo.aberto.n > 0 && <span> · {resumo.aberto.n} ainda sem baixa</span>}
+            {resumo.anterior && resumo.variacaoLiq != null && (
+              <span>
+                {" · resultado "}
+                <b className={resumo.variacaoLiq >= 0 ? "green" : "red"}>
+                  {resumo.variacaoLiq >= 0 ? "melhor" : "pior"} em {B.fmt(Math.abs(resumo.variacaoLiq))}
+                </b>
+                {" que "}{B.MONTHS_FULL[resumo.idx - 1]}
+              </span>
+            )}
+            {resumo.mover && Math.abs(resumo.mover.delta) > 0.005 && (
+              <span> · quem mais mexeu: <b>{resumo.mover.cat}</b> ({resumo.mover.delta >= 0 ? "+" : "−"}{B.fmt(Math.abs(resumo.mover.delta))})</span>
+            )}
+          </div>
+        </div>
+      )}
 
       <div className="row" style={{ gridTemplateColumns: "minmax(280px, 3fr) minmax(0, 9fr)" }}>
         {/* LEFT: Indicadores Principais + Resultado Geral */}
@@ -578,30 +687,8 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
           <div className="card-title-row">
             <h2 className="card-title">Extrato de receitas {drilldown ? `· ${drilldown.label}` : ""}</h2>
           </div>
-          <div className="t-scroll">
-            <table className="t">
-              <thead>
-                <tr><th>Data</th><th>Categoria</th><th>Cliente</th><th className="num">Receita</th></tr>
-              </thead>
-              <tbody>
-                {extratoFiltrado.slice(0, month > 0 ? 200 : 30).map((e, i) => (
-                  <tr key={i}>
-                    <td style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>{e[0]}</td>
-                    <td>{e[2]}</td>
-                    <td>{e[3]}</td>
-                    <td className="num green">{B.fmt(Math.abs(e[4]))}</td>
-                  </tr>
-                ))}
-                {extratoFiltrado.length === 0 && (
-                  <tr><td colSpan="4" style={{ color: "var(--mute)", textAlign: "center", padding: 18 }}>Sem receitas no filtro selecionado</td></tr>
-                )}
-                <tr className="total">
-                  <td colSpan="3">Total{drilldown ? " (filtrado)" : ""}</td>
-                  <td className="num green">{B.fmt(totalFiltrado)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <ExtratoTabela rows={extratoFiltrado} tone="green" fmt={B.fmt}
+            colContraparte="Cliente" vazio="Sem receitas no filtro selecionado" altura={550} />
         </div>
 
         <div className="card">
@@ -681,30 +768,8 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
           <div className="card-title-row">
             <h2 className="card-title">Extrato de despesas {drilldown ? `· ${drilldown.label}` : ""}</h2>
           </div>
-          <div className="t-scroll">
-            <table className="t">
-              <thead>
-                <tr><th>Data</th><th>Categoria</th><th>Fornecedor</th><th className="num">Despesa</th></tr>
-              </thead>
-              <tbody>
-                {extratoFiltrado.slice(0, month > 0 ? 200 : 30).map((e, i) => (
-                  <tr key={i}>
-                    <td style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>{e[0]}</td>
-                    <td>{e[2]}</td>
-                    <td>{e[3]}</td>
-                    <td className="num red">{B.fmt(Math.abs(e[4]))}</td>
-                  </tr>
-                ))}
-                {extratoFiltrado.length === 0 && (
-                  <tr><td colSpan="4" style={{ color: "var(--mute)", textAlign: "center", padding: 18 }}>Sem despesas no filtro selecionado</td></tr>
-                )}
-                <tr className="total">
-                  <td colSpan="3">Total{drilldown ? " (filtrado)" : ""}</td>
-                  <td className="num red">{B.fmt(totalFiltrado)}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+          <ExtratoTabela rows={extratoFiltrado} tone="red" fmt={B.fmt}
+            colContraparte="Fornecedor" vazio="Sem despesas no filtro selecionado" altura={550} />
         </div>
 
         <div className="card">
