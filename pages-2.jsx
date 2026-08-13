@@ -552,115 +552,13 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
         </div>
       )}
 
-      {/* Bloco "Fluxo de Caixa Projetado" removido — só Fluxo a Vencer abaixo */}
-      {(false) && (function() {
-        const fp   = window.FLUXO_PROJETADO || {};
-        const rows = fp.totais || [];
-        if (!rows.length) return null;
-        const fmtV = (n) => {
-          const sign = n < 0 ? '-' : '';
-          return `${sign}R$ ${Math.abs(n).toLocaleString('pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`;
-        };
-        const fmtD = (iso) => { if (!iso) return ''; const [y,m,d] = iso.split('-'); return `${d}/${m}/${y}`; };
-        const ultimoSaldo   = rows[rows.length - 1].saldoFinal;
-        const todayIso      = new Date().toISOString().slice(0, 10);
-        const lastPastRow   = [...rows].reverse().find(r => r.data <= todayIso);
-        const saldoAtual    = lastPastRow ? lastPastRow.saldoFinal : rows[0].saldoInicial;
-        const saldoAtualData = lastPastRow ? lastPastRow.data : rows[0].data;
-        const variacaoTotal = ultimoSaldo - saldoAtual;
-        const minSaldo      = Math.min(...rows.map(r => r.saldoFinal));
-        const minRow        = rows.find(r => r.saldoFinal === minSaldo);
-
-        const SparkFP = () => {
-          const W = 400, H = 72, PAD = 4;
-          const vals = rows.map(r => r.saldoFinal);
-          const mn = Math.min(...vals), mx = Math.max(...vals);
-          const rng = mx - mn || 1;
-          const xs = vals.map((_, i) => PAD + (i / Math.max(vals.length - 1, 1)) * (W - PAD * 2));
-          const ys = vals.map(v => H - PAD - ((v - mn) / rng) * (H - PAD * 2));
-          const line = xs.map((x, i) => `${i === 0 ? 'M' : 'L'}${x.toFixed(1)},${ys[i].toFixed(1)}`).join(' ');
-          const fill = `${line} L${xs[xs.length-1].toFixed(1)},${H} L${xs[0].toFixed(1)},${H} Z`;
-          const zeroY = H - PAD - ((0 - mn) / rng) * (H - PAD * 2);
-          return (
-            <svg viewBox={`0 0 ${W} ${H}`} preserveAspectRatio="none" style={{ width: '100%', height: 72, display: 'block' }}>
-              <defs>
-                <linearGradient id="fpTesGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#22d3ee" stopOpacity="0.22" />
-                  <stop offset="100%" stopColor="#22d3ee" stopOpacity="0.02" />
-                </linearGradient>
-              </defs>
-              {mn < 0 && mx > 0 && (
-                <line x1={PAD} y1={zeroY.toFixed(1)} x2={W - PAD} y2={zeroY.toFixed(1)}
-                  stroke="rgba(239,68,68,0.35)" strokeWidth="1" strokeDasharray="4,3" />
-              )}
-              <path d={fill} fill="url(#fpTesGrad)" />
-              <path d={line} fill="none" stroke="#22d3ee" strokeWidth="1.8" />
-            </svg>
-          );
-        };
-
-        return (
-          <div className="card" style={{ marginBottom: 14 }}>
-            <div className="card-title-row">
-              <h2 className="card-title">Fluxo de Caixa Projetado</h2>
-              <span className="chip cyan" style={{ fontSize: 11 }}>
-                {fmtD(rows[0].data)} → {fmtD(rows[rows.length - 1].data)} · {rows.length} dias
-              </span>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: 10, marginBottom: 14 }}>
-              <div className="indicator-card" style={{ padding: 10 }}>
-                <div className="kpi-label" style={{ fontSize: 10 }}>Saldo atual</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 15, color: saldoAtual >= 0 ? 'var(--cyan)' : 'var(--red)' }}>{fmtV(saldoAtual)}</div>
-                <div style={{ fontSize: 10, color: 'var(--mute)', marginTop: 2 }}>{fmtD(saldoAtualData)}</div>
-              </div>
-              <div className="indicator-card" style={{ padding: 10 }}>
-                <div className="kpi-label" style={{ fontSize: 10 }}>Saldo final projetado</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 15, color: ultimoSaldo >= 0 ? 'var(--green)' : 'var(--red)' }}>{fmtV(ultimoSaldo)}</div>
-                <div style={{ fontSize: 10, color: 'var(--mute)', marginTop: 2 }}>{fmtD(rows[rows.length - 1].data)}</div>
-              </div>
-              <div className="indicator-card" style={{ padding: 10 }}>
-                <div className="kpi-label" style={{ fontSize: 10 }}>Variação total</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 15, color: variacaoTotal >= 0 ? 'var(--green)' : 'var(--red)' }}>{variacaoTotal >= 0 ? '+' : ''}{fmtV(variacaoTotal)}</div>
-              </div>
-              <div className="indicator-card" style={{ padding: 10, background: minSaldo < 0 ? 'rgba(239,68,68,0.07)' : undefined }}>
-                <div className="kpi-label" style={{ fontSize: 10 }}>Mínimo projetado</div>
-                <div style={{ fontFamily: 'var(--font-mono)', fontWeight: 700, fontSize: 15, color: minSaldo >= 0 ? 'var(--green)' : 'var(--red)' }}>{fmtV(minSaldo)}</div>
-                {minRow && <div style={{ fontSize: 10, color: 'var(--mute)', marginTop: 2 }}>{fmtD(minRow.data)}</div>}
-              </div>
-            </div>
-            <SparkFP />
-            <div className="t-scroll" style={{ maxHeight: 280, marginTop: 10 }}>
-              <table className="table">
-                <thead>
-                  <tr>
-                    <th>Data</th>
-                    <th style={{ textAlign: 'right' }}>Saldo Inicial</th>
-                    <th style={{ textAlign: 'right' }}>Líquido do Dia</th>
-                    <th style={{ textAlign: 'right' }}>Saldo Final</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {rows.map((r, i) => (
-                    <tr key={i}>
-                      <td style={{ whiteSpace: 'nowrap', color: 'var(--text-muted)', fontSize: 12 }}>{fmtD(r.data)}</td>
-                      <td style={{ textAlign: 'right', fontFamily: 'var(--mono)', fontSize: 12 }}>{fmtV(r.saldoInicial)}</td>
-                      <td style={{ textAlign: 'right', fontFamily: 'var(--mono)', fontSize: 12, color: r.valorLiquidoDia >= 0 ? 'var(--green)' : 'var(--red)' }}>
-                        {r.valorLiquidoDia >= 0 ? '+' : ''}{fmtV(r.valorLiquidoDia)}
-                      </td>
-                      <td style={{ textAlign: 'right', fontFamily: 'var(--mono)', fontSize: 12, fontWeight: 600, color: r.saldoFinal >= 0 ? 'var(--cyan)' : 'var(--red)' }}>
-                        {fmtV(r.saldoFinal)}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-            <div style={{ marginTop: 8, fontSize: 11, color: 'var(--mute)' }}>
-              Consolidado: CREDCREA + Cresol + Santander + Omie.CASH · Detalhes por conta em <b>Fluxo Projetado</b>
-            </div>
-          </div>
-        );
-      })()}
+      {/* Havia aqui um bloco "Fluxo de Caixa Projetado" de 109 linhas atrás de
+          `{(false) && ...}` — desativado com o comentário "removido — só Fluxo a
+          Vencer abaixo", mas deixado no arquivo. Não renderizava, e carregava um
+          rótulo com as contas bancárias de OUTRO cliente chumbadas no texto.
+          Removido: código morto com nome de cliente é armadilha pro próximo que
+          abrir o arquivo e achar que aquilo está no ar. O Fluxo a Vencer abaixo é
+          o que ficou. */}
 
       {/* Bloco "Saldo real + projeção" removido */}
       {(false) && (function() {
@@ -1599,13 +1497,26 @@ Object.assign(window, { PageFluxo, PageTesouraria, PageComparativo, PageRelatori
 // ============================================================
 // PageFluxoProjetado — Fluxo de Caixa Projetado por Conta Corrente
 // Fonte: window.FLUXO_PROJETADO (gerado por fetch-saldos.cjs + build-data.cjs)
-// Contas: CREDCREA, Cresol, Santander, Omie.CASH
+// Contas: as que o fetch-saldos trouxer (window.FLUXO_PROJETADO.contas)
 // Vistas: Consolidado (tudo) | Sem Investimento (exclui grupo 2.07)
 // ============================================================
 const PageFluxoProjetado = () => {
   const fp        = window.FLUXO_PROJETADO || {};
   const totais    = fp.totais || fp.rows || [];
   const contas    = fp.contas || [];
+  /* Rótulo do consolidado montado a partir das contas que o fetch trouxe, não de
+   * uma lista chumbada — antes vinham quatro contas de outro cliente escritas no
+   * texto. Até 3 contas lista os nomes; acima disso vira contagem, senão o rótulo
+   * estoura a linha. O sufixo " (Principal)" que o fetch-saldos acrescenta sai,
+   * pra não repetir em toda conta. */
+  const rotuloConsolidado = (function () {
+    const nomes = contas
+      .map(c => String(c.descricao || c.nCodCC || '').replace(/\s*\([^)]*\)\s*$/, '').trim())
+      .filter(Boolean);
+    if (!nomes.length) return 'Consolidado';
+    if (nomes.length <= 3) return 'Consolidado (' + nomes.join(' + ') + ')';
+    return 'Consolidado (' + nomes.length + ' contas)';
+  })();
   const updatedAt = fp.updatedAt || null;
   const hasError  = fp.error && !totais.length && !contas.length;
 
@@ -1765,7 +1676,7 @@ const PageFluxoProjetado = () => {
           {/* Sparkline */}
           <div className="card" style={{ marginTop: 16, padding: '12px 16px 8px' }}>
             <div className="card-title">
-              {contaAtual ? contaAtual.descricao : 'Consolidado (CREDCREA + Cresol + Santander + Omie.CASH)'}
+              {contaAtual ? contaAtual.descricao : rotuloConsolidado}
               {vista === 'sem_inv' && ' — Sem Investimento'}
             </div>
             <Sparkline data={rows} />
