@@ -60,6 +60,16 @@ const DRE_MAP = {
   "421-2 - Manutencao e Reparos":                                               { grupo: "Despesas Administrativas",          dre: "7" },
   "422-0 - Uber e Taxi":                                                        { grupo: "Despesas Administrativas",          dre: "7" },
   "422-9 - Material de Escritorio":                                             { grupo: "Despesas Administrativas",          dre: "7" },
+  // Estas tres so ficaram visiveis depois do conserto do Rateio: antes eram
+  // engolidas junto com as outras linhas do rateio. Mapeadas por codigo irmao
+  // (422-9 Material de Escritorio, 423-5 Estacionamento e 420-5 Aluguel estao
+  // todas na linha 7), o que e inequivoco pra material de limpeza, uniforme e
+  // copa. ATENCAO: o relatorio de julho dela nao tem linha de Material de
+  // Limpeza, e mapea-la aqui faz a linha 7 sair de match exato pra +R$ 189,13.
+  // Preferi mostrar o delta a deixar despesa administrativa fora da cascata.
+  "420-9 - Uniformes":                                                       { grupo: "Despesas Administrativas",       dre: "7" },
+  "422-2 - Copa e Cozinha":                                                   { grupo: "Despesas Administrativas",       dre: "7" },
+  "423-6 - Material de Limpeza":                                              { grupo: "Despesas Administrativas",       dre: "7" },
   "423-5 - Estacionamento":                                                     { grupo: "Despesas Administrativas",          dre: "7" },
   "425-5 - Consultoria":                                                        { grupo: "Despesas Administrativas",          dre: "7" },
   "425-6 - Contabilidade":                                                      { grupo: "Despesas Administrativas",          dre: "7" },

@@ -233,7 +233,16 @@ function normalize(t, kind) {
 //
 // Tambem exclui transferencias (categoria Entrada/Saida de Transferencia)
 // porque sao movimentacoes internas entre contas, nao receita/despesa real.
-const TRANSFERENCIA_RE = /transfer[eê]ncia/i;
+// ATENCAO: este regex era /transfer[eê]ncia/i — a palavra solta, em qualquer
+// lugar do nome da categoria. E a categoria de venda por PIX do F360 se chama
+// "102-1 - Vendas de Produtos - Transferência / PIX": TODA venda por PIX era
+// descartada como se fosse transferencia entre contas. R$ 6.864,29 no ano,
+// R$ 5.774,89 so em julho/2026, sumindo sem aviso.
+//
+// Agora exige a forma real de uma transferencia entre contas, nas duas ordens de
+// palavra ("Transferencia de Entrada" e "Entrada de Transferencia"), e nao casa
+// com "Transferencia / PIX" nem com "Tarifa sobre Transferencia".
+const TRANSFERENCIA_RE = /(transfer[eê]ncias*(entres+conta|des+entrada|des+sa[ií]da))|((entrada|sa[ií]da)s+des+transfer[eê]ncia)/i;
 const CLIENTE_PROPRIO_RE = /mr\s*shawarma/i;
 let _cfgCatExcluir = [];
 try { _cfgCatExcluir = require('./bi.config.js').fontes?.omie?.categorias_excluir || []; } catch(e) {}
@@ -341,7 +350,20 @@ function normalizeF360(m) {
   // Fallback pro vencimento e depois pro pagamento — parcela sem emissao
   // existe (rows de cartao/adquirente), e descartar no regime de competencia
   // esvaziaria a DRE sem avisar.
-  const dataComp = parseBR(d.dDtRegistro) || dataVenc || dataPago;
+  // COMPETENCIA. O rateio do F360 traz a competencia da propria linha
+  // ("2026-07"), e e por ela que o relatorio da cliente agrupa. Quando existe,
+  // manda: usa o dia da emissao se ele cair no mesmo mes, senao o dia 1 — o mes
+  // e o que importa pra DRE, e inventar dia gera drilldown diario mentiroso.
+  // Sem competencia no rateio, cai na emissao (dDtRegistro) e dai no vencimento.
+  const _emissao = parseBR(d.dDtRegistro);
+  let dataComp = _emissao || dataVenc || dataPago;
+  const _comp = d._f360_competencia || '';
+  if (/^d{4}-d{2}$/.test(_comp)) {
+    const _y = Number(_comp.slice(0, 4)), _m = Number(_comp.slice(5, 7)) - 1;
+    dataComp = (_emissao && _emissao.getFullYear() === _y && _emissao.getMonth() === _m)
+      ? _emissao
+      : new Date(_y, _m, 1);
+  }
 
   let valor = realizado ? (num(d.nValorPago) || num(d.nValorTitulo)) : num(d.nValorTitulo);
   if (!valor) return null;

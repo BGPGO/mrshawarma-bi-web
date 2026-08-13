@@ -49,25 +49,23 @@ module.exports = {
       fluxo: "active",
       tesouraria: "active",
       comparativo: "active",
-      // DRE OCULTA DE PROPOSITO, aguardando decisao sobre a base da receita.
+      // DRE ATIVA. A cascata reproduz o modelo "Padrao iFinance" e reconcilia
+      // (residuo R$ 0,00). Na conferencia de julho/2026 contra o relatorio da
+      // Silmara: linha 1 (Receitas Operacionais) em R$ 167.265,27 contra
+      // R$ 165.828,55 — 0,87% — e 22 das 36 categorias batem ao centavo.
       //
-      // A tela esta pronta e a cascata reconcilia (residuo R$ 0,00 nos 7 meses),
-      // mas o dado de entrada usa uma base diferente da do relatorio dela:
+      // Chegar aqui exigiu consertar dois bugs no adapter f360, os dois
+      // anteriores a esta rodada:
+      //   1. o Rateio era lido so na primeira entrada (Rateio[0]) e o valor
+      //      inteiro da parcela ia pra ela — o BI perdia de 1 a 4 linhas por
+      //      parcela e tarifa de cartao entrava como receita;
+      //   2. TRANSFERENCIA_RE era /transferencia/i solto e descartava TODA
+      //      venda por PIX, porque a categoria se chama
+      //      "102-1 - Vendas de Produtos - Transferencia / PIX".
       //
-      //   linha 1 RECEITAS OPERACIONAIS   BI R$  65.487,20   dela R$ 165.828,55
-      //
-      // Causa (conferida no movimentos.json de 13/08): o F360 quebra cada venda
-      // de cartao em DUAS rows — a venda e a tarifa — e manda as DUAS com
-      // cNatureza='R'. O normalizeF360 usa nValorPago (ValorLiquido) na venda,
-      // entao a venda entra liquida de taxa, e a tarifa entra como RECEITA.
-      // Em julho: vendas liquidas R$ 87.853,90 + tarifas R$ 76.191,01 =
-      // R$ 164.044,91, que e a linha 1 dela (R$ 163.624,08) com 0,26% de
-      // diferenca. Ou seja: o dado existe inteiro, o que difere e onde cada
-      // metade entra.
-      //
-      // Ativar isto sem resolver a base mostraria pra cliente uma DRE com 40%
-      // menos receita que o relatorio que ela mesma mandou.
-      dre: "hidden",
+      // Os deltas que sobram estao listados no painel de conferencia da propria
+      // tela. Ver o relatorio da entrega pra lista por categoria.
+      dre: "active",
       orcamento: "hidden",
       orcamento_mensal: "hidden",
       relatorio_ia: "active",

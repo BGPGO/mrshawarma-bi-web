@@ -168,10 +168,41 @@ async function fetchAllCartoes(year) {
   return allCartoes;
 }
 
+/* rateioDe — as entradas do rateio de uma parcela, normalizadas.
+ *
+ * Cada entrada é uma LINHA de plano de contas com valor e lado próprios. Uma
+ * parcela de cartão de R$ 66,80 rateia em 102-1 Delivery (+66,80), Tarifa
+ * Delivery (-15,36), Taxa de entrega (-6,99) e Desconto (-2,14) — e a soma dá o
+ * ValorLiquido de 42,31. Ler só a primeira entrada joga fora o resto e atribui
+ * o valor todo a ela.
+ *
+ * Parcela sem rateio (aparece: 3 em ~1000) cai numa entrada sintética com o
+ * ValorBruto e o Tipo da própria parcela, pra não desaparecer do BI. */
+function rateioDe(p, fallbackCategoria) {
+  const rs = Array.isArray(p.Rateio) ? p.Rateio.filter(r => r && Number(r.Valor)) : [];
+  if (rs.length) {
+    return rs.map(r => ({
+      plano: r.PlanoDeContas || fallbackCategoria || 'Sem categoria',
+      valor: Math.abs(Number(r.Valor) || 0),
+      // O lado vem do Tipo do RATEIO, não do Tipo da parcela: numa parcela de
+      // cartão (Tipo 'Receita') as linhas de tarifa vêm com Tipo 'Despesa'.
+      receita: String(r.Tipo || '').toLowerCase() !== 'despesa',
+      competencia: r.Competencia || '',
+      centroCusto: r.CentroDeCusto || '',
+    }));
+  }
+  return [{
+    plano: fallbackCategoria || 'Sem categoria',
+    valor: Math.abs(Number(p.ValorBruto) || 0),
+    receita: String(p.Tipo || '').toLowerCase() !== 'despesa',
+    competencia: '',
+    centroCusto: '',
+  }];
+}
+
 // Converte parcela de cartão para formato movimentos (mesma struct que títulos)
-function cartaoToMovimento(p) {
+function cartaoToMovimentos(p) {
   const dc = p.DadosDoCartao || {};
-  const rateio = (p.Rateio && p.Rateio[0]) || {};
 
   const st = (p.Status || '').toLowerCase();
   const isLiquidado = st.includes('liquidado') || st.includes('conciliado') || st.includes('baixado');
@@ -190,13 +221,15 @@ function cartaoToMovimento(p) {
   const adquirente = dc.Adquirente || '';
   const bandeira = dc.Bandeira || '';
   const modalidade = p.Modalidade || '';
-  const categoria = rateio.PlanoDeContas || `Vendas ${bandeira} (${modalidade})`;
 
-  return {
+  // UM movimento por linha do rateio. Antes era um só, com Rateio[0] e o
+  // ValorBruto inteiro — e cNatureza chumbado em 'R', o que fazia tarifa de
+  // cartão entrar como receita.
+  return rateioDe(p, `Vendas ${bandeira} (${modalidade})`).map((r, i) => ({
     detalhes: {
-      cCodCateg: categoria,
+      cCodCateg: r.plano,
       cDetalheCateg: '',
-      cNumTitulo: p.ParcelaId || '',
+      cNumTitulo: (p.ParcelaId || '') + (i ? '#' + i : ''),
       cTipo: 'REC',
       dDtPagamento: isoToBr(liq),
       dDtPrevisao: isoToBr(venc),
@@ -204,18 +237,22 @@ function cartaoToMovimento(p) {
       dDtVencimento: isoToBr(venc),
       nCodCC: p.Conta || '',
       nCodCliente: adquirente || bandeira || 'Cartão',
-      nValorTitulo: p.ValorBruto || 0,
-      nValorPago: p.ValorLiquido || 0,
+      nValorTitulo: r.valor,
+      nValorPago: r.valor,
       status_titulo: statusTitulo,
-      cNatureza: 'R',
+      cNatureza: r.receita ? 'R' : 'D',
       nCodProjeto: '',
-      _f360_centro_custo: rateio.CentroDeCusto || '',
+      _f360_centro_custo: r.centroCusto,
       _f360_empresa: '',
+      _f360_competencia: r.competencia,
     },
-  };
+  }));
 }
 
 // ---------- converter F360 -> formato Omie-like (movimentos.json) ----------
+// MORTA: substituida pelo buildMovimentos, que expande o Rateio. Mantida so
+// porque nao quis mexer em mais superficie que o necessario nesta rodada — mas
+// ela ainda carrega o bug do Rateio[0]. Nao voltar a usar sem expandir o rateio.
 function parcelaToMovimento(p) {
   const tipo = p.Tipo; // 'Receita' ou 'Despesa'
   const dados = p.DadosDoTitulo || {};
@@ -300,9 +337,8 @@ function buildMovimentos(parcelas) {
   // BUT the main loop uses the "movimentos" (ListarMovimentos) format.
   // Let's convert to that format instead.
 
-  return parcelas.map(p => {
+  return parcelas.flatMap(p => {
     const dados = p.DadosDoTitulo || {};
-    const rateio = (p.Rateio && p.Rateio[0]) || {};
     const clienteFornecedor = dados.ClienteFornecedor || {};
     const empresa = dados.Empresa || {};
 
@@ -321,25 +357,29 @@ function buildMovimentos(parcelas) {
 
     const dataRef = isLiquidado ? (p.Liquidacao || p.Vencimento) : p.Vencimento;
 
-    return {
+    // UM movimento por linha do rateio, igual ao caminho de cartão. Título com
+    // rateio em várias contas (aluguel dividido, folha rateada) também perdia
+    // linhas aqui.
+    return rateioDe(p, 'Sem categoria').map((r, i) => ({
       detalhes: {
-        cCodCateg: rateio.PlanoDeContas || 'Sem categoria',
+        cCodCateg: r.plano,
         cDetalheCateg: '',
-        cNumTitulo: dados.NumeroDoTitulo || String(p.Numero || ''),
-        cTipo: p.Tipo === 'Receita' ? 'REC' : 'PAG',
+        cNumTitulo: (dados.NumeroDoTitulo || String(p.Numero || '')) + (i ? '#' + i : ''),
+        cTipo: r.receita ? 'REC' : 'PAG',
         dDtPagamento: isoToBr(p.Liquidacao),
         dDtPrevisao: isoToBr(p.Vencimento),
         dDtRegistro: isoToBr(dados.Emissao),
         dDtVencimento: isoToBr(p.Vencimento),
         nCodCC: p.Conta || '',
         nCodCliente: clienteFornecedor.Nome || 'Não informado',
-        nValorTitulo: p.ValorBruto || 0,
-        nValorPago: p.ValorLiquido || 0,
+        nValorTitulo: r.valor,
+        nValorPago: r.valor,
         status_titulo: statusTitulo,
-        cNatureza: p.Tipo === 'Receita' ? 'R' : 'D',
+        cNatureza: r.receita ? 'R' : 'D',
         nCodProjeto: '',
+        _f360_competencia: r.competencia,
       },
-    };
+    }));
   });
 }
 
@@ -446,7 +486,7 @@ function buildContasCorrentes(contasBancarias) {
   console.log(`  TOTAL CARTOES 2026: ${cartoes2026.length} parcelas`);
 
   // Converte cartoes para movimentos
-  const movimentosCartoes = cartoes2026.map(cartaoToMovimento);
+  const movimentosCartoes = cartoes2026.flatMap(cartaoToMovimentos);
   console.log(`  Movimentos de cartao: ${movimentosCartoes.length}`);
 
   // 5. Convert & save
