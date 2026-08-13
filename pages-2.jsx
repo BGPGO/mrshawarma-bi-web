@@ -824,9 +824,40 @@ const PageComparativo = ({ statusFilter, drilldown, setDrilldown, year, month, s
   const fmt = (B && B.fmt) || (n => `R$ ${n.toFixed(2)}`);
   const fmtPct = (B && B.fmtPct) || (n => `${n.toFixed(1)}%`);
 
+  /* Default derivado do DADO, nao chumbado.
+   *
+   * Era `trim 1` vs `trim 2` (jan-mar vs abr-jun). Este cliente so tem dado de
+   * julho em diante, entao a tela abria 100% zerada — "Diferenca na receita
+   * R$ 0,00", tabela inteira R$ 0,00 — sem dizer por que. Parede de zeros na
+   * primeira coisa que o cliente ve nao le como "recorte vazio", le como BI
+   * quebrado.
+   *
+   * Agora: os dois ultimos meses COM movimento, ignorando mes futuro (baixa
+   * antecipada de cartao chega com data la na frente). Se so houver um mes de
+   * dado, compara ele contra o anterior — que fica vazio, mas de proposito e com
+   * o rotulo dizendo qual mes e. Se nao houver dado nenhum, cai no trimestre. */
+  const defaults = useMemo(() => {
+    const tx = window.txNoContexto("tudo", null, false, { visao: "completo" });
+    const lim = window.mesLimiteIdx ? window.mesLimiteIdx(refYear) : 11;
+    const meses = new Set();
+    for (const r of tx) {
+      if (!r[1] || Number(r[1].slice(0, 4)) !== refYear) continue;
+      const mi = parseInt(r[1].slice(5, 7), 10) - 1;
+      if (mi <= lim) meses.add(mi);
+    }
+    const ord = [...meses].sort((a, b) => a - b);
+    if (!ord.length) return { p1: { y: refYear, kind: "trim", val: 1 }, p2: { y: refYear, kind: "trim", val: 2 } };
+    const ultimo = ord[ord.length - 1];
+    const penultimo = ord.length > 1 ? ord[ord.length - 2] : Math.max(0, ultimo - 1);
+    return {
+      p1: { y: refYear, kind: "mes", val: penultimo + 1 },
+      p2: { y: refYear, kind: "mes", val: ultimo + 1 },
+    };
+  }, [refYear]);
+
   // Estado dos 2 periodos comparados — cada um eh { y, kind: 'mes'|'trim'|'ano', val }
-  const [p1, setP1] = useState({ y: refYear, kind: "trim", val: 1 });
-  const [p2, setP2] = useState({ y: refYear, kind: "trim", val: 2 });
+  const [p1, setP1] = useState(defaults.p1);
+  const [p2, setP2] = useState(defaults.p2);
   const [expanded, setExpanded] = useState({ Receita: true, Despesa: true });
   // 3o nivel da hierarquia: quais categorias estao abertas mostrando as
   // contrapartes. Pedido da reuniao: "normalmente eu coloco aqui a opcao de

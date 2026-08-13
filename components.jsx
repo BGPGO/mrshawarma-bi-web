@@ -225,6 +225,67 @@ const txNoContexto = (statusFilter, drilldown, semInv, extraFilters) => {
 };
 window.txNoContexto = txNoContexto;
 
+/* Ultimo mes (0-based) que pode ser apresentado como "atual" / "ultimo com
+ * movimento".
+ *
+ * Existe porque baixa com data futura conta como realizado: cartao antecipado
+ * chega com data_efetiva la na frente. Sao 1.023 rows em setembro/2026 aqui, e
+ * o Overview anunciava "setembro de 2026 — ultimo mes com movimento" com os KPIs
+ * de setembro em destaque, sendo agosto. O lancamento nao e invencao, mas
+ * apresentar mes futuro como o mes corrente e. */
+const mesLimiteIdx = (refYear) => {
+  const hoje = new Date();
+  return refYear === hoje.getFullYear() ? hoje.getMonth() : 11;
+};
+window.mesLimiteIdx = mesLimiteIdx;
+
+/* Assimetria previsto/realizado — mede, nao afirma.
+ *
+ * Despesa recorrente e cadastrada com meses de antecedencia (aluguel, INSS,
+ * Simples chegam lancados ate dezembro). Receita futura nao existe: venda nao se
+ * pre-lanca. Nas visoes "Tudo" e "A pagar/receber" isso soma despesa que vai
+ * acontecer contra receita que ainda nao foi lancada, e o resultado fica
+ * fortemente negativo — aritmeticamente correto, e lido como prejuizo iminente.
+ *
+ * Devolve os dois lados do futuro pra tela poder declarar. `relevante` so liga
+ * quando a assimetria e grande de verdade, pra nao poluir BI onde a fonte
+ * pre-lanca receita tambem. */
+const assimetriaFutura = (refYear) => {
+  const tx = window.ALL_TX || [];
+  const lim = mesLimiteIdx(refYear);
+  let receita = 0, despesa = 0;
+  for (const t of tx) {
+    if (t[6] !== 0) continue;                                   // so pendente
+    if (!t[1] || Number(t[1].slice(0, 4)) !== refYear) continue;
+    if (parseInt(t[1].slice(5, 7), 10) - 1 <= lim) continue;    // so o que e futuro
+    if (String(t[0]).toLowerCase().startsWith("r")) receita += Math.abs(t[5] || 0);
+    else despesa += Math.abs(t[5] || 0);
+  }
+  return { receita, despesa, relevante: despesa > 0 && despesa >= 3 * Math.max(receita, 1) };
+};
+window.assimetriaFutura = assimetriaFutura;
+
+/* Nota que explica a assimetria. Se auto-esconde: no status "realizado" nao ha
+ * futuro no recorte, e onde a fonte pre-lanca receita o `relevante` da false. */
+const NotaAssimetria = ({ refYear, statusFilter, fmt }) => {
+  if (statusFilter === "realizado") return null;
+  const a = assimetriaFutura(refYear);
+  if (!a.relevante) return null;
+  const f = fmt || (n => "R$ " + n.toFixed(2));
+  return (
+    <div className="status-line" style={{ fontSize: 10.5, lineHeight: 1.6, marginTop: 8 }}>
+      <strong>Por que o resultado fica tão negativo neste recorte:</strong> este status inclui o
+      que ainda não aconteceu, e os dois lados do futuro não estão lançados no mesmo ritmo.
+      Depois deste mês já há <strong>{f(a.despesa)}</strong> de despesa cadastrada
+      {a.receita > 0 ? <> contra <strong>{f(a.receita)}</strong> de receita</> : <> e <strong>nenhuma receita</strong></>}
+      {" "}— aluguel, impostos e folha entram com meses de antecedência, e venda não se pré-lança.
+      A diferença é de cadastro, não de desempenho. Pra ver o resultado do que de fato
+      aconteceu, troque o status para <strong>Realizado</strong>.
+    </div>
+  );
+};
+window.NotaAssimetria = NotaAssimetria;
+
 /* Janela de meses a exibir. O bug original era `MONTHS_FULL.slice(0, 6)`:
  * janela FIXA em jan–jun, independente de onde o dado estava. Aqui a janela
  * segue o dado. */

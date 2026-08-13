@@ -284,10 +284,19 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
   // Exige também o status: o relatório dela é "Ambos" (realizado + a vencer).
   // Comparar contra "Realizado" mostraria delta em TODA linha e pareceria erro
   // do BI, quando é só recorte diferente.
+  /* Mes da referencia dela, 0-based. O painel compara ESSA COLUNA, nao a soma da
+   * janela.
+   *
+   * Antes exigia `mesesIdx.length === 1`, o que tornava o painel inalcancavel: a
+   * tabela ignora o recorte de mes por design (janela = "meses com lancamento" ou
+   * "ano inteiro" — nunca 1). A tela pedia "selecione julho" e seguia pedindo
+   * depois de selecionar. O painel que justifica a tela nunca abria. */
+  const mesRefIdx = parseInt(DRE_REFERENCIA.periodo.slice(5, 7), 10) - 1;
+  const anoRef = parseInt(DRE_REFERENCIA.periodo.slice(0, 4), 10);
   const podeComparar = regime === DRE_REFERENCIA.regime
     && statusFilter === DRE_REFERENCIA.status
-    && mesesIdx.length === 1
-    && `${refYear}-${String(mesesIdx[0] + 1).padStart(2, "0")}` === DRE_REFERENCIA.periodo;
+    && refYear === anoRef
+    && mesesIdx.includes(mesRefIdx);
 
   const colSpanTotal = 2 + mesesIdx.length * 2;
 
@@ -460,6 +469,8 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
             </table>
           </div>
 
+          {window.NotaAssimetria && <NotaAssimetria refYear={refYear} statusFilter={statusFilter} fmt={fmt} />}
+
           <div className="status-line" style={{ marginTop: 8, fontSize: 11 }}>
             {Math.abs(residuo) < 0.005
               ? <span>
@@ -512,8 +523,9 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
               <div className="status-line" style={{ fontSize: 11, lineHeight: 1.6 }}>
                 A referência que tenho é <strong>julho/2026, regime Competência, status Ambos</strong>
                 — o recorte que a aba "Filtros Escolhidos" do arquivo dela declara.
-                Pra comparar linha a linha, selecione julho no cabeçalho, troque o regime pra
-                Competência e o status pra Tudo.
+                {regime !== DRE_REFERENCIA.regime || statusFilter !== DRE_REFERENCIA.status
+                  ? " Ajuste o cabeçalho pra Competência e status Tudo pra comparar linha a linha."
+                  : " Não há coluna de julho/2026 nesta janela — mude o ano ou a janela pra incluir julho."}
                 <div style={{ marginTop: 6, opacity: 0.8 }}>{DRE_REFERENCIA.fonte}</div>
               </div>
             ) : (
@@ -524,7 +536,10 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                   </thead>
                   <tbody>
                     {Object.keys(DRE_REFERENCIA.linhas).map(id => {
-                      const meu = D.porId[id] ? somaJanela(D.porId[id].values) : 0;
+                      /* a COLUNA de julho, nao a soma da janela: a referencia dela
+                       * e de um mes so, e somar a janela contra 1 mes daria um Δ
+                       * gigante que pareceria erro do BI. */
+                      const meu = D.porId[id] ? (D.porId[id].values[mesRefIdx] || 0) : 0;
                       const dela = DRE_REFERENCIA.linhas[id];
                       const d = meu - dela;
                       const ok = Math.abs(d) < 1;

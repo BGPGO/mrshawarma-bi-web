@@ -216,7 +216,15 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
       ? parseInt(String(drilldown.value).slice(5, 7), 10) - 1
       : (month > 0 ? month - 1 : -1);
     const comRealizado = new Set(tx.filter(r => r[6] === 1).map(r => parseInt(r[1].slice(5, 7), 10) - 1));
-    const idx = mesSel >= 0 ? mesSel : (comRealizado.size ? Math.max(...comRealizado) : -1);
+    // Nao aponta mes futuro como "ultimo com movimento": baixa antecipada de
+    // cartao chega com data la na frente e o destaque caia em setembro sendo
+    // agosto. O mes futuro continua no dado e nas outras telas — o que ele nao
+    // pode e ser apresentado como o mes corrente.
+    const lim = window.mesLimiteIdx ? window.mesLimiteIdx(refYear) : 11;
+    const passados = [...comRealizado].filter(m => m <= lim);
+    const futuros = [...comRealizado].filter(m => m > lim);
+    const idx = mesSel >= 0 ? mesSel
+      : (passados.length ? Math.max(...passados) : (comRealizado.size ? Math.max(...comRealizado) : -1));
     if (idx < 0) return null;
     const acc = (mi, pred) => {
       let rec = 0, desp = 0, n = 0;
@@ -249,6 +257,9 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
       margem: fechado.rec > 0 ? (fechado.liq / fechado.rec) * 100 : null,
       variacaoLiq: anterior ? fechado.liq - anterior.liq : null,
       ehSelecionado: mesSel >= 0,
+      // meses futuros que TEM baixa lancada — declarados na tela, senao o cliente
+      // acha que falta dado quando na verdade ele esta adiante do mes corrente
+      mesesFuturos: futuros.sort((a, b) => a - b).map(m => B.MONTHS_FULL[m]),
     };
   }, [refYear, drilldown, month, semInvestimento, extraFilters, B.MONTHS_FULL]);
 
@@ -290,8 +301,14 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
           <div className="resumo-head">
             <span className="resumo-mes-nome">{resumo.mes} de {refYear}</span>
             <span className="resumo-tag">
-              {resumo.ehSelecionado ? "mês selecionado no filtro" : "último mês com movimento"}
+              {resumo.ehSelecionado ? "mês selecionado no filtro" : "último mês fechado"}
             </span>
+            {!resumo.ehSelecionado && resumo.mesesFuturos && resumo.mesesFuturos.length > 0 && (
+              <span className="resumo-tag" style={{ opacity: 0.75 }}
+                title="Baixa de cartão antecipado chega com data de liquidação no futuro. O lançamento existe e aparece nas outras telas — só não serve como mês de referência.">
+                já há baixa lançada em {resumo.mesesFuturos.join(" e ")}
+              </span>
+            )}
           </div>
           <div className="resumo-grid">
             <div>
