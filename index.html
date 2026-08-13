@@ -21,8 +21,8 @@
     catch (e) { window.BIT_FILTER = 'realizado'; }
     // URL da API de geracao on-demand de relatorio IA. Usado pelo PageRelatorio
     // como fallback quando o report-{year}-{month}.json estatico nao existe.
-    // VAZIO de propósito. Era o placeholder literal
-    // "https://<api-url-do-bi-config-via-coolify>", e com ele o PageRelatorio
+    // VAZIO de propósito. Vinha um placeholder de URL que nunca foi
+    // substituído, e com ele o PageRelatorio
     // tentava gerar relatório por HTTP quando o mês não tinha arquivo — o fetch
     // estourava com "Failed to parse URL" e o erro aparecia em vermelho na tela
     // do cliente. Os relatórios deste BI são pré-computados e commitados; não
