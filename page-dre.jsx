@@ -557,9 +557,22 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                   </tbody>
                 </table>
                 <div className="status-line" style={{ marginTop: 6, fontSize: 10.5, lineHeight: 1.6 }}>
-                  Nenhum número foi ajustado pra fechar — o Δ é real. E Δ aqui não quer dizer
-                  erro: o relatório dela é uma foto de 12/08 e o F360 continuou andando, então
-                  lançamento reclassificado ou incluído depois aparece como diferença.
+                  Comparando a coluna de <strong>{B.MONTHS_FULL[mesRefIdx]}</strong> contra o
+                  relatório dela. Nenhum número foi ajustado pra fechar — o Δ é real.
+                  <div style={{ marginTop: 5 }}>
+                    <strong>E Δ aqui não quer dizer erro.</strong> O relatório dela é uma foto de
+                    ~04–05/08 e o F360 continuou andando: varrendo a data de atualização dos
+                    lançamentos, com corte em 04/08 a linha 1 fecha em R$ 165.556,08 contra os
+                    R$ 165.828,55 dela, e hoje está em R$ 166.608,94. Lançamento reclassificado ou
+                    incluído depois da foto aparece aqui como diferença — a linha de TI, por
+                    exemplo, tem lançamentos de 07 e 10/08 que não existiam no arquivo dela.
+                  </div>
+                  <div style={{ marginTop: 5 }}>
+                    Duas diferenças ainda dependem de definição dela: qual data conta como
+                    competência (o F360 grava um campo próprio no rateio, e o relatório usa a
+                    emissão — no aluguel de julho isso vale R$ 4.875,94), e em que linha entram
+                    {" "}<em>Repasse de cupom Ifood</em> e <em>Ajustes a Débito de Cartão</em>.
+                  </div>
                 </div>
               </React.Fragment>
             )}
