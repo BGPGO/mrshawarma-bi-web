@@ -21,7 +21,14 @@
     catch (e) { window.BIT_FILTER = 'realizado'; }
     // URL da API de geracao on-demand de relatorio IA. Usado pelo PageRelatorio
     // como fallback quando o report-{year}-{month}.json estatico nao existe.
-    window.BI_REPORT_API = "https://<api-url-do-bi-config-via-coolify>";
+    // VAZIO de propósito. Era o placeholder literal
+    // "https://<api-url-do-bi-config-via-coolify>", e com ele o PageRelatorio
+    // tentava gerar relatório por HTTP quando o mês não tinha arquivo — o fetch
+    // estourava com "Failed to parse URL" e o erro aparecia em vermelho na tela
+    // do cliente. Os relatórios deste BI são pré-computados e commitados; não
+    // existe API de geração no ar. String vazia faz o PageRelatorio cair no
+    // estado vazio explicado em vez de tentar a chamada.
+    window.BI_REPORT_API = "";
   </script>
   <script src="data.js?v=20260813a"></script>
   <!-- JSX pre-compilado pelo build-jsx.cjs. Sem Babel-standalone runtime. -->

@@ -412,7 +412,7 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                     <tr className="dre-nao-mapeada"
                         style={{ cursor: "pointer" }}
                         onClick={() => setAbertoNM(o => !o)}
-                        title="Categorias que existem no Omie e não têm linha no modelo de DRE do cliente">
+                        title={"Categorias que existem" + (window.BI_FONTE ? " no " + window.BI_FONTE : " na fonte") + " e não têm linha no modelo de DRE do cliente"}>
                       <td style={{ paddingLeft: 8 }}>
                         <span className="chev" style={{ display: "inline-block", transition: "transform .2s", transform: abertoNM ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
                         Não mapeadas na DRE

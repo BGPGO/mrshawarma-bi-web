@@ -237,7 +237,7 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
               ? "jan–dez"
               : `${B.MONTHS_FULL[mesesIdx[0]]}–${B.MONTHS_FULL[mesesIdx[mesesIdx.length - 1]]}`}
             {" de "}{refYear}
-            {" · grupos do Omie"}
+            {window.BI_FONTE ? " · grupos do " + window.BI_FONTE : " · grupos do plano de contas"}
             {activeMonthIdx >= 0 && (
               <span>
                 {" · "}<strong>{B.MONTHS_FULL[activeMonthIdx]}</strong> está selecionado no filtro
@@ -720,7 +720,7 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
           <div className="card-title-row">
             <h2 className="card-title">Saldos bancários por conta</h2>
             <span className="status-line" style={{ fontSize: 11 }}>
-              lido do Omie em {new Date(((window.FLUXO_PROJETADO || {}).updatedAt) || Date.now()).toLocaleDateString("pt-BR")}
+              lido do {window.BI_FONTE || "ERP"} em {new Date(((window.FLUXO_PROJETADO || {}).updatedAt) || Date.now()).toLocaleDateString("pt-BR")}
             </span>
           </div>
           <table className="t">
@@ -753,7 +753,7 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
             </tbody>
           </table>
           <div className="status-line" style={{ marginTop: 8, fontSize: 11, lineHeight: 1.6 }}>
-            Conta que o fetch não trouxe saldo não aparece aqui, mesmo tendo lançamento — o Omie só
+            Conta que o fetch não trouxe saldo não aparece aqui, mesmo tendo lançamento — o {window.BI_FONTE || "ERP"} só
             devolve extrato de conta com movimento no período. Use o filtro de Conta no cabeçalho pra
             recortar o resto do BI por conta.
           </div>
@@ -768,8 +768,8 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
             <div><div className="kpi-label">Saldo Mínimo</div><div style={{ fontFamily: "var(--font-mono)", fontWeight: 600, color: "var(--red)" }}>{B.fmt(sMin)}</div></div>
             <div><div className="kpi-label">Saldo Médio</div><div style={{ fontFamily: "var(--font-mono)", fontWeight: 600, color: "var(--cyan)" }}>{B.fmt(sMed)}</div></div>
             {temSaldoReal && (
-              <div title="Saldo bancário lido do Omie, não derivado de receita menos despesa">
-                <div className="kpi-label">Saldo real hoje (Omie)</div>
+              <div title={"Saldo bancário lido do " + (window.BI_FONTE || "ERP") + ", não derivado de receita menos despesa"}>
+                <div className="kpi-label">Saldo real hoje{window.BI_FONTE ? " (" + window.BI_FONTE + ")" : ""}</div>
                 <div style={{ fontFamily: "var(--font-mono)", fontWeight: 700, color: "var(--cyan)" }}>{B.fmt(saldoRealTotal)}</div>
               </div>
             )}
@@ -777,11 +777,11 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
           <TrendChart values={saldosCum} labels={B.MONTHS} color="var(--cyan)" height={isMobile ? 160 : 200} showPoints={true} showLabels={!isMobile} gradientId="ts-saldo" />
           <div className="status-line" style={{ marginTop: 6 }}>
             {temSaldoReal
-              ? <span>Ancorado no <strong>saldo bancário real do Omie</strong> ({B.fmt(saldoRealTotal)} hoje): a curva
+              ? <span>Ancorado no <strong>saldo bancário real do {window.BI_FONTE || "ERP"}</strong> ({B.fmt(saldoRealTotal)} hoje): a curva
                   parte de {B.fmt(saldoInicial)} em janeiro e acumula receitas − despesas até chegar nele.
                   {" "}Os meses <strong>à frente de hoje são projeção</strong> — incluem o que está lançado
                   a pagar e a receber e ainda não tem baixa.</span>
-              : <span>Sem saldo bancário do Omie disponível — a curva parte de zero e mostra apenas a
+              : <span>Sem saldo bancário do {window.BI_FONTE || "ERP"} disponível — a curva parte de zero e mostra apenas a
                   <strong> variação</strong> acumulada de receitas − despesas, não o saldo da conta.</span>}
           </div>
         </div>
@@ -1227,7 +1227,6 @@ const PageRelatorio = ({ year, statusFilter }) => {
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
-  const [showHelp, setShowHelp] = useState(false);
 
   // Cards reativos ao período (year + month) — antes usavam window.BIT global YTD
   // Mantidos no topo (regra dos hooks) — não chamar dentro de early returns
@@ -1372,30 +1371,79 @@ const PageRelatorio = ({ year, statusFilter }) => {
 
   if (error || !report) {
     const monthLabel = periodMonth > 0 ? MONTH_OPTIONS[periodMonth].label + ' de ' : '';
-    const cmd = periodMonth > 0
-      ? `node generate-report.cjs --force --year=${periodYear} --month=${periodMonth}`
-      : (periodYear === refYear ? `node generate-report.cjs --force` : `node generate-report.cjs --force --year=${periodYear}`);
+
+    /* O estado vazio precisa distinguir DUAS situações, porque a resposta é
+     * diferente em cada uma — e antes ele tratava as duas como "relatório não
+     * gerado", mostrando instrução de terminal pro cliente:
+     *
+     *   mês SEM LANÇAMENTO  -> não há o que analisar; o certo é dizer isso e
+     *                          apontar quais períodos têm relatório
+     *   mês COM dado e sem relatório -> o relatório está pendente de escrita
+     *
+     * Quais períodos existem sai do window.BI_REPORTS (embutido pelo
+     * build-data.cjs), então a tela oferece o que de fato dá pra abrir em vez de
+     * deixar o cliente caçando no seletor. */
+    const txAno = (window.ALL_TX || []).filter(r => r[1] && Number(r[1].slice(0, 4)) === periodYear);
+    const temDadoNoPeriodo = periodMonth > 0
+      ? txAno.some(r => parseInt(r[1].slice(5, 7), 10) === periodMonth)
+      : txAno.length > 0;
+    const disponiveis = Object.keys(window.BI_REPORTS || {})
+      .map(f => {
+        const m = f.match(/^report-(\d{4})-(\d{2})\.json$/);
+        if (m) return { y: Number(m[1]), mes: Number(m[2]) };
+        const y = f.match(/^report-(\d{4})\.json$/);
+        if (y) return { y: Number(y[1]), mes: 0 };
+        return { y: refYear, mes: 0 };
+      })
+      .filter(p => p.y === periodYear)
+      .sort((a, b) => a.mes - b.mes);
+    const labelDe = (p) => (p.mes === 0 ? 'Ano completo' : MONTH_OPTIONS[p.mes].label);
+
     return (
       <div className="page">
         <div className="page-title">
           <div>
             <h1>Relatório IA</h1>
-            <div className="status-line">Relatório de {monthLabel}{periodYear} ainda não foi gerado</div>
+            <div className="status-line">
+              {temDadoNoPeriodo
+                ? `Relatório de ${monthLabel}${periodYear} em preparação`
+                : `${monthLabel || ''}${periodYear} não tem lançamento`}
+            </div>
           </div>
           <div className="actions">{PeriodToolbar}</div>
         </div>
         <div className="card">
-          <h2 className="card-title">Gerar agora</h2>
-          <p style={{ color: "var(--fg-2)", lineHeight: 1.6, marginTop: 12 }}>
-            Abra o terminal na pasta <code style={{ background: "var(--surface-2)", padding: "2px 6px", borderRadius: 4 }}>{"<cliente>"}-bi-web</code> e rode:
-          </p>
-          <pre style={{ background: "var(--surface-2)", padding: 12, borderRadius: 8, marginTop: 12, fontSize: 13, color: "var(--cyan)" }}>
-            {cmd}
-          </pre>
-          <p style={{ color: "var(--fg-3)", fontSize: 12, marginTop: 12 }}>
-            ~30s + 1 chamada Anthropic. Depois de pronto, recarregue esta página (mantém o período selecionado).
-          </p>
-          {error && <p style={{ color: "var(--red)", fontSize: 12, marginTop: 8 }}>Detalhe: {error}</p>}
+          {temDadoNoPeriodo ? (
+            <React.Fragment>
+              <h2 className="card-title">Relatório em preparação</h2>
+              <p style={{ color: "var(--fg-2)", lineHeight: 1.7, marginTop: 10 }}>
+                Este período tem lançamento, mas a análise ainda não foi escrita. Os relatórios são
+                produzidos por período e revisados antes de publicar — não são gerados na hora.
+              </p>
+            </React.Fragment>
+          ) : (
+            <React.Fragment>
+              <h2 className="card-title">Sem lançamento no período</h2>
+              <p style={{ color: "var(--fg-2)", lineHeight: 1.7, marginTop: 10 }}>
+                Não há nenhum lançamento em <strong>{monthLabel}{periodYear}</strong>, então não há
+                o que analisar. Isso não é falha do relatório: as outras telas também aparecem
+                zeradas neste período.
+              </p>
+            </React.Fragment>
+          )}
+          {disponiveis.length > 0 && (
+            <div style={{ marginTop: 16 }}>
+              <div className="kpi-label" style={{ marginBottom: 8 }}>Períodos com relatório disponível</div>
+              <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
+                {disponiveis.map(p => (
+                  <button key={p.mes} className="btn-ghost" onClick={() => setPeriodMonth(p.mes)}
+                          title={`Abrir o relatório de ${labelDe(p)}`}>
+                    {labelDe(p)}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     );
@@ -1442,28 +1490,11 @@ const PageRelatorio = ({ year, statusFilter }) => {
         </div>
       </div>
 
-      {/* Modal de ajuda */}
-      {showHelp && (
-        <div className="drawer-overlay no-print" onClick={() => setShowHelp(false)}>
-          <div className="card" style={{ maxWidth: 520, margin: "auto", padding: 24 }} onClick={e => e.stopPropagation()}>
-            <h2 className="card-title">Como regenerar o relatório</h2>
-            <p style={{ color: "var(--fg-2)", lineHeight: 1.6, marginTop: 8 }}>
-              O relatório é gerado offline por um script Node que chama a API da Anthropic.
-              Não pode ser disparado pelo browser (a chave da API ficaria exposta).
-            </p>
-            <p style={{ color: "var(--fg-2)", lineHeight: 1.6, marginTop: 12 }}>No terminal, dentro da pasta do projeto:</p>
-            <pre style={{ background: "var(--surface-2)", padding: 12, borderRadius: 8, marginTop: 8, fontSize: 13, color: "var(--cyan)" }}>
-node generate-report.cjs --force
-            </pre>
-            <p style={{ color: "var(--fg-3)", fontSize: 12, marginTop: 12 }}>
-              Depois recarregue esta página. Sem <code>--force</code>, o script pula se o relatório foi gerado há menos de 1h.
-            </p>
-            <div style={{ display: "flex", justifyContent: "flex-end", marginTop: 16 }}>
-              <button className="btn-primary" onClick={() => setShowHelp(false)}>Entendi</button>
-            </div>
-          </div>
-        </div>
-      )}
+      {/* Havia aqui um modal "Como regenerar o relatorio" com o comando
+          `node generate-report.cjs --force` num <pre>. Era CODIGO MORTO —
+          setShowHelp(true) nunca era chamado, entao o modal nao tinha como
+          aparecer — mas deixava instrucao de terminal no bundle servido ao
+          cliente. Removido junto com o estado showHelp. */}
 
       {/* Relatorio imprimivel */}
       <article className="report">

@@ -49,8 +49,18 @@ try {
   contasFinalidade = _f.f360?.contas_finalidade || _f.omie?.contas_finalidade || {};
 } catch (e) {}
 
+// Nome legível da fonte, pra tela não dizer "Omie" num BI que lê F360. Sai do
+// adapter declarado no bi.config; sem match, string vazia e a tela omite o nome.
+let fonteLabel = '';
+try {
+  const _ad = (require(path.join(ROOT, 'bi.config.js')).fontes?.adapters || [])[0] || '';
+  fonteLabel = { omie: 'Omie', 'omie-multi': 'Omie', f360: 'F360', fin40: 'fin40',
+                 nibo: 'NIBO', 'nibo-api': 'NIBO', sienge: 'Sienge', sponte: 'Sponte' }[_ad] || '';
+} catch (e) {}
+
 const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.js > pages\nwindow.BI_PAGE_MODE = ${JSON.stringify(pageModes)};\n`
-  + `window.BI_CONTAS_FINALIDADE = ${JSON.stringify(contasFinalidade)};\n`;
+  + `window.BI_CONTAS_FINALIDADE = ${JSON.stringify(contasFinalidade)};\n`
+  + `window.BI_FONTE = ${JSON.stringify(fonteLabel)};\n`;
 
 (async () => {
   // Cada .jsx redeclara `const { useState } = React;` no topo (era pra Babel-

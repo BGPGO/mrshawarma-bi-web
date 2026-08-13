@@ -473,7 +473,7 @@ const EmpresaFilter = ({ options, selected, onChange }) => {
     }
   };
   return (
-    <div className="seg status-filter-seg" title="Filtrar por empresa/conta Omie">
+    <div className="seg status-filter-seg" title="Filtrar por empresa/conta">
       <button className={isAll ? "active" : ""} onClick={() => onChange([])}>Todas</button>
       {options.map(opt => (
         <button key={opt} className={!isAll && selected.includes(opt) ? "active" : ""} onClick={() => toggle(opt)}>{opt}</button>
@@ -810,6 +810,11 @@ const VisaoSeg = ({ value, onChange }) => {
 const ExtratoTabela = ({ rows, tone, fmt, colContraparte, vazio, altura }) => {
   const [busca, setBusca] = useState("");
   const [ord, setOrd] = useState({ col: 0, dir: -1 });   // data desc, como antes
+  // Janela de RENDER. Não é cap de dado: a contagem, o total e o denominador do
+  // Ticket médio continuam sobre o conjunto inteiro. É só quantas linhas vão pro
+  // DOM — com 6.500 <tr> o browser engasga e a tela parece travada.
+  const JANELA = 300;
+  const [tudoAberto, setTudoAberto] = useState(false);
 
   const filtradas = useMemo(() => {
     const termos = busca.trim().toLowerCase().split(/\s+/).filter(Boolean);
@@ -839,7 +844,11 @@ const ExtratoTabela = ({ rows, tone, fmt, colContraparte, vazio, altura }) => {
     return out;
   }, [filtradas, ord]);
 
+  // O total soma o conjunto INTEIRO filtrado, nunca a janela — somar a lista
+  // truncada faz o rodapé divergir do KPI de cima na mesma tela.
   const total = useMemo(() => ordenadas.reduce((s, r) => s + Math.abs(r[4]), 0), [ordenadas]);
+  const visiveis = (tudoAberto || ordenadas.length <= JANELA) ? ordenadas : ordenadas.slice(0, JANELA);
+  const cortou = visiveis.length < ordenadas.length;
   const clicar = (col) => setOrd(o => (o.col === col ? { col, dir: -o.dir } : { col, dir: col === 4 ? -1 : 1 }));
   const seta = (col) => (ord.col === col ? (ord.dir === 1 ? " ▲" : " ▼") : "");
   const th = (col, label, cls) => (
@@ -860,7 +869,17 @@ const ExtratoTabela = ({ rows, tone, fmt, colContraparte, vazio, altura }) => {
           {busca
             ? <span><strong>{ordenadas.length}</strong> de {rows.length} lançamentos</span>
             : <span><strong>{rows.length}</strong> lançamento{rows.length === 1 ? "" : "s"}</span>}
+          {cortou && <span> · mostrando {visiveis.length}</span>}
         </span>
+        {cortou && (
+          <button className="btn-ghost" onClick={() => setTudoAberto(true)}
+            title={"Renderiza as " + ordenadas.length + " linhas. Em tabela grande isso deixa a rolagem pesada."}>
+            mostrar todas
+          </button>
+        )}
+        {tudoAberto && ordenadas.length > JANELA && (
+          <button className="btn-ghost" onClick={() => setTudoAberto(false)}>voltar pras primeiras {JANELA}</button>
+        )}
       </div>
       <div className="t-scroll t-scroll-extrato" style={altura ? { maxHeight: altura } : undefined}>
         <table className="t">
@@ -873,7 +892,7 @@ const ExtratoTabela = ({ rows, tone, fmt, colContraparte, vazio, altura }) => {
             </tr>
           </thead>
           <tbody>
-            {ordenadas.map((e, i) => (
+            {visiveis.map((e, i) => (
               <tr key={i}>
                 <td style={{ fontFamily: "var(--font-mono)", fontSize: 11 }}>{e[0]}</td>
                 <td>{e[2]}</td>
@@ -887,7 +906,12 @@ const ExtratoTabela = ({ rows, tone, fmt, colContraparte, vazio, altura }) => {
               </td></tr>
             )}
             <tr className="total">
-              <td colSpan="3">Total{busca ? " (busca)" : ""} · {ordenadas.length} lançamentos</td>
+              <td colSpan="3">
+                Total{busca ? " (busca)" : ""} · {ordenadas.length} lançamentos
+                {cortou && <span style={{ fontWeight: 400, color: "var(--fg-3)" }}>
+                  {" — a tabela mostra as primeiras "}{visiveis.length}{", o total acima soma todas"}
+                </span>}
+              </td>
               <td className={"num " + tone}>{fmt(total)}</td>
             </tr>
           </tbody>
@@ -992,7 +1016,7 @@ const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, se
           </FbGroup>
         )}
         {temCategoria && (
-          <FbGroup label="Categoria" on={(filterCategoria || []).length > 0} dica="Categoria do Omie, dentro da natureza">
+          <FbGroup label="Categoria" on={(filterCategoria || []).length > 0} dica={"Categoria" + (window.BI_FONTE ? " do " + window.BI_FONTE : "") + ", dentro da natureza"}>
             <MultiSelectFilter label="Categoria" options={categorias} selected={filterCategoria || []} onChange={setFilterCategoria} />
           </FbGroup>
         )}
