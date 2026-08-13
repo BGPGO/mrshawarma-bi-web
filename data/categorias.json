@@ -1,0 +1,1811 @@
+[
+  {
+    "codigo": "102-1 - Receita com Prestação de Servicos",
+    "descricao": "102-1 - Receita com Prestação de Servicos",
+    "descricao_categoria": "102-1 - Receita com Prestação de Servicos",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc0750a"
+  },
+  {
+    "codigo": "102-1 - Receita com Prestação de Servicos - Boleto",
+    "descricao": "102-1 - Receita com Prestação de Servicos - Boleto",
+    "descricao_categoria": "102-1 - Receita com Prestação de Servicos - Boleto",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc0750b"
+  },
+  {
+    "codigo": "102-1 - Receita com Prestação de Servicos - Débito e Crédito",
+    "descricao": "102-1 - Receita com Prestação de Servicos - Débito e Crédito",
+    "descricao_categoria": "102-1 - Receita com Prestação de Servicos - Débito e Crédito",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc0750c"
+  },
+  {
+    "codigo": "102-1 - Receita com Prestação de Servicos - Transferência / PIX",
+    "descricao": "102-1 - Receita com Prestação de Servicos - Transferência / PIX",
+    "descricao_categoria": "102-1 - Receita com Prestação de Servicos - Transferência / PIX",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc0750d"
+  },
+  {
+    "codigo": "102-1 - Vendas Canceladas",
+    "descricao": "102-1 - Vendas Canceladas",
+    "descricao_categoria": "102-1 - Vendas Canceladas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc0750e"
+  },
+  {
+    "codigo": "102-1 - Vendas de Produtos",
+    "descricao": "102-1 - Vendas de Produtos",
+    "descricao_categoria": "102-1 - Vendas de Produtos",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc0750f"
+  },
+  {
+    "codigo": "102-1 - Vendas de Produtos - Débito e Crédito",
+    "descricao": "102-1 - Vendas de Produtos - Débito e Crédito",
+    "descricao_categoria": "102-1 - Vendas de Produtos - Débito e Crédito",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07510"
+  },
+  {
+    "codigo": "102-1 - Vendas de Produtos - Delivery",
+    "descricao": "102-1 - Vendas de Produtos - Delivery",
+    "descricao_categoria": "102-1 - Vendas de Produtos - Delivery",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07511"
+  },
+  {
+    "codigo": "102-1 - Vendas de Produtos - Transferência / PIX",
+    "descricao": "102-1 - Vendas de Produtos - Transferência / PIX",
+    "descricao_categoria": "102-1 - Vendas de Produtos - Transferência / PIX",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07512"
+  },
+  {
+    "codigo": "102-1 - Vendas de Produtos - Vouchers",
+    "descricao": "102-1 - Vendas de Produtos - Vouchers",
+    "descricao_categoria": "102-1 - Vendas de Produtos - Vouchers",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07513"
+  },
+  {
+    "codigo": "103-2 - Adiantamento a Fornecedor",
+    "descricao": "103-2 - Adiantamento a Fornecedor",
+    "descricao_categoria": "103-2 - Adiantamento a Fornecedor",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07514"
+  },
+  {
+    "codigo": "105-6 - Fundo Nacional de Marketing ",
+    "descricao": "105-6 - Fundo Nacional de Marketing ",
+    "descricao_categoria": "105-6 - Fundo Nacional de Marketing ",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07515"
+  },
+  {
+    "codigo": "111-03 - Consorcio",
+    "descricao": "111-03 - Consorcio",
+    "descricao_categoria": "111-03 - Consorcio",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07516"
+  },
+  {
+    "codigo": "112-5 - Maquinas e Equipamentos",
+    "descricao": "112-5 - Maquinas e Equipamentos",
+    "descricao_categoria": "112-5 - Maquinas e Equipamentos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07517"
+  },
+  {
+    "codigo": "112-7 - Computadores e Perifericos",
+    "descricao": "112-7 - Computadores e Perifericos",
+    "descricao_categoria": "112-7 - Computadores e Perifericos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07518"
+  },
+  {
+    "codigo": "112-8 - Sistemas e Aplicativos",
+    "descricao": "112-8 - Sistemas e Aplicativos",
+    "descricao_categoria": "112-8 - Sistemas e Aplicativos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07519"
+  },
+  {
+    "codigo": "112-9 - Moveis e Utensilios",
+    "descricao": "112-9 - Moveis e Utensilios",
+    "descricao_categoria": "112-9 - Moveis e Utensilios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0751a"
+  },
+  {
+    "codigo": "113-0 - Veiculos",
+    "descricao": "113-0 - Veiculos",
+    "descricao_categoria": "113-0 - Veiculos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0751b"
+  },
+  {
+    "codigo": "113-4 - Benfeitorias em Bens de Terceiros",
+    "descricao": "113-4 - Benfeitorias em Bens de Terceiros",
+    "descricao_categoria": "113-4 - Benfeitorias em Bens de Terceiros",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0751c"
+  },
+  {
+    "codigo": "114-2 - Imovel",
+    "descricao": "114-2 - Imovel",
+    "descricao_categoria": "114-2 - Imovel",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0751d"
+  },
+  {
+    "codigo": "118-6 - Marcas e Patentes",
+    "descricao": "118-6 - Marcas e Patentes",
+    "descricao_categoria": "118-6 - Marcas e Patentes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0751e"
+  },
+  {
+    "codigo": "200-8 - Empréstimos",
+    "descricao": "200-8 - Empréstimos",
+    "descricao_categoria": "200-8 - Empréstimos",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0751f"
+  },
+  {
+    "codigo": "200-8 - Pagto Empréstimos e Financiamentos",
+    "descricao": "200-8 - Pagto Empréstimos e Financiamentos",
+    "descricao_categoria": "200-8 - Pagto Empréstimos e Financiamentos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07520"
+  },
+  {
+    "codigo": "201-5 - Pro-Labore",
+    "descricao": "201-5 - Pro-Labore",
+    "descricao_categoria": "201-5 - Pro-Labore",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07521"
+  },
+  {
+    "codigo": "201-6 - Ajuda de Custo",
+    "descricao": "201-6 - Ajuda de Custo",
+    "descricao_categoria": "201-6 - Ajuda de Custo",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07522"
+  },
+  {
+    "codigo": "201-6 - OP Ajuda de Custo",
+    "descricao": "201-6 - OP Ajuda de Custo",
+    "descricao_categoria": "201-6 - OP Ajuda de Custo",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07523"
+  },
+  {
+    "codigo": "201-6 - OP Freelancer",
+    "descricao": "201-6 - OP Freelancer",
+    "descricao_categoria": "201-6 - OP Freelancer",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a50199d627ec087129faa13"
+  },
+  {
+    "codigo": "201-6 - OP Salarios",
+    "descricao": "201-6 - OP Salarios",
+    "descricao_categoria": "201-6 - OP Salarios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07524"
+  },
+  {
+    "codigo": "201-6 - Salarios e Ordenados",
+    "descricao": "201-6 - Salarios e Ordenados",
+    "descricao_categoria": "201-6 - Salarios e Ordenados",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07525"
+  },
+  {
+    "codigo": "201-7 - 13° Salario",
+    "descricao": "201-7 - 13° Salario",
+    "descricao_categoria": "201-7 - 13° Salario",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07526"
+  },
+  {
+    "codigo": "201-7 - OP 13° Salario",
+    "descricao": "201-7 - OP 13° Salario",
+    "descricao_categoria": "201-7 - OP 13° Salario",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07527"
+  },
+  {
+    "codigo": "201-8 - Ferias",
+    "descricao": "201-8 - Ferias",
+    "descricao_categoria": "201-8 - Ferias",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07528"
+  },
+  {
+    "codigo": "201-8 - OP Ferias",
+    "descricao": "201-8 - OP Ferias",
+    "descricao_categoria": "201-8 - OP Ferias",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07529"
+  },
+  {
+    "codigo": "202-0 - OP Rescisoes",
+    "descricao": "202-0 - OP Rescisoes",
+    "descricao_categoria": "202-0 - OP Rescisoes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0752a"
+  },
+  {
+    "codigo": "202-0 - Rescisoes",
+    "descricao": "202-0 - Rescisoes",
+    "descricao_categoria": "202-0 - Rescisoes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0752b"
+  },
+  {
+    "codigo": "202-6 - Gratificacoes",
+    "descricao": "202-6 - Gratificacoes",
+    "descricao_categoria": "202-6 - Gratificacoes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0752c"
+  },
+  {
+    "codigo": "202-6 - OP Gratificacoes",
+    "descricao": "202-6 - OP Gratificacoes",
+    "descricao_categoria": "202-6 - OP Gratificacoes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0752d"
+  },
+  {
+    "codigo": "203-0 - INSS",
+    "descricao": "203-0 - INSS",
+    "descricao_categoria": "203-0 - INSS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0752e"
+  },
+  {
+    "codigo": "203-0 - INSS a Recolher",
+    "descricao": "203-0 - INSS a Recolher",
+    "descricao_categoria": "203-0 - INSS a Recolher",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0752f"
+  },
+  {
+    "codigo": "203-0 - OP INSS",
+    "descricao": "203-0 - OP INSS",
+    "descricao_categoria": "203-0 - OP INSS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07530"
+  },
+  {
+    "codigo": "203-1 - FGTS",
+    "descricao": "203-1 - FGTS",
+    "descricao_categoria": "203-1 - FGTS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07531"
+  },
+  {
+    "codigo": "203-1 - OP FGTS",
+    "descricao": "203-1 - OP FGTS",
+    "descricao_categoria": "203-1 - OP FGTS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07532"
+  },
+  {
+    "codigo": "203-2 - IRRF",
+    "descricao": "203-2 - IRRF",
+    "descricao_categoria": "203-2 - IRRF",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07533"
+  },
+  {
+    "codigo": "203-2 - OP IRRF",
+    "descricao": "203-2 - OP IRRF",
+    "descricao_categoria": "203-2 - OP IRRF",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07534"
+  },
+  {
+    "codigo": "204-7 - PIS",
+    "descricao": "204-7 - PIS",
+    "descricao_categoria": "204-7 - PIS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07535"
+  },
+  {
+    "codigo": "204-8 - COFINS",
+    "descricao": "204-8 - COFINS",
+    "descricao_categoria": "204-8 - COFINS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07536"
+  },
+  {
+    "codigo": "204-9 - ISS Serviço",
+    "descricao": "204-9 - ISS Serviço",
+    "descricao_categoria": "204-9 - ISS Serviço",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07537"
+  },
+  {
+    "codigo": "205-0 - ICMS",
+    "descricao": "205-0 - ICMS",
+    "descricao_categoria": "205-0 - ICMS",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07538"
+  },
+  {
+    "codigo": "205-1 - IPI",
+    "descricao": "205-1 - IPI",
+    "descricao_categoria": "205-1 - IPI",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07539"
+  },
+  {
+    "codigo": "205-2 - Simples Nacional",
+    "descricao": "205-2 - Simples Nacional",
+    "descricao_categoria": "205-2 - Simples Nacional",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0753a"
+  },
+  {
+    "codigo": "205-6 - IRRF s/ terceiros a recolher",
+    "descricao": "205-6 - IRRF s/ terceiros a recolher",
+    "descricao_categoria": "205-6 - IRRF s/ terceiros a recolher",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0753b"
+  },
+  {
+    "codigo": "205-9 - PIS/COFINS/CSLL retido a recolher",
+    "descricao": "205-9 - PIS/COFINS/CSLL retido a recolher",
+    "descricao_categoria": "205-9 - PIS/COFINS/CSLL retido a recolher",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0753c"
+  },
+  {
+    "codigo": "206-0 - ISS retido a recolher",
+    "descricao": "206-0 - ISS retido a recolher",
+    "descricao_categoria": "206-0 - ISS retido a recolher",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0753d"
+  },
+  {
+    "codigo": "206-2 - IRPJ",
+    "descricao": "206-2 - IRPJ",
+    "descricao_categoria": "206-2 - IRPJ",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0753e"
+  },
+  {
+    "codigo": "206-3 - CSLL",
+    "descricao": "206-3 - CSLL",
+    "descricao_categoria": "206-3 - CSLL",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0753f"
+  },
+  {
+    "codigo": "208-8 - Outros Adiantamentos de Clientes",
+    "descricao": "208-8 - Outros Adiantamentos de Clientes",
+    "descricao_categoria": "208-8 - Outros Adiantamentos de Clientes",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07540"
+  },
+  {
+    "codigo": "211-1 - Tributos Parcelados",
+    "descricao": "211-1 - Tributos Parcelados",
+    "descricao_categoria": "211-1 - Tributos Parcelados",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07541"
+  },
+  {
+    "codigo": "212-0 - Dev. Mútuos",
+    "descricao": "212-0 - Dev. Mútuos",
+    "descricao_categoria": "212-0 - Dev. Mútuos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07542"
+  },
+  {
+    "codigo": "212-0 - Mútuos",
+    "descricao": "212-0 - Mútuos",
+    "descricao_categoria": "212-0 - Mútuos",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07543"
+  },
+  {
+    "codigo": "214-3 - AFAC",
+    "descricao": "214-3 - AFAC",
+    "descricao_categoria": "214-3 - AFAC",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07544"
+  },
+  {
+    "codigo": "214-3 - Dev. AFAC",
+    "descricao": "214-3 - Dev. AFAC",
+    "descricao_categoria": "214-3 - Dev. AFAC",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07545"
+  },
+  {
+    "codigo": "216-0 - Distribuicao de Lucro",
+    "descricao": "216-0 - Distribuicao de Lucro",
+    "descricao_categoria": "216-0 - Distribuicao de Lucro",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07546"
+  },
+  {
+    "codigo": "300-9 - Desconto Concedido",
+    "descricao": "300-9 - Desconto Concedido",
+    "descricao_categoria": "300-9 - Desconto Concedido",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07547"
+  },
+  {
+    "codigo": "302-1 - Receitas Diversas",
+    "descricao": "302-1 - Receitas Diversas",
+    "descricao_categoria": "302-1 - Receitas Diversas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07548"
+  },
+  {
+    "codigo": "302-3 - Reembolso de Despesas",
+    "descricao": "302-3 - Reembolso de Despesas",
+    "descricao_categoria": "302-3 - Reembolso de Despesas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07549"
+  },
+  {
+    "codigo": "302-5 - Venda de Imobilizado",
+    "descricao": "302-5 - Venda de Imobilizado",
+    "descricao_categoria": "302-5 - Venda de Imobilizado",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0754a"
+  },
+  {
+    "codigo": "303-2 - Rendimento de Aplic Financeira",
+    "descricao": "303-2 - Rendimento de Aplic Financeira",
+    "descricao_categoria": "303-2 - Rendimento de Aplic Financeira",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0754b"
+  },
+  {
+    "codigo": "303-3 - Juros Ativos",
+    "descricao": "303-3 - Juros Ativos",
+    "descricao_categoria": "303-3 - Juros Ativos",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0754c"
+  },
+  {
+    "codigo": "303-4 - Descontos Obtidos",
+    "descricao": "303-4 - Descontos Obtidos",
+    "descricao_categoria": "303-4 - Descontos Obtidos",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0754d"
+  },
+  {
+    "codigo": "303-6 - Multa s/ Recebimento em Atraso",
+    "descricao": "303-6 - Multa s/ Recebimento em Atraso",
+    "descricao_categoria": "303-6 - Multa s/ Recebimento em Atraso",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0754e"
+  },
+  {
+    "codigo": "400-0 - Custo de Embalagens",
+    "descricao": "400-0 - Custo de Embalagens",
+    "descricao_categoria": "400-0 - Custo de Embalagens",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0754f"
+  },
+  {
+    "codigo": "400-0 - Custo de Mercadorias Vendidas",
+    "descricao": "400-0 - Custo de Mercadorias Vendidas",
+    "descricao_categoria": "400-0 - Custo de Mercadorias Vendidas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07550"
+  },
+  {
+    "codigo": "400-1 - Custo de Prestacao de Servicos",
+    "descricao": "400-1 - Custo de Prestacao de Servicos",
+    "descricao_categoria": "400-1 - Custo de Prestacao de Servicos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07551"
+  },
+  {
+    "codigo": "400-5 - Custos de Taxa de Franquias",
+    "descricao": "400-5 - Custos de Taxa de Franquias",
+    "descricao_categoria": "400-5 - Custos de Taxa de Franquias",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07552"
+  },
+  {
+    "codigo": "402-0 - OP Parcipacao nos Lucros e Bonus",
+    "descricao": "402-0 - OP Parcipacao nos Lucros e Bonus",
+    "descricao_categoria": "402-0 - OP Parcipacao nos Lucros e Bonus",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07553"
+  },
+  {
+    "codigo": "403-9 - OP Vale Transporte",
+    "descricao": "403-9 - OP Vale Transporte",
+    "descricao_categoria": "403-9 - OP Vale Transporte",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07554"
+  },
+  {
+    "codigo": "404-1 - OP Vale Refeicao",
+    "descricao": "404-1 - OP Vale Refeicao",
+    "descricao_categoria": "404-1 - OP Vale Refeicao",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07555"
+  },
+  {
+    "codigo": "404-3 - OP Cesta Basica",
+    "descricao": "404-3 - OP Cesta Basica",
+    "descricao_categoria": "404-3 - OP Cesta Basica",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07556"
+  },
+  {
+    "codigo": "404-5 - OP Assistencia Medica e Odonto",
+    "descricao": "404-5 - OP Assistencia Medica e Odonto",
+    "descricao_categoria": "404-5 - OP Assistencia Medica e Odonto",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07557"
+  },
+  {
+    "codigo": "404-9 - OP Seguro de Vida",
+    "descricao": "404-9 - OP Seguro de Vida",
+    "descricao_categoria": "404-9 - OP Seguro de Vida",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07558"
+  },
+  {
+    "codigo": "405-1 - OP Farmacia",
+    "descricao": "405-1 - OP Farmacia",
+    "descricao_categoria": "405-1 - OP Farmacia",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07559"
+  },
+  {
+    "codigo": "406-5 - OP Outros Beneficios",
+    "descricao": "406-5 - OP Outros Beneficios",
+    "descricao_categoria": "406-5 - OP Outros Beneficios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0755a"
+  },
+  {
+    "codigo": "409-7 - Serviços Terceiros PF",
+    "descricao": "409-7 - Serviços Terceiros PF",
+    "descricao_categoria": "409-7 - Serviços Terceiros PF",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0755b"
+  },
+  {
+    "codigo": "410-5 - OP Servicos Tecnicos",
+    "descricao": "410-5 - OP Servicos Tecnicos",
+    "descricao_categoria": "410-5 - OP Servicos Tecnicos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0755c"
+  },
+  {
+    "codigo": "410-5 - Serviços técnicos para Laboratórios",
+    "descricao": "410-5 - Serviços técnicos para Laboratórios",
+    "descricao_categoria": "410-5 - Serviços técnicos para Laboratórios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0755d"
+  },
+  {
+    "codigo": "410-9 - OP Outros Servicos Prestados",
+    "descricao": "410-9 - OP Outros Servicos Prestados",
+    "descricao_categoria": "410-9 - OP Outros Servicos Prestados",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0755e"
+  },
+  {
+    "codigo": "411-2 - Refeicoes e Lanches",
+    "descricao": "411-2 - Refeicoes e Lanches",
+    "descricao_categoria": "411-2 - Refeicoes e Lanches",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0755f"
+  },
+  {
+    "codigo": "411-4 - Viagens e Representacoes",
+    "descricao": "411-4 - Viagens e Representacoes",
+    "descricao_categoria": "411-4 - Viagens e Representacoes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07560"
+  },
+  {
+    "codigo": "411-6 - Telefonia Movel",
+    "descricao": "411-6 - Telefonia Movel",
+    "descricao_categoria": "411-6 - Telefonia Movel",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07561"
+  },
+  {
+    "codigo": "412-5 - Outras Despesas com Vendas",
+    "descricao": "412-5 - Outras Despesas com Vendas",
+    "descricao_categoria": "412-5 - Outras Despesas com Vendas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07562"
+  },
+  {
+    "codigo": "412-7 - Comissoes e Prêmios Sobre Vendas",
+    "descricao": "412-7 - Comissoes e Prêmios Sobre Vendas",
+    "descricao_categoria": "412-7 - Comissoes e Prêmios Sobre Vendas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07563"
+  },
+  {
+    "codigo": "413-0 - Outras Despesas Comerciais",
+    "descricao": "413-0 - Outras Despesas Comerciais",
+    "descricao_categoria": "413-0 - Outras Despesas Comerciais",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07564"
+  },
+  {
+    "codigo": "413-2 - Representantes de Vendas",
+    "descricao": "413-2 - Representantes de Vendas",
+    "descricao_categoria": "413-2 - Representantes de Vendas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07565"
+  },
+  {
+    "codigo": "415-3 - Acordo Trabalhista",
+    "descricao": "415-3 - Acordo Trabalhista",
+    "descricao_categoria": "415-3 - Acordo Trabalhista",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07566"
+  },
+  {
+    "codigo": "415-8 - Outras Despesas Com Funcionarios",
+    "descricao": "415-8 - Outras Despesas Com Funcionarios",
+    "descricao_categoria": "415-8 - Outras Despesas Com Funcionarios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07567"
+  },
+  {
+    "codigo": "416-8 - Vale Transporte",
+    "descricao": "416-8 - Vale Transporte",
+    "descricao_categoria": "416-8 - Vale Transporte",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07568"
+  },
+  {
+    "codigo": "417-0 - Vale Refeicao",
+    "descricao": "417-0 - Vale Refeicao",
+    "descricao_categoria": "417-0 - Vale Refeicao",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07569"
+  },
+  {
+    "codigo": "417-2 - Cesta Basica",
+    "descricao": "417-2 - Cesta Basica",
+    "descricao_categoria": "417-2 - Cesta Basica",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0756a"
+  },
+  {
+    "codigo": "417-4 - Assistencia medica",
+    "descricao": "417-4 - Assistencia medica",
+    "descricao_categoria": "417-4 - Assistencia medica",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0756b"
+  },
+  {
+    "codigo": "417-8 - Seguro de Vida",
+    "descricao": "417-8 - Seguro de Vida",
+    "descricao_categoria": "417-8 - Seguro de Vida",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0756c"
+  },
+  {
+    "codigo": "418-0 - Farmacia",
+    "descricao": "418-0 - Farmacia",
+    "descricao_categoria": "418-0 - Farmacia",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0756d"
+  },
+  {
+    "codigo": "418-3 - Curso e Treinamento",
+    "descricao": "418-3 - Curso e Treinamento",
+    "descricao_categoria": "418-3 - Curso e Treinamento",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0756e"
+  },
+  {
+    "codigo": "419-1 - Vale Combustivel",
+    "descricao": "419-1 - Vale Combustivel",
+    "descricao_categoria": "419-1 - Vale Combustivel",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0756f"
+  },
+  {
+    "codigo": "419-4 - Outros Beneficios",
+    "descricao": "419-4 - Outros Beneficios",
+    "descricao_categoria": "419-4 - Outros Beneficios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07570"
+  },
+  {
+    "codigo": "420-2 - Energia Eletrica",
+    "descricao": "420-2 - Energia Eletrica",
+    "descricao_categoria": "420-2 - Energia Eletrica",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07571"
+  },
+  {
+    "codigo": "420-3 - Agua e Esgoto",
+    "descricao": "420-3 - Agua e Esgoto",
+    "descricao_categoria": "420-3 - Agua e Esgoto",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07572"
+  },
+  {
+    "codigo": "420-5 - Aluguel",
+    "descricao": "420-5 - Aluguel",
+    "descricao_categoria": "420-5 - Aluguel",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07573"
+  },
+  {
+    "codigo": "420-5 - Aluguel Complementar",
+    "descricao": "420-5 - Aluguel Complementar",
+    "descricao_categoria": "420-5 - Aluguel Complementar",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07574"
+  },
+  {
+    "codigo": "420-6 - Manut e Conservacao Predial",
+    "descricao": "420-6 - Manut e Conservacao Predial",
+    "descricao_categoria": "420-6 - Manut e Conservacao Predial",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07575"
+  },
+  {
+    "codigo": "420-7 - Telefonia",
+    "descricao": "420-7 - Telefonia",
+    "descricao_categoria": "420-7 - Telefonia",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07576"
+  },
+  {
+    "codigo": "420-8 - Condominio",
+    "descricao": "420-8 - Condominio",
+    "descricao_categoria": "420-8 - Condominio",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07577"
+  },
+  {
+    "codigo": "420-9 - Uniformes",
+    "descricao": "420-9 - Uniformes",
+    "descricao_categoria": "420-9 - Uniformes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07578"
+  },
+  {
+    "codigo": "421-2 - Manutencao e Reparos",
+    "descricao": "421-2 - Manutencao e Reparos",
+    "descricao_categoria": "421-2 - Manutencao e Reparos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07579"
+  },
+  {
+    "codigo": "421-4 - Manutencao de veiculos",
+    "descricao": "421-4 - Manutencao de veiculos",
+    "descricao_categoria": "421-4 - Manutencao de veiculos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0757a"
+  },
+  {
+    "codigo": "421-8 - Correios e fretes",
+    "descricao": "421-8 - Correios e fretes",
+    "descricao_categoria": "421-8 - Correios e fretes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0757b"
+  },
+  {
+    "codigo": "421-8 - OP Fretes e carretos",
+    "descricao": "421-8 - OP Fretes e carretos",
+    "descricao_categoria": "421-8 - OP Fretes e carretos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0757c"
+  },
+  {
+    "codigo": "421-9 - Seguros",
+    "descricao": "421-9 - Seguros",
+    "descricao_categoria": "421-9 - Seguros",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0757d"
+  },
+  {
+    "codigo": "422-0 - Uber e Taxi",
+    "descricao": "422-0 - Uber e Taxi",
+    "descricao_categoria": "422-0 - Uber e Taxi",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0757e"
+  },
+  {
+    "codigo": "422-1 - Combustivel",
+    "descricao": "422-1 - Combustivel",
+    "descricao_categoria": "422-1 - Combustivel",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0757f"
+  },
+  {
+    "codigo": "422-1 - OP Combustivel",
+    "descricao": "422-1 - OP Combustivel",
+    "descricao_categoria": "422-1 - OP Combustivel",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07580"
+  },
+  {
+    "codigo": "422-2 - Copa e Cozinha",
+    "descricao": "422-2 - Copa e Cozinha",
+    "descricao_categoria": "422-2 - Copa e Cozinha",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07581"
+  },
+  {
+    "codigo": "422-3 - Cartorios",
+    "descricao": "422-3 - Cartorios",
+    "descricao_categoria": "422-3 - Cartorios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07582"
+  },
+  {
+    "codigo": "422-5 - Royalties e Assistencia Tecnica",
+    "descricao": "422-5 - Royalties e Assistencia Tecnica",
+    "descricao_categoria": "422-5 - Royalties e Assistencia Tecnica",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07583"
+  },
+  {
+    "codigo": "422-6 - Aluguel de Equipamento",
+    "descricao": "422-6 - Aluguel de Equipamento",
+    "descricao_categoria": "422-6 - Aluguel de Equipamento",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07584"
+  },
+  {
+    "codigo": "422-7 - Viagens e Estadias",
+    "descricao": "422-7 - Viagens e Estadias",
+    "descricao_categoria": "422-7 - Viagens e Estadias",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07585"
+  },
+  {
+    "codigo": "422-9 - Material de Escritorio",
+    "descricao": "422-9 - Material de Escritorio",
+    "descricao_categoria": "422-9 - Material de Escritorio",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07586"
+  },
+  {
+    "codigo": "423-0 - Material de Informatica",
+    "descricao": "423-0 - Material de Informatica",
+    "descricao_categoria": "423-0 - Material de Informatica",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07587"
+  },
+  {
+    "codigo": "423-4 - Internet",
+    "descricao": "423-4 - Internet",
+    "descricao_categoria": "423-4 - Internet",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07588"
+  },
+  {
+    "codigo": "423-5 - Estacionamento",
+    "descricao": "423-5 - Estacionamento",
+    "descricao_categoria": "423-5 - Estacionamento",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07589"
+  },
+  {
+    "codigo": "423-6 - Material de Limpeza",
+    "descricao": "423-6 - Material de Limpeza",
+    "descricao_categoria": "423-6 - Material de Limpeza",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0758a"
+  },
+  {
+    "codigo": "423-8 - Bens de Pequeno Valor",
+    "descricao": "423-8 - Bens de Pequeno Valor",
+    "descricao_categoria": "423-8 - Bens de Pequeno Valor",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0758b"
+  },
+  {
+    "codigo": "424-6 - Custa Processuais",
+    "descricao": "424-6 - Custa Processuais",
+    "descricao_categoria": "424-6 - Custa Processuais",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0758c"
+  },
+  {
+    "codigo": "425-1 - Outras Despesas",
+    "descricao": "425-1 - Outras Despesas",
+    "descricao_categoria": "425-1 - Outras Despesas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0758d"
+  },
+  {
+    "codigo": "425-4 - Auditoria",
+    "descricao": "425-4 - Auditoria",
+    "descricao_categoria": "425-4 - Auditoria",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0758e"
+  },
+  {
+    "codigo": "425-5 - Consultoria",
+    "descricao": "425-5 - Consultoria",
+    "descricao_categoria": "425-5 - Consultoria",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0758f"
+  },
+  {
+    "codigo": "425-6 - Contabilidade",
+    "descricao": "425-6 - Contabilidade",
+    "descricao_categoria": "425-6 - Contabilidade",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07590"
+  },
+  {
+    "codigo": "425-7 - Informatica e Software",
+    "descricao": "425-7 - Informatica e Software",
+    "descricao_categoria": "425-7 - Informatica e Software",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07591"
+  },
+  {
+    "codigo": "425-8 - Juridico",
+    "descricao": "425-8 - Juridico",
+    "descricao_categoria": "425-8 - Juridico",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07592"
+  },
+  {
+    "codigo": "425-9 - Limpeza",
+    "descricao": "425-9 - Limpeza",
+    "descricao_categoria": "425-9 - Limpeza",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07593"
+  },
+  {
+    "codigo": "426-2 - Segurança e Vigilância",
+    "descricao": "426-2 - Segurança e Vigilância",
+    "descricao_categoria": "426-2 - Segurança e Vigilância",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07594"
+  },
+  {
+    "codigo": "426-4 - Servico de motoboy",
+    "descricao": "426-4 - Servico de motoboy",
+    "descricao_categoria": "426-4 - Servico de motoboy",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07595"
+  },
+  {
+    "codigo": "426-6 - Hospedagem de Dados",
+    "descricao": "426-6 - Hospedagem de Dados",
+    "descricao_categoria": "426-6 - Hospedagem de Dados",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07596"
+  },
+  {
+    "codigo": "427-0 - Sistema de Gestao",
+    "descricao": "427-0 - Sistema de Gestao",
+    "descricao_categoria": "427-0 - Sistema de Gestao",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07597"
+  },
+  {
+    "codigo": "427-9 - Fundo de Promoções Extra ",
+    "descricao": "427-9 - Fundo de Promoções Extra ",
+    "descricao_categoria": "427-9 - Fundo de Promoções Extra ",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07598"
+  },
+  {
+    "codigo": "427-9 - Fundo de Promoções Ordinária",
+    "descricao": "427-9 - Fundo de Promoções Ordinária",
+    "descricao_categoria": "427-9 - Fundo de Promoções Ordinária",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc07599"
+  },
+  {
+    "codigo": "427-9 - Publicidade e Propaganda",
+    "descricao": "427-9 - Publicidade e Propaganda",
+    "descricao_categoria": "427-9 - Publicidade e Propaganda",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0759a"
+  },
+  {
+    "codigo": "428-0 - Taxa de entrega",
+    "descricao": "428-0 - Taxa de entrega",
+    "descricao_categoria": "428-0 - Taxa de entrega",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0759b"
+  },
+  {
+    "codigo": "428-1 - Agencia e Assessoria",
+    "descricao": "428-1 - Agencia e Assessoria",
+    "descricao_categoria": "428-1 - Agencia e Assessoria",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0759c"
+  },
+  {
+    "codigo": "428-3 - Producao de Material",
+    "descricao": "428-3 - Producao de Material",
+    "descricao_categoria": "428-3 - Producao de Material",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0759d"
+  },
+  {
+    "codigo": "430-1 - IPTU",
+    "descricao": "430-1 - IPTU",
+    "descricao_categoria": "430-1 - IPTU",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0759e"
+  },
+  {
+    "codigo": "430-2 - IPVA",
+    "descricao": "430-2 - IPVA",
+    "descricao_categoria": "430-2 - IPVA",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc0759f"
+  },
+  {
+    "codigo": "430-7 - IOF",
+    "descricao": "430-7 - IOF",
+    "descricao_categoria": "430-7 - IOF",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a0"
+  },
+  {
+    "codigo": "431-3 - Taxas e Emolumentos",
+    "descricao": "431-3 - Taxas e Emolumentos",
+    "descricao_categoria": "431-3 - Taxas e Emolumentos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a1"
+  },
+  {
+    "codigo": "431-4 - Outras Contribuicoes",
+    "descricao": "431-4 - Outras Contribuicoes",
+    "descricao_categoria": "431-4 - Outras Contribuicoes",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a4"
+  },
+  {
+    "codigo": "431-5 - Despesas Bancarias",
+    "descricao": "431-5 - Despesas Bancarias",
+    "descricao_categoria": "431-5 - Despesas Bancarias",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a5"
+  },
+  {
+    "codigo": "431-8 - Multa e Juros Sobre Contas Pg em Atraso",
+    "descricao": "431-8 - Multa e Juros Sobre Contas Pg em Atraso",
+    "descricao_categoria": "431-8 - Multa e Juros Sobre Contas Pg em Atraso",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a6"
+  },
+  {
+    "codigo": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+    "descricao": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+    "descricao_categoria": "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a7"
+  },
+  {
+    "codigo": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+    "descricao": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+    "descricao_categoria": "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a8"
+  },
+  {
+    "codigo": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+    "descricao": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+    "descricao_categoria": "431-9 - Tarifa de Cartao / Meios de Pagamento - Delivery",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075a9"
+  },
+  {
+    "codigo": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+    "descricao": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+    "descricao_categoria": "431-9 - Tarifa de Cartao / Meios de Pagamento - Padrão",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075aa"
+  },
+  {
+    "codigo": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+    "descricao": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+    "descricao_categoria": "431-9 - Tarifa de Cartao / Meios de Pagamento - Voucher",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075ab"
+  },
+  {
+    "codigo": "431-9 - Tarifa Omni - Padrão ",
+    "descricao": "431-9 - Tarifa Omni - Padrão ",
+    "descricao_categoria": "431-9 - Tarifa Omni - Padrão ",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075ad"
+  },
+  {
+    "codigo": "432-0 - Juros Passivos",
+    "descricao": "432-0 - Juros Passivos",
+    "descricao_categoria": "432-0 - Juros Passivos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075af"
+  },
+  {
+    "codigo": "434-0 - Recrutamento e Seleção",
+    "descricao": "434-0 - Recrutamento e Seleção",
+    "descricao_categoria": "434-0 - Recrutamento e Seleção",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b0"
+  },
+  {
+    "codigo": "434-1 - Exames ocupacionais",
+    "descricao": "434-1 - Exames ocupacionais",
+    "descricao_categoria": "434-1 - Exames ocupacionais",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b1"
+  },
+  {
+    "codigo": "434-2 - Criação e manutenção de site",
+    "descricao": "434-2 - Criação e manutenção de site",
+    "descricao_categoria": "434-2 - Criação e manutenção de site",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b2"
+  },
+  {
+    "codigo": "434-3 - Google e Redes Sociais",
+    "descricao": "434-3 - Google e Redes Sociais",
+    "descricao_categoria": "434-3 - Google e Redes Sociais",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b3"
+  },
+  {
+    "codigo": "434-4 - Marketing Digital",
+    "descricao": "434-4 - Marketing Digital",
+    "descricao_categoria": "434-4 - Marketing Digital",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b4"
+  },
+  {
+    "codigo": "434-5 - Feiras e Eventos",
+    "descricao": "434-5 - Feiras e Eventos",
+    "descricao_categoria": "434-5 - Feiras e Eventos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b5"
+  },
+  {
+    "codigo": "434-6 - Impostos retidos",
+    "descricao": "434-6 - Impostos retidos",
+    "descricao_categoria": "434-6 - Impostos retidos",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b6"
+  },
+  {
+    "codigo": "Ajustes a Crédito de Cartão",
+    "descricao": "Ajustes a Crédito de Cartão",
+    "descricao_categoria": "Ajustes a Crédito de Cartão",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07506"
+  },
+  {
+    "codigo": "Ajustes a Débito de Cartão",
+    "descricao": "Ajustes a Débito de Cartão",
+    "descricao_categoria": "Ajustes a Débito de Cartão",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07507"
+  },
+  {
+    "codigo": "Aluguel de POS / Outras Taxas",
+    "descricao": "Aluguel de POS / Outras Taxas",
+    "descricao_categoria": "Aluguel de POS / Outras Taxas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc074ff"
+  },
+  {
+    "codigo": "Desconto complementar da operadora Ifood",
+    "descricao": "Desconto complementar da operadora Ifood",
+    "descricao_categoria": "Desconto complementar da operadora Ifood",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1a5"
+  },
+  {
+    "codigo": "Desconto de cupom Ifood",
+    "descricao": "Desconto de cupom Ifood",
+    "descricao_categoria": "Desconto de cupom Ifood",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1a9"
+  },
+  {
+    "codigo": "Descontos sobre Despesas",
+    "descricao": "Descontos sobre Despesas",
+    "descricao_categoria": "Descontos sobre Despesas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07503"
+  },
+  {
+    "codigo": "Descontos sobre Receitas",
+    "descricao": "Descontos sobre Receitas",
+    "descricao_categoria": "Descontos sobre Receitas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07500"
+  },
+  {
+    "codigo": "Estorno de Valores - Entradas",
+    "descricao": "Estorno de Valores - Entradas",
+    "descricao_categoria": "Estorno de Valores - Entradas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075b7"
+  },
+  {
+    "codigo": "Estorno de Valores - Saídas",
+    "descricao": "Estorno de Valores - Saídas",
+    "descricao_categoria": "Estorno de Valores - Saídas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075c7"
+  },
+  {
+    "codigo": "Falta de Caixa",
+    "descricao": "Falta de Caixa",
+    "descricao_categoria": "Falta de Caixa",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07508"
+  },
+  {
+    "codigo": "Juros sobre Despesas",
+    "descricao": "Juros sobre Despesas",
+    "descricao_categoria": "Juros sobre Despesas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07504"
+  },
+  {
+    "codigo": "Juros sobre Receitas",
+    "descricao": "Juros sobre Receitas",
+    "descricao_categoria": "Juros sobre Receitas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07501"
+  },
+  {
+    "codigo": "Multa sobre Despesas",
+    "descricao": "Multa sobre Despesas",
+    "descricao_categoria": "Multa sobre Despesas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07505"
+  },
+  {
+    "codigo": "Multa sobre Receitas",
+    "descricao": "Multa sobre Receitas",
+    "descricao_categoria": "Multa sobre Receitas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07502"
+  },
+  {
+    "codigo": "Outras Despesas Ifood",
+    "descricao": "Outras Despesas Ifood",
+    "descricao_categoria": "Outras Despesas Ifood",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1a3"
+  },
+  {
+    "codigo": "Outras Entradas - Coligadas",
+    "descricao": "Outras Entradas - Coligadas",
+    "descricao_categoria": "Outras Entradas - Coligadas",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075c8"
+  },
+  {
+    "codigo": "Outras Entradas - Conta Corrente dos Sócios",
+    "descricao": "Outras Entradas - Conta Corrente dos Sócios",
+    "descricao_categoria": "Outras Entradas - Conta Corrente dos Sócios",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075c9"
+  },
+  {
+    "codigo": "Outras Entradas - Filiais",
+    "descricao": "Outras Entradas - Filiais",
+    "descricao_categoria": "Outras Entradas - Filiais",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075ca"
+  },
+  {
+    "codigo": "Outras Receitas Ifood",
+    "descricao": "Outras Receitas Ifood",
+    "descricao_categoria": "Outras Receitas Ifood",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1ad"
+  },
+  {
+    "codigo": "Outras Saídas - Coligadas",
+    "descricao": "Outras Saídas - Coligadas",
+    "descricao_categoria": "Outras Saídas - Coligadas",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075cb"
+  },
+  {
+    "codigo": "Outras Saídas - Conta Corrente dos Sócios",
+    "descricao": "Outras Saídas - Conta Corrente dos Sócios",
+    "descricao_categoria": "Outras Saídas - Conta Corrente dos Sócios",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075cc"
+  },
+  {
+    "codigo": "Outras Saídas - Filiais",
+    "descricao": "Outras Saídas - Filiais",
+    "descricao_categoria": "Outras Saídas - Filiais",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8c48717a865fc075cd"
+  },
+  {
+    "codigo": "Repasse de cupom Ifood",
+    "descricao": "Repasse de cupom Ifood",
+    "descricao_categoria": "Repasse de cupom Ifood",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1b1"
+  },
+  {
+    "codigo": "Restituição de IR Ifood",
+    "descricao": "Restituição de IR Ifood",
+    "descricao_categoria": "Restituição de IR Ifood",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1b3"
+  },
+  {
+    "codigo": "Sobra de Caixa",
+    "descricao": "Sobra de Caixa",
+    "descricao_categoria": "Sobra de Caixa",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc07509"
+  },
+  {
+    "codigo": "Taxa Administrativa de Cartões",
+    "descricao": "Taxa Administrativa de Cartões",
+    "descricao_categoria": "Taxa Administrativa de Cartões",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc074fd"
+  },
+  {
+    "codigo": "Taxa de Antecipação de Cartões de Crédito",
+    "descricao": "Taxa de Antecipação de Cartões de Crédito",
+    "descricao_categoria": "Taxa de Antecipação de Cartões de Crédito",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc074fe"
+  },
+  {
+    "codigo": "Taxa de entrega Ifood (Despesa)",
+    "descricao": "Taxa de entrega Ifood (Despesa)",
+    "descricao_categoria": "Taxa de entrega Ifood (Despesa)",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1a7"
+  },
+  {
+    "codigo": "Taxa de entrega Ifood (Receita)",
+    "descricao": "Taxa de entrega Ifood (Receita)",
+    "descricao_categoria": "Taxa de entrega Ifood (Receita)",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1af"
+  },
+  {
+    "codigo": "Taxa de manutenção mensal Ifood",
+    "descricao": "Taxa de manutenção mensal Ifood",
+    "descricao_categoria": "Taxa de manutenção mensal Ifood",
+    "natureza": "D",
+    "tipo_categoria": "D",
+    "categoria_superior": "",
+    "_f360_id": "6a344ea89c042f3dfdeac1ab"
+  },
+  {
+    "codigo": "Vendas de Mercadorias",
+    "descricao": "Vendas de Mercadorias",
+    "descricao_categoria": "Vendas de Mercadorias",
+    "natureza": "R",
+    "tipo_categoria": "R",
+    "categoria_superior": "",
+    "_f360_id": "6a2feb8b48717a865fc074fc"
+  }
+]

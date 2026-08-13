@@ -1,0 +1,38 @@
+[
+  {
+    "nCodCC": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "descricao": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "tipo_conta": "Conta Dinheiro",
+    "codigo_banco": "",
+    "agencia": "",
+    "conta": "",
+    "_f360_id": "6a2feb908c0f4a8af89af638"
+  },
+  {
+    "nCodCC": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "descricao": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "tipo_conta": "Conta Corrente",
+    "codigo_banco": 33,
+    "agencia": "0134",
+    "conta": "13005936",
+    "_f360_id": "6a328b4751090b7db2ad9810"
+  },
+  {
+    "nCodCC": "MR SHAWARMA - ITAU - CC 99177-6",
+    "descricao": "MR SHAWARMA - ITAU - CC 99177-6",
+    "tipo_conta": "Conta Corrente",
+    "codigo_banco": 341,
+    "agencia": "0747",
+    "conta": "99177",
+    "_f360_id": "6a328c59314b9f8c608a0274"
+  },
+  {
+    "nCodCC": "MR SHAWARMA - ZOOP - C.C. - 531419148-0",
+    "descricao": "MR SHAWARMA - ZOOP - C.C. - 531419148-0",
+    "tipo_conta": "Conta Corrente",
+    "codigo_banco": 2246,
+    "agencia": "0001",
+    "conta": "531419148",
+    "_f360_id": "6a3af3e15b2b6e69ba92abdf"
+  }
+]

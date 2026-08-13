@@ -13,7 +13,11 @@ touch /var/log/refresh.log
 # dcron NÃO herda env vars do PID 1 — exporta credenciais Omie pra arquivo
 # que refresh.sh lê. Sem isso, fetch-data dispara mas adapter falha por
 # OMIE_APP_KEY/SECRET undefined (descoberto 26/05/2026: data parou em 23/05).
-env | grep -E '^(OMIE_|BI_|COOLIFY_|SUPABASE_|ANTHROPIC_)' > /etc/cron-env || true
+# F360_ estava FALTANDO neste grep, e este BI e F360, nao Omie: o refresh do boot
+# funcionava (herda o env do PID 1) e mascarava o defeito, mas todo refresh por
+# cron rodava com F360_API_TOKEN vazio -> fetch-f360 sai 1 -> refresh.sh segue no
+# `|| echo falhou` e rebuilda com o dado velho, com log de aparencia saudavel.
+env | grep -E '^(OMIE_|F360_|BI_|COOLIFY_|SUPABASE_|ANTHROPIC_)' > /etc/cron-env || true
 chmod 600 /etc/cron-env
 
 # Boot refresh em background — não atrasa o nginx ficar pronto.

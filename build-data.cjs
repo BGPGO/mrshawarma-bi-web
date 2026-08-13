@@ -242,7 +242,11 @@ function normalize(t, kind) {
 // Agora exige a forma real de uma transferencia entre contas, nas duas ordens de
 // palavra ("Transferencia de Entrada" e "Entrada de Transferencia"), e nao casa
 // com "Transferencia / PIX" nem com "Tarifa sobre Transferencia".
-const TRANSFERENCIA_RE = /(transfer[eê]ncias*(entres+conta|des+entrada|des+sa[ií]da))|((entrada|sa[ií]da)s+des+transfer[eê]ncia)/i;
+// ATENCAO: os `\s` deste regex ja foram comidos uma vez por escrita via heredoc
+// de shell — ficou `s*` / `es+conta`, que casa a literal "s" e portanto NAO casa
+// nada. Passou despercebido porque o impacto era zero nesta base. Ao editar,
+// conferir que os `\s` estao aqui.
+const TRANSFERENCIA_RE = /(transfer[eê]ncia\s*(entre\s+conta|de\s+entrada|de\s+sa[ií]da))|((entrada|sa[ií]da)\s+de\s+transfer[eê]ncia)/i;
 const CLIENTE_PROPRIO_RE = /mr\s*shawarma/i;
 let _cfgCatExcluir = [];
 try { _cfgCatExcluir = require('./bi.config.js').fontes?.omie?.categorias_excluir || []; } catch(e) {}
@@ -997,6 +1001,14 @@ window.ALL_TX = ALL_TX;
 window.BIT_HAS_ATRASADO = ALL_TX.some(r => r[13] === 1);
 window.BIT_HAS_NAOOP = ALL_TX.some(r => r[14] === 1);
 window.BIT_HAS_COMPETENCIA = ALL_TX.some(r => r[15]);
+// PE (Ponto de Equilibrio) so faz sentido se as despesas estiverem classificadas
+// em Fixa/Variavel. Isso vem de categoria_superior, campo do plano de contas do
+// Omie — o F360 nao manda. (Sem backtick neste comentario: ele mora DENTRO do
+// template literal que gera o data.js, e backtick aqui fecha a string.)
+// Sem a flag, o card exibia "margem de contribuicao
+// 100%", "ponto de equilibrio R$ 0,00" e "margem de seguranca 100%" EM VERDE:
+// nao parece defeito, parece empresa saudavel.
+window.BIT_HAS_PE = ALL_TX.some(r => r[10] === 'F' || r[10] === 'V');
 window.ALL_CONTAS = (function () {
   const s = new Set();
   for (const r of ALL_TX) { if (r[17]) s.add(r[17]); }

@@ -191,13 +191,32 @@ window.GRUPO_OMIE_ORDEM = GRUPO_OMIE_ORDEM;
  * 5 valor · 6 realizado · 7 fornecedor · 8 centroCusto · 9 investimento
  * 10 peClass · 11 empresa · 12 projeto */
 const txNoContexto = (statusFilter, drilldown, semInv, extraFilters) => {
-  let out = window.filterTx(window.ALL_TX || [], statusFilter, drilldown);
+  // REGIME — espelha o recomputeBit. Em competencia remapeia mes/dia pra data de
+  // competencia ANTES de filtrar; sem isso o recorte de mes e o drilldown seguem
+  // usando a data de caixa e a TABELA mostra caixa enquanto o KPI acima dela
+  // mostra competencia, com o cabecalho afirmando "Competencia". Row sem
+  // competencia sai, igual ao recomputeBit — se ficasse, a soma da tabela nao
+  // fecharia com o KPI.
+  let fonte = window.ALL_TX || [];
+  if (extraFilters && extraFilters.regime === "competencia") {
+    const remap = [];
+    for (const r of fonte) {
+      if (!r[15]) continue;
+      const c = r.slice();
+      c[1] = r[15]; c[2] = r[16];
+      remap.push(c);
+    }
+    fonte = remap;
+  }
+  let out = window.filterTx(fonte, statusFilter, drilldown);
   if (semInv) out = out.filter(r => !r[9]);
   if (extraFilters) {
     const cc = extraFilters.centroCusto, cat = extraFilters.categoria, emp = extraFilters.empresa;
+    const cta = extraFilters.conta;
     if (cc && cc.length) { const s = new Set(cc); out = out.filter(r => s.has(r[8] || "")); }
     if (cat && cat.length) { const s = new Set(cat); out = out.filter(r => s.has(r[3])); }
     if (emp && emp.length) { const s = new Set(emp); out = out.filter(r => s.has(r[11] || "")); }
+    if (cta && cta.length) { const s = new Set(cta); out = out.filter(r => s.has(r[17] || "")); }
   }
   // Espelha o recomputeBit: visao Operacional (default) tira o nao-operacional.
   // Quem quer o caixa cheio (Fluxo, Tesouraria) passa visao: 'completo'.

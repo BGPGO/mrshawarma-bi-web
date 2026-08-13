@@ -1,0 +1,618 @@
+[
+  {
+    "codigo_cliente_omie": "99 FOOD",
+    "nome_fantasia": "99 FOOD",
+    "razao_social": "99 FOOD",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "99 FOOD",
+    "nome_fantasia": "99 FOOD",
+    "razao_social": "99 FOOD LTDA.",
+    "cnpj_cpf": "60.112.920/0001-23",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "AGENCIA NUMERIQUE",
+    "nome_fantasia": "AGENCIA NUMERIQUE",
+    "razao_social": "RAFAEL CARDOSO REIS",
+    "cnpj_cpf": "55.576.196/0001-59",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "AL AMIR MERCADO",
+    "nome_fantasia": "AL AMIR MERCADO",
+    "razao_social": "AL AMIR MERCADO BRASILEIRO E ARABE LTDA",
+    "cnpj_cpf": "45.505.863/0001-59",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "AMAZON.COM.BR",
+    "nome_fantasia": "AMAZON.COM.BR",
+    "razao_social": "AMAZON SERVICOS DE VAREJO DO BRASIL LTDA.",
+    "cnpj_cpf": "15.436.940/0001-03",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "ANAS ABO HARB",
+    "nome_fantasia": "ANAS ABO HARB",
+    "razao_social": "ANAS ABO HARB",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "ANDALUZ COMERCIO DE ALIMENTOS LTDA",
+    "nome_fantasia": "ANDALUZ COMERCIO DE ALIMENTOS LTDA",
+    "razao_social": "ANDALUZ COMERCIO DE ALIMENTOS LTDA",
+    "cnpj_cpf": "48.277.183/0001-13",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "BALDO S/A COMERCIO INDUSTRIA E EXPORTACAO",
+    "nome_fantasia": "BALDO S/A COMERCIO INDUSTRIA E EXPORTACAO",
+    "razao_social": "BALDO S/A COMERCIO INDUSTRIA E EXPORTACAO",
+    "cnpj_cpf": "91.473.678/0017-04",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "BALDO SA COMERCIO INDUSTRIA E EXPORTACAO",
+    "nome_fantasia": "BALDO SA COMERCIO INDUSTRIA E EXPORTACAO",
+    "razao_social": "BALDO SA COMERCIO INDUSTRIA E EXPORTACAO",
+    "cnpj_cpf": "91.473.678/0001-47",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "BANCO ITAU",
+    "nome_fantasia": "BANCO ITAU",
+    "razao_social": "BANCO ITAU",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "BANCO SANTANDER",
+    "nome_fantasia": "BANCO SANTANDER",
+    "razao_social": "BANCO SANTANDER",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "BEST SALAD HORTI FRUTI EIRELI",
+    "nome_fantasia": "BEST SALAD HORTI FRUTI EIRELI",
+    "razao_social": "BEST SALAD HORTI FRUTI EIRELI",
+    "cnpj_cpf": "74.264.615/0001-61",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "BONA S COMERCIO E DISTRIBUICAO DE ALIMENTOS E BEBIDAS EIRELI",
+    "nome_fantasia": "BONA S COMERCIO E DISTRIBUICAO DE ALIMENTOS E BEBIDAS EIRELI",
+    "razao_social": "BONA S COMERCIO E DISTRIBUICAO DE ALIMENTOS E BEBIDAS EIRELI",
+    "cnpj_cpf": "31.565.667/0001-65",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "BRASPEL EMBALAGENS",
+    "nome_fantasia": "BRASPEL EMBALAGENS",
+    "razao_social": "ROCA EQUIPAMENTOS LTDA",
+    "cnpj_cpf": "07.221.966/0001-06",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "BRASPEL SP EMBALAGENS",
+    "nome_fantasia": "BRASPEL SP EMBALAGENS",
+    "razao_social": "LEONARDO CAPRISTO",
+    "cnpj_cpf": "34.838.871/0001-09",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "BRUNO CAMILLO MENDES",
+    "nome_fantasia": "BRUNO CAMILLO MENDES",
+    "razao_social": "BRUNO CAMILLO MENDES",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "BRUNO EDUARDO PAULIMO DA SILVA",
+    "nome_fantasia": "BRUNO EDUARDO PAULIMO DA SILVA",
+    "razao_social": "BRUNO EDUARDO PAULIMO DA SILVA",
+    "cnpj_cpf": "329.583.038-02",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "CEF",
+    "nome_fantasia": "CEF",
+    "razao_social": "CAIXA ECONOMICA FEDERAL",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "CENTER CARNES TUCURUVI",
+    "nome_fantasia": "CENTER CARNES TUCURUVI",
+    "razao_social": "CENTER CARNES TUCURUVI LTDA",
+    "cnpj_cpf": "58.758.906/0001-50",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "CIANFLONE AGRO COMERCIAL LTDA",
+    "nome_fantasia": "CIANFLONE AGRO COMERCIAL LTDA",
+    "razao_social": "CIANFLONE AGRO COMERCIAL LTDA",
+    "cnpj_cpf": "11.067.747/0001-83",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "CLEANPAPEIS",
+    "nome_fantasia": "CLEANPAPEIS",
+    "razao_social": "SC FOCCO COMERCIO DE MATERIAIS DE HIGIENE E SERVICOS LTDA",
+    "cnpj_cpf": "34.748.299/0001-89",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "DAISO BRASIL",
+    "nome_fantasia": "DAISO BRASIL",
+    "razao_social": "DAISO BRASIL COMERCIO E IMPORTACAO LTDA.",
+    "cnpj_cpf": "14.987.685/0061-57",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "DAYHOME COMERCIAL LTDA.",
+    "nome_fantasia": "DAYHOME COMERCIAL LTDA.",
+    "razao_social": "DAYHOME COMERCIAL LTDA.",
+    "cnpj_cpf": "04.784.779/0003-04",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA",
+    "nome_fantasia": "DBN STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA",
+    "razao_social": "STORM COMERCIO DE ALIMENTOS E BEBIDAS LTDA",
+    "cnpj_cpf": "43.729.707/0001-46",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "DOCE MADEIRA",
+    "nome_fantasia": "DOCE MADEIRA",
+    "razao_social": "DOCE MADEIRA COMERCIAL LTDA",
+    "cnpj_cpf": "41.132.082/0001-05",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "EASYCONTABIL",
+    "nome_fantasia": "EASYCONTABIL",
+    "razao_social": "EASYCONTABIL CONTABILIDADE E ASSESSORIA LTDA.",
+    "cnpj_cpf": "11.570.961/0001-58",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "ELETRONICA TUCURUVI",
+    "nome_fantasia": "ELETRONICA TUCURUVI",
+    "razao_social": "ELETRONICA TUCURUVI LIMITADA",
+    "cnpj_cpf": "46.101.655/0001-57",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "ELIAS SLEIMAN CHAIB",
+    "nome_fantasia": "ELIAS SLEIMAN CHAIB",
+    "razao_social": "ELIAS SLEIMAN CHAIB",
+    "cnpj_cpf": "14.446.583/0001-93",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "EMERSON DE CASTRO MACHADO DE OLIVEIRA EPP",
+    "nome_fantasia": "EMERSON DE CASTRO MACHADO DE OLIVEIRA EPP",
+    "razao_social": "EMERSON DE CASTRO MACHADO DE OLIVEIRA EPP",
+    "cnpj_cpf": "02.443.650/0002-18",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "EMPORIO SANTA CATARINA",
+    "nome_fantasia": "EMPORIO SANTA CATARINA",
+    "razao_social": "AMER MASARANI LTDA",
+    "cnpj_cpf": "46.792.260/0001-48",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "EMPORIO TAYBE ALIMENTOS LTDA",
+    "nome_fantasia": "EMPORIO TAYBE ALIMENTOS LTDA",
+    "razao_social": "EMPORIO TAYBE ALIMENTOS LTDA",
+    "cnpj_cpf": "47.030.758/0001-36",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "FOOD TO SAVE S.A.",
+    "nome_fantasia": "FOOD TO SAVE S.A.",
+    "razao_social": "FOOD TO SAVE S.A.",
+    "cnpj_cpf": "41.643.020/0001-68",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "FORNECEDORES DIVERSOS",
+    "nome_fantasia": "FORNECEDORES DIVERSOS",
+    "razao_social": "FORNECEDORES DIVERSOS",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "FORTE ALIMENTOS COMERCIO E IMPORTAÇÃO  LTDA",
+    "nome_fantasia": "FORTE ALIMENTOS COMERCIO E IMPORTAÇÃO  LTDA",
+    "razao_social": "FORTE ALIMENTOS COMERCIO E IMPORTACAO LTDA",
+    "cnpj_cpf": "21.498.077/0001-03",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "FRANCISCO DAS CHAGAS NETO DOCES ARABES",
+    "nome_fantasia": "FRANCISCO DAS CHAGAS NETO DOCES ARABES",
+    "razao_social": "FRANCISCO DAS CHAGAS NETO DOCES ARABES",
+    "cnpj_cpf": "10.887.045/0001-83",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "FREELANCER",
+    "nome_fantasia": "FREELANCER",
+    "razao_social": "FREELANCER",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+    "nome_fantasia": "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+    "razao_social": "FREXCO COMERCIO E DISTRIBUICAO DE ALIMENTOS S.A.",
+    "cnpj_cpf": "33.935.782/0001-00",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "GAC ANDORINHA",
+    "nome_fantasia": "GAC ANDORINHA",
+    "razao_social": "GAC EMPREENDIMENTOS IMOBILIARIOS S/A",
+    "cnpj_cpf": "20.113.466/0001-00",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "GALPAO CUCINA IND E COM DE ALIMENTOS LTDA",
+    "nome_fantasia": "GALPAO CUCINA IND E COM DE ALIMENTOS LTDA",
+    "razao_social": "GALPAO CUCINA IND E COM DE ALIMENTOS LTDA",
+    "cnpj_cpf": "40.534.082/0001-79",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "GETNET",
+    "nome_fantasia": "GETNET",
+    "razao_social": "GETNET",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "GETNET ADQUIRENCIA E SERVICOS PARA MEIOS DE PAGAMENTO S.A.",
+    "nome_fantasia": "GETNET ADQUIRENCIA E SERVICOS PARA MEIOS DE PAGAMENTO S.A.",
+    "razao_social": "GETNET ADQUIRENCIA E SERVICOS PARA MEIOS DE PAGAMENTO S.A.",
+    "cnpj_cpf": "10.440.482/0001-54",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "GIOVANNA FERNANDES DOS SANTOS",
+    "nome_fantasia": "GIOVANNA FERNANDES DOS SANTOS",
+    "razao_social": "GIOVANNA FERNANDES DOS SANTOS",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "GIULIA VERONEZ MARQUES BARROS",
+    "nome_fantasia": "GIULIA VERONEZ MARQUES BARROS",
+    "razao_social": "GIULIA VERONEZ MARQUES BARROS",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "GRANO ALIMENTOS S/A",
+    "nome_fantasia": "GRANO ALIMENTOS S/A",
+    "razao_social": "GRANO ALIMENTOS S/A",
+    "cnpj_cpf": "02.106.825/0004-63",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "HENRIQUE DE OLIVEIRA GERALDO",
+    "nome_fantasia": "HENRIQUE DE OLIVEIRA GERALDO",
+    "razao_social": "HENRIQUE DE OLIVEIRA GERALDO",
+    "cnpj_cpf": "239.736.538-36",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "IFINANCE",
+    "nome_fantasia": "IFINANCE",
+    "razao_social": "IFINANCE",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+    "nome_fantasia": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+    "razao_social": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+    "cnpj_cpf": "14.380.200/0001-21",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "Jean Malak Abdelsayed Farag Abdelsayed",
+    "nome_fantasia": "Jean Malak Abdelsayed Farag Abdelsayed",
+    "razao_social": "Jean Malak Abdelsayed Farag Abdelsayed",
+    "cnpj_cpf": "245.152.318-20",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "KALUNGA",
+    "nome_fantasia": "KALUNGA",
+    "razao_social": "KALUNGA",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "KOA",
+    "nome_fantasia": "KOA",
+    "razao_social": "KOA",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "KRAFTBOWLS",
+    "nome_fantasia": "KRAFTBOWLS",
+    "razao_social": "KRAFTBOWLS - INDUSTRIA E COMERCIO DE EMBALAGENS DE PAPEL LTDA",
+    "cnpj_cpf": "38.234.182/0001-38",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "LALAMOVE TECNOLOGIA (BRASIL) LTDA.",
+    "nome_fantasia": "LALAMOVE TECNOLOGIA (BRASIL) LTDA.",
+    "razao_social": "LALAMOVE TECNOLOGIA (BRASIL) LTDA.",
+    "cnpj_cpf": "34.538.625/0001-23",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "LUCAS WILLIANS GONCALVES DO AMARAL",
+    "nome_fantasia": "LUCAS WILLIANS GONCALVES DO AMARAL",
+    "razao_social": "LUCAS WILLIANS GONCALVES DO AMARAL",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "LUCILENE MARTINS DE ARAUJO",
+    "nome_fantasia": "LUCILENE MARTINS DE ARAUJO",
+    "razao_social": "LUCILENE MARTINS DE ARAUJO",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "MAK FRIGO REFRIGERACAO LTDA",
+    "nome_fantasia": "MAK FRIGO REFRIGERACAO LTDA",
+    "razao_social": "MAK FRIGO REFRIGERACAO LTDA",
+    "cnpj_cpf": "57.885.329/0001-02",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "MARCOS ELETRICISTA",
+    "nome_fantasia": "MARCOS ELETRICISTA",
+    "razao_social": "52.811.659 MARCOS ANTONIO SALES DE ARAUJO",
+    "cnpj_cpf": "52.811.659/0001-21",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "MART DIGITAL - JULIANA",
+    "nome_fantasia": "MART DIGITAL - JULIANA",
+    "razao_social": "JULIANA COSSETI MARTINS",
+    "cnpj_cpf": "58.594.811/0001-48",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "MERCADO LIVRE",
+    "nome_fantasia": "MERCADO LIVRE",
+    "razao_social": "MERCADO PAGO INSTITUICAO DE PAGAMENTO LTDA",
+    "cnpj_cpf": "10.573.521/0001-91",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "NICOLAS LUIZ RODRIGUES SANTOS",
+    "nome_fantasia": "NICOLAS LUIZ RODRIGUES SANTOS",
+    "razao_social": "NICOLAS LUIZ RODRIGUES SANTOS",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "NIPO CENTER IMPORT LTDA",
+    "nome_fantasia": "NIPO CENTER IMPORT LTDA",
+    "razao_social": "NIPO CENTER IMPORT LTDA",
+    "cnpj_cpf": "03.431.924/0001-30",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "NOVA MEGA G ATACADISTA DE ALIMENTOS S A",
+    "nome_fantasia": "NOVA MEGA G ATACADISTA DE ALIMENTOS S A",
+    "razao_social": "NOVA MEGA G ATACADISTA DE ALIMENTOS S A",
+    "cnpj_cpf": "19.043.440/0002-35",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "NUTRI MAIS",
+    "nome_fantasia": "NUTRI MAIS",
+    "razao_social": "CYNTHIA PAPA QUEIROZ LTDA",
+    "cnpj_cpf": "17.001.562/0001-52",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "PREFEITURA MUNICIPAL DE SAO PAULO",
+    "nome_fantasia": "PREFEITURA MUNICIPAL DE SAO PAULO",
+    "razao_social": "PREFEITURA MUNICIPAL DE SAO PAULO",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "RECEITA FEDERAL",
+    "nome_fantasia": "RECEITA FEDERAL",
+    "razao_social": "RECEITA FEDERAL",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "REFRICON MERCANTIL LTDA.",
+    "nome_fantasia": "REFRICON MERCANTIL LTDA.",
+    "razao_social": "REFRICON MERCANTIL LTDA.",
+    "cnpj_cpf": "64.494.149/0001-57",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SABINE MOHAMAD EL HAJJ SLEIMAN",
+    "nome_fantasia": "SABINE MOHAMAD EL HAJJ SLEIMAN",
+    "razao_social": "SABINE MOHAMAD EL HAJJ SLEIMAN",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "SARMAD MAHMOOD MOHAMMED AL",
+    "nome_fantasia": "SARMAD MAHMOOD MOHAMMED AL",
+    "razao_social": "SARMAD MAHMOOD MOHAMMED AL",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SINDIC FAST FOOD",
+    "nome_fantasia": "SINDIC FAST FOOD",
+    "razao_social": "SIND TRAB NAS EMPR DE FAST FOOD REFEIC RAPIDAS S.PAULO",
+    "cnpj_cpf": "01.480.456/0001-69",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SINDRESTAURANTES - SP",
+    "nome_fantasia": "SINDRESTAURANTES - SP",
+    "razao_social": "SINDICATO DE RESTAURANTES, BARES E SIMILARES DE SAO PAULO",
+    "cnpj_cpf": "17.090.637/0001-19",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SIOL ALIMENTOS LTDA",
+    "nome_fantasia": "SIOL ALIMENTOS LTDA",
+    "razao_social": "SIOL ALIMENTOS LTDA",
+    "cnpj_cpf": "44.242.287/0001-31",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+    "nome_fantasia": "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+    "razao_social": "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+    "cnpj_cpf": "61.186.888/0002-74",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+    "nome_fantasia": "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+    "razao_social": "SPAL INDUSTRIA BRASILEIRA DE BEBIDAS S/A",
+    "cnpj_cpf": "61.186.888/0182-11",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "SWFAST SISTEMAS",
+    "nome_fantasia": "SWFAST SISTEMAS",
+    "razao_social": "SWFAST TECNOLOGIA EM SOFTWARE LTDA",
+    "cnpj_cpf": "14.732.712/0001-00",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "TAKEAT.APP - GARCOM DIGITAL",
+    "nome_fantasia": "TAKEAT.APP - GARCOM DIGITAL",
+    "razao_social": "TAKEAT TECNOLOGIA LTDA",
+    "cnpj_cpf": "37.511.891/0001-50",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "TERRA BRASIL HORTI FRUTI LTDA.",
+    "nome_fantasia": "TERRA BRASIL HORTI FRUTI LTDA.",
+    "razao_social": "TERRA BRASIL HORTI FRUTI LTDA.",
+    "cnpj_cpf": "02.823.571/0001-51",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "TIAGO BATATAS E LEGUMES LTDA",
+    "nome_fantasia": "TIAGO BATATAS E LEGUMES LTDA",
+    "razao_social": "TIAGO BATATAS E LEGUMES LTDA",
+    "cnpj_cpf": "64.584.645/0001-00",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "TRIMAIS SUPERMERCADOS",
+    "nome_fantasia": "TRIMAIS SUPERMERCADOS",
+    "razao_social": "TRIMAIS SUPERMERCADOS",
+    "cnpj_cpf": "07.947.496/0002-35",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "TUCURUVI PARKING",
+    "nome_fantasia": "TUCURUVI PARKING",
+    "razao_social": "TUCURUVI PARKING LTDA.",
+    "cnpj_cpf": "37.429.571/0001-56",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "UBER",
+    "nome_fantasia": "UBER",
+    "razao_social": "UBER",
+    "cnpj_cpf": "",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "VENDAS CHEQUE",
+    "nome_fantasia": "VENDAS CHEQUE",
+    "razao_social": "VENDAS CHEQUE",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "VENDAS DELIVERY",
+    "nome_fantasia": "VENDAS DELIVERY",
+    "razao_social": "VENDAS DELIVERY",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "VENDAS DINHEIRO",
+    "nome_fantasia": "VENDAS DINHEIRO",
+    "razao_social": "VENDAS DINHEIRO",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "VENDAS PIX",
+    "nome_fantasia": "VENDAS PIX",
+    "razao_social": "VENDAS PIX",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "VENDAS VOUCHERS",
+    "nome_fantasia": "VENDAS VOUCHERS",
+    "razao_social": "VENDAS VOUCHERS",
+    "cnpj_cpf": "",
+    "definicao": "Cliente"
+  },
+  {
+    "codigo_cliente_omie": "WAN SAN COMERCIAL LTDA",
+    "nome_fantasia": "WAN SAN COMERCIAL LTDA",
+    "razao_social": "WAN SAN COMERCIAL LTDA",
+    "cnpj_cpf": "59.713.305/0001-93",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "YASSINE ORKHIS",
+    "nome_fantasia": "YASSINE ORKHIS",
+    "razao_social": "YASSINE ORKHIS",
+    "cnpj_cpf": "",
+    "definicao": "Ambos"
+  },
+  {
+    "codigo_cliente_omie": "ZANCHETTA ALIMENTOS LTDA",
+    "nome_fantasia": "ZANCHETTA ALIMENTOS LTDA",
+    "razao_social": "ZANCHETTA ALIMENTOS LTDA",
+    "cnpj_cpf": "69.258.911/0004-62",
+    "definicao": "Fornecedor"
+  },
+  {
+    "codigo_cliente_omie": "ZANCHETTA INDUSTRIA DE ALIMENTOS LTDA",
+    "nome_fantasia": "ZANCHETTA INDUSTRIA DE ALIMENTOS LTDA",
+    "razao_social": "ZANCHETTA INDUSTRIA DE ALIMENTOS LTDA",
+    "cnpj_cpf": "33.920.401/0001-19",
+    "definicao": "Fornecedor"
+  }
+]

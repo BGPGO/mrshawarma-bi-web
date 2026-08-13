@@ -155,7 +155,12 @@ async function fetchAllCartoes(year) {
     let pagina = 1;
     let monthTotal = 0;
     while (true) {
-      const { parcelas, totalPages } = await fetchCartoesPage('Receita', inicio, fim, 'Venda', pagina);
+      // 'Ambos', nao 'Receita': existem parcelas de cartao com Tipo='Despesa'
+      // (tarifa de voucher, tarifa de delivery, aluguel de POS, antecipacao, e
+      // "Ajustes a Debito de Cartao", categoria que so existe aqui). Com
+      // 'Receita' o BI nunca as via — R$ 7.064,61 em julho/2026 e R$ 8.370,18 no
+      // ano. O enum e exatamente Despesa|Receita|Ambos: 'Todos' devolve HTTP 400.
+      const { parcelas, totalPages } = await fetchCartoesPage('Ambos', inicio, fim, 'Venda', pagina);
       allCartoes.push(...parcelas);
       monthTotal += parcelas.length;
       if (pagina >= totalPages) break;

@@ -406,8 +406,13 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
         </div>
       </div>
 
-      {/* PONTO DE EQUILÍBRIO (break-even): Margem de Contribuição %, Ponto de Equilíbrio, Margem de Segurança % */}
-      <div className="card" style={{ marginTop: 16 }}>
+      {/* PONTO DE EQUILÍBRIO (break-even): Margem de Contribuição %, Ponto de Equilíbrio, Margem de Segurança %
+          Só aparece se as despesas estiverem classificadas em Fixa/Variável
+          (window.BIT_HAS_PE). Sem classificação as três contas degeneram pra
+          "margem de contribuição 100% · PE R$ 0,00 · margem de segurança 100%",
+          a última em VERDE — que é uma afirmação falsa e otimista, não um card
+          vazio. Melhor não existir. */}
+      {window.BIT_HAS_PE && <div className="card" style={{ marginTop: 16 }}>
         <SectionHeading strong="PONTO DE" soft="EQUILÍBRIO" />
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: 12, marginTop: 12 }}>
           <div className="indicator-card">
@@ -426,7 +431,7 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
             <div style={{ fontSize: 11, color: "var(--mute)", marginTop: 4 }}>(Receita − Ponto de equilíbrio) ÷ Receita</div>
           </div>
         </div>
-      </div>
+      </div>}
 
       {/* Fluxo de Caixa Projetado com toggle Consolidado / Sem Investimento */}
       {(function() {

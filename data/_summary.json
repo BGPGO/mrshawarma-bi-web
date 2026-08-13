@@ -1,0 +1,14 @@
+{
+  "fetched_at": "2026-08-13T20:46:02.450Z",
+  "empresa": "MR SHAWARMA FOOD LTDA",
+  "source": "F360",
+  "counts": {
+    "parcelas": 669,
+    "contas_pagar": 513,
+    "contas_receber": 156,
+    "categorias": 201,
+    "pessoas": 88,
+    "contas_bancarias": 4,
+    "centros_custo": 1
+  }
+}

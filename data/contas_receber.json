@@ -1,0 +1,6776 @@
+[
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a46cfe12a77205810854d21",
+    "Numero": "5216",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-01",
+    "Liquidacao": "2026-07-01",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 58,
+    "ValorLiquido": 58,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5216",
+      "TituloId": "6a46cfe12a77205810854d1f",
+      "Emissao": "2026-07-01",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 58,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 58,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a46cfe12a77205810854d2e",
+    "Numero": "5235",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-01",
+    "Liquidacao": "2026-07-01",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 24,
+    "ValorLiquido": 24,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5235",
+      "TituloId": "6a46cfe12a77205810854d2c",
+      "Emissao": "2026-07-01",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 24,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 24,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a4c307ce00de2441c849381",
+    "Numero": "5508",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-04",
+    "Liquidacao": "2026-07-04",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 77,
+    "ValorLiquido": 77,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5508",
+      "TituloId": "6a4c307ce00de2441c84937f",
+      "Emissao": "2026-07-04",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 77,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 77,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a4c307de00de2441c8493c6",
+    "Numero": "5546",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-05",
+    "Liquidacao": "2026-07-05",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 32.4,
+    "ValorLiquido": 32.4,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5546",
+      "TituloId": "6a4c307de00de2441c8493c4",
+      "Emissao": "2026-07-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 32.4,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 32.4,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a4c307de00de2441c84941f",
+    "Numero": "5582",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-05",
+    "Liquidacao": "2026-07-05",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 29,
+    "ValorLiquido": 29,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5582",
+      "TituloId": "6a4c307de00de2441c84941d",
+      "Emissao": "2026-07-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 29,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 29,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a4ec5c5fe7df2f3cb3c2e8c",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-01",
+    "Liquidacao": "2026-07-01",
+    "DataDeAtualizacao": "2026-07-08",
+    "ValorBruto": 202.08,
+    "ValorLiquido": 202.08,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a4ec5c5fe7df2f3cb3c2e8a",
+      "Emissao": "2026-07-01",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 202.08,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 202.08,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a4ec9442c2ee58c85b57cac",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-01",
+    "Liquidacao": "2026-07-01",
+    "DataDeAtualizacao": "2026-07-08",
+    "ValorBruto": 1641.95,
+    "ValorLiquido": 1641.95,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Cartão de Crédito / Débito",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a4ec9442c2ee58c85b57caa",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Cupom",
+      "TotalDeParcelas": 1,
+      "Valor": 1641.95,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "GETNET"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Débito e Crédito",
+        "Competencia": "2026-06",
+        "Valor": 1641.95,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Cupom Fiscal",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5006ccc22f92123ee887b4",
+    "Numero": "5589",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 25,
+    "ValorLiquido": 25,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5589",
+      "TituloId": "6a5006ccc22f92123ee887b2",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 25,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 25,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5006cec22f92123ee888d1",
+    "Numero": "5734",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 37,
+    "ValorLiquido": 37,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5734",
+      "TituloId": "6a5006cec22f92123ee888cf",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 37,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 37,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5006cfc22f92123ee888fa",
+    "Numero": "5751",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 44,
+    "ValorLiquido": 44,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5751",
+      "TituloId": "6a5006cfc22f92123ee888f8",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 44,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 44,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5006cfc22f92123ee8891b",
+    "Numero": "5765",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 166,
+    "ValorLiquido": 166,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5765",
+      "TituloId": "6a5006cfc22f92123ee88919",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 166,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 166,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a514769fe2fcebef7cc37a3",
+    "Numero": "5800",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-09",
+    "Liquidacao": "2026-07-09",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 159,
+    "ValorLiquido": 159,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5800",
+      "TituloId": "6a514769fe2fcebef7cc37a1",
+      "Emissao": "2026-07-09",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 159,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 159,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a514769fe2fcebef7cc37c2",
+    "Numero": "5813",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-09",
+    "Liquidacao": "2026-07-09",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 25,
+    "ValorLiquido": 25,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5813",
+      "TituloId": "6a514769fe2fcebef7cc37c0",
+      "Emissao": "2026-07-09",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 25,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 25,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5166b3dc0b5b9ed995029b",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-03",
+    "Liquidacao": "2026-07-03",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 0.09,
+    "ValorLiquido": 0.09,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Débito Automático",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5166b3dc0b5b9ed9950299",
+      "Emissao": "2026-07-03",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.09,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.09,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0a7",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 38,
+    "ValorLiquido": 38,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d0323741389288d0a5",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 38,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 38,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0b3",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 15,
+    "ValorLiquido": 15,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d0323741389288d0b1",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 15,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 15,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0bf",
+    "Numero": "14592034",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 29,
+    "ValorLiquido": 29,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "14592034",
+      "TituloId": "6a5168d0323741389288d0bd",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 29,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 29,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0cb",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 67,
+    "ValorLiquido": 67,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d0323741389288d0c9",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 67,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 67,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0d7",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 32,
+    "ValorLiquido": 32,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d0323741389288d0d5",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 32,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 32,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0e3",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d0323741389288d0e1",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d0323741389288d0fb",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 27,
+    "ValorLiquido": 27,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d0323741389288d0f9",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 27,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 27,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d11f",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 14,
+    "ValorLiquido": 14,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d11d",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 14,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 14,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d12b",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 54,
+    "ValorLiquido": 54,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d129",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 54,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 54,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d137",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 28,
+    "ValorLiquido": 28,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d135",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 28,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 28,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d143",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 28,
+    "ValorLiquido": 28,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d141",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 28,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 28,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d17f",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 29,
+    "ValorLiquido": 29,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d17d",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 29,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 29,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d18b",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 55,
+    "ValorLiquido": 55,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d189",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 55,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 55,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d197",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 49,
+    "ValorLiquido": 49,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d195",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 49,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 49,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d1a3",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 30,
+    "ValorLiquido": 30,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d1a1",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 30,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 30,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d1af",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d1ad",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d1bb",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 27,
+    "ValorLiquido": 27,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d1b9",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 27,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 27,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d1323741389288d1c7",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 63,
+    "ValorLiquido": 63,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d1323741389288d1c5",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 63,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 63,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d2323741389288d200",
+    "Numero": "13225890",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 42,
+    "ValorLiquido": 42,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "13225890",
+      "TituloId": "6a5168d2323741389288d1fe",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 42,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 42,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d2323741389288d20c",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 43,
+    "ValorLiquido": 43,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d2323741389288d20a",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 43,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 43,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d2323741389288d218",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 34,
+    "ValorLiquido": 34,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d2323741389288d216",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 34,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 34,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d2323741389288d230",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 50.4,
+    "ValorLiquido": 50.4,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d2323741389288d22e",
+      "Emissao": "2026-07-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 50.4,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 50.4,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d2323741389288d247",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-09",
+    "Liquidacao": "2026-07-09",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 49,
+    "ValorLiquido": 49,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d2323741389288d245",
+      "Emissao": "2026-07-09",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 49,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 49,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5168d2323741389288d253",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-09",
+    "Liquidacao": "2026-07-09",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 39,
+    "ValorLiquido": 39,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5168d2323741389288d251",
+      "Emissao": "2026-07-09",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 39,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 39,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a516d9b730af20fdd451ccf",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-10",
+    "ValorBruto": 0.02,
+    "ValorLiquido": 0.02,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Débito Automático",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a516d9b730af20fdd451ccd",
+      "Emissao": "2026-07-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.02,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.02,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a537916fc1a90ffe88b82d8",
+    "Numero": "5993",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-11",
+    "Liquidacao": "2026-07-11",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 18,
+    "ValorLiquido": 18,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "5993",
+      "TituloId": "6a537916fc1a90ffe88b82d6",
+      "Emissao": "2026-07-11",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 18,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 18,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a537918fc1a90ffe88b835d",
+    "Numero": "6066",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-11",
+    "Liquidacao": "2026-07-11",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 27,
+    "ValorLiquido": 27,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6066",
+      "TituloId": "6a537918fc1a90ffe88b835b",
+      "Emissao": "2026-07-11",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 27,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 27,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a55561afc1a90ffe810e274",
+    "Numero": "6088",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-12",
+    "Liquidacao": "2026-07-12",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6088",
+      "TituloId": "6a55561afc1a90ffe810e272",
+      "Emissao": "2026-07-12",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a55561afc1a90ffe810e28d",
+    "Numero": "6098",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-12",
+    "Liquidacao": "2026-07-12",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 64,
+    "ValorLiquido": 64,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6098",
+      "TituloId": "6a55561afc1a90ffe810e28b",
+      "Emissao": "2026-07-12",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 64,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 64,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a555d63d119645c04a258b3",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-01",
+    "Liquidacao": "2026-07-01",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 38,
+    "ValorLiquido": 38,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a555d63d119645c04a258b1",
+      "Emissao": "2026-07-01",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 38,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 38,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a556c8b536ecfff1245e0a1",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-05",
+    "Liquidacao": "2026-07-05",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 1.1,
+    "ValorLiquido": 1.1,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a556c8b536ecfff1245e09f",
+      "Emissao": "2026-07-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 1.1,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 1.1,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a556f1cfe3d97515f0e38c3",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 34,
+    "ValorLiquido": 34,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a556f1cfe3d97515f0e38c1",
+      "Emissao": "2026-07-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 34,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 34,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5574524e1e2b5953aefe44",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-10",
+    "Liquidacao": "2026-07-10",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 37.4,
+    "ValorLiquido": 37.4,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5574524e1e2b5953aefe42",
+      "Emissao": "2026-07-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 37.4,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 37.4,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a557ffd5d06fe784ce895c5",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-10",
+    "Liquidacao": "2026-07-10",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a557ffd5d06fe784ce895c3",
+      "Emissao": "2026-07-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a557ffd5d06fe784ce895d1",
+    "Numero": "12464871",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-10",
+    "Liquidacao": "2026-07-10",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 32,
+    "ValorLiquido": 32,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "12464871",
+      "TituloId": "6a557ffd5d06fe784ce895cf",
+      "Emissao": "2026-07-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 32,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 32,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a557ffd5d06fe784ce895dd",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-10",
+    "Liquidacao": "2026-07-10",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 37,
+    "ValorLiquido": 37,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a557ffd5d06fe784ce895db",
+      "Emissao": "2026-07-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 37,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 37,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a557ffd5d06fe784ce895e9",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-10",
+    "Liquidacao": "2026-07-10",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 6.3,
+    "ValorLiquido": 6.3,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a557ffd5d06fe784ce895e7",
+      "Emissao": "2026-07-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 6.3,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 6.3,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50bec74df4ff1269cc5",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 49,
+    "ValorLiquido": 49,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50bec74df4ff1269cc3",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 49,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 49,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50bec74df4ff1269cd1",
+    "Numero": "12494624",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 38,
+    "ValorLiquido": 38,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "12494624",
+      "TituloId": "6a56b50bec74df4ff1269ccf",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 38,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 38,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269cdd",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 46,
+    "ValorLiquido": 46,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269cdb",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 46,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 46,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269ce9",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 56,
+    "ValorLiquido": 56,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269ce7",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 56,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 56,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269cf5",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 29,
+    "ValorLiquido": 29,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269cf3",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 29,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 29,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d01",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 52,
+    "ValorLiquido": 52,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269cff",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 52,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 52,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d0d",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 30.6,
+    "ValorLiquido": 30.6,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d0b",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 30.6,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 30.6,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d19",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 86,
+    "ValorLiquido": 86,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d17",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 86,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 86,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d25",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 34,
+    "ValorLiquido": 34,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d23",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 34,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 34,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d31",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 39,
+    "ValorLiquido": 39,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d2f",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 39,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 39,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d3d",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 29,
+    "ValorLiquido": 29,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d3b",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 29,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 29,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d49",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d47",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a56b50cec74df4ff1269d85",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-14",
+    "ValorBruto": 71,
+    "ValorLiquido": 71,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a56b50cec74df4ff1269d83",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 71,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 71,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5b7702bc7a3318204c44aa",
+    "Numero": "6216",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-14",
+    "Liquidacao": "2026-07-14",
+    "DataDeAtualizacao": "2026-07-18",
+    "ValorBruto": 78,
+    "ValorLiquido": 78,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6216",
+      "TituloId": "6a5b7702bc7a3318204c44a8",
+      "Emissao": "2026-07-14",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 78,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 78,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5b7703bc7a3318204c44f1",
+    "Numero": "6249",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-15",
+    "Liquidacao": "2026-07-15",
+    "DataDeAtualizacao": "2026-07-18",
+    "ValorBruto": 32,
+    "ValorLiquido": 32,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6249",
+      "TituloId": "6a5b7703bc7a3318204c44ef",
+      "Emissao": "2026-07-15",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 32,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 32,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5b7705bc7a3318204c4598",
+    "Numero": "6330",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-16",
+    "Liquidacao": "2026-07-16",
+    "DataDeAtualizacao": "2026-07-18",
+    "ValorBruto": 32,
+    "ValorLiquido": 32,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6330",
+      "TituloId": "6a5b7704bc7a3318204c4596",
+      "Emissao": "2026-07-16",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 32,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 32,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5b7705bc7a3318204c4603",
+    "Numero": "6381",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-16",
+    "Liquidacao": "2026-07-16",
+    "DataDeAtualizacao": "2026-07-18",
+    "ValorBruto": 68,
+    "ValorLiquido": 68,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6381",
+      "TituloId": "6a5b7705bc7a3318204c4601",
+      "Emissao": "2026-07-16",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 68,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 68,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5b7706bc7a3318204c466a",
+    "Numero": "6430",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-17",
+    "Liquidacao": "2026-07-17",
+    "DataDeAtualizacao": "2026-07-18",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6430",
+      "TituloId": "6a5b7706bc7a3318204c4668",
+      "Emissao": "2026-07-17",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5eb2b1ec51603502c7c6e7",
+    "Numero": "6529",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-18",
+    "Liquidacao": "2026-07-18",
+    "DataDeAtualizacao": "2026-07-20",
+    "ValorBruto": 126,
+    "ValorLiquido": 126,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6529",
+      "TituloId": "6a5eb2b1ec51603502c7c6e5",
+      "Emissao": "2026-07-18",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 126,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 126,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5fe60af96e692493ab9f56",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-01",
+    "Liquidacao": "2026-07-01",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-07-21T21:35:43.758+00:00"
+    },
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 846.69,
+    "ValorLiquido": 846.69,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "Transferência Bancária",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5fe60af96e692493ab9f54",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 846.69,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DELIVERY"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Delivery",
+        "Competencia": "2026-06",
+        "Valor": 846.69,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5fe87ad808dfe0eab9a688",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-02",
+    "Liquidacao": "2026-07-02",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-07-21T21:45:38.352+00:00"
+    },
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 586.98,
+    "ValorLiquido": 586.98,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "Transferência Bancária",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5fe87ad808dfe0eab9a686",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 586.98,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DELIVERY"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Delivery",
+        "Competencia": "2026-06",
+        "Valor": 586.98,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5fed6e807df6d50cad386f",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-07-21T22:06:59.465+00:00"
+    },
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 419.37,
+    "ValorLiquido": 419.37,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "Transferência Bancária",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5fed6e807df6d50cad386d",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 419.37,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DELIVERY"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Delivery",
+        "Competencia": "2026-06",
+        "Valor": 419.37,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5fef674a0045e68111cbe9",
+    "Numero": "0",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-02",
+    "Liquidacao": "2026-07-02",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 34,
+    "ValorLiquido": 34,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "0",
+      "TituloId": "6a5fef674a0045e68111cbe7",
+      "Emissao": "2026-07-02",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 34,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 34,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5ff498d808dfe0eabcd5d2",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-03",
+    "Liquidacao": "2026-07-03",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 301.1,
+    "ValorLiquido": 301.1,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5ff498d808dfe0eabcd5d0",
+      "Emissao": "2026-07-03",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 301.1,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 301.1,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5ff689807df6d50caddf72",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-06",
+    "Liquidacao": "2026-07-06",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 194.74,
+    "ValorLiquido": 194.74,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5ff689807df6d50caddf70",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 194.74,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS VOUCHERS"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Vouchers",
+        "Competencia": "2026-06",
+        "Valor": 194.74,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5ff8d8807df6d50cae0b70",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-07",
+    "Liquidacao": "2026-07-07",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-07-21T22:55:35.198+00:00"
+    },
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 24,
+    "ValorLiquido": 24,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Transferência Bancária",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5ff8d8807df6d50cae0b6e",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 24,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS VOUCHERS"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Vouchers",
+        "Competencia": "2026-06",
+        "Valor": 24,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a5ffaa1f96e692493ad6e58",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-08",
+    "Liquidacao": "2026-07-08",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 90.78,
+    "ValorLiquido": 90.78,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a5ffaa1f96e692493ad6e56",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 90.78,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS VOUCHERS"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Vouchers",
+        "Competencia": "2026-06",
+        "Valor": 90.78,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6007c3807df6d50caeb236",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-21",
+    "ValorBruto": 0.07,
+    "ValorLiquido": 0.07,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Depósito em Conta",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a6007c3807df6d50caeb234",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.07,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.07,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a600824f96e692493adfde9",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 88.69,
+    "ValorLiquido": 88.69,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a600824f96e692493adfde7",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 88.69,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS VOUCHERS"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Vouchers",
+        "Competencia": "2026-06",
+        "Valor": 88.69,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a600bfcc2731ef9a8f3e868",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-14",
+    "Liquidacao": "2026-07-14",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 29,
+    "ValorLiquido": 29,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a600bfcc2731ef9a8f3e866",
+      "Emissao": "2026-07-14",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 29,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 29,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60112df96e692493ae6d88",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-15",
+    "Liquidacao": "2026-07-15",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 150,
+    "ValorLiquido": 150,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60112df96e692493ae6d86",
+      "Emissao": "2026-07-15",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 150,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 150,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6013a8b0412c2de1af50ca",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-15",
+    "Liquidacao": "2026-07-15",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 132.05,
+    "ValorLiquido": 132.05,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a6013a8b0412c2de1af50c8",
+      "Emissao": "2026-07-15",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 132.05,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "AMAZON.COM.BR",
+        "Inscricao": "15.436.940/0001-03"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Estorno de Valores - Entradas",
+        "Competencia": "2026-07",
+        "Valor": 132.05,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6013fef96e692493ae8d02",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-15",
+    "Liquidacao": "2026-07-15",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 40.42,
+    "ValorLiquido": 40.42,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a6013fef96e692493ae8d00",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 40.42,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS VOUCHERS"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Vouchers",
+        "Competencia": "2026-06",
+        "Valor": 40.42,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a609757555b21192085e50c",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-16",
+    "Liquidacao": "2026-07-16",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 0.01,
+    "ValorLiquido": 0.01,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a609757555b21192085e50a",
+      "Emissao": "2026-07-16",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.01,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.01,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a609d593f35a048cfdfd8dd",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-16",
+    "Liquidacao": "2026-07-16",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 431,
+    "ValorLiquido": 431,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a609d583f35a048cfdfd8db",
+      "Emissao": "2026-07-16",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 431,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 431,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a609d8f7d4c9b6d45dc593c",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-17",
+    "Liquidacao": "2026-07-17",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 225,
+    "ValorLiquido": 225,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a609d8f7d4c9b6d45dc5938",
+      "Emissao": "2026-07-17",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 225,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 225,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60a98f330b03ed1e44949a",
+    "Numero": "6690",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 50,
+    "ValorLiquido": 50,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6690",
+      "TituloId": "6a60a98f330b03ed1e449498",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 50,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 50,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60a98f330b03ed1e4494b9",
+    "Numero": "6707",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6707",
+      "TituloId": "6a60a98f330b03ed1e4494b7",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60a98f330b03ed1e4494c4",
+    "Numero": "6709",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6709",
+      "TituloId": "6a60a98f330b03ed1e4494c2",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60a98f330b03ed1e4494cd",
+    "Numero": "6710",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6710",
+      "TituloId": "6a60a98f330b03ed1e4494cb",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60a98f330b03ed1e4494d6",
+    "Numero": "6708",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6708",
+      "TituloId": "6a60a98f330b03ed1e4494d4",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60a98f330b03ed1e4494df",
+    "Numero": "6712",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 99,
+    "ValorLiquido": 99,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6712",
+      "TituloId": "6a60a98f330b03ed1e4494dd",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 99,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 99,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60b492ec55d1536ea0721f",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-15",
+    "Liquidacao": "2026-07-15",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 50.8,
+    "ValorLiquido": 50.8,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60b492ec55d1536ea0721d",
+      "Emissao": "2026-07-15",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 50.8,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 50.8,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60b682ec55d1536ea0d555",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-18",
+    "Liquidacao": "2026-07-18",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 10,
+    "ValorLiquido": 10,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60b682ec55d1536ea0d553",
+      "Emissao": "2026-07-18",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 10,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 10,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60ba2593169905657574ad",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-10",
+    "Liquidacao": "2026-07-10",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-07-22T12:40:15.125+00:00"
+    },
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 580.74,
+    "ValorLiquido": 580.74,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60ba2593169905657574ab",
+      "Emissao": "2026-07-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 580.74,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "FOOD TO SAVE S.A.",
+        "Inscricao": "41.643.020/0001-68"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Delivery",
+        "Competencia": "2026-07",
+        "Valor": 580.74,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60bab69316990565758d82",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-07-22T12:42:35.695+00:00"
+    },
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 0.06,
+    "ValorLiquido": 0.06,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "Débito Automático",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60bab69316990565758d80",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.06,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO ITAU"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.06,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60c3b9ec55d1536ea3b8d5",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-20",
+    "Liquidacao": "2026-07-20",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 0.06,
+    "ValorLiquido": 0.06,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60c3b9ec55d1536ea3b8d3",
+      "Emissao": "2026-07-20",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.06,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.06,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60c4ce147ee0e537c16cc6",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-20",
+    "Liquidacao": "2026-07-20",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 482.01,
+    "ValorLiquido": 482.01,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60c4ce147ee0e537c16cc4",
+      "Emissao": "2026-07-20",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 482.01,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 482.01,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60c60fec55d1536ea658e8",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 0.01,
+    "ValorLiquido": 0.01,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60c60fec55d1536ea658e6",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.01,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.01,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a60ccdfb9478f053f63bbff",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-22",
+    "ValorBruto": 89,
+    "ValorLiquido": 89,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a60ccdfb9478f053f63bbfd",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 89,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 89,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a63bfa0de5a6c545d6dc330",
+    "Numero": "6795",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-22",
+    "Liquidacao": "2026-07-22",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6795",
+      "TituloId": "6a63bfa0de5a6c545d6dc32e",
+      "Emissao": "2026-07-22",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a63bfa0de5a6c545d6dc339",
+    "Numero": "6796",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-22",
+    "Liquidacao": "2026-07-22",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6796",
+      "TituloId": "6a63bfa0de5a6c545d6dc337",
+      "Emissao": "2026-07-22",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a63bfa0de5a6c545d6dc378",
+    "Numero": "6797",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-22",
+    "Liquidacao": "2026-07-22",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6797",
+      "TituloId": "6a63bfa0de5a6c545d6dc376",
+      "Emissao": "2026-07-22",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a63d36363012912f6cc3722",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-21",
+    "Liquidacao": "2026-07-21",
+    "DataDeAtualizacao": "2026-07-24",
+    "ValorBruto": 23,
+    "ValorLiquido": 23,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a63d36363012912f6cc3720",
+      "Emissao": "2026-07-21",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 23,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 23,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a64e558a60f1b276d8f077c",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-22",
+    "Liquidacao": "2026-07-22",
+    "DataDeAtualizacao": "2026-07-25",
+    "ValorBruto": 147,
+    "ValorLiquido": 147,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a64e558a60f1b276d8f077a",
+      "Emissao": "2026-07-22",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 147,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 147,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67ad128760412c5f346688",
+    "Numero": "6870",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-24",
+    "Liquidacao": "2026-07-24",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 43,
+    "ValorLiquido": 43,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "6870",
+      "TituloId": "6a67ad128760412c5f346686",
+      "Emissao": "2026-07-24",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 43,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 43,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67ad148760412c5f3467a1",
+    "Numero": "7008",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-25",
+    "Liquidacao": "2026-07-25",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 54,
+    "ValorLiquido": 54,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7008",
+      "TituloId": "6a67ad148760412c5f34679f",
+      "Emissao": "2026-07-25",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 54,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 54,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67ad158760412c5f3467fa",
+    "Numero": "7050",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-26",
+    "Liquidacao": "2026-07-26",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7050",
+      "TituloId": "6a67ad158760412c5f3467f8",
+      "Emissao": "2026-07-26",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67b79f3c5373e6814f9cb4",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-13",
+    "Liquidacao": "2026-07-13",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 7.93,
+    "ValorLiquido": 7.93,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Cartão de Crédito / Débito",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67b79f3c5373e6814f9cb2",
+      "Emissao": "2026-07-13",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7.93,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "GETNET"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Ajustes a Crédito de Cartão",
+        "Competencia": "2026-07",
+        "Valor": 7.93,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67bfbd5b29b2106c7f3cc9",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-26",
+    "Liquidacao": "2026-07-26",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 1,
+    "ValorLiquido": 1,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67bfbd5b29b2106c7f3cc7",
+      "Emissao": "2026-07-26",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 1,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 1,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67c6b8bc0de2ac70b23bc8",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-23",
+    "Liquidacao": "2026-07-23",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 238.9,
+    "ValorLiquido": 238.9,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67c6b8bc0de2ac70b23bc6",
+      "Emissao": "2026-07-23",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 238.9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 238.9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67c6d7cf009c6792a84008",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-23",
+    "Liquidacao": "2026-07-23",
+    "DataDeAtualizacao": "2026-07-27",
+    "ValorBruto": 33,
+    "ValorLiquido": 33,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67c6d7cf009c6792a84006",
+      "Emissao": "2026-07-23",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 33,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 33,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67f8c3b067300219f36fba",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-24",
+    "Liquidacao": "2026-07-24",
+    "DataDeAtualizacao": "2026-07-28",
+    "ValorBruto": 176.2,
+    "ValorLiquido": 176.2,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67f8c3b067300219f36fb8",
+      "Emissao": "2026-07-24",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 176.2,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 176.2,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67f949997c58b63156069c",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-24",
+    "Liquidacao": "2026-07-24",
+    "DataDeAtualizacao": "2026-07-28",
+    "ValorBruto": 94,
+    "ValorLiquido": 94,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67f949997c58b63156069a",
+      "Emissao": "2026-07-24",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 94,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 94,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a67fbd75b29b2106c87027b",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-14",
+    "Liquidacao": "2026-07-14",
+    "DataDeAtualizacao": "2026-07-28",
+    "ValorBruto": 6172.05,
+    "ValorLiquido": 6172.05,
+    "Conta": "MR SHAWARMA - ZOOP - C.C. - 531419148-0",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a67fbd75b29b2106c870279",
+      "Emissao": "2026-06-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 6172.05,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "IFOOD AGENCIA DE SERVICOS DE RESTAURANTES LTDA",
+        "Inscricao": "14.380.200/0001-21"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Repasse de cupom Ifood",
+        "Competencia": "2026-06",
+        "Valor": 6172.05,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6a6cd6b70382e0b33b87cb",
+    "Numero": "7115",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-27",
+    "Liquidacao": "2026-07-27",
+    "DataDeAtualizacao": "2026-07-29",
+    "ValorBruto": 49,
+    "ValorLiquido": 49,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7115",
+      "TituloId": "6a6a6cd6b70382e0b33b87c9",
+      "Emissao": "2026-07-27",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 49,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 49,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6a6cd7b70382e0b33b887e",
+    "Numero": "7202",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-28",
+    "Liquidacao": "2026-07-28",
+    "DataDeAtualizacao": "2026-07-29",
+    "ValorBruto": 56,
+    "ValorLiquido": 56,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7202",
+      "TituloId": "6a6a6cd7b70382e0b33b887c",
+      "Emissao": "2026-07-28",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 56,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 56,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6a6cd8b70382e0b33b8889",
+    "Numero": "7205",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-28",
+    "Liquidacao": "2026-07-28",
+    "DataDeAtualizacao": "2026-07-29",
+    "ValorBruto": 25,
+    "ValorLiquido": 25,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7205",
+      "TituloId": "6a6a6cd8b70382e0b33b8887",
+      "Emissao": "2026-07-28",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 25,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 25,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6a6cd8b70382e0b33b88ae",
+    "Numero": "7221",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-28",
+    "Liquidacao": "2026-07-28",
+    "DataDeAtualizacao": "2026-07-29",
+    "ValorBruto": 27,
+    "ValorLiquido": 27,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7221",
+      "TituloId": "6a6a6cd8b70382e0b33b88ac",
+      "Emissao": "2026-07-28",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 27,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 27,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6bcaa02f713796764be40a",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-29",
+    "Liquidacao": "2026-07-29",
+    "DataDeAtualizacao": "2026-07-30",
+    "ValorBruto": 15,
+    "ValorLiquido": 15,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a6bcaa02f713796764be408",
+      "Emissao": "2026-07-29",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 15,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-07",
+        "Valor": 15,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a6bd446cb0ce4b4c480425d",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-23",
+    "Liquidacao": "2026-07-23",
+    "DataDeAtualizacao": "2026-07-30",
+    "ValorBruto": 0.01,
+    "ValorLiquido": 0.01,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "Outros",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a6bd446cb0ce4b4c480425b",
+      "Emissao": "2026-07-23",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.01,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO ITAU"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-07",
+        "Valor": 0.01,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a70a4044f0e6f43fc956c9e",
+    "Numero": "7300",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-30",
+    "Liquidacao": "2026-07-30",
+    "DataDeAtualizacao": "2026-08-03",
+    "ValorBruto": 63,
+    "ValorLiquido": 63,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7300",
+      "TituloId": "6a70a4044f0e6f43fc956c9c",
+      "Emissao": "2026-07-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 63,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 63,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a70a4054f0e6f43fc956d3b",
+    "Numero": "7376",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-31",
+    "Liquidacao": "2026-07-30",
+    "DataDeAtualizacao": "2026-08-03",
+    "ValorBruto": 18,
+    "ValorLiquido": 18,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7376",
+      "TituloId": "6a70a4054f0e6f43fc956d39",
+      "Emissao": "2026-07-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 18,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 18,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a70a4064f0e6f43fc956d6a",
+    "Numero": "7398",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-31",
+    "Liquidacao": "2026-07-31",
+    "DataDeAtualizacao": "2026-08-03",
+    "ValorBruto": 34,
+    "ValorLiquido": 34,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7398",
+      "TituloId": "6a70a4064f0e6f43fc956d68",
+      "Emissao": "2026-07-31",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 34,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-07",
+        "Valor": 34,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a71db62633793a04d26e519",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-27",
+    "Liquidacao": "2026-07-27",
+    "DataDeAtualizacao": "2026-08-04",
+    "ValorBruto": 359.7,
+    "ValorLiquido": 359.7,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a71db62633793a04d26e517",
+      "Emissao": "2026-07-27",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 359.7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 359.7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a71dc21bd69f4de89022588",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-28",
+    "Liquidacao": "2026-07-28",
+    "DataDeAtualizacao": "2026-08-04",
+    "ValorBruto": 236.6,
+    "ValorLiquido": 236.6,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a71dc21bd69f4de89022586",
+      "Emissao": "2026-07-28",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 236.6,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 236.6,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a71ebb5593723d134b5f5f6",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-30",
+    "Liquidacao": "2026-07-30",
+    "DataDeAtualizacao": "2026-08-04",
+    "ValorBruto": 388,
+    "ValorLiquido": 388,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a71ebb5593723d134b5f5f4",
+      "Emissao": "2026-07-30",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 388,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 388,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a71f34ed2523d57aec88c56",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-31",
+    "Liquidacao": "2026-07-31",
+    "DataDeAtualizacao": "2026-08-04",
+    "ValorBruto": 270.8,
+    "ValorLiquido": 270.8,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a71f34ed2523d57aec88c54",
+      "Emissao": "2026-07-31",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 270.8,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 270.8,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a71f3661d7d2e795bcfd5b5",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-31",
+    "Liquidacao": "2026-07-31",
+    "DataDeAtualizacao": "2026-08-04",
+    "ValorBruto": 291,
+    "ValorLiquido": 291,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a71f3661d7d2e795bcfd5b3",
+      "Emissao": "2026-07-31",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 291,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 291,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a71f65674290383f353f455",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-07-24",
+    "Liquidacao": "2026-07-24",
+    "DataDeAtualizacao": "2026-08-04",
+    "ValorBruto": 6,
+    "ValorLiquido": 6,
+    "Conta": "MR SHAWARMA - ITAU - CC 99177-6",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a71f65674290383f353f453",
+      "Emissao": "2026-07-24",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 6,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-07",
+        "Valor": 6,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a70a4094f0e6f43fc956e9b",
+    "Numero": "7547",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-01",
+    "Liquidacao": "2026-08-01",
+    "DataDeAtualizacao": "2026-08-03",
+    "ValorBruto": 100,
+    "ValorLiquido": 100,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7547",
+      "TituloId": "6a70a4094f0e6f43fc956e99",
+      "Emissao": "2026-08-01",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 100,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 100,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a70a40a4f0e6f43fc956edc",
+    "Numero": "7580",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-01",
+    "Liquidacao": "2026-08-01",
+    "DataDeAtualizacao": "2026-08-03",
+    "ValorBruto": 102,
+    "ValorLiquido": 102,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7580",
+      "TituloId": "6a70a40a4f0e6f43fc956eda",
+      "Emissao": "2026-08-01",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 102,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 102,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a748bf9f96e97e9809c4ba7",
+    "Numero": "7718",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-03",
+    "Liquidacao": "2026-08-03",
+    "DataDeAtualizacao": "2026-08-06",
+    "ValorBruto": 49,
+    "ValorLiquido": 49,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7718",
+      "TituloId": "6a748bf9f96e97e9809c4ba5",
+      "Emissao": "2026-08-03",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 49,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 49,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a748bfbf96e97e9809c4c88",
+    "Numero": "7828",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-05",
+    "Liquidacao": "2026-08-05",
+    "DataDeAtualizacao": "2026-08-06",
+    "ValorBruto": 9,
+    "ValorLiquido": 9,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7828",
+      "TituloId": "6a748bfbf96e97e9809c4c86",
+      "Emissao": "2026-08-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 9,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 9,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a75d2db31224fe80de978cf",
+    "Numero": "7930",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-06",
+    "Liquidacao": "2026-08-06",
+    "DataDeAtualizacao": "2026-08-07",
+    "ValorBruto": 37,
+    "ValorLiquido": 37,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "7930",
+      "TituloId": "6a75d2db31224fe80de978cd",
+      "Emissao": "2026-08-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 37,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 37,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a75e7945460e0867c84bcfe",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-05",
+    "Liquidacao": "2026-08-05",
+    "Metadados": {
+      "Numero": "1",
+      "UsuarioLiquidacaoNome": "Silmara",
+      "LiquidacaoSistema": "2026-08-07T14:16:24.171+00:00"
+    },
+    "DataDeAtualizacao": "2026-08-07",
+    "ValorBruto": 90.1,
+    "ValorLiquido": 90.1,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a75e7945460e0867c84bcfc",
+      "Emissao": "2026-08-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 90.1,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-08",
+        "Valor": 90.1,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7617ee5460e0867c9aee27",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-03",
+    "Liquidacao": "2026-08-03",
+    "DataDeAtualizacao": "2026-08-07",
+    "ValorBruto": 0.17,
+    "ValorLiquido": 0.17,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Débito Automático",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7617ee5460e0867c9aee23",
+      "Emissao": "2026-08-03",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.17,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-08",
+        "Valor": 0.17,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a761c3a98319a6bd3b604aa",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-03",
+    "Liquidacao": "2026-08-03",
+    "DataDeAtualizacao": "2026-08-07",
+    "ValorBruto": 736.3,
+    "ValorLiquido": 736.3,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a761c3a98319a6bd3b604a7",
+      "Emissao": "2026-08-03",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 736.3,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-08",
+        "Valor": 736.3,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a76248998319a6bd3baa821",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-04",
+    "Liquidacao": "2026-08-04",
+    "DataDeAtualizacao": "2026-08-07",
+    "ValorBruto": 128,
+    "ValorLiquido": 128,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a76248998319a6bd3baa81c",
+      "Emissao": "2026-08-04",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 128,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS PIX"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "102-1 - Vendas de Produtos - Transferência / PIX",
+        "Competencia": "2026-08",
+        "Valor": 128,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7634ba5460e0867cad7740",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-05",
+    "Liquidacao": "2026-08-05",
+    "DataDeAtualizacao": "2026-08-07",
+    "ValorBruto": 0.09,
+    "ValorLiquido": 0.09,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "Depósito em Conta",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7634ba5460e0867cad773d",
+      "Emissao": "2026-08-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.09,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-08",
+        "Valor": 0.09,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a79e911da4840f8c15288a2",
+    "Numero": "8128",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-08",
+    "Liquidacao": "2026-08-08",
+    "DataDeAtualizacao": "2026-08-11",
+    "ValorBruto": 20,
+    "ValorLiquido": 20,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "8128",
+      "TituloId": "6a79e911da4840f8c15288a0",
+      "Emissao": "2026-08-08",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 20,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 20,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a79e913da4840f8c15289a7",
+    "Numero": "8256",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-09",
+    "Liquidacao": "2026-08-09",
+    "DataDeAtualizacao": "2026-08-10",
+    "ValorBruto": 7,
+    "ValorLiquido": 7,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "8256",
+      "TituloId": "6a79e913da4840f8c15289a5",
+      "Emissao": "2026-08-09",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 7,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 7,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7a10980a15df71fbc8302f",
+    "ConciliadaComExtrato": false,
+    "Cancelada": false,
+    "Vencimento": "2026-08-08",
+    "Liquidacao": "2026-08-08",
+    "DataDeAtualizacao": "2026-08-11",
+    "ValorBruto": 20,
+    "ValorLiquido": 20,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado",
+    "DadosDoTitulo": {
+      "TituloId": "6a7a10980a15df71fbc8302d",
+      "Emissao": "2026-08-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 20,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-08",
+        "Valor": 20,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7b2d1eb454e55034f06ca3",
+    "Numero": "8282",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-10",
+    "Liquidacao": "2026-08-10",
+    "DataDeAtualizacao": "2026-08-11",
+    "ValorBruto": 53,
+    "ValorLiquido": 53,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "8282",
+      "TituloId": "6a7b2d1eb454e55034f06ca1",
+      "Emissao": "2026-08-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 53,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 53,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7c729b4c312a76648f9efb",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-11",
+    "Liquidacao": "2026-08-11",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 5,
+    "ValorLiquido": 5,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7c729b4c312a76648f9ef9",
+      "Emissao": "2026-08-11",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 5,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-08",
+        "Valor": 5,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7cc9408d73836db10d160b",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-06",
+    "Liquidacao": "2026-08-06",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 209,
+    "ValorLiquido": 209,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7cc9408d73836db10d1609",
+      "Emissao": "2026-08-06",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 209,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 209,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7cca1f075518434e45e0a1",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-07",
+    "Liquidacao": "2026-08-07",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 543.2,
+    "ValorLiquido": 543.2,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7cca1f075518434e45e09f",
+      "Emissao": "2026-08-07",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 543.2,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 543.2,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7ccb217f0da412be16f6e2",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-10",
+    "Liquidacao": "2026-08-10",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 0.12,
+    "ValorLiquido": 0.12,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7ccb217f0da412be16f6e0",
+      "Emissao": "2026-08-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 0.12,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "BANCO SANTANDER"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "303-2 - Rendimento de Aplic Financeira",
+        "Competencia": "2026-08",
+        "Valor": 0.12,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7ccb84075518434e462847",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-10",
+    "Liquidacao": "2026-08-10",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 1014.3,
+    "ValorLiquido": 1014.3,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7ccb84075518434e462845",
+      "Emissao": "2026-08-10",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 1014.3,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 1014.3,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7ccf218a229ffc75872c37",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-05",
+    "Liquidacao": "2026-08-05",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 131.3,
+    "ValorLiquido": 131.3,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7ccf218a229ffc75872c35",
+      "Emissao": "2026-08-05",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 131.3,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 131.3,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7cd592075518434e488cd6",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-11",
+    "Liquidacao": "2026-08-11",
+    "DataDeAtualizacao": "2026-08-12",
+    "ValorBruto": 47,
+    "ValorLiquido": 47,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7cd592075518434e488cd4",
+      "Emissao": "2026-08-11",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 47,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 47,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7dc5ae8667e29c243d53cb",
+    "Numero": "8388",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-12",
+    "Liquidacao": "2026-08-12",
+    "DataDeAtualizacao": "2026-08-13",
+    "ValorBruto": 114,
+    "ValorLiquido": 114,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "8388",
+      "TituloId": "6a7dc5ae8667e29c243d53c9",
+      "Emissao": "2026-08-12",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 114,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 114,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7dc5ae8667e29c243d53ec",
+    "Numero": "8402",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-12",
+    "Liquidacao": "2026-08-12",
+    "DataDeAtualizacao": "2026-08-13",
+    "ValorBruto": 30,
+    "ValorLiquido": 30,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "NumeroDoTitulo": "8402",
+      "TituloId": "6a7dc5ae8667e29c243d53ea",
+      "Emissao": "2026-08-12",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 30,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 30,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7e043385282593cd6f1ad9",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-12",
+    "Liquidacao": "2026-08-12",
+    "DataDeAtualizacao": "2026-08-13",
+    "ValorBruto": 175,
+    "ValorLiquido": 175,
+    "Conta": "MR SHAWARMA - SANTANDER - C.C.-130059365",
+    "MeioDePagamento": "PIX",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7e043385282593cd6f1ad7",
+      "Emissao": "2026-08-12",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 175,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Vendas de Mercadorias",
+        "Competencia": "2026-08",
+        "Valor": 175,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  },
+  {
+    "Registro": "Parcela de título",
+    "Tipo": "Receita",
+    "ParcelaId": "6a7e0861173310069a37ce82",
+    "ConciliadaComExtrato": true,
+    "Cancelada": false,
+    "Vencimento": "2026-08-12",
+    "Liquidacao": "2026-08-12",
+    "DataDeAtualizacao": "2026-08-13",
+    "ValorBruto": 1.01,
+    "ValorLiquido": 1.01,
+    "Conta": "CAIXA LOJA MR SHAWARMA FOOD LTDA",
+    "MeioDePagamento": "Dinheiro",
+    "Status": "Liquidado (Conciliado)",
+    "DadosDoTitulo": {
+      "TituloId": "6a7e0861173310069a37ce80",
+      "Emissao": "2026-08-12",
+      "TipoDeDocumento": "Outros",
+      "TotalDeParcelas": 1,
+      "Valor": 1.01,
+      "Observacao": "",
+      "Empresa": {
+        "Nome": "MR SHAWARMA FOOD LTDA",
+        "Inscricao": "60.389.790/0001-70"
+      },
+      "ClienteFornecedor": {
+        "Nome": "VENDAS DINHEIRO"
+      }
+    },
+    "Rateio": [
+      {
+        "CentroDeCusto": "MR SHAWARMA FOOD LTDA",
+        "PlanoDeContas": "Sobra de Caixa",
+        "Competencia": "2026-08",
+        "Valor": 1.01,
+        "Tipo": "Receita"
+      }
+    ],
+    "TipoDeDocumento": "Outros",
+    "NumeroDaParcela": 1,
+    "Parcelamento": "1/1"
+  }
+]
