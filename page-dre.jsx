@@ -233,9 +233,27 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
   const despFixas = tot("6") + tot("7") + tot("8") + tot("9");   // já vêm negativos
   const margemContribPct = receitaBruta ? margemContribuicao / receitaBruta : 0;
   const margemEbitda = receitaBruta ? ebitda / receitaBruta : 0;
-  // Ponto de equilíbrio: despesa fixa / % de margem de contribuição
-  const pontoEquilibrio = margemContribPct ? Math.abs(despFixas) / margemContribPct : 0;
   const pct = (v) => (v * 100).toFixed(2).replace(".", ",") + "%";
+
+  // PONTO DE EQUILÍBRIO — pela classificação fixo/variável que ela definiu em
+  // 16/08/2026 (PE_POR_LINHA / PE_POR_CATEGORIA em components.jsx).
+  //
+  // Até aqui o "fixo" deste cálculo era um proxy: as linhas 6+7+8+9 da cascata.
+  // Isso jogava a linha 4 INTEIRA como variável (CMV junto com a folha da
+  // operação) e a linha 9 INTEIRA como fixa (comercial junto com marketing) —
+  // exatamente as duas coisas que ela corrigiu. E havia um segundo PE, o card
+  // da Visão Geral, com outra definição ainda. Agora os dois leem daqui.
+  const peCob = useMemo(() => {
+    const rows = txCtx.filter(r => r[1]
+      && Number(r[1].slice(0, 4)) === refYear
+      && mesesIdx.includes(parseInt(r[1].slice(5, 7), 10) - 1));
+    return window.peCobertura(rows);
+  }, [txCtx, refYear, mesesIdx]);
+  // Base = Receitas Operacionais (linha 1), a mesma base da coluna % V dela.
+  const peMcPct = receitaBruta ? (receitaBruta - peCob.V) / receitaBruta : 0;
+  const pontoEquilibrio = peMcPct > 0 ? peCob.F / peMcPct : 0;
+  const peMargemSeg = (pontoEquilibrio > 0 && receitaBruta) ? (receitaBruta - pontoEquilibrio) / receitaBruta : 0;
+  const peSemClasse = Object.keys(peCob.categorias.semClasse);
 
   // Invariante: a cascata mais as não mapeadas têm que reproduzir a soma
   // assinada de TODAS as rows do período. Se não, algo está sendo engolido.
@@ -510,8 +528,42 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
             </table>
             <div className="status-line" style={{ marginTop: 6, fontSize: 10.5 }}>
               Margens sobre as Receitas Operacionais (linha 1) — a mesma base da coluna % V
-              do relatório dela.
+              do relatório dela. "Despesas fixas" aqui são as linhas 6 a 9 da cascata dela;
+              o Ponto de Equilíbrio usa a classificação fixo/variável do card abaixo, que é
+              outro recorte.
             </div>
+          </div>
+
+          {/* Ponto de Equilíbrio com os insumos declarados. O mesmo indicador já
+              exibiu "margem de contribuição 100% · PE R$ 0,00 · margem de
+              segurança 100%" em verde quando a classificação estava vazia — não
+              parecia defeito, parecia empresa saudável. Por isso a cobertura é
+              parte do card, não um detalhe escondido. */}
+          <div className="card">
+            <h2 className="card-title">Ponto de Equilíbrio — fixo x variável</h2>
+            <table className="t t-ind">
+              <tbody>
+                <tr><td>Receitas Operacionais (base)</td><td className="num">{fmt(receitaBruta)}</td></tr>
+                <tr><td>Custos variáveis</td><td className="num">{fmt(peCob.V)}</td></tr>
+                <tr><td>Custos fixos</td><td className="num">{fmt(peCob.F)}</td></tr>
+                <tr><td>% Margem de contribuição</td><td className="num">{pct(peMcPct)}</td></tr>
+                <tr className="total"><td>Ponto de Equilíbrio</td><td className="num">{fmt(pontoEquilibrio)}</td></tr>
+                <tr><td>Margem de segurança</td><td className="num">{pct(peMargemSeg)}</td></tr>
+              </tbody>
+            </table>
+            <div className="status-line" style={{ marginTop: 6, fontSize: 10.5, lineHeight: 1.6 }}>
+              <strong>Variável</strong>: Deduções, Impostos, CMV, embalagens e taxas de canal
+              comercial. <strong>Fixo</strong>: Pessoal, Administrativas, TI, Marketing,
+              Financeiras e a folha da operação. Investimentos ficam fora do cálculo
+              ({fmt(peCob.fora)}), como ela pediu.
+            </div>
+            {peSemClasse.length > 0 ? (
+              <div className="dre-aviso dre-aviso-atencao" style={{ marginTop: 8 }}>
+                <strong>{peSemClasse.length} categoria(s) sem classificação fixo/variável</strong>
+                {" "}({fmt(peCob.semClasse)}) ficaram fora do cálculo: {peSemClasse.join(" · ")}.
+                Isso é defeito, não modelagem — reportar.
+              </div>
+            ) : null}
           </div>
 
           {/* Reconciliação contra o arquivo que ela mandou. Só aparece quando o
@@ -568,10 +620,19 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                     exemplo, tem lançamentos de 07 e 10/08 que não existiam no arquivo dela.
                   </div>
                   <div style={{ marginTop: 5 }}>
-                    Duas diferenças ainda dependem de definição dela: qual data conta como
-                    competência (o F360 grava um campo próprio no rateio, e o relatório usa a
-                    emissão — no aluguel de julho isso vale R$ 4.875,94), e em que linha entram
-                    {" "}<em>Repasse de cupom Ifood</em> e <em>Ajustes a Débito de Cartão</em>.
+                    <strong>As definições pendentes foram respondidas em 16/08/2026</strong> e já
+                    estão aplicadas: competência = o campo <em>Competência</em> do rateio do F360
+                    (era a emissão), <em>Repasse de cupom Ifood</em> entra em Receitas Operacionais
+                    e <em>Ajustes a Débito de Cartão</em> segue em Deduções.
+                  </div>
+                  <div style={{ marginTop: 5 }}>
+                    <strong>Com isso a linha 7 se afasta do relatório dela, de propósito.</strong> O
+                    campo <em>Competência</em> do F360 fica um mês atrás da emissão: a parcela de
+                    aluguel com competência 07/2026 é a emitida em 06/08, de R$ 25.613,96, enquanto
+                    a planilha dela usa a emitida em 06/07, de R$ 20.738,02. São parcelas
+                    diferentes, não duplicadas — uma por mês, conferido no dado bruto. A planilha
+                    dela, apesar de dizer "Regime Competência", segue a emissão. Δ de R$ 4.875,94
+                    nessa linha, que é o número que antecipamos ao perguntar.
                   </div>
                 </div>
               </React.Fragment>

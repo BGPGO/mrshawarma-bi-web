@@ -362,7 +362,8 @@ function normalizeF360(m) {
   const _emissao = parseBR(d.dDtRegistro);
   let dataComp = _emissao || dataVenc || dataPago;
   const _comp = d._f360_competencia || '';
-  if (/^d{4}-d{2}$/.test(_comp)) {
+  const _compOk = /^\d{4}-\d{2}$/.test(_comp);
+  if (_compOk) {
     const _y = Number(_comp.slice(0, 4)), _m = Number(_comp.slice(5, 7)) - 1;
     dataComp = (_emissao && _emissao.getFullYear() === _y && _emissao.getMonth() === _m)
       ? _emissao
@@ -391,7 +392,11 @@ function normalizeF360(m) {
     empresa: d._f360_empresa || '',
     projeto: '',
     data_comp: dataComp,
-    comp_fallback: !parseBR(d.dDtRegistro),
+    // "entrou pela data de caixa" = nao tinha competencia no rateio NEM emissao.
+    // Antes do conserto do regex acima esta flag media outra coisa (so a
+    // ausencia de emissao) e dava 0 em toda a base, entao o aviso da DRE nunca
+    // aparecia — justamente enquanto o BI inteiro rodava em emissao.
+    comp_fallback: !_compOk && !_emissao,
     // No F360 o nCodCC ja vem com o NOME da conta ("MR SHAWARMA - SANTANDER -
     // C.C.-130059365"), nao um codigo — nao precisa resolver contra
     // contas_correntes.json. O campo _f360_conta existe no fetch mas so no
@@ -1139,23 +1144,50 @@ window.computePE = function (statusFilter, drilldown, year, month, semInv, extra
     const mm = String(month).padStart(2, '0');
     dd = { type: 'mes', value: y + '-' + mm, label: y + '-' + mm };
   }
-  let filtered = filterTx(ALL_TX, sf, dd);
+  // MESMO contexto do recomputeBit: regime, conta e visao tambem. Faltavam os
+  // tres aqui, entao em Competencia o card do PE somava por data de CAIXA
+  // enquanto a DRE somava por competencia — dois numeros diferentes pro mesmo
+  // indicador, na mesma entrega.
+  let fonte = ALL_TX;
+  if (extraFilters && extraFilters.regime === 'competencia') {
+    fonte = [];
+    for (const r of ALL_TX) {
+      if (!r[15]) continue;
+      const c = r.slice();
+      c[1] = r[15]; c[2] = r[16];
+      fonte.push(c);
+    }
+  }
+  let filtered = filterTx(fonte, sf, dd);
   if (semInv) filtered = filterTxSemInv(filtered);
   if (extraFilters) {
     const cc = extraFilters.centroCusto;
     const cat = extraFilters.categoria;
     const emp = extraFilters.empresa;
+    const cta = extraFilters.conta;
     if (cc && cc.length > 0) { const s = new Set(cc); filtered = filtered.filter(r => s.has(r[8] || '')); }
     if (cat && cat.length > 0) { const s = new Set(cat); filtered = filtered.filter(r => s.has(r[3])); }
     if (emp && emp.length > 0) { const s = new Set(emp); filtered = filtered.filter(r => s.has(r[11] || '')); }
+    if (cta && cta.length > 0) { const s = new Set(cta); filtered = filtered.filter(r => s.has(r[17] || '')); }
   }
+  if (!extraFilters || extraFilters.visao !== 'completo') filtered = filtered.filter(r => !r[14]);
+  // Classificacao Fixo/Variavel: quando o bundle define window.peClassOf (mapa
+  // por linha da DRE, em components.jsx), ele manda. O row[10] vem de
+  // categoria_superior, campo que o F360 grava vazio em 201/201 categorias —
+  // manter so ele era o que deixava o PE desligado.
+  const _pe = window.peClassOf;
+  // Base da receita: quando o bundle define peEhReceitaBase, e a linha 1 da DRE
+  // (Receitas Operacionais) — a mesma base que a tela da DRE usa. Somar TODA
+  // receita incluiria a financeira e daria um PE diferente do da outra tela.
+  const _base = window.peEhReceitaBase;
   let receita = 0, custosFixos = 0, custosVariaveis = 0;
   for (let i = 0; i < filtered.length; i++) {
     const row = filtered[i];
     if (!row[1] || Number(row[1].slice(0, 4)) !== y) continue;
-    if (row[0] === 'r') { receita += row[5]; continue; }
-    if (row[10] === 'F') custosFixos += row[5];
-    else if (row[10] === 'V') custosVariaveis += row[5];
+    if (row[0] === 'r') { if (_base ? _base(row) : true) receita += row[5]; continue; }
+    const klass = _pe ? _pe(row[3]) : row[10];
+    if (klass === 'F') custosFixos += row[5];
+    else if (klass === 'V') custosVariaveis += row[5];
   }
   const margemContrib = receita > 0 ? (receita - custosVariaveis) / receita : null;
   const pontoEquilibrio = (margemContrib != null && margemContrib > 0) ? custosFixos / margemContrib : null;

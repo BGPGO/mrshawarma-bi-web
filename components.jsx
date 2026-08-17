@@ -23,6 +23,13 @@ const DRE_MAP = {
   "Ajustes a Crédito de Cartão":                                                { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
   "Outras Receitas Ifood":                                                      { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
   "Vendas de Mercadorias":                                                      { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
+  // Definido pela Silmara em 16/08/2026: "acredito que esse valor seja
+  // positivo, vamos colocar dentro de receitas operacionais - são vendas
+  // delivery". Ja vinha como receita no F360, entao o sinal nao muda — o que
+  // muda e sair da linha "Nao mapeadas" pra dentro da cascata.
+  // ATENCAO ao mes: o rateio do F360 diz competencia 2026-06 (emissao 30/06,
+  // pagamento 14/07). O "julho" de R$ 6.172,05 que ela citou e o mes de CAIXA.
+  "Repasse de cupom Ifood":                                                     { grupo: "RECEITAS OPERACIONAIS",             dre: "1" },
   // linha 2 — Deduções de Receitas
   "431-9 - Tarifa de Cartao / Meios de Pagamento - Aluguel de POS / Outras Taxas":{ grupo: "Deduções de Receitas",              dre: "2" },
   "431-9 - Tarifa de Cartao / Meios de Pagamento - Antecipação":                { grupo: "Deduções de Receitas",              dre: "2" },
@@ -89,6 +96,11 @@ const DRE_MAP = {
   "431-5 - Despesas Bancarias":                                                 { grupo: "Despesas Financeiras",              dre: "12" },
   "432-0 - Juros Passivos":                                                     { grupo: "Despesas Financeiras",              dre: "12" },
   "Falta de Caixa":                                                             { grupo: "Despesas Financeiras",              dre: "12" },
+  // Via codigo irmao (431-5 Despesas Bancarias ja esta aqui) e por natureza:
+  // multa e juros de conta paga em atraso e despesa financeira. Nao estava na
+  // planilha dela; 1 lancamento, R$ 164,19 em mai/2026. Confirmar com ela —
+  // com esta entrada a DRE fica com ZERO categorias nao mapeadas.
+  "431-8 - Multa e Juros Sobre Contas Pg em Atraso":                            { grupo: "Despesas Financeiras",              dre: "12" },
   // linha 14 — Investimentos e Outros
   "112-5 - Maquinas e Equipamentos":                                            { grupo: "Investimentos e Outros",            dre: "14" },
 };
@@ -175,6 +187,101 @@ const dreClassify = (categoria) => {
 window.dreClassify = dreClassify;
 window.DRE_ESTRUTURA = DRE_ESTRUTURA;
 window.GRUPO_OMIE_ORDEM = GRUPO_OMIE_ORDEM;
+
+/* ==========================================================================
+ * FIXO x VARIÁVEL — o que alimenta o Ponto de Equilíbrio
+ * ==========================================================================
+ * Definido pela Silmara em 16/08/2026, respondendo à pergunta do ponto de
+ * equilíbrio:
+ *
+ *   "Deduções e Impostos = variáveis; Pessoal, Administrativas, TI e
+ *    Financeiras = fixas; Investimentos fora do cálculo."
+ *   Despesas Operacionais (linha 4): "se conseguir separar, pode separar"
+ *   Comerciais e Marketing (linha 9): "Comercial é variável, Marketing é fixo"
+ *
+ * Mora AQUI, e não no bi.config.js, porque a classificação é função da LINHA
+ * DA DRE — e a linha só existe neste arquivo, no DRE_MAP. Em config viraria uma
+ * segunda verdade sobre a mesma categoria, livre pra divergir em silêncio.
+ *
+ * Também não vem do `categoria_superior` como no Omie: o F360 grava esse campo
+ * vazio em 201 de 201 categorias, e era exatamente por isso que o Ponto de
+ * Equilíbrio estava desligado (BIT_HAS_PE=false) desde a criação deste BI.
+ *
+ * Quatro valores: 'F' fixo · 'V' variável · '-' fora do cálculo, de propósito
+ * · '' não classificada (é DEFEITO, e a tela declara a contagem).
+ * ========================================================================== */
+const PE_POR_LINHA = {
+  "1":  "-",   // Receitas Operacionais — é a receita, não custo
+  "2":  "V",   // Deduções de Receitas
+  "3":  "V",   // Impostos Sobre o Faturamento
+  "4":  "F",   // Despesas Operacionais — default fixo; CMV e embalagem são exceção abaixo
+  "6":  "F",   // Despesas Com Pessoal
+  "7":  "F",   // Despesas Administrativas
+  "8":  "F",   // Despesas Com TI
+  "9":  "F",   // Comerciais e Marketing — default Marketing (fixo); comercial é exceção
+  "11": "-",   // Receitas Financeiras — receita, não custo (ela disse "Financeiras = fixas"
+               //   falando das DESPESAS; classificar receita como custo fixo seria absurdo)
+  "12": "F",   // Despesas Financeiras
+  "14": "-",   // Investimentos e Outros — ela pediu fora do cálculo
+};
+
+/* Exceções por categoria. Vencem a linha. São só estas quatro — cada uma é uma
+ * frase dela, não uma inferência minha. */
+const PE_POR_CATEGORIA = {
+  // linha 4: "mistura CMV e embalagens, que variam com o faturamento, com
+  // salários da operação, que são fixos" — o que varia vira V, o resto da
+  // linha fica no default F (OP Salarios, OP Freelancer, OP Vale Transporte,
+  // e mais Serviços Técnicos, Móveis e Utensílios, Fretes e Outros Serviços,
+  // que ela NÃO citou — confirmar).
+  "400-0 - Custo de Mercadorias Vendidas": "V",
+  "400-0 - Custo de Embalagens":           "V",
+  // linha 9: "Comercial é variável, Marketing é fixo". Marketing Digital fica
+  // no default F; as duas taxas de canal de venda vão pra V.
+  // A "Taxa de manutenção mensal Ifood" é mensal e fixa em valor, mas é custo
+  // de canal comercial — classifiquei pela regra dela e listei no painel de
+  // cobertura pra ela ver e corrigir se discordar (jul: R$ 237,43).
+  "Aluguel de POS / Outras Taxas":         "V",
+  "Taxa de manutenção mensal Ifood":       "V",
+};
+
+const peClassOf = (categoria) => {
+  const cat = String(categoria || "").trim();
+  const exc = PE_POR_CATEGORIA[cat];
+  if (exc) return exc;
+  const z = dreClassify(cat);
+  if (!z.mapeadaDre) return "";
+  return PE_POR_LINHA[z.dre] || "";
+};
+window.peClassOf = peClassOf;
+
+/* Base da receita do PE = linha 1 (Receitas Operacionais), a mesma base da
+ * coluna "% V" do relatório dela e a mesma que a tela da DRE usa. O computePE
+ * somava TODA receita, o que puxava a financeira pra dentro e fazia o card da
+ * Visão Geral discordar da DRE no mesmo dia. */
+const peEhReceitaBase = (row) => row[0] === "r" && dreClassify(row[3]).dre === "1";
+window.peEhReceitaBase = peEhReceitaBase;
+
+/* BIT_HAS_PE é recalculado aqui, sobrescrevendo o do data.js. O data.js decide
+ * pelo row[10] (que vem de categoria_superior e é vazio em toda a base do
+ * F360); a partir de agora quem manda é a classificação acima. Ordem de carga:
+ * data.js roda antes do bundle, então este arquivo é o último a falar. */
+window.BIT_HAS_PE = Array.isArray(window.ALL_TX)
+  && window.ALL_TX.some(r => r[0] === "d" && (peClassOf(r[3]) === "F" || peClassOf(r[3]) === "V"));
+
+/* Cobertura da classificação, pra tela declarar em vez de mostrar saúde por
+ * omissão. Devolve os totais por classe e a lista do que ficou de fora. */
+const peCobertura = (rows) => {
+  const out = { F: 0, V: 0, fora: 0, semClasse: 0, receita: 0, categorias: { F: {}, V: {}, fora: {}, semClasse: {} } };
+  for (const r of rows || []) {
+    if (r[0] === "r") { out.receita += r[5]; continue; }
+    const c = peClassOf(r[3]);
+    const bucket = c === "F" ? "F" : c === "V" ? "V" : c === "-" ? "fora" : "semClasse";
+    out[bucket] += r[5];
+    out.categorias[bucket][r[3]] = (out.categorias[bucket][r[3]] || 0) + r[5];
+  }
+  return out;
+};
+window.peCobertura = peCobertura;
 
 /* txNoContexto — devolve as rows do ALL_TX sob o MESMO contexto de filtro que
  * o `recomputeBit` aplica (status + drilldown + semInvestimento + extraFilters).

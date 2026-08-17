@@ -448,6 +448,33 @@ const PageOverview = ({ filters, setFilters, onOpenFilters, statusFilter, drilld
             <div style={{ fontSize: 11, color: "var(--mute)", marginTop: 4 }}>(Receita − Ponto de equilíbrio) ÷ Receita</div>
           </div>
         </div>
+        {/* Declarar a base. Sem isto o card é caixa-preta: três percentuais sem
+            dizer o que ele chamou de fixo. A classificação é a que a Silmara
+            definiu em 16/08 (PE_POR_LINHA em components.jsx) e é a MESMA que a
+            tela de DRE usa — conferido por script de paridade. */}
+        <div className="status-line" style={{ marginTop: 10, fontSize: 10.5, lineHeight: 1.6 }}>
+          Receita = Receitas Operacionais (linha 1 da DRE). <strong>Variável</strong>: deduções,
+          impostos, CMV, embalagens e taxas de canal comercial. <strong>Fixo</strong>: pessoal,
+          administrativas, TI, marketing, financeiras e a folha da operação. Investimentos ficam
+          fora. Mesma conta da tela de DRE.
+        </div>
+        {/* A assimetria previsto/realizado do F360 distorce o PE fora do status
+            Realizado: despesa recorrente entra cadastrada até dezembro e receita
+            futura não existe, porque venda não se pré-lança. Sem este aviso o
+            card mostra margem de segurança de −437% no ano e parece falência. */}
+        {(function () {
+          if (statusFilter === "realizado") return null;
+          const a = window.assimetriaFutura ? window.assimetriaFutura((B.META && B.META.ref_year) || year) : null;
+          if (!a || !a.relevante) return null;
+          return (
+            <div className="dre-aviso dre-aviso-atencao" style={{ marginTop: 8 }}>
+              Neste status o Ponto de Equilíbrio está distorcido: há {B.fmt(a.despesa)} de despesa
+              futura cadastrada contra {B.fmt(a.receita)} de receita futura — venda não se
+              pré-lança, despesa recorrente sim. Para leitura de break-even use o status
+              <strong> Realizado</strong>.
+            </div>
+          );
+        })()}
       </div>}
 
       {/* Fluxo de Caixa Projetado com toggle Consolidado / Sem Investimento */}
