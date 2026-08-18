@@ -251,17 +251,7 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
               <b> {diaDe}–{diaAte}</b>.</>
           : <> (fechamento do mês anterior).</>}
         {" "}Dia com saldo negativo aparece em vermelho.
-        {/* Por que a linha para onde para. Sem isto o corte vira mais uma
-            decisao silenciosa: quem olha nao sabe se acabou o mes ou o dado. */}
-        {!diaDe && ehMesCorrente && diaAte0 <= diaHoje && <> A linha vai até <b>hoje
-          ({diaAte0}/{String(mesIdx + 1).padStart(2, "0")})</b>; o resto do mês ainda não aconteceu.</>}
-        {/* Lançamento liquidado com data À FRENTE de hoje existe (antecipação de
-            cartão, agendamento baixado). Nesse caso a linha passa de hoje, e
-            dizer "vai até hoje" seria falso — o eixo é maior que o presente. */}
-        {!diaDe && ehMesCorrente && diaAte0 > diaHoje && <> A linha vai até
-          <b> {diaAte0}/{String(mesIdx + 1).padStart(2, "0")}</b>: há lançamento já liquidado com
-          data à frente de hoje ({diaHoje}). O resto do mês ainda não aconteceu.</>}
-        {!diaDe && !ehMesCorrente && <> Mês fechado — a linha cobre os {diaAte0} dias.</>}
+
       </div>
 
       {/* A legenda carrega o VALOR, igual à do gráfico de Receitas e despesas da
@@ -362,6 +352,22 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
             );
           })()}
         </svg>
+        {/* A nota de onde a linha termina fica AQUI, embaixo, e nao no subtitulo
+            do card: ela descreve o fim do eixo, e no topo ficava no canto oposto
+            ao que descreve — com a pagina rolada some da tela junto com o titulo,
+            que foi exatamente como o Henrique nao a encontrou. */}
+        {!diaDe && (
+          <div className="status-line" style={{ fontSize: 10.5, textAlign: "right", marginTop: 2, paddingRight: 28 }}>
+            {ehMesCorrente && diaAte0 <= diaHoje &&
+              <>A linha termina em <b>hoje ({diaAte0}/{String(mesIdx + 1).padStart(2, "0")})</b> — o resto do mês ainda não aconteceu.</>}
+            {/* Lançamento liquidado com data À FRENTE de hoje existe (antecipação
+                de cartão, agendamento baixado): aí dizer "até hoje" seria falso. */}
+            {ehMesCorrente && diaAte0 > diaHoje &&
+              <>A linha termina em <b>{diaAte0}/{String(mesIdx + 1).padStart(2, "0")}</b>, além de hoje ({diaHoje}):
+                há lançamento já liquidado com data à frente.</>}
+            {!ehMesCorrente && <>Mês fechado — a linha cobre os {diaAte0} dias.</>}
+          </div>
+        )}
       </div>
     </div>
   );
