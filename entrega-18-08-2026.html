@@ -1,5 +1,5 @@
 <meta charset="utf-8">
-<title>Ajustes nos painéis — iFinance · 18/08/2026</title>
+<title>Ajustes nos painéis — MedConsulting e Mr Shawarma · 18/08/2026</title>
 <style>
   :root{
     --tinta:#1c2126; --tinta-2:#454f5a; --tinta-3:#6b7683;
@@ -7,7 +7,7 @@
     --acento:#0f6e8c; --acento-fraco:#e6f1f5;
     --verde:#137a4a; --verde-fraco:#e8f4ee;
     --ambar:#8a5a00; --ambar-fraco:#fdf3e0;
-    --vermelho:#a3282d;
+    --vermelho:#a3282d; --vermelho-fraco:#fdeced;
   }
   *{box-sizing:border-box}
   body{
@@ -15,13 +15,13 @@
     font-family:-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
     font-size:15px; line-height:1.65; -webkit-font-smoothing:antialiased;
   }
-  .folha{max-width:860px; margin:0 auto; background:var(--papel); padding:0 0 56px}
+  .folha{max-width:880px; margin:0 auto; background:var(--papel); padding:0 0 56px}
   .faixa{background:var(--tinta); color:#fff; padding:30px 44px 26px}
   .faixa .de{font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#9fb0bd}
   .faixa h1{margin:8px 0 6px; font-size:25px; line-height:1.25; font-weight:600; letter-spacing:-.01em}
   .faixa .sub{color:#c3ced7; font-size:14px}
   .corpo{padding:0 44px}
-  h2{margin:38px 0 14px; font-size:17px; font-weight:650; letter-spacing:-.01em;
+  h2{margin:40px 0 14px; font-size:17px; font-weight:650; letter-spacing:-.01em;
      padding-bottom:8px; border-bottom:2px solid var(--linha)}
   h3{margin:24px 0 8px; font-size:14.5px; font-weight:650}
   p{margin:0 0 12px}
@@ -31,6 +31,14 @@
   .lead{font-size:16px; color:var(--tinta-2); margin:22px 0 6px}
   a{color:var(--acento)}
 
+  /* Cabecalho de cada BI. O documento cobre dois paineis e a leitora opera os
+     dois: sem uma marca visual forte, ela perde de qual esta lendo. */
+  .bi{display:flex; align-items:center; gap:12px; margin:44px 0 4px;
+      padding:14px 18px; border-radius:8px; background:var(--tinta); color:#fff}
+  .bi .tag{font-size:10.5px; letter-spacing:.14em; text-transform:uppercase; color:#9fb0bd}
+  .bi .nome{font-size:18px; font-weight:650; line-height:1.2}
+  .bi .fonte{margin-left:auto; font-size:12px; color:#9fb0bd; text-align:right}
+
   table{border-collapse:collapse; width:100%; margin:14px 0 6px; font-size:13.5px}
   th,td{padding:8px 10px; text-align:left; border-bottom:1px solid var(--linha); vertical-align:top}
   th{font-size:11px; letter-spacing:.07em; text-transform:uppercase;
@@ -38,9 +46,11 @@
   td.num,th.num{text-align:right; font-variant-numeric:tabular-nums; white-space:nowrap}
   .ok{color:var(--verde); font-weight:650}
   .dif{color:var(--vermelho); font-weight:650}
+  .tw{overflow-x:auto}
 
   .caixa{border:1px solid var(--linha); border-left:3px solid var(--acento);
     background:var(--acento-fraco); padding:14px 18px; margin:18px 0; border-radius:0 6px 6px 0}
+  .caixa.aviso{border-left-color:var(--ambar); background:var(--ambar-fraco)}
   .caixa p:last-child{margin-bottom:0}
   .caixa .titulo{font-weight:650; margin-bottom:6px}
 
@@ -60,8 +70,11 @@
   .resumo-pedido strong,.resumo-pedido em{color:#fff}
   .resumo-pedido .mini{color:#9fb0bd}
   ol.perguntas{margin:12px 0 0; padding-left:22px}
-  ol.perguntas li{margin-bottom:9px; color:#d3dbe2}
+  ol.perguntas li{margin-bottom:11px; color:#d3dbe2}
   ol.perguntas li::marker{color:#7fc4dd; font-weight:650}
+  .alvo{display:inline-block; font-size:10px; letter-spacing:.1em; text-transform:uppercase;
+    background:rgba(255,255,255,.14); color:#cfe3ec; padding:1px 7px; border-radius:10px;
+    margin-right:7px; vertical-align:2px}
 
   .rodape{margin:44px 44px 0; padding-top:18px; border-top:1px solid var(--linha);
     color:var(--tinta-3); font-size:12.5px}
@@ -71,53 +84,70 @@
     .corpo,.faixa{padding-left:22px; padding-right:22px}
     .rodape{margin-left:22px; margin-right:22px}
     table{font-size:12.5px} th,td{padding:7px 6px}
+    .bi{flex-wrap:wrap} .bi .fonte{margin-left:0; text-align:left; width:100%}
   }
   @media print{
     body{background:#fff; font-size:11pt}
     .folha{max-width:none}
     h2{page-break-after:avoid}
-    .decisao,.caixa,table,.resumo-pedido{page-break-inside:avoid}
+    .decisao,.caixa,table,.resumo-pedido,.bi{page-break-inside:avoid}
     /* O bloco escuro vira mancha de tinta no papel, e se o navegador descartar
        o fundo o texto claro some no branco. Impresso, ele vira moldura. */
-    .resumo-pedido{background:#fff !important; color:var(--tinta) !important;
+    .resumo-pedido,.bi{background:#fff !important; color:var(--tinta) !important;
       border:2px solid var(--tinta); border-radius:6px}
-    .resumo-pedido .titulo,.resumo-pedido p,.resumo-pedido li{color:var(--tinta) !important}
+    .resumo-pedido .titulo,.resumo-pedido p,.resumo-pedido li,
+    .bi .tag,.bi .fonte{color:var(--tinta) !important}
+    .alvo{border:1px solid var(--tinta); color:var(--tinta) !important; background:none}
   }
 </style>
 
 <div class="folha">
   <div class="faixa">
     <div class="de">BGP GO &middot; BI Financeiro</div>
-    <h1>Ajustes nos painéis da MedConsulting</h1>
+    <h1>Ajustes nos pain&eacute;is da MedConsulting e do Mr Shawarma</h1>
     <div class="sub">Rodada de 17 e 18 de agosto de 2026 &middot; para Silmara Ferreira, iFinance</div>
   </div>
 
   <div class="corpo">
     <p class="lead">
-      Esta rodada saiu dos seus áudios e prints. São três partes: <strong>números que estavam
-      errados</strong> e foram corrigidos, <strong>o que foi construído</strong>, e
-      <strong>números que parecem errados e não estão</strong> — com a explicação de cada um.
-      No fim, o que ainda depende de uma decisão sua.
+      Esta rodada saiu dos seus &aacute;udios, prints e das quatro defini&ccedil;&otilde;es que
+      voc&ecirc; mandou no dia 16. Como voc&ecirc; opera os dois pain&eacute;is, o documento cobre
+      os dois &mdash; primeiro cada um separado, depois o que valeu para ambos.
+    </p>
+    <p class="mini">
+      A ordem &eacute; sempre a mesma: <strong>o que estava errado</strong> (porque voc&ecirc; pode
+      ter usado algum desses n&uacute;meros), <strong>o que foi constru&iacute;do</strong>, e
+      <strong>o que parece errado e n&atilde;o est&aacute;</strong>. No fim, o que depende de uma
+      decis&atilde;o sua. Nenhum n&uacute;mero foi ajustado para fechar com o seu relat&oacute;rio.
     </p>
 
-    <h2>1. Números que estavam errados</h2>
-    <p>Começo por estes porque você pode ter usado algum deles em algum relatório.</p>
+    <!-- ================================================================== -->
+    <div class="bi">
+      <div>
+        <div class="tag">Painel 1</div>
+        <div class="nome">MedConsulting</div>
+      </div>
+      <div class="fonte">fonte: Omie<br>ifinance-bi.187.77.238.125.sslip.io</div>
+    </div>
+
+    <h2>1. N&uacute;meros que estavam errados</h2>
+    <p>Come&ccedil;o por estes porque voc&ecirc; pode ter usado algum deles em algum relat&oacute;rio.</p>
 
     <div class="decisao">
-      <div class="cab"><div class="n">1</div><div class="t">O filtro de período não estreitava — ele aumentava o número</div></div>
+      <div class="cab"><div class="n">1</div><div class="t">O filtro de per&iacute;odo n&atilde;o estreitava &mdash; ele aumentava o n&uacute;mero</div></div>
       <p>
-        Você apontou que o filtro "não estava surtindo efeito". Era pior que isso: ao escolher um
-        intervalo de dias, o painel <strong>perdia também o filtro de mês</strong> e passava a somar
+        Voc&ecirc; apontou que o filtro "n&atilde;o estava surtindo efeito". Era pior que isso: ao escolher um
+        intervalo de dias, o painel <strong>perdia tamb&eacute;m o filtro de m&ecirc;s</strong> e passava a somar
         tudo o que existe na base.
       </p>
-      <table>
-        <tr><th>O que você selecionava</th><th class="num">Despesa exibida</th><th class="num">Correto</th></tr>
+      <div class="tw"><table>
+        <tr><th>O que voc&ecirc; selecionava</th><th class="num">Despesa exibida</th><th class="num">Correto</th></tr>
         <tr><td>Agosto, sem recorte de dia</td><td class="num">R$ 19.464,25</td><td class="num ok">R$ 19.464,25</td></tr>
         <tr><td>Agosto + intervalo 18 a 31</td><td class="num dif">R$ 222.206,99</td><td class="num ok">R$ 17.204,45</td></tr>
         <tr><td>Agosto + dia 20</td><td class="num dif">R$ 64.293,64</td><td class="num ok">R$ 14.346,68</td></tr>
-      </table>
+      </table></div>
       <div class="efeito">
-        No intervalo, o painel estava mostrando lançamentos de julho de 2026 até janeiro de 2028.
+        No intervalo, o painel estava mostrando lan&ccedil;amentos de julho de 2026 at&eacute; janeiro de 2028.
         No dia, mostrava o dia 20 de <em>todos</em> os meses.
       </div>
     </div>
@@ -125,219 +155,361 @@
     <div class="decisao">
       <div class="cab"><div class="n">2</div><div class="t">A curva de saldo acumulado inventava R$ 476 mil</div></div>
       <p>
-        No gráfico "Saldo acumulado por mês" da Tesouraria, o cálculo somava duas vezes a mesma
-        variação. De agosto em diante ele acrescentava os mesmos R$ 119,2 mil todo mês, para sempre:
-        dezembro aparecia com <strong>R$ 943,30 mil</strong> onde o número real é R$ 466,7 mil.
+        No gr&aacute;fico "Saldo acumulado por m&ecirc;s" da Tesouraria, o c&aacute;lculo somava duas vezes a mesma
+        varia&ccedil;&atilde;o. De agosto em diante ele acrescentava os mesmos R$ 119,2 mil todo m&ecirc;s, para sempre:
+        dezembro aparecia com <strong>R$ 943,30 mil</strong> onde o n&uacute;mero real &eacute; R$ 466,7 mil.
       </p>
       <div class="efeito">
-        O mesmo gráfico também não reagia a filtro nenhum do cabeçalho — desenhava a mesma linha em
+        O mesmo gr&aacute;fico tamb&eacute;m n&atilde;o reagia a filtro nenhum do cabe&ccedil;alho &mdash; desenhava a mesma linha em
         Realizado, A pagar/receber e Tudo.
       </div>
     </div>
 
     <div class="decisao">
-      <div class="cab"><div class="n">3</div><div class="t">A curva começava no dia errado</div></div>
+      <div class="cab"><div class="n">3</div><div class="t">A curva come&ccedil;ava no dia errado</div></div>
       <p>
-        Cada ponto da curva é o saldo no <strong>fim</strong> do mês. Mas o mês corrente estava
-        ancorado no saldo de <strong>hoje</strong> — então tudo o que ainda vence no resto do mês
+        Cada ponto da curva &eacute; o saldo no <strong>fim</strong> do m&ecirc;s. Mas o m&ecirc;s corrente estava
+        ancorado no saldo de <strong>hoje</strong> &mdash; ent&atilde;o tudo o que ainda vence no resto do m&ecirc;s
         sumia, e a curva inteira ficava deslocada em <strong>R$ 43.128,35</strong>.
       </p>
       <div class="efeito">
-        Agora a âncora é o fechamento do mês anterior. Julho fecha em R$ 437.405,17 e agosto passa a
-        valer R$ 509.819,39 — o fim do mês, já incluindo o que ainda vence.
+        Agora a &acirc;ncora &eacute; o fechamento do m&ecirc;s anterior. Julho fecha em R$ 437.405,17 e agosto passa a
+        valer R$ 509.819,39 &mdash; o fim do m&ecirc;s, j&aacute; incluindo o que ainda vence.
       </div>
     </div>
 
     <div class="decisao">
-      <div class="cab"><div class="n">4</div><div class="t">O Ponto de Equilíbrio usava uma receita que a tela já não usava</div></div>
+      <div class="cab"><div class="n">4</div><div class="t">O Ponto de Equil&iacute;brio usava uma receita que a tela j&aacute; n&atilde;o usava</div></div>
       <p>
-        O cartão mostrava receita de <strong>R$ 463.878,81</strong> enquanto o indicador logo acima,
-        na mesma tela, mostrava R$ 264.250,89. A diferença era o refinanciamento de 12/08, que a
-        visão Operacional tira do resultado justamente por não ser receita do negócio.
+        O cart&atilde;o mostrava receita de <strong>R$ 463.878,81</strong> enquanto o indicador logo acima,
+        na mesma tela, mostrava R$ 264.250,89. A diferen&ccedil;a era o refinanciamento de 12/08, que a
+        vis&atilde;o Operacional tira do resultado justamente por n&atilde;o ser receita do neg&oacute;cio.
       </p>
       <div class="efeito">
-        O cartão passou a acompanhar regime, conta e visão, e a declarar o que deixa de fora:
-        empréstimos e conta corrente dos sócios, R$ 788 mil, 40% da despesa do ano.
+        O cart&atilde;o passou a acompanhar regime, conta e vis&atilde;o, e a declarar o que deixa de fora:
+        empr&eacute;stimos e conta corrente dos s&oacute;cios, R$ 788 mil, 40% da despesa do ano.
       </div>
     </div>
 
     <div class="decisao">
-      <div class="cab"><div class="n">5</div><div class="t">Os gráficos de pulso diário estavam congelados</div></div>
+      <div class="cab"><div class="n">5</div><div class="t">Os gr&aacute;ficos de pulso di&aacute;rio estavam congelados</div></div>
       <p>
         "Pulso de receitas" e "Pulso de despesas", na Tesouraria, reagiam apenas ao status e
-        ignoravam regime, conta, categoria e visão. Corrigimos na origem, junto com outros quatro
+        ignoravam regime, conta, categoria e vis&atilde;o. Corrigimos na origem, junto com outros quatro
         indicadores que tinham exatamente o mesmo problema.
       </p>
     </div>
 
-    <h2>2. O que foi construído</h2>
+    <h2>2. O que foi constru&iacute;do</h2>
 
-    <h3>Relatório Semanal — a tela nova</h3>
+    <h3>Relat&oacute;rio Semanal &mdash; a tela nova</h3>
     <p>
-      É o seu e-mail semanal montado sozinho. Reúne num lugar só o que hoje você junta de duas
-      planilhas do Omie com dois gráficos do BI antigo:
+      &Eacute; o seu e-mail semanal montado sozinho. Re&uacute;ne num lugar s&oacute; o que hoje voc&ecirc; junta de duas
+      planilhas do Omie com dois gr&aacute;ficos do BI antigo:
     </p>
     <ul>
-      <li><strong>Contas a pagar do período</strong>, com Vencimento, Previsão, Razão Social,
-        Categoria, Observação, Valor e <strong>Situação</strong></li>
-      <li><strong>Fluxo de caixa previsto dia a dia</strong> — clique numa barra e as tabelas acima
+      <li><strong>Contas a pagar do per&iacute;odo</strong>, com Vencimento, Previs&atilde;o, Raz&atilde;o Social,
+        Categoria, Observa&ccedil;&atilde;o, Valor e <strong>Situa&ccedil;&atilde;o</strong></li>
+      <li><strong>Fluxo de caixa previsto dia a dia</strong> &mdash; clique numa barra e as tabelas acima
         recortam naquele dia</li>
-      <li><strong>Clientes em atraso</strong> e <strong>Fornecedores em atraso</strong></li>
-      <li>Janela de 7, 15 ou 30 dias, ou o período que você escolher no cabeçalho</li>
+      <li><strong>Clientes em atraso</strong> e <strong>Fornecedores em atraso</strong>, cada um com o
+        t&iacute;tulo mais antigo em aberto</li>
+      <li>Janela de 7, 15 ou 30 dias, ou o per&iacute;odo que voc&ecirc; escolher no cabe&ccedil;alho</li>
     </ul>
     <p>
-      Cada tabela tem três botões de cópia, porque cada destino precisa de um formato diferente:
+      Cada tabela tem tr&ecirc;s bot&otilde;es de c&oacute;pia, porque cada destino precisa de um formato diferente:
       <strong>E-mail</strong> cola tabela formatada com cores no Outlook; <strong>WhatsApp</strong>
-      cola em lista com negrito e ícone, já que ele não renderiza tabela; e <strong>Excel</strong>
-      cola em colunas, com o valor como número e pronto para somar.
+      cola em lista com negrito e &iacute;cone, j&aacute; que ele n&atilde;o renderiza tabela; e <strong>Excel</strong>
+      cola em colunas, com o valor como n&uacute;mero e pronto para somar.
     </p>
 
     <div class="caixa">
-      <div class="titulo">A coluna Situação é calculada por nós</div>
+      <div class="titulo">A coluna Situa&ccedil;&atilde;o &eacute; calculada por n&oacute;s</div>
       <p>
-        O Omie não tem esse campo — ele guarda só PAGO, A VENCER, ATRASADO, VENCE HOJE e CANCELADO.
-        "Agendado" não existe lá. As regras leem o que <strong>você</strong> registra: observação
-        começando com "PREVISÃO" vira <em>aguardando valor</em>; débito automático vira <em>débito em
-        conta</em>; guia de arrecadação vira <em>aguardando guia</em>; e fornecedor com outro título
+        O Omie n&atilde;o tem esse campo &mdash; ele guarda s&oacute; PAGO, A VENCER, ATRASADO, VENCE HOJE e CANCELADO.
+        "Agendado" n&atilde;o existe l&aacute;. As regras leem o que <strong>voc&ecirc;</strong> registra: observa&ccedil;&atilde;o
+        come&ccedil;ando com "PREVIS&Atilde;O" vira <em>aguardando valor</em>; d&eacute;bito autom&aacute;tico vira <em>d&eacute;bito em
+        conta</em>; guia de arrecada&ccedil;&atilde;o vira <em>aguardando guia</em>; e fornecedor com outro t&iacute;tulo
         vencido em aberto vira <em>tem vencido</em>.
       </p>
       <p>
         Testamos contra a sua planilha de 18 a 31 de julho: <strong>acertou 8 das 9 linhas</strong>
-        que dava para conferir. A que errou está na pergunta 1, no fim.
+        que dava para conferir. A que errou est&aacute; na pergunta 1, no fim.
       </p>
     </div>
 
-    <h3>Gráfico diário acumulado, no Fluxo de Caixa</h3>
-    <p>
-      O gráfico de três linhas que você viu no BI da Griffe: receita acumulada, despesa acumulada e
-      saldo, dia a dia, com o ponto do saldo em vermelho quando o dia fecha negativo. A legenda
-      carrega os valores — a tela é para imprimir, e print não tem "passar o mouse".
-    </p>
-
-    <h3>Tudo abre por dia quando você filtra por dia</h3>
+    <h3>Tudo abre por dia quando voc&ecirc; filtra por dia</h3>
     <ul>
       <li><strong>Fluxo de Caixa</strong>: com intervalo selecionado, as colunas da tabela viram os
-        dias do período em vez dos meses</li>
-      <li><strong>Receita</strong> e <strong>Despesa</strong>: o gráfico "por mês" vira "por dia", e
-        a "Média por mês" — que repetia o total quando havia um mês filtrado — vira média por dia</li>
+        dias do per&iacute;odo em vez dos meses</li>
+      <li><strong>Receita</strong> e <strong>Despesa</strong>: o gr&aacute;fico "por m&ecirc;s" vira "por dia", e
+        a "M&eacute;dia por m&ecirc;s" &mdash; que repetia o total quando havia um m&ecirc;s filtrado &mdash; vira m&eacute;dia por dia</li>
       <li><strong>Tesouraria</strong>: o "Fluxo a vencer" passou a respeitar o intervalo e ganhou as
-        três colunas que você pediu, Previsão de entrada, Previsão de saída e Geração de caixa, mais
-        um botão <strong>Expandir</strong> para o print sair grande</li>
-      <li><strong>Despesa</strong>: o extrato também ganhou Expandir</li>
+        tr&ecirc;s colunas que voc&ecirc; pediu, Previs&atilde;o de entrada, Previs&atilde;o de sa&iacute;da e Gera&ccedil;&atilde;o de caixa, mais
+        um bot&atilde;o <strong>Expandir</strong> para o print sair grande</li>
+      <li><strong>Despesa</strong>: o extrato tamb&eacute;m ganhou Expandir</li>
     </ul>
 
     <h3>Acabamento do filtro</h3>
     <p>
-      O seletor de dia tinha cor fixa e sumia no tema claro. Escolher "Intervalo" não fazia nada até
-      preencher os dois campos — agora ele já entra com o mês inteiro e você estreita a partir dali.
-      E o antigo "limpar recorte (3)", que não dizia <em>quais</em> três, virou a lista do que está
+      O seletor de dia tinha cor fixa e sumia no tema claro. Escolher "Intervalo" n&atilde;o fazia nada at&eacute;
+      preencher os dois campos &mdash; agora ele j&aacute; entra com o m&ecirc;s inteiro e voc&ecirc; estreita a partir dali.
+      E o antigo "limpar recorte (3)", que n&atilde;o dizia <em>quais</em> tr&ecirc;s, virou a lista do que est&aacute;
       filtrado, com um X em cada item.
     </p>
 
-    <h2>3. Números que parecem errados e não estão</h2>
-    <p>Estes quatro geram dúvida com frequência. Todos estão explicados dentro do próprio painel.</p>
+    <!-- ================================================================== -->
+    <div class="bi">
+      <div>
+        <div class="tag">Painel 2</div>
+        <div class="nome">Mr Shawarma</div>
+      </div>
+      <div class="fonte">fonte: F360<br>mrshawarma-bi.187.77.238.125.sslip.io</div>
+    </div>
 
-    <table>
-      <tr><th>O que você vê</th><th>Por quê</th></tr>
-      <tr>
-        <td>Despesa de agosto: <strong>R$ 1.582,52</strong> em Competência e
-            <strong>R$ 40.281,85</strong> em Caixa</td>
-        <td>Em competência o mês é o da <strong>emissão</strong> do título. Quase tudo que saiu do
-            caixa em agosto foi emitido antes.</td>
-      </tr>
-      <tr>
-        <td>Receita do Fluxo de Caixa maior que a da tela de Receita</td>
-        <td>Diferença de exatamente R$ 199.627,92, o refinanciamento. O Fluxo de Caixa mostra sempre
-            o caixa completo; a tela de Receita respeita o botão Operacional.</td>
-      </tr>
-      <tr>
-        <td>Filtrando junho, o Relatório Semanal vem vazio</td>
-        <td>Junho tem 171 lançamentos e <strong>nenhum em aberto</strong> — está tudo pago. Essa tela
-            mostra só o que falta pagar ou receber.</td>
-      </tr>
-      <tr>
-        <td>As tabelas de atraso não mudam quando você troca o mês</td>
-        <td>Atraso é posição de <strong>hoje</strong>, não do período. Elas ficam abaixo de um
-            divisor que marca essa mudança de escopo.</td>
-      </tr>
-    </table>
+    <h2>3. Suas quatro defini&ccedil;&otilde;es, aplicadas</h2>
+    <p>
+      As respostas de 16/08 destravaram a DRE. Uma delas revelou um defeito antigo, que vale
+      contar porque muda o hist&oacute;rico inteiro do painel.
+    </p>
 
-    <div class="resumo-pedido">
-      <div class="titulo">O que precisamos de você</div>
-      <p>Cinco pontos. Os quatro primeiros são rápidos; o quinto é um aviso.</p>
-      <ol class="perguntas">
-        <li>
-          <strong>A coluna Situação.</strong> A única linha que erramos foi o <strong>seguro do Itaú
-          de R$ 145,73</strong>: no Omie ele está como boleto, e você marcou como débito em conta.
-          Ele é debitado automaticamente? Se for, mudando o tipo de documento no Omie o painel passa
-          a acertar sozinho. As outras regras estão corretas?
-        </li>
-        <li>
-          <strong>"Considerar solvência".</strong> O BI antigo tinha esse botão na tela de saldos
-          projetados. O que ele mudava no número? Sem saber, preferimos não adivinhar.
-        </li>
-        <li>
-          <strong>Mr Shawarma — quatro categorias que classificamos por conta própria.</strong>
-          Sua resposta sobre a linha de Outras Despesas Operacionais cobriu CMV, embalagens e os
-          salários da operação, e sobraram quatro: <em>Serviços Técnicos</em>, <em>Móveis e
-          Utensílios</em>, <em>Fretes e carretos</em> e <em>Outros Serviços Prestados</em> —
-          R$ 2.484,72 em julho. Entraram no Ponto de Equilíbrio como <strong>custo fixo</strong>,
-          por decisão nossa, e o painel avisa isso na tela para você não descobrir depois.
-          Confirma, ou alguma delas varia com o faturamento?
-        </li>
-        <li>
-          <strong>Mr Shawarma — 431-8, Multa e Juros sobre Contas Pagas em Atraso.</strong> Colocamos
-          em Despesas Financeiras. Concorda?
-        </li>
-        <li>
-          <strong>Mr Shawarma — o mês do cupom iFood mudou.</strong> Você citou R$ 6.172,05 em julho.
-          No campo de competência do F360 esse lançamento está em <strong>junho</strong>; o julho que
-          você viu é a data de pagamento. Como você decidiu usar o campo de competência, ele agora
-          aparece em junho.
-        </li>
-      </ol>
-      <p class="mini" style="margin-top:14px">
-        Ainda sobre o Mr Shawarma: usar o campo de competência do F360, como você pediu, faz o
-        aluguel de julho ir de R$ 20.738,02 para R$ 25.613,96. São parcelas diferentes, não
-        duplicadas — conferimos uma a uma no dado bruto. É esperado que a DRE se afaste do seu
-        relatório nessa linha, e é consequência direta da decisão, não defeito.
+    <div class="decisao">
+      <div class="cab"><div class="n">1</div><div class="t">Compet&ecirc;ncia pelo campo do rateio &mdash; e o painel nunca tinha usado</div></div>
+      <p>
+        Voc&ecirc; definiu que a compet&ecirc;ncia sai do campo do F360. Ao implementar, descobrimos que o
+        c&oacute;digo <em>j&aacute; tentava</em> ler esse campo desde sempre &mdash; e falhava em silêncio por um erro de
+        escrita numa linha de valida&ccedil;&atilde;o. O teste nunca dava certo, ent&atilde;o o painel caía no plano B e
+        rodava <strong>100% por data de emiss&atilde;o</strong>, inclusive quando voc&ecirc; escolhia
+        "Compet&ecirc;ncia" no cabe&ccedil;alho.
+      </p>
+      <div class="efeito">
+        Corrigido. O campo est&aacute; preenchido em <strong>11.713 de 11.713</strong> lan&ccedil;amentos, ent&atilde;o
+        n&atilde;o h&aacute; buraco. Julho, linha 1 da DRE em compet&ecirc;ncia: <strong>R$ 166.608,94</strong>, contra
+        R$ 165.828,55 do seu relat&oacute;rio &mdash; diferen&ccedil;a de R$ 780,39, de recorte de data de extra&ccedil;&atilde;o.
+      </div>
+    </div>
+
+    <div class="decisao">
+      <div class="cab"><div class="n">2</div><div class="t">Fixo e vari&aacute;vel &mdash; e havia dois Pontos de Equil&iacute;brio discordando</div></div>
+      <p>
+        Sua resposta virou classifica&ccedil;&atilde;o, n&atilde;o reestrutura&ccedil;&atilde;o: as 15 linhas da DRE continuam id&ecirc;nticas.
+        Ao ligar o c&aacute;lculo, achamos <strong>dois</strong> Pontos de Equil&iacute;brio no painel, com
+        defini&ccedil;&otilde;es diferentes &mdash; o da Vis&atilde;o Geral estava desligado, e o da DRE tratava a linha de
+        Outras Despesas Operacionais inteira como vari&aacute;vel, o oposto do que voc&ecirc; respondeu. Agora os
+        dois leem a mesma regra.
+      </p>
+      <div class="tw"><table>
+        <tr><th>Julho de 2026, em compet&ecirc;ncia</th><th class="num">Valor</th></tr>
+        <tr><td>Custos e despesas <strong>vari&aacute;veis</strong></td><td class="num">R$ 93.184,33</td></tr>
+        <tr><td>Custos e despesas <strong>fixas</strong></td><td class="num">R$ 74.038,73</td></tr>
+        <tr><td>Margem de contribui&ccedil;&atilde;o</td><td class="num">44,2%</td></tr>
+        <tr><td><strong>Ponto de equil&iacute;brio</strong></td><td class="num ok">R$ 167.565,95</td></tr>
+      </table></div>
+      <div class="efeito">
+        Investimentos ficam fora do c&aacute;lculo, como voc&ecirc; pediu. Quatro categorias que voc&ecirc; n&atilde;o citou
+        entraram como fixas <strong>por decis&atilde;o nossa</strong> &mdash; est&atilde;o na pergunta 3.
+      </div>
+    </div>
+
+    <div class="decisao">
+      <div class="cab"><div class="n">3</div><div class="t">Repasse de cupom iFood &rarr; Receita Operacional</div></div>
+      <p>
+        Estava fora da DRE, na lista de n&atilde;o mapeadas. Entrou na linha 1, R$ 6.172,05.
+        <strong>Aten&ccedil;&atilde;o ao m&ecirc;s</strong>: o campo de compet&ecirc;ncia desse lan&ccedil;amento diz
+        <strong>junho</strong>; o julho que voc&ecirc; viu &eacute; a data de pagamento. Como a decis&atilde;o foi usar o
+        campo de compet&ecirc;ncia, ele aparece em junho. Detalhe na pergunta 5.
       </p>
     </div>
 
-    <h2>4. O Mr Shawarma recebeu o mesmo tratamento</h2>
+    <div class="decisao">
+      <div class="cab"><div class="n">4</div><div class="t">Ajustes a D&eacute;bito de Cart&atilde;o &rarr; Dedu&ccedil;&atilde;o de receita</div></div>
+      <p>
+        J&aacute; estava assim, e bate ao centavo com o seu n&uacute;mero: <strong>R$ 1.424,38</strong> em julho.
+        S&oacute; confirmamos e tiramos a marca&ccedil;&atilde;o de pend&ecirc;ncia que ainda estava no painel.
+      </p>
+      <div class="efeito">
+        Com isso sobrou <strong>uma &uacute;nica</strong> categoria fora da DRE: 431-8, Multa e Juros sobre
+        Contas Pagas em Atraso, R$ 164,19. Proposta na pergunta 4.
+      </div>
+    </div>
+
+    <h2>4. O que mais foi corrigido no Mr Shawarma</h2>
     <p>
-      Como é você quem opera os dois, levamos para o Mr Shawarma tudo o que faz sentido lá:
-      o filtro por dia, a abertura diária das telas e o gráfico de acumulado no Fluxo de Caixa.
-    </p>
-    <p>
-      O filtro por dia tinha o <strong>mesmo defeito</strong> que o da MedConsulting, e ele
-      <em>aumentava</em> o número em vez de reduzir. Filtrando “1 a 15 de julho” na despesa,
-      a tela mostrava <strong>R$ 427.574,00</strong> — porque estava somando o dia 1 ao 15 de
-      <em>todos</em> os meses. A quinzena correta é <strong>R$ 88.216,19</strong>. Julho inteiro
-      são R$ 157.926,57, então o “recorte” valia quase três meses.
-    </p>
-    <p>
-      <strong>Uma diferença que você vai notar entre os dois BIs.</strong> No gráfico novo, a
-      MedConsulting mostra três linhas: receita acumulada, despesa acumulada e o
-      <em>saldo</em> — a posição real da conta, porque o Omie informa saldo bancário.
-      O F360 não informa. No Mr Shawarma a terceira linha se chama
-      <strong>“Acumulado”</strong>, começa do zero e mede o <em>movimento</em> do período,
-      não quanto há em conta. A própria tela avisa isso. Preferimos dizer do que deixar uma
-      linha com cara de saldo exato sem ser.
-    </p>
-    <p>
-      O <strong>Relatório Semanal não foi para o Mr Shawarma</strong>, e não por falta de tempo:
-      ele depende da observação do título e da data de previsão, dois campos que o F360 não
-      entrega. Sem eles a coluna <em>Situação</em> não teria de onde sair, e a tela nasceria pela
-      metade.
+      Levamos para c&aacute; o que foi feito na MedConsulting. Dois achados no caminho:
     </p>
 
-    <h2>O que não entrou</h2>
+    <div class="decisao">
+      <div class="cab"><div class="n">5</div><div class="t">O mesmo filtro que aumentava o n&uacute;mero</div></div>
+      <p>
+        O defeito do filtro de per&iacute;odo existia aqui tamb&eacute;m, e com efeito ainda maior.
+      </p>
+      <div class="tw"><table>
+        <tr><th>Despesa de julho de 2026</th><th class="num">Valor</th></tr>
+        <tr><td>M&ecirc;s inteiro</td><td class="num">R$ 157.926,57</td></tr>
+        <tr><td>Intervalo 1 a 15 &mdash; <strong>o que aparecia</strong></td><td class="num dif">R$ 427.574,00</td></tr>
+        <tr><td>Intervalo 1 a 15 &mdash; correto</td><td class="num ok">R$ 88.216,19</td></tr>
+      </table></div>
+      <div class="efeito">
+        A quinzena valia quase tr&ecirc;s vezes o m&ecirc;s inteiro, porque somava o dia 1 ao 15 de
+        <em>todos</em> os meses. Tamb&eacute;m corrigimos as s&eacute;ries di&aacute;rias, que estavam congeladas e
+        n&atilde;o reagiam a filtro nenhum.
+      </div>
+    </div>
+
+    <div class="caixa aviso">
+      <div class="titulo">Uma diferen&ccedil;a real entre os dois pain&eacute;is: o F360 n&atilde;o informa saldo banc&aacute;rio</div>
+      <p>
+        No gr&aacute;fico di&aacute;rio da MedConsulting, a terceira linha &eacute; o <strong>saldo</strong> &mdash; a posi&ccedil;&atilde;o
+        real da conta, porque o Omie fornece esse dado. O F360 n&atilde;o fornece.
+      </p>
+      <p>
+        Ent&atilde;o no Mr Shawarma essa linha se chama <strong>"Acumulado"</strong>, come&ccedil;a do zero e mede o
+        <em>movimento</em> do per&iacute;odo, n&atilde;o quanto h&aacute; em conta. A tela avisa isso. Preferimos dizer a
+        deixar uma linha com cara de saldo exato sem ser.
+      </p>
+      <p>
+        Pelo mesmo motivo o <strong>Relat&oacute;rio Semanal n&atilde;o foi para o Mr Shawarma</strong>: ele depende
+        da observa&ccedil;&atilde;o do t&iacute;tulo e da data de previs&atilde;o, que o F360 tamb&eacute;m n&atilde;o entrega. Sem eles a
+        coluna Situa&ccedil;&atilde;o n&atilde;o teria de onde sair, e a tela nasceria pela metade.
+      </p>
+    </div>
+
+    <!-- ================================================================== -->
+    <h2>5. O gr&aacute;fico di&aacute;rio, nos dois pain&eacute;is</h2>
     <p>
-      A tela de saldos projetados com o botão <strong>"Considerar solvência"</strong> depende da
-      pergunta 2 — preferimos não adivinhar o que aquele botão fazia no BI antigo. E o Relatório
-      Semanal do Mr Shawarma, pelo motivo acima.
+      &Eacute; o gr&aacute;fico de tr&ecirc;s linhas que voc&ecirc; apontou no BI da Griffe: receita acumulada, despesa
+      acumulada e saldo, dia a dia. A legenda carrega os valores &mdash; a tela &eacute; para imprimir, e print
+      n&atilde;o tem "passar o mouse". Ele levou dois ajustes depois de pronto:
     </p>
+
+    <div class="decisao">
+      <div class="cab"><div class="n">1</div><div class="t">A linha desenhava dias que ainda n&atilde;o aconteceram</div></div>
+      <p>
+        O eixo ia sempre at&eacute; o dia 28. Em agosto, com o &uacute;ltimo movimento no dia 17 e hoje sendo 18,
+        onze dos 28 pontos eram uma reta vazia &mdash; e essa reta <em>afirmava</em> algo falso: que nos
+        dias 19 a 28 n&atilde;o houve movimento, quando a verdade &eacute; que eles ainda n&atilde;o chegaram.
+      </p>
+      <div class="efeito">
+        Agora o m&ecirc;s corrente para em <strong>hoje</strong> e o m&ecirc;s fechado desenha o m&ecirc;s inteiro &mdash;
+        a&iacute; sim a reta no fim &eacute; informa&ccedil;&atilde;o de verdade. Uma frase abaixo do gr&aacute;fico diz onde a linha
+        termina e por qu&ecirc;.
+      </div>
+    </div>
+
+    <div class="decisao">
+      <div class="cab"><div class="n">2</div><div class="t">O saldo ganhou eixo pr&oacute;prio</div></div>
+      <p>
+        Receita e despesa acumuladas partem do zero; o saldo parte da posi&ccedil;&atilde;o da conta
+        (R$ 328.672,60 na abertura de agosto). Num eixo s&oacute;, as duas primeiras ficavam achatadas no
+        rodap&eacute; e o saldo sozinho no topo, com o meio do gr&aacute;fico vazio &mdash; e o desenho do saldo,
+        que &eacute; a linha que interessa, virava quase uma reta.
+      </p>
+      <div class="efeito">
+        Agora s&atilde;o duas escalas: <strong>&agrave; esquerda</strong> as acumuladas, <strong>&agrave; direita</strong> o
+        saldo. Em troca, <strong>altura deixa de ser compar&aacute;vel</strong> entre a linha do saldo e as
+        outras duas: onde elas se cruzam &eacute; efeito da escala, n&atilde;o do caixa. O gr&aacute;fico avisa isso logo
+        abaixo &mdash; &eacute; a &uacute;nica coisa que impede a leitura errada.
+      </div>
+    </div>
+
+    <!-- ================================================================== -->
+    <h2>6. N&uacute;meros que parecem errados e n&atilde;o est&atilde;o</h2>
+    <p>Estes geram d&uacute;vida com frequ&ecirc;ncia. Todos est&atilde;o explicados dentro do pr&oacute;prio painel.</p>
+
+    <div class="tw"><table>
+      <tr><th>Painel</th><th>O que voc&ecirc; v&ecirc;</th><th>Por qu&ecirc;</th></tr>
+      <tr>
+        <td>MedConsulting</td>
+        <td>Despesa de agosto: <strong>R$ 1.582,52</strong> em Compet&ecirc;ncia e
+            <strong>R$ 40.281,85</strong> em Caixa</td>
+        <td>Em compet&ecirc;ncia o m&ecirc;s &eacute; o da <strong>emiss&atilde;o</strong> do t&iacute;tulo. Quase tudo que saiu do
+            caixa em agosto foi emitido antes.</td>
+      </tr>
+      <tr>
+        <td>MedConsulting</td>
+        <td>Receita do Fluxo de Caixa maior que a da tela de Receita</td>
+        <td>Diferen&ccedil;a de exatamente R$ 199.627,92, o refinanciamento. O Fluxo de Caixa mostra sempre
+            o caixa completo; a tela de Receita respeita o bot&atilde;o Operacional.</td>
+      </tr>
+      <tr>
+        <td>MedConsulting</td>
+        <td>Filtrando junho, o Relat&oacute;rio Semanal vem vazio</td>
+        <td>Junho tem 171 lan&ccedil;amentos e <strong>nenhum em aberto</strong> &mdash; est&aacute; tudo pago. Essa tela
+            mostra s&oacute; o que falta pagar ou receber.</td>
+      </tr>
+      <tr>
+        <td>MedConsulting</td>
+        <td>As tabelas de atraso n&atilde;o mudam quando voc&ecirc; troca o m&ecirc;s</td>
+        <td>Atraso &eacute; posi&ccedil;&atilde;o de <strong>hoje</strong>, n&atilde;o do per&iacute;odo. Elas ficam abaixo de um
+            divisor que marca essa mudan&ccedil;a de escopo.</td>
+      </tr>
+      <tr>
+        <td>Mr Shawarma</td>
+        <td>O aluguel de julho subiu de R$ 20.738,02 para <strong>R$ 25.613,96</strong></td>
+        <td>Consequ&ecirc;ncia direta de usar o campo de compet&ecirc;ncia, como voc&ecirc; pediu. S&atilde;o parcelas
+            diferentes, n&atilde;o duplicadas &mdash; conferimos uma a uma no dado bruto.</td>
+      </tr>
+      <tr>
+        <td>Mr Shawarma</td>
+        <td>O cupom iFood saiu de julho</td>
+        <td>Mesmo motivo: o campo de compet&ecirc;ncia dele diz junho. O julho que voc&ecirc; via era caixa.</td>
+      </tr>
+      <tr>
+        <td>Mr Shawarma</td>
+        <td>A linha di&aacute;ria de agosto passa de hoje, indo at&eacute; o dia 26</td>
+        <td>H&aacute; lan&ccedil;amento j&aacute; liquidado com data &agrave; frente &mdash; antecipa&ccedil;&atilde;o de cart&atilde;o. N&atilde;o cortamos
+            para n&atilde;o esconder dado; a tela declara a data real.</td>
+      </tr>
+    </table></div>
+
+    <h2>O que n&atilde;o entrou</h2>
+    <p>
+      A tela de saldos projetados com o bot&atilde;o <strong>"Considerar solv&ecirc;ncia"</strong> depende da
+      pergunta 2 &mdash; preferimos n&atilde;o adivinhar o que aquele bot&atilde;o fazia no BI antigo. E o
+      <strong>Relat&oacute;rio Semanal do Mr Shawarma</strong>, pelos campos que o F360 n&atilde;o entrega.
+    </p>
+
+    <!-- ================================================================== -->
+    <div class="resumo-pedido">
+      <div class="titulo">O que precisamos de voc&ecirc;</div>
+      <p>Cinco pontos. Os quatro primeiros s&atilde;o r&aacute;pidos; o quinto &eacute; um aviso.</p>
+      <ol class="perguntas">
+        <li>
+          <span class="alvo">MedConsulting</span>
+          <strong>A coluna Situa&ccedil;&atilde;o.</strong> A &uacute;nica linha que erramos foi o <strong>seguro do Itaú
+          de R$ 145,73</strong>: no Omie ele est&aacute; como boleto, e voc&ecirc; marcou como d&eacute;bito em conta.
+          Ele &eacute; debitado automaticamente? Se for, mudando o tipo de documento no Omie o painel passa
+          a acertar sozinho. As outras regras est&atilde;o corretas?
+        </li>
+        <li>
+          <span class="alvo">MedConsulting</span>
+          <strong>"Considerar solv&ecirc;ncia".</strong> O BI antigo tinha esse bot&atilde;o na tela de saldos
+          projetados. O que ele mudava no n&uacute;mero? Sem saber, preferimos n&atilde;o adivinhar.
+        </li>
+        <li>
+          <span class="alvo">Mr Shawarma</span>
+          <strong>Quatro categorias que classificamos por conta pr&oacute;pria.</strong>
+          Sua resposta sobre a linha de Outras Despesas Operacionais cobriu CMV, embalagens e os
+          sal&aacute;rios da opera&ccedil;&atilde;o, e sobraram quatro: <em>Servi&ccedil;os T&eacute;cnicos</em>, <em>M&oacute;veis e
+          Utens&iacute;lios</em>, <em>Fretes e carretos</em> e <em>Outros Servi&ccedil;os Prestados</em> &mdash;
+          R$ 2.484,72 em julho. Entraram no Ponto de Equil&iacute;brio como <strong>custo fixo</strong>,
+          por decis&atilde;o nossa, e o painel avisa isso na tela para voc&ecirc; n&atilde;o descobrir depois.
+          Confirma, ou alguma delas varia com o faturamento?
+        </li>
+        <li>
+          <span class="alvo">Mr Shawarma</span>
+          <strong>431-8, Multa e Juros sobre Contas Pagas em Atraso</strong> (R$ 164,19). &Eacute; a &uacute;nica
+          categoria que sobrou fora da DRE. Colocamos em Despesas Financeiras. Concorda?
+        </li>
+        <li>
+          <span class="alvo">Mr Shawarma</span>
+          <strong>O m&ecirc;s do cupom iFood mudou.</strong> Voc&ecirc; citou R$ 6.172,05 em julho.
+          No campo de compet&ecirc;ncia do F360 esse lan&ccedil;amento est&aacute; em <strong>junho</strong>; o julho que
+          voc&ecirc; viu &eacute; a data de pagamento. Como voc&ecirc; decidiu usar o campo de compet&ecirc;ncia, ele agora
+          aparece em junho. N&atilde;o &eacute; preciso responder &mdash; s&oacute; que voc&ecirc; saiba antes de comparar.
+        </li>
+      </ol>
+    </div>
   </div>
 
   <div class="rodape">
@@ -346,8 +518,8 @@
       <strong>Mr Shawarma:</strong> <a href="https://mrshawarma-bi.187.77.238.125.sslip.io">mrshawarma-bi.187.77.238.125.sslip.io</a>
     </p>
     <p class="mini">
-      Nenhum número foi ajustado para fechar com o seu relatório. Onde há diferença, ela está
-      explicada dentro do painel, na própria tela onde o número aparece.
+      Nenhum n&uacute;mero foi ajustado para fechar com o seu relat&oacute;rio. Onde h&aacute; diferen&ccedil;a, ela est&aacute;
+      explicada dentro do painel, na pr&oacute;pria tela onde o n&uacute;mero aparece.
     </p>
   </div>
 </div>
