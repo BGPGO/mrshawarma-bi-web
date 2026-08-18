@@ -299,13 +299,20 @@ const PAGE_MODE_INJECT = `\n// Injetado por build-jsx.cjs a partir de bi.config.
     var WEEK_RANGES_MAP = [[1,7],[8,14],[15,21],[22,28],[29,31]];
     var effectiveDrilldown;
     if (month > 0) {
+      // O campo ym viaja DENTRO do drilldown de dia. Sem ele o filtro de mes se
+      // perde: o getBit so monta o drilldown de mes quando NAO ha outro, entao
+      // "Agosto + dia 20" filtrava o dia 20 de todos os meses, e "Agosto +
+      // intervalo" nao filtrava nada e ainda largava o mes. O filtro nao
+      // estreitava: alargava. (Sem crase neste comentario: ele mora dentro do
+      // template literal que gera o app.bundle.js.)
+      var _ym = String(year) + '-' + String(month).padStart(2, '0');
       if (dayMode === 'dia' && day > 0) {
-        effectiveDrilldown = { type: 'dia', value: day, label: String(day) + ' ' + (MESES_ABBR_D[month - 1] || '') };
+        effectiveDrilldown = { type: 'dia', value: day, ym: _ym, label: String(day) + ' ' + (MESES_ABBR_D[month - 1] || '') };
       } else if (dayMode === 'intervalo' && dayFrom > 0 && dayTo > 0) {
-        effectiveDrilldown = { type: 'dia_range', from: Math.min(dayFrom, dayTo), to: Math.max(dayFrom, dayTo), label: String(dayFrom) + '–' + String(dayTo) + ' ' + (MESES_ABBR_D[month - 1] || '') };
+        effectiveDrilldown = { type: 'dia_range', from: Math.min(dayFrom, dayTo), to: Math.max(dayFrom, dayTo), ym: _ym, label: String(dayFrom) + '–' + String(dayTo) + ' ' + (MESES_ABBR_D[month - 1] || '') };
       } else if (dayMode === 'semana' && week > 0) {
         var wr = WEEK_RANGES_MAP[week - 1];
-        effectiveDrilldown = { type: 'dia_range', from: wr[0], to: wr[1], label: 'Sem. ' + String(week) + ' ' + (MESES_ABBR_D[month - 1] || '') };
+        effectiveDrilldown = { type: 'dia_range', from: wr[0], to: wr[1], ym: _ym, label: 'Sem. ' + String(week) + ' ' + (MESES_ABBR_D[month - 1] || '') };
       } else {
         effectiveDrilldown = drilldown;
       }

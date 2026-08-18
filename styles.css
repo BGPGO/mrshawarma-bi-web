@@ -3887,3 +3887,86 @@ table.t tr.total td {
 @media (max-width: 820px) { .resumo-mes { padding: 12px 14px; } }
 
 [data-theme="light"] .resumo-mes { background: #fff; border-color: #e0e0e0; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+
+
+/* Ambar = atencao. As tres variantes existentes (verde/vermelho/cyan) nao tem
+   o degrau de "esperando, mas nao e problema". */
+.chip.amber { background: rgba(245,158,11,0.13); color: #fbbf24; border-color: rgba(245,158,11,0.30); }
+[data-theme="light"] .chip.amber { background: rgba(217,119,6,0.12); color: #b45309; border-color: rgba(217,119,6,0.28); }
+/* Recorte de dia. O `.seg-mini` é o segmento padrão em escala de faixa de
+   filtro — antes este controle tinha cor chumbada (#4f86c6 / #222 / #444) e
+   virava um bloco escuro no tema claro. */
+.fb-dia { display: flex; align-items: center; gap: 5px; }
+.seg.seg-mini { padding: 2px; border-radius: 7px; gap: 1px; }
+.seg.seg-mini button { padding: 3px 9px; font-size: 11px; border-radius: 5px; }
+.fb-ate { font-size: 11px; color: var(--fg-3); padding: 0 1px; }
+
+/* Resumo do recorte: uma pílula por filtro ativo, cada uma se removendo.
+   Substitui o "limpar recorte (3)", que dizia quantos mas não quais. */
+.fb-resumo { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; justify-content: flex-end; }
+.fb-resumo-lbl {
+  font-size: 10px; text-transform: uppercase; letter-spacing: .7px; color: var(--fg-3);
+}
+.fb-chip {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 11.5px; line-height: 1; padding: 5px 8px 5px 10px;
+  border-radius: 999px; cursor: pointer;
+  background: var(--cyan-glow); color: var(--cyan-2);
+  border: 1px solid rgba(34,211,238,0.30);
+  max-width: 220px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.fb-chip:hover { background: rgba(34,211,238,0.20); border-color: var(--cyan); }
+.fb-chip .x { font-size: 9px; opacity: 0.65; }
+.fb-chip:hover .x { opacity: 1; }
+
+@media (max-width: 820px) {
+  .filterbar { padding: 10px 16px; }
+  .fb-group { flex: 1 1 100%; }
+  .fb-resumo { justify-content: flex-start; }
+}
+
+[data-theme="light"] .fb-chip {
+  background: rgba(8,145,178,0.10); color: #0e7490; border-color: rgba(8,145,178,0.30);
+}
+[data-theme="light"] .fb-chip:hover { background: rgba(8,145,178,0.18); }
+/* ==========================================================================
+ * SELEÇÃO DE TEXTO — só onde faz sentido
+ * ==========================================================================
+ * Clicar num botão, numa pílula de filtro ou num cabeçalho clicável marcava o
+ * texto dele: aparecia uma barra azul que parece rabisco de mouse. É a
+ * ::selection do navegador fazendo o trabalho dela em cima de um elemento que
+ * não é texto pra ler, é controle pra clicar.
+ *
+ * A regra é seletiva de propósito. Tabela, extrato e número continuam
+ * selecionáveis — a controladora copia dali pro e-mail, e matar a seleção no
+ * BI inteiro quebraria isso pra consertar um detalhe visual.
+ * ========================================================================== */
+button,
+.seg,
+.seg button,
+.fb-label,
+.fb-resumo-lbl,
+.fb-chip,
+.fb-ate,
+.fb-hint,
+.fb-clear,
+.kpi-label,
+.m-label,
+.sidebar,
+.breadcrumb,
+.legend-pill,
+.chip,
+.chev,
+th.clickable-th,
+.vbar-col,
+.semanal-divisor,
+svg text {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* O cursor também estava mentindo: em cima de controle o I-beam sugere texto
+   editável/selecionável. */
+.seg button, .fb-chip, .fb-clear, th.clickable-th, .vbar-col.clickable { cursor: pointer; }
+

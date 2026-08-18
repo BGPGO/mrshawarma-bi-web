@@ -22,20 +22,21 @@ const FLUXO_GRUPOS_RECEITA = new Set(["RECEITAS OPERACIONAIS", "RECEITAS FINANCE
  * A seção (Receita/Despesa) vem do kind da row; o rótulo do grupo vem do mapa
  * da planilha do cliente. Um grupo com rows dos dois lados aparece nas duas
  * seções, cada uma com as suas — é o que o Omie mostra. */
-const buildFluxoOmie = (txList, year) => {
+const buildFluxoOmie = (txList, year, eixo) => {
   const secoes = { r: new Map(), d: new Map() };
   let naoMapeado = 0;
+  const N = eixo.n;
   for (const row of txList) {
-    if (!row[1] || Number(row[1].slice(0, 4)) !== year) continue;
-    const mi = parseInt(row[1].slice(5, 7), 10) - 1;
-    if (mi < 0 || mi > 11) continue;
+    if (!row[1]) continue;
+    const mi = eixo.idx(row);
+    if (mi < 0 || mi >= N) continue;
     const z = window.dreClassify(row[3]);
     if (!z.mapeada) naoMapeado += row[5];
     const bucket = secoes[row[0] === "r" ? "r" : "d"];
-    if (!bucket.has(z.omie)) bucket.set(z.omie, { cat: z.omie, values: Array(12).fill(0), kids: new Map(), mapeada: z.mapeada });
+    if (!bucket.has(z.omie)) bucket.set(z.omie, { cat: z.omie, values: Array(N).fill(0), kids: new Map(), mapeada: z.mapeada });
     const g = bucket.get(z.omie);
     g.values[mi] += row[5];
-    if (!g.kids.has(row[3])) g.kids.set(row[3], Array(12).fill(0));
+    if (!g.kids.has(row[3])) g.kids.set(row[3], Array(N).fill(0));
     g.kids.get(row[3])[mi] += row[5];
   }
   const ordem = window.GRUPO_OMIE_ORDEM || [];
@@ -57,7 +58,7 @@ const buildFluxoOmie = (txList, year) => {
 
 /* FluxoRows — uma linha de grupo + as categorias dentro dela. A lógica de %
  * vive no `pctDe` do pai (era duplicada 6× na versão anterior desta tabela). */
-const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe }) => {
+const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe, mostrarPct = true }) => {
   const hasKids = row.children && row.children.length > 0;
   return (
     <React.Fragment>
@@ -77,7 +78,7 @@ const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe }) => {
         {mesesIdx.map(i => (
           <React.Fragment key={i}>
             <td className={"num " + tone}>{fmt(row.values[i] || 0)}</td>
-            <td className="num" style={{ color: "var(--fg-3)" }}>{pctDe(row.values, i)}</td>
+            {mostrarPct && <td className="num" style={{ color: "var(--fg-3)" }}>{pctDe(row.values, i)}</td>}
           </React.Fragment>
         ))}
       </tr>
@@ -87,12 +88,254 @@ const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe }) => {
           {mesesIdx.map(i => (
             <React.Fragment key={i}>
               <td className={"num " + tone} style={{ fontSize: 11 }}>{fmt(kid.values[i] || 0)}</td>
-              <td className="num" style={{ color: "var(--fg-3)", fontSize: 11 }}>{pctDe(kid.values, i)}</td>
+              {mostrarPct && <td className="num" style={{ color: "var(--fg-3)", fontSize: 11 }}>{pctDe(kid.values, i)}</td>}
             </React.Fragment>
           ))}
         </tr>
       ))}
     </React.Fragment>
+  );
+};
+
+/* ==========================================================================
+ * FLUXO DE CAIXA DIÁRIO — receita acumulada × despesa acumulada × saldo
+ * ==========================================================================
+ * Portado do BI da Griffe (page-gestao.jsx), a pedido da cliente em 17/08/2026:
+ * "ela gostaria que tivesse um gráfico tipo esse do Griffe". Griffe também é
+ * Omie, então a lógica de agregação é a mesma.
+ *
+ * TRÊS ADAPTAÇÕES em relação ao original, nenhuma cosmética:
+ *
+ * 1. O Griffe filtra o ALL_TX na mão (`row[9] !== rg` pro regime, `row[6]` pro
+ *    status). Aqui a fonte é o `txNoContexto`, que já aplica regime, status,
+ *    conta, categoria e visão — copiar o filtro manual faria o gráfico ignorar
+ *    metade do cabeçalho deste BI, que tem mais controles que o de lá.
+ *
+ * 2. O Griffe tem um SELETOR DE MÊS próprio dentro do card. Aqui não: o mês (e o
+ *    intervalo de dias) vêm do cabeçalho. Dois seletores de período concorrendo
+ *    na mesma tela é o defeito que passei o dia consertando neste BI.
+ *
+ * 3. O Griffe é dark-only e pinta grid e textos com `oklch(1 0 0 / …)` — branco
+ *    translúcido, que SOME no tema claro. A Silmara usa o claro ("aqui é tudo
+ *    quase 40, os clientes é 40 a mais"). Aqui tudo sai de token.
+ *
+ * O saldo inicial vem de `window.serieSaldoMensal`, o mesmo helper da curva
+ * mensal da Tesouraria — é o "capital de giro" do rótulo do Griffe.
+ * ========================================================================== */
+const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte, B, mesNome, mesAbrev }) => {
+  const [tip, setTip] = useState(null);
+
+  const dados = useMemo(() => {
+    const ym = year + "-" + String(mesIdx + 1).padStart(2, "0");
+    const entradas = Array(32).fill(0);
+    const saidas = Array(32).fill(0);
+    for (const r of txCtx) {
+      if (r[1] !== ym) continue;
+      const d = r[2];
+      if (d < 1 || d > 31) continue;
+      if (r[0] === "r") entradas[d] += r[5]; else saidas[d] += r[5];
+    }
+    // Sem intervalo no cabeçalho: do dia 1 até o último com movimento (mínimo
+    // 28, pra a linha não terminar no meio e parecer que o mês acabou ali).
+    let ultimo = 0;
+    for (let d = 1; d <= 31; d++) if (entradas[d] || saidas[d]) ultimo = d;
+    const de = diaDe || 1;
+    const ate = diaAte || Math.max(ultimo, Math.min(28, new Date(year, mesIdx + 1, 0).getDate()));
+
+    /* SALDO tem que partir da posição REAL do primeiro dia da janela.
+     *
+     * Receita e despesa acumuladas são do recorte — é o que "acumulada no
+     * período" quer dizer. O SALDO não: ele é a posição da conta, e a conta não
+     * esquece os dias 1 a 17 porque ela filtrou 18–31. Sem somar o que veio
+     * antes, o recorte 18–31 fechava agosto em R$ 349.604,74 quando a posição
+     * real é R$ 479.905,88 — R$ 130 mil a menos, e a curva mensal ao lado
+     * mostrando o número certo. */
+    let netAntes = 0;
+    for (let d = 1; d < de; d++) netAntes += entradas[d] - saidas[d];
+    const saldoNaAbertura = saldoInicial + netAntes;
+
+    const dias = [];
+    const recAcum = [], despAcum = [], saldos = [];
+    let rA = 0, dA = 0, sd = saldoNaAbertura;
+    for (let d = de; d <= ate; d++) {
+      rA += entradas[d]; dA += saidas[d]; sd += entradas[d] - saidas[d];
+      dias.push(d); recAcum.push(rA); despAcum.push(dA); saldos.push(sd);
+    }
+    return { dias, recAcum, despAcum, saldos, entradas, saidas, de, ate, saldoNaAbertura, netAntes };
+  }, [txCtx, mesIdx, year, saldoInicial, diaDe, diaAte]);
+
+  const { dias, recAcum, despAcum, saldos, saldoNaAbertura, netAntes } = dados;
+  // Há âncora bancária? No Omie sim; no F360 não existe endpoint de saldo.
+  const temAncoraBanco = ((window.FLUXO_PROJETADO || {}).contas || []).length > 0;
+  const n = dias.length;
+  if (!n) return <div className="status-line" style={{ padding: 18 }}>Sem lançamento neste mês.</div>;
+
+  const todos = recAcum.concat(despAcum, saldos, [0]);
+  const minY = Math.min(...todos);
+  const maxY = Math.max(...todos, 1);
+  const rangeY = (maxY - minY) || 1;
+
+  // padT menor agora que a legenda saiu do SVG — aquele espaço era só dela.
+  const W = 1200, H = 330;
+  const padL = 78, padR = 28, padT = 22, padB = 44;
+  const cW = W - padL - padR, cH = H - padT - padB;
+  const stepX = n > 1 ? cW / (n - 1) : cW;
+  const toX = (i) => padL + i * stepX;
+  const toY = (v) => padT + cH - ((v - minY) / rangeY) * cH;
+  const pts = (arr) => arr.map((v, i) => toX(i) + "," + toY(v)).join(" ");
+
+  const hover = (e, i) => {
+    const svg = e.currentTarget.closest("svg");
+    const p = svg.createSVGPoint(); p.x = e.clientX; p.y = e.clientY;
+    const q = p.matrixTransform(svg.getScreenCTM().inverse());
+    setTip({ x: q.x, y: q.y, i });
+  };
+  const ticks = Array.from({ length: 6 }, (_, i) => minY + (rangeY * i) / 5);
+
+  const baixarCsv = () => {
+    const linhas = [["Dia", "Receita acumulada", "Despesa acumulada", "Saldo"].join(";")];
+    const nb = (v) => Number(v).toFixed(2).replace(".", ",");
+    dias.forEach((d, i) => linhas.push([
+      String(d).padStart(2, "0") + "/" + String(mesIdx + 1).padStart(2, "0") + "/" + year,
+      nb(recAcum[i]), nb(despAcum[i]), nb(saldos[i]),
+    ].join(";")));
+    // BOM: sem ele o Excel em pt-BR lê o arquivo como ANSI e come os acentos.
+    const blob = new Blob(["﻿" + linhas.join("\r\n")], { type: "text/csv;charset=utf-8" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "fluxo-diario-" + year + "-" + String(mesIdx + 1).padStart(2, "0") + ".csv";
+    a.click();
+    setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+  };
+
+  return (
+    <div className="card" style={{ marginTop: 16 }}>
+      <div className="card-title-row">
+        <h2 className="card-title">Fluxo de caixa — {mesNome} {year} (dia a dia)</h2>
+        <button className="btn-ghost no-print" style={{ fontSize: 11 }} onClick={baixarCsv}>Baixar CSV</button>
+      </div>
+      <div className="status-line" style={{ marginBottom: 10, fontSize: 11 }}>
+        {/* O F360 não expõe saldo bancário — não há endpoint de saldo utilizável,
+            está catalogado na nota do adapter. Então a terceira linha aqui NÃO é
+            posição de conta: é a variação acumulada partindo de zero. Chamar de
+            "saldo" sem dizer isso seria o gráfico mentindo com cara de exato. */}
+        {!temAncoraBanco && (
+          <><strong>Sem saldo bancário do F360</strong> — a linha verde é a variação acumulada
+            partindo de zero, não o saldo da conta. Ela mostra o movimento do período, não a posição.
+            {" · "}</>
+        )}
+        Receita e despesa acumulam <strong>dentro do período</strong>.
+        {temAncoraBanco && <> O saldo é a posição da conta.</>}
+        {" "}{temAncoraBanco ? "Saldo na abertura: " : "Ponto de partida: "}
+        <b style={{ color: "var(--cyan)" }}>{B.fmt(saldoNaAbertura)}</b>
+        {diaDe
+          ? <> — fechamento do mês anterior ({B.fmt(saldoInicial)}) mais os dias 1 a {diaDe - 1} deste mês
+              ({netAntes >= 0 ? "+" : ""}{B.fmt(netAntes)}), que continuam contando mesmo fora do recorte
+              <b> {diaDe}–{diaAte}</b>.</>
+          : <> (fechamento do mês anterior).</>}
+        {" "}Dia com saldo negativo aparece em vermelho.
+      </div>
+
+      {/* A legenda carrega o VALOR, igual à do gráfico de Receitas e despesas da
+          Visão Geral. Sem isso o número só existia no hover — e o uso desta tela
+          é printar e colar no e-mail, onde hover não existe: quem recebe o print
+          ficava com três linhas coloridas e nenhum número. */}
+      <div className="legend-pills" style={{ marginBottom: 10 }}>
+        {/* Azul não é cor do design system (o padrão só tem verde/vermelho/cyan),
+            mas é a cor que a receita acumulada tem no gráfico da Griffe, que é a
+            referência que a cliente apontou. Fica inline, sem criar variante. */}
+        <span className="legend-pill">
+          <span className="dot" style={{ background: "#3b82f6", boxShadow: "0 0 8px -1px rgba(59,130,246,0.65)" }} />
+          <span className="lbl">Receita acumulada</span>
+          <span className="val">{B.fmt(recAcum[n - 1])}</span>
+        </span>
+        <span className="legend-pill red">
+          <span className="dot" />
+          <span className="lbl">Despesa acumulada</span>
+          <span className="val">{B.fmt(despAcum[n - 1])}</span>
+        </span>
+        <span className={"legend-pill " + (saldos[n - 1] < 0 ? "red" : "green")}>
+          <span className="dot" />
+          <span className="lbl">{temAncoraBanco ? "Saldo" : "Acumulado"} no fim de {String(dias[n - 1]).padStart(2, "0")}/{mesAbrev}</span>
+          <span className="val">{B.fmt(saldos[n - 1])}</span>
+        </span>
+        <span className={"legend-pill " + (Math.min(...saldos) < 0 ? "red" : "cyan")}>
+          <span className="dot" />
+          <span className="lbl">Menor saldo · {String(dias[saldos.indexOf(Math.min(...saldos))]).padStart(2, "0")}/{mesAbrev}</span>
+          <span className="val">{B.fmt(Math.min(...saldos))}</span>
+        </span>
+      </div>
+      <div style={{ position: "relative" }}>
+        <svg viewBox={"0 0 " + W + " " + H} style={{ width: "100%", height: "auto", display: "block" }}
+             preserveAspectRatio="xMidYMid meet" onMouseLeave={() => setTip(null)}>
+          {ticks.map((v, i) => (
+            <g key={"g" + i}>
+              <line x1={padL} y1={toY(v)} x2={W - padR} y2={toY(v)} stroke="var(--border)" strokeDasharray="3 5" />
+              <text x={padL - 8} y={toY(v) + 4} textAnchor="end" fill="var(--fg-3)" fontSize="10"
+                    fontFamily="var(--font-mono)">{B.fmtK(v)}</text>
+            </g>
+          ))}
+          {minY < 0 && maxY > 0 && (
+            <line x1={padL} y1={toY(0)} x2={W - padR} y2={toY(0)} stroke="var(--fg-3)" strokeWidth="1" opacity="0.5" />
+          )}
+          {dias.map((d, i) => (
+            <rect key={"h" + i} x={toX(i) - stepX / 2} y={padT} width={stepX} height={cH} fill="transparent"
+                  onMouseEnter={(e) => hover(e, i)} />
+          ))}
+          {tip && <rect x={toX(tip.i) - stepX / 2} y={padT} width={stepX} height={cH} fill="var(--cyan)" opacity="0.07" />}
+
+          {/* Marcadores em cada ponto, como no gráfico da Griffe: quadrado nas
+              duas acumuladas, círculo no saldo. Não é enfeite — com a linha
+              nua não dá pra saber onde cai cada dia, e nos trechos horizontais
+              (dia sem movimento) some a informação de que o dia existe. */}
+          <polyline points={pts(recAcum)} fill="none" stroke="#3b82f6" strokeWidth="2.5" strokeLinejoin="round" strokeLinecap="round" />
+          {recAcum.map((v, i) => (
+            <rect key={"rm" + i} x={toX(i) - 4} y={toY(v) - 4} width={8} height={8} rx="1"
+                  fill="#3b82f6" stroke="#1e3a5f" strokeWidth="1" />
+          ))}
+          <polyline points={pts(despAcum)} fill="none" stroke="var(--red)" strokeWidth="2.5" strokeDasharray="8 4" strokeLinejoin="round" strokeLinecap="round" />
+          {despAcum.map((v, i) => (
+            <rect key={"dm" + i} x={toX(i) - 4} y={toY(v) - 4} width={8} height={8} rx="1"
+                  fill="var(--red)" stroke="#7f1d1d" strokeWidth="1" />
+          ))}
+          <polyline points={pts(saldos)} fill="none" stroke="var(--green)" strokeWidth="2" strokeDasharray="4 4" strokeLinejoin="round" strokeLinecap="round" />
+          {saldos.map((v, i) => (
+            <circle key={"s" + i} cx={toX(i)} cy={toY(v)} r={3.5}
+                    fill={v < 0 ? "var(--red)" : "var(--green)"}
+                    stroke={v < 0 ? "#7f1d1d" : "#14532d"} strokeWidth="1" />
+          ))}
+
+          {dias.map((d, i) => {
+            if (!(n <= 16 || i % Math.ceil(n / 12) === 0 || i === n - 1)) return null;
+            return (
+              <text key={"x" + i} x={toX(i)} y={H - padB + 18} textAnchor="middle" fill="var(--fg-3)"
+                    fontSize="10" fontFamily="var(--font-mono)">{String(d).padStart(2, "0")}/{mesAbrev}</text>
+            );
+          })}
+
+          {/* A legenda saiu do SVG e virou pílula em HTML acima do gráfico, com
+              o valor junto — ver o comentário lá. Dentro do SVG ela repetiria a
+              informação e roubaria altura útil do desenho. */}
+
+          {tip && (() => {
+            const tw = 232, th = 78;
+            let tx = Math.min(Math.max(toX(tip.i) - tw / 2, padL), W - padR - tw);
+            const ty = padT + 6;
+            return (
+              <g pointerEvents="none">
+                <rect x={tx} y={ty} width={tw} height={th} rx={8} fill="var(--surface)" stroke="var(--border-2)" />
+                <text x={tx + tw / 2} y={ty + 17} textAnchor="middle" fill="var(--fg)" fontSize="11" fontWeight="700"
+                      fontFamily="var(--font-mono)">{String(dias[tip.i]).padStart(2, "0")}/{mesAbrev}</text>
+                <text x={tx + 12} y={ty + 36} fill="#3b82f6" fontSize="10.5" fontFamily="var(--font-mono)">Receita acum. {B.fmt(recAcum[tip.i])}</text>
+                <text x={tx + 12} y={ty + 52} fill="var(--red)" fontSize="10.5" fontFamily="var(--font-mono)">Despesa acum. {B.fmt(despAcum[tip.i])}</text>
+                <text x={tx + 12} y={ty + 68} fill={saldos[tip.i] < 0 ? "var(--red)" : "var(--green)"} fontSize="10.5"
+                      fontFamily="var(--font-mono)">Saldo {B.fmt(saldos[tip.i])}</text>
+              </g>
+            );
+          })()}
+        </svg>
+      </div>
+    </div>
   );
 };
 
@@ -139,8 +382,42 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
     () => window.txNoContexto(statusFilter, ddEfetivo && ddEfetivo.type !== "mes" ? ddEfetivo : null, semInvestimento, efCompleto),
     [statusFilter, ddEfetivo, semInvestimento, efCompleto]
   );
-  const mesesIdx = useMemo(() => window.janelaMeses(txJanela, refYear, range), [txJanela, refYear, range]);
-  const FX = useMemo(() => buildFluxoOmie(txCtx, refYear), [txCtx, refYear]);
+  /* EIXO DAS COLUNAS. Com recorte de dias no cabeçalho a tabela passa a ser
+     por DIA; sem ele continua mensal. Pedido dela em 17/08: o relatório de
+     fechamento que ela manda pro cliente é do período que ela escolhe, aberto
+     dia a dia. */
+  const eixo = useMemo(() => {
+    const dd = ddEfetivo;
+    if (dd && dd.ym && (dd.type === "dia_range" || dd.type === "dia")) {
+      const de = dd.type === "dia" ? dd.value : dd.from;
+      const ate = dd.type === "dia" ? dd.value : dd.to;
+      return {
+        tipo: "dia", de, ate, ym: dd.ym, n: Math.max(1, ate - de + 1),
+        idx: (row) => (row[1] === dd.ym && row[2] >= de && row[2] <= ate ? row[2] - de : -1),
+        label: (i) => String(de + i),
+      };
+    }
+    return {
+      tipo: "mes", n: 12,
+      idx: (row) => {
+        if (Number(row[1].slice(0, 4)) !== refYear) return -1;
+        const m = parseInt(row[1].slice(5, 7), 10) - 1;
+        return m >= 0 && m <= 11 ? m : -1;
+      },
+      label: (i) => B.MONTHS_FULL[i] || "",
+    };
+  }, [ddEfetivo, refYear, B]);
+  const porDia = eixo.tipo === "dia";
+  // No eixo diário a coluna de % sai: uma coluna de dia como % do total da
+  // linha diz pouco, e são 2 colunas por dia num período de 14 dias — a tabela
+  // fica larga demais pra ela printar, que é justamente o uso.
+  const mostrarPct = !porDia;
+
+  const mesesIdx = useMemo(
+    () => (porDia ? Array.from({ length: eixo.n }, (_, i) => i) : window.janelaMeses(txJanela, refYear, range)),
+    [porDia, eixo, txJanela, refYear, range]
+  );
+  const FX = useMemo(() => buildFluxoOmie(txCtx, refYear, eixo), [txCtx, refYear, eixo]);
   const FLUXO_RECEITA = FX.rec;
   const FLUXO_DESPESA = FX.desp;
   const totalMesRec = (i) => FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
@@ -165,6 +442,28 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
   // Destaque da coluna: vale tanto pro clique no cabeçalho (drilldown) quanto
   // pro seletor de mês do header (month). Sem o segundo, filtrar julho no
   // header não destacava nada e a tela parecia ignorar o filtro.
+  /* Gráfico diário acumulado (portado da Griffe). Precisa de UM mês: usa o do
+     cabeçalho e, se estiver em "Ano completo", o último com movimento — assim o
+     card nunca fica vazio só porque ela não escolheu mês. */
+  const mesGrafico = useMemo(() => {
+    if (month && month >= 1 && month <= 12) return month - 1;
+    const md = (B.MONTH_DATA || []);
+    for (let i = md.length - 1; i >= 0; i--) if (md[i].receita > 0 || md[i].despesa > 0) return i;
+    return new Date().getMonth();
+  }, [month, B]);
+  // Saldo inicial = fechamento do mês anterior, do MESMO helper que a Tesouraria
+  // usa na curva mensal. É o "capital de giro" do gráfico da Griffe.
+  const SSfluxo = useMemo(() => window.serieSaldoMensal(refYear, semInvestimento, efCompleto),
+    [refYear, semInvestimento, efCompleto]);
+  // O gráfico é do mês inteiro (ou do recorte de dias); o txCtx já vem filtrado
+  // por status/regime/conta, mas com o recorte de dia aplicado. Pro gráfico
+  // queremos o mês todo quando NÃO há intervalo, então lemos sem o drilldown de
+  // dia e deixamos o próprio componente recortar.
+  const txMes = useMemo(
+    () => window.txNoContexto(statusFilter, null, semInvestimento, efCompleto),
+    [statusFilter, semInvestimento, efCompleto]
+  );
+
   const activeMonthIdx = (ddEfetivo && ddEfetivo.type === "mes")
     ? parseInt(String(ddEfetivo.value).slice(5, 7), 10) - 1 : -1;
 
@@ -218,27 +517,35 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
           <div className="card-title-row">
             <h2 className="card-title">Fluxo de caixa</h2>
             <div style={{ display: "flex", gap: 8, flexWrap: "wrap" }}>
-              <div className="seg" title="Quais meses aparecem nas colunas">
-                <button className={range === "dado" ? "active" : ""} onClick={() => setRange("dado")}>Meses com lançamento</button>
-                <button className={range === "ano" ? "active" : ""} onClick={() => setRange("ano")}>Ano inteiro</button>
-              </div>
-              <div className="seg">
-                <button className={view === "horizontal" ? "active" : ""} onClick={() => setView("horizontal")}>Análise horizontal</button>
-                <button className={view === "vertical" ? "active" : ""} onClick={() => setView("vertical")}>Análise vertical</button>
-              </div>
+              {/* Os dois seletores só valem no eixo mensal: com recorte de dias
+                  as colunas são os dias do intervalo, e não há % pra alternar. */}
+              {!porDia && (
+                <div className="seg" title="Quais meses aparecem nas colunas">
+                  <button className={range === "dado" ? "active" : ""} onClick={() => setRange("dado")}>Meses com lançamento</button>
+                  <button className={range === "ano" ? "active" : ""} onClick={() => setRange("ano")}>Ano inteiro</button>
+                </div>
+              )}
+              {!porDia && (
+                <div className="seg">
+                  <button className={view === "horizontal" ? "active" : ""} onClick={() => setView("horizontal")}>Análise horizontal</button>
+                  <button className={view === "vertical" ? "active" : ""} onClick={() => setView("vertical")}>Análise vertical</button>
+                </div>
+              )}
             </div>
           </div>
           <div className="status-line" style={{ marginBottom: 8, fontSize: 11 }}>
-            {view === "vertical"
-              ? "Vertical: cada linha como % da receita do próprio mês"
-              : "Horizontal: cada mês como % do total da linha na janela exibida"}
-            {" · "}
-            {mesesIdx.length === 12
-              ? "jan–dez"
-              : `${B.MONTHS_FULL[mesesIdx[0]]}–${B.MONTHS_FULL[mesesIdx[mesesIdx.length - 1]]}`}
-            {" de "}{refYear}
+            {porDia
+              ? <><strong>Aberto por dia</strong>, {eixo.de} a {eixo.ate} de {B.MONTHS_FULL[parseInt(eixo.ym.slice(5, 7), 10) - 1]} de {eixo.ym.slice(0, 4)} — o recorte do cabeçalho. Tire o intervalo pra voltar à visão mensal.</>
+              : <>{view === "vertical"
+                    ? "Vertical: cada linha como % da receita do próprio mês"
+                    : "Horizontal: cada mês como % do total da linha na janela exibida"}
+                 {" · "}
+                 {mesesIdx.length === 12
+                   ? "jan–dez"
+                   : `${B.MONTHS_FULL[mesesIdx[0]]}–${B.MONTHS_FULL[mesesIdx[mesesIdx.length - 1]]}`}
+                 {" de "}{refYear}</>}
             {window.BI_FONTE ? " · grupos do " + window.BI_FONTE : " · grupos do plano de contas"}
-            {activeMonthIdx >= 0 && (
+            {!porDia && activeMonthIdx >= 0 && (
               <span>
                 {" · "}<strong>{B.MONTHS_FULL[activeMonthIdx]}</strong> está selecionado no filtro
                 {" (coluna destacada) — a tabela mantém os outros meses pra comparação; os KPIs acima são só do mês"}
@@ -262,16 +569,16 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                 <tr>
                   <th style={{ minWidth: 220 }}>Receita / Despesa</th>
                   {mesesIdx.map((i) => {
-                    const isActive = i === activeMonthIdx;
+                    const isActive = !porDia && i === activeMonthIdx;
                     return (
                       <React.Fragment key={i}>
-                        <th className={`num clickable-th ${isActive ? "active" : ""}`}
-                            onClick={() => handleMonthHeader(i)}
-                            style={{ cursor: "pointer" }}
-                            title="Clique para filtrar este mês">
-                          {B.MONTHS_FULL[i]}
+                        <th className={`num ${porDia ? "" : "clickable-th"} ${isActive ? "active" : ""}`}
+                            onClick={porDia ? undefined : () => handleMonthHeader(i)}
+                            style={porDia ? { whiteSpace: "nowrap" } : { cursor: "pointer" }}
+                            title={porDia ? undefined : "Clique para filtrar este mês"}>
+                          {eixo.label(i)}
                         </th>
-                        <th className="num">{view === "horizontal" ? "Δ%" : "%"}</th>
+                        {mostrarPct && <th className="num">{view === "horizontal" ? "Δ%" : "%"}</th>}
                       </React.Fragment>
                     );
                   })}
@@ -289,7 +596,7 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                     return (
                       <React.Fragment key={i}>
                         <td className="num green">{B.fmt(total)}</td>
-                        <td className="num" style={{ color: "var(--fg-3)", fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>
+                        {mostrarPct && <td className="num" style={{ color: "var(--fg-3)", fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>}
                       </React.Fragment>
                     );
                   })}
@@ -315,7 +622,7 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                     return (
                       <React.Fragment key={i}>
                         <td className="num red">{B.fmt(total)}</td>
-                        <td className="num" style={{ color: pctColor, fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>
+                        {mostrarPct && <td className="num" style={{ color: pctColor, fontWeight: view === "horizontal" ? 600 : 400 }}>{pctLabel}</td>}
                       </React.Fragment>
                     );
                   })}
@@ -350,16 +657,39 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
         </div>
       </div>
 
+      <FluxoDiarioAcumulado
+        txCtx={txMes}
+        mesIdx={mesGrafico}
+        year={refYear}
+        saldoInicial={SSfluxo.fimDoMes(mesGrafico - 1)}
+        diaDe={porDia ? eixo.de : null}
+        diaAte={porDia ? eixo.ate : null}
+        B={B}
+        mesNome={(B.MONTHS_FULL[mesGrafico] || "").replace(/^./, c => c.toUpperCase())}
+        mesAbrev={(B.MONTHS[mesGrafico] || "").replace(/^./, c => c.toUpperCase())}
+      />
+
       <div className="card">
         <h2 className="card-title">Saldos acumulados por mês</h2>
+        {/* Era `B.SALDOS_MES` cru: o campo que o aggregateTx não emite (logo não
+            reage a filtro nenhum) e que aqui saía SEM âncora — plotava 0 … 119k
+            enquanto a Tesouraria, com o mesmo título, plotava 372k … 522k. Dois
+            gráficos de mesmo nome e números diferentes. Agora os dois leem de
+            window.serieSaldoMensal. */}
         <TrendChart
-          values={B.SALDOS_MES}
+          values={SSfluxo.curva}
           labels={B.MONTHS.map(m => m.charAt(0).toUpperCase() + m.slice(1) + " " + String((B.META && B.META.ref_year) || "").slice(-2))}
           color="var(--cyan)"
           height={isMobile ? 200 : 300}
           showLabels={!isMobile}
           gradientId="fl-saldos"
         />
+        <div className="status-line" style={{ marginTop: 6, fontSize: 10.5, lineHeight: 1.6 }}>
+          Saldo no fim de cada mês, ancorado no fechamento do mês anterior. Mesmo cálculo da curva
+          da Tesouraria, mas <strong>esta tela roda sempre na visão Completo</strong> — então inclui
+          empréstimo e retirada de sócios, e o número fica acima do de lá quando a Tesouraria está
+          em Operacional. Meses à frente de hoje são projeção.
+        </div>
       </div>
     </div>
   );
@@ -384,7 +714,18 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
   const aReceberDiaSeg = Bpend.RECEITA_DIA;
   const aPagarDiaSeg   = Bpend.DESPESA_DIA;
 
-  const saldosMes = Btudo.SALDOS_MES;
+  /* SALDO ACUMULADO POR MÊS — vem do helper compartilhado em components.jsx.
+   *
+   * `B.SALDOS_MES` tinha dois problemas: não reagia ao contexto (o aggregateTx
+   * não o emitia, então o valor pré-computado sobrevivia ao Object.assign do
+   * recomputeBit) e JÁ É cumulativo, enquanto a curva abaixo o acumulava de
+   * novo — dupla acumulação, que inflava os meses à frente.
+   *
+   * Aqui o F360 não expõe saldo bancário, então `temSaldoReal` é falso e a
+   * curva mostra a VARIAÇÃO acumulada partindo de zero. O rodapé já declara
+   * isso; o que muda é que agora ela reage a filtro e não acumula duas vezes. */
+  const SS = useMemo(() => window.serieSaldoMensal(year, semInvestimento, extraFilters),
+    [year, semInvestimento, extraFilters]);
 
   /* SALDO REAL DO OMIE.
    *
@@ -414,19 +755,15 @@ const PageTesouraria = ({ filters, setFilters, onOpenFilters, statusFilter, dril
     .reduce((s, c) => s + c.saldo, 0);
   const temSaldoReal = saldoRealPorConta.length > 0;
 
-  const saldoInicial = (function() {
-    if (!temSaldoReal) return 0;
-    // Desconta o acumulado do ano até o mês corrente pra que a curva CHEGUE no
-    // saldo real de hoje em vez de começar nele.
-    const mesAtual = new Date().getMonth();
-    let acumAteAgora = 0;
-    for (let i = 0; i <= mesAtual; i++) acumAteAgora += saldosMes[i] || 0;
-    return saldoRealTotal - acumAteAgora;
-  })();
-  const saldosCum = saldosMes.reduce((acc, v, i) => {
-    acc.push((acc[i - 1] != null ? acc[i - 1] : saldoInicial) + (v || 0));
-    return acc;
-  }, []);
+  /* ÂNCORA — no fim do MÊS ANTERIOR, não no mês corrente.
+   *
+   * Cada ponto da curva é o saldo no FIM daquele mês. Ancorar o mês corrente no
+   * saldo de HOJE mistura as duas coisas, e tudo que ainda vai acontecer no
+   * resto do mês desaparece junto com o deslocamento nos meses à frente. */
+  const mesAncora = SS.mesAncora;
+  const saldoFimMesAnterior = SS.saldoFimMesAnterior;
+  const saldoInicial = SS.offset;
+  const saldosCum = SS.curva;
   // O `, 0` que existia aqui como proteção pra array vazio corrompia o
   // resultado: Math.min(...curva, 0) nunca passa de zero, então "Saldo Mínimo"
   // exibia R$ 0,00 mesmo com a curva inteira acima de R$ 340 mil. Max tinha o

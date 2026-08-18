@@ -686,6 +686,23 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
   const handleCategoria = (it) => setDrilldown({ type: "categoria", value: it.name, label: it.name });
   const handleCliente = (it) => setDrilldown({ type: "cliente", value: it.name, label: it.name });
 
+  // Eixo do gráfico: dias quando há mês no cabeçalho, meses quando não há.
+  const eixoRec = useMemo(() => window.eixoDoRecorte(refYear, month, drilldown, B.MONTHS_FULL),
+    [refYear, month, drilldown, B]);
+  const txEixoR = useMemo(
+    () => (eixoRec.tipo === "dia" ? window.txNoContexto(statusFilter, null, undefined, extraFilters) : []),
+    [eixoRec.tipo, statusFilter, extraFilters]
+  );
+  const serieRec = useMemo(() => window.serieDoEixo(txEixoR, eixoRec, refYear), [txEixoR, eixoRec, refYear]);
+  const regimeComp = (extraFilters && extraFilters.regime) === "competencia";
+  // A série que alimenta gráfico, sparklines e média — uma só, pros três não
+  // contarem coisas diferentes.
+  const sparkRec = eixoRec.tipo === "dia" ? serieRec.rec : B.MONTH_DATA.map(m => m.receita);
+  const mediaRec = (() => {
+    const comValor = sparkRec.filter(v => v > 0).length || 1;
+    return B.TOTAL_RECEITA / comValor;
+  })();
+
   // Indices ativos para destaque
   const activeMonthIdx = (drilldown && drilldown.type === "mes")
     ? parseInt(drilldown.value.slice(5, 7), 10) - 1 : -1;
@@ -714,16 +731,30 @@ const PageReceita = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
 
       <div className="row row-4">
-        <KpiTile label="Receita total" value={Math.round(B.TOTAL_RECEITA).toLocaleString("pt-BR")} sparkValues={B.MONTH_DATA.map(m => m.receita)} sparkColor="var(--green)" tone="green" />
-        <KpiTile label="Média por mês" value={Math.round(mediaMes).toLocaleString("pt-BR")} sparkValues={B.MONTH_DATA.map(m => m.receita)} sparkColor="var(--cyan)" tone="cyan" />
-        <KpiTile label="Clientes" value={String(numClientes)} sparkValues={B.MONTH_DATA.map(m => m.receita > 0 ? 1 : 0)} sparkColor="var(--cyan)" tone="cyan" nonMonetary />
-        <KpiTile label="Ticket médio" value={ticket > 0 ? Math.round(ticket).toLocaleString("pt-BR") : "0"} sparkValues={B.MONTH_DATA.map(m => m.receita / 30)} sparkColor="var(--green)" tone="green" />
+        <KpiTile label="Receita total" value={Math.round(B.TOTAL_RECEITA).toLocaleString("pt-BR")} sparkValues={sparkRec} sparkColor="var(--green)" tone="green" />
+        {/* Com um mês filtrado só um mês tem dado, e "Média por mês" repetia o
+            total — certo na conta, inútil na leitura. Aí a média passa a ser
+            POR DIA, junto com o eixo do gráfico. */}
+        <KpiTile label={eixoRec.tipo === "dia" ? "Média por dia com receita" : "Média por mês"}
+                 value={Math.round(mediaRec).toLocaleString("pt-BR")} sparkValues={sparkRec} sparkColor="var(--cyan)" tone="cyan" />
+        <KpiTile label="Clientes" value={String(numClientes)} sparkValues={sparkRec.map(v => v > 0 ? 1 : 0)} sparkColor="var(--cyan)" tone="cyan" nonMonetary />
+        <KpiTile label="Ticket médio" value={ticket > 0 ? Math.round(ticket).toLocaleString("pt-BR") : "0"} sparkValues={sparkRec.map(v => v / 30)} sparkColor="var(--green)" tone="green" />
       </div>
 
       <div className="card">
-        <h2 className="card-title">Receita por mês</h2>
-        <SingleBars values={B.MONTH_DATA.map(m => m.receita)} labels={B.MONTHS_FULL} color="green" height={240}
-          onBarClick={handleBarMes} activeIdx={activeMonthIdx} />
+        <h2 className="card-title">Receita por {eixoRec.tipo === "dia" ? "dia · " + eixoRec.mesNome : "mês"}</h2>
+        <div className="status-line" style={{ marginBottom: 6, fontSize: 10.5 }}>
+          {eixoRec.tipo === "dia"
+            ? <>Aberto por dia porque há mês selecionado no cabeçalho — com o eixo mensal seriam onze
+                colunas zeradas. Tire o mês pra voltar à visão do ano.</>
+            : <>Clique numa barra pra filtrar o mês.</>}
+          {regimeComp && <> · <strong>Regime de competência</strong>: o mês é o da <strong>emissão</strong> do
+            título, não o do pagamento — por isso o total difere da visão de caixa.</>}
+        </div>
+        <SingleBars values={eixoRec.tipo === "dia" ? serieRec.rec : B.MONTH_DATA.map(m => m.receita)}
+          labels={eixoRec.labels} color="green" height={240}
+          onBarClick={eixoRec.tipo === "dia" ? undefined : handleBarMes}
+          activeIdx={eixoRec.tipo === "dia" ? -1 : activeMonthIdx} />
       </div>
 
       <div className="row" style={{ gridTemplateColumns: "minmax(0, 4fr) minmax(0, 5fr) minmax(0, 4fr)" }}>
@@ -769,6 +800,21 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
   const handleCategoria = (it) => setDrilldown({ type: "categoria", value: it.name, label: it.name });
   const handleFornecedor = (it) => setDrilldown({ type: "fornecedor", value: it.name, label: it.name });
 
+  // Eixo do gráfico: dias quando há mês no cabeçalho, meses quando não há.
+  const eixoDesp = useMemo(() => window.eixoDoRecorte(refYear, month, drilldown, B.MONTHS_FULL),
+    [refYear, month, drilldown, B]);
+  const txEixoD = useMemo(
+    () => (eixoDesp.tipo === "dia" ? window.txNoContexto(statusFilter, null, semInvestimento, extraFilters) : []),
+    [eixoDesp.tipo, statusFilter, semInvestimento, extraFilters]
+  );
+  const serieDesp = useMemo(() => window.serieDoEixo(txEixoD, eixoDesp, refYear), [txEixoD, eixoDesp, refYear]);
+  const regimeCompD = (extraFilters && extraFilters.regime) === "competencia";
+  const sparkDesp = eixoDesp.tipo === "dia" ? serieDesp.desp : B.MONTH_DATA.map(m => m.despesa);
+  const mediaDesp = (() => {
+    const comValor = sparkDesp.filter(v => v > 0).length || 1;
+    return totalDespesa / comValor;
+  })();
+
   const activeMonthIdx = (drilldown && drilldown.type === "mes")
     ? parseInt(drilldown.value.slice(5, 7), 10) - 1 : -1;
   const activeCategoria = (drilldown && drilldown.type === "categoria") ? drilldown.value : null;
@@ -795,16 +841,29 @@ const PageDespesa = ({ filters, setFilters, onOpenFilters, statusFilter, drilldo
       <DrilldownBadge drilldown={drilldown} onClear={() => setDrilldown(null)} />
 
       <div className="row row-4">
-        <KpiTile label="Despesas totais" value={Math.round(totalDespesa).toLocaleString("pt-BR")} sparkValues={B.MONTH_DATA.map(m => m.despesa)} sparkColor="var(--red)" tone="red" />
-        <KpiTile label="Média por mês" value={Math.round(mediaMes).toLocaleString("pt-BR")} sparkValues={B.MONTH_DATA.map(m => m.despesa)} sparkColor="var(--red)" tone="red" />
-        <KpiTile label="Fornecedores" value={String(numFornec)} sparkValues={B.MONTH_DATA.map(m => m.despesa > 0 ? 1 : 0)} sparkColor="var(--cyan)" tone="cyan" nonMonetary />
-        <KpiTile label="Ticket médio" value={ticketDesp > 0 ? Math.round(ticketDesp).toLocaleString("pt-BR") : "0"} sparkValues={B.MONTH_DATA.map(m => m.despesa / 30)} sparkColor="var(--red)" tone="red" />
+        <KpiTile label="Despesas totais" value={Math.round(totalDespesa).toLocaleString("pt-BR")} sparkValues={sparkDesp} sparkColor="var(--red)" tone="red" />
+        {/* Mesma correção da tela de Receita: com um mês filtrado, "Média por
+            mês" repetia o total. Vira média por dia junto com o eixo. */}
+        <KpiTile label={eixoDesp.tipo === "dia" ? "Média por dia com despesa" : "Média por mês"}
+                 value={Math.round(mediaDesp).toLocaleString("pt-BR")} sparkValues={sparkDesp} sparkColor="var(--red)" tone="red" />
+        <KpiTile label="Fornecedores" value={String(numFornec)} sparkValues={sparkDesp.map(v => v > 0 ? 1 : 0)} sparkColor="var(--cyan)" tone="cyan" nonMonetary />
+        <KpiTile label="Ticket médio" value={ticketDesp > 0 ? Math.round(ticketDesp).toLocaleString("pt-BR") : "0"} sparkValues={sparkDesp.map(v => v / 30)} sparkColor="var(--red)" tone="red" />
       </div>
 
       <div className="card">
-        <h2 className="card-title">Despesa por mês</h2>
-        <SingleBars values={B.MONTH_DATA.map(m => m.despesa)} labels={B.MONTHS_FULL} color="red" height={240}
-          onBarClick={handleBarMes} activeIdx={activeMonthIdx} />
+        <h2 className="card-title">Despesa por {eixoDesp.tipo === "dia" ? "dia · " + eixoDesp.mesNome : "mês"}</h2>
+        <div className="status-line" style={{ marginBottom: 6, fontSize: 10.5 }}>
+          {eixoDesp.tipo === "dia"
+            ? <>Aberto por dia porque há mês selecionado no cabeçalho — com o eixo mensal seriam onze
+                colunas zeradas. Tire o mês pra voltar à visão do ano.</>
+            : <>Clique numa barra pra filtrar o mês.</>}
+          {regimeCompD && <> · <strong>Regime de competência</strong>: o mês é o da <strong>emissão</strong> do
+            título, não o do pagamento — por isso o total difere da visão de caixa.</>}
+        </div>
+        <SingleBars values={eixoDesp.tipo === "dia" ? serieDesp.desp : B.MONTH_DATA.map(m => m.despesa)}
+          labels={eixoDesp.labels} color="red" height={240}
+          onBarClick={eixoDesp.tipo === "dia" ? undefined : handleBarMes}
+          activeIdx={eixoDesp.tipo === "dia" ? -1 : activeMonthIdx} />
       </div>
 
       <div className="row" style={{ gridTemplateColumns: "minmax(0, 4fr) minmax(0, 5fr) minmax(0, 4fr)" }}>

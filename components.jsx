@@ -283,6 +283,113 @@ const peCobertura = (rows) => {
 };
 window.peCobertura = peCobertura;
 
+/* ==========================================================================
+ * SALDO — uma definição só, para as telas não divergirem
+ * ==========================================================================
+ * Em 17/08/2026 este BI tinha o card do Ponto de Equilíbrio, a curva mensal da
+ * Tesouraria e o Fluxo a vencer dando respostas diferentes sobre o mesmo caixa.
+ * Cada tela que precisar de "quanto tem em banco" ou "quanto terei no fim do
+ * mês N" chama daqui, e não refaz a conta.
+ *
+ * `saldoRealContas()`  — os saldos de hoje por conta, do fetch-saldos.
+ * `serieSaldoMensal()` — os 12 pontos de saldo no FIM de cada mês, ancorados no
+ *                        fechamento do mês anterior (ver o porquê na Tesouraria).
+ * ========================================================================== */
+const saldoRealContas = () => {
+  const contas = (window.FLUXO_PROJETADO || {}).contas || [];
+  const finalidades = window.BI_CONTAS_FINALIDADE || {};
+  const finalidadeDe = (desc) => {
+    // o fetch-saldos sufixa a conta com " (Principal)"; o mapa do config é sem sufixo
+    const limpo = String(desc || "").replace(/\s*\([^)]*\)\s*$/, "").trim();
+    return finalidades[limpo] || finalidades[desc] || null;
+  };
+  return contas.map(c => {
+    const r = (c.rows || [])[0];
+    return { descricao: c.descricao, saldo: r ? r.saldoFinal : 0, fin: finalidadeDe(c.descricao) };
+  }).sort((a, b) => b.saldo - a.saldo);
+};
+window.saldoRealContas = saldoRealContas;
+
+const serieSaldoMensal = (year, semInv, extraFilters) => {
+  const contas = saldoRealContas();
+  const saldoRealTotal = contas.reduce((s, c) => s + c.saldo, 0);
+  const temSaldoReal = contas.length > 0;
+
+  // O acumulado do ano precisa de TUDO (realizado + a vencer): é o que faz os
+  // meses à frente serem projeção em vez de linha reta.
+  const Btudo = window.getBit("tudo", null, year, 0, semInv, extraFilters);
+  const md = Btudo.MONTH_DATA || [];
+  let s = 0;
+  const cum = md.map(m => { s += (m.receita || 0) - (m.despesa || 0); return s; });
+
+  const mesAncora = Math.min(new Date().getMonth(), Math.max(0, cum.length - 1));
+  const Breal = window.getBit("realizado", null, year, 0, semInv, extraFilters);
+  const mdR = (Breal.MONTH_DATA || [])[mesAncora];
+  const netRealizadoMesCorrente = mdR ? (mdR.receita || 0) - (mdR.despesa || 0) : 0;
+  const saldoFimMesAnterior = saldoRealTotal - netRealizadoMesCorrente;
+  const offset = temSaldoReal
+    ? saldoFimMesAnterior - (mesAncora > 0 ? (cum[mesAncora - 1] || 0) : 0)
+    : 0;
+
+  return {
+    contas, saldoRealTotal, temSaldoReal, mesAncora, netRealizadoMesCorrente,
+    saldoFimMesAnterior, offset,
+    curva: cum.map(v => (v || 0) + offset),
+    // saldo no fim do mês mesIdx; mesIdx -1 devolve o fechamento de dezembro anterior
+    fimDoMes: (mesIdx) => (mesIdx < 0 ? offset : (cum[mesIdx] || 0) + offset),
+  };
+};
+window.serieSaldoMensal = serieSaldoMensal;
+
+/* ==========================================================================
+ * EIXO DO GRÁFICO: mês ou dia
+ * ==========================================================================
+ * Com um mês escolhido no cabeçalho, os gráficos "por mês" viravam 11 colunas
+ * zeradas e uma cheia — inútil, e parece defeito. Aqui, com mês selecionado o
+ * eixo passa a ser os DIAS daquele mês (respeitando o intervalo, se houver).
+ * Mesmo raciocínio que já vale na tabela do Fluxo de Caixa.
+ *
+ * A série diária é calculada do `txNoContexto`, e NÃO do `B.RECEITA_DIA`: esse
+ * campo não é emitido pelo `aggregateTx`, então sobrevive do segmento
+ * pré-computado e não reage a regime, conta, categoria nem visão. É o mesmo
+ * defeito do SALDOS_MES e do FLUXO_*.
+ * ========================================================================== */
+const eixoDoRecorte = (year, month, drilldown, mesesFull) => {
+  if (!month || month < 1 || month > 12) {
+    return { tipo: "mes", n: 12, labels: mesesFull, ym: null, de: 1, ate: 12 };
+  }
+  const mm = String(month).padStart(2, "0");
+  const ultimo = new Date(year, month, 0).getDate();
+  let de = 1, ate = ultimo;
+  if (drilldown && drilldown.type === "dia_range") { de = drilldown.from; ate = Math.min(drilldown.to, ultimo); }
+  else if (drilldown && drilldown.type === "dia") { de = drilldown.value; ate = drilldown.value; }
+  const labels = [];
+  for (let d = de; d <= ate; d++) labels.push(String(d).padStart(2, "0"));
+  return { tipo: "dia", n: labels.length, labels, ym: year + "-" + mm, de, ate, mesNome: mesesFull[month - 1] || "" };
+};
+window.eixoDoRecorte = eixoDoRecorte;
+
+/* Soma receita e despesa por coluna do eixo, a partir das rows já no contexto. */
+const serieDoEixo = (rows, eixo, year) => {
+  const rec = Array(eixo.n).fill(0);
+  const desp = Array(eixo.n).fill(0);
+  for (const r of rows || []) {
+    if (!r[1]) continue;
+    let i;
+    if (eixo.tipo === "dia") {
+      if (r[1] !== eixo.ym || r[2] < eixo.de || r[2] > eixo.ate) continue;
+      i = r[2] - eixo.de;
+    } else {
+      if (Number(r[1].slice(0, 4)) !== year) continue;
+      i = parseInt(r[1].slice(5, 7), 10) - 1;
+    }
+    if (i < 0 || i >= eixo.n) continue;
+    if (r[0] === "r") rec[i] += r[5]; else desp[i] += r[5];
+  }
+  return { rec, desp };
+};
+window.serieDoEixo = serieDoEixo;
+
 /* txNoContexto — devolve as rows do ALL_TX sob o MESMO contexto de filtro que
  * o `recomputeBit` aplica (status + drilldown + semInvestimento + extraFilters).
  *
@@ -710,45 +817,65 @@ const WEEK_RANGES = [
   { v: 5, label: 'Sem. 5 (29–31)' },
 ];
 
-const DayFilterGroup = ({ dayMode, setDayMode, day, setDay, dayFrom, setDayFrom, dayTo, setDayTo, week, setWeek }) => {
-  const dayNums = Array.from({ length: 31 }, (_, i) => i + 1);
-  const modes = ['dia', 'intervalo', 'semana'];
+/* DayFilterGroup — o recorte de dia dentro do mês.
+ *
+ * Três coisas estavam erradas aqui, e as três apareciam na tela do cliente:
+ *
+ * 1. CORES CHUMBADAS. Era `#4f86c6` no ativo e `#222` no inativo, com borda
+ *    `#444`. No tema escuro passava; no CLARO — que é o que a controladora usa
+ *    ("aqui é tudo quase 40, os clientes é 40 a mais") — virava um bloco preto
+ *    no meio do branco. Agora usa a classe `.seg` do design system, que já
+ *    existe e é temática.
+ *
+ * 2. FILTRO MUDO. Escolher "Intervalo" deixava De e Até em zero, e zero não
+ *    filtra: a pessoa clicava e não acontecia nada. Agora entrar num modo já
+ *    preenche um recorte válido (o mês inteiro), que a pessoa então estreita.
+ *
+ * 3. 31 DIAS SEMPRE. Fevereiro oferecia 30 e 31. A lista agora vem do mês.
+ */
+const DayFilterGroup = ({ year, month, dayMode, setDayMode, day, setDay, dayFrom, setDayFrom, dayTo, setDayTo, week, setWeek }) => {
+  const ultimoDia = new Date(year || new Date().getFullYear(), month || 1, 0).getDate();
+  const dayNums = Array.from({ length: ultimoDia }, (_, i) => i + 1);
+  const modes = [["dia", "Dia"], ["intervalo", "Intervalo"], ["semana", "Semana"]];
+
+  // Trocar de modo já deixa um recorte que funciona, em vez de esperar dois
+  // cliques pra sair do zero.
+  const trocarModo = (m) => {
+    setDayMode(m);
+    if (m === "intervalo" && !(dayFrom > 0 && dayTo > 0)) { setDayFrom(1); setDayTo(ultimoDia); }
+    if (m === "semana" && !(week > 0)) setWeek(1);
+  };
+  // De maior que Até é recorte vazio silencioso: o Até acompanha.
+  const mudarDe = (v) => { setDayFrom(v); if (dayTo && v > dayTo) setDayTo(v); };
+  const mudarAte = (v) => { setDayTo(v); if (dayFrom && v < dayFrom) setDayFrom(v); };
+
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 3 }}>
-      <div style={{ display: 'flex' }}>
-        {modes.map((m, i) => (
-          <button key={m} onClick={() => setDayMode(m)} style={{
-            padding: '2px 7px', fontSize: 11, lineHeight: '16px', cursor: 'pointer',
-            background: dayMode === m ? '#4f86c6' : '#222',
-            color: dayMode === m ? '#fff' : '#888',
-            border: '1px solid #444',
-            borderRadius: i === 0 ? '4px 0 0 4px' : i === 2 ? '0 4px 4px 0' : '0',
-            borderRight: i < 2 ? 'none' : undefined,
-          }}>
-            {m === 'dia' ? 'Dia' : m === 'intervalo' ? 'Intervalo' : 'Semana'}
-          </button>
+    <div className="fb-dia">
+      <div className="seg seg-mini">
+        {modes.map(([m, rot]) => (
+          <button key={m} className={dayMode === m ? "active" : ""} onClick={() => trocarModo(m)}>{rot}</button>
         ))}
       </div>
-      {dayMode === 'dia' && (
+      {dayMode === "dia" && (
         <select className="header-year" value={day || 0} onChange={e => setDay(Number(e.target.value))}>
-          <option value={0}>Todo mês</option>
-          {dayNums.map(d => <option key={d} value={d}>{d}</option>)}
+          <option value={0}>todo o mês</option>
+          {dayNums.map(d => <option key={d} value={d}>dia {d}</option>)}
         </select>
       )}
-      {dayMode === 'intervalo' && (<>
-        <select className="header-year" value={dayFrom || 0} onChange={e => setDayFrom(Number(e.target.value))}>
-          <option value={0}>De</option>
-          {dayNums.map(d => <option key={d} value={d}>{d}</option>)}
-        </select>
-        <span style={{ color: '#888', fontSize: 12, padding: '0 2px' }}>–</span>
-        <select className="header-year" value={dayTo || 0} onChange={e => setDayTo(Number(e.target.value))}>
-          <option value={0}>Até</option>
-          {dayNums.map(d => <option key={d} value={d}>{d}</option>)}
-        </select>
-      </>)}
-      {dayMode === 'semana' && (
+      {dayMode === "intervalo" && (
+        <React.Fragment>
+          <select className="header-year" value={dayFrom || 1} onChange={e => mudarDe(Number(e.target.value))}>
+            {dayNums.map(d => <option key={d} value={d}>{d}</option>)}
+          </select>
+          <span className="fb-ate">até</span>
+          <select className="header-year" value={dayTo || ultimoDia} onChange={e => mudarAte(Number(e.target.value))}>
+            {dayNums.map(d => <option key={d} value={d}>{d}</option>)}
+          </select>
+        </React.Fragment>
+      )}
+      {dayMode === "semana" && (
         <select className="header-year" value={week || 0} onChange={e => setWeek(Number(e.target.value))}>
-          <option value={0}>Toda semana</option>
+          <option value={0}>todo o mês</option>
           {WEEK_RANGES.map(w => <option key={w.v} value={w.v}>{w.label}</option>)}
         </select>
       )}
@@ -1145,14 +1272,54 @@ const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, se
   // existe e nao muda nada e pior que controle ausente.
   const temNatureza = setFilterCentroCusto && naturezas.length > 1;
   const temCategoria = setFilterCategoria && categorias.length > 0;
-  const nRecorte = (filterCentroCusto || []).length + (filterCategoria || []).length
-    + (filterEmpresa || []).length + (filterConta || []).length + (month > 0 ? 1 : 0);
+  /* RESUMO DO RECORTE — o que está filtrado, em português, com × por item.
+   *
+   * Antes era só "limpar recorte (3)". O número não dizia QUAIS três, e o
+   * recorte de dia nem entrava na conta: dava pra estar vendo 18–31 de agosto
+   * e o contador marcar 1. Pra tirar um filtro só, tinha que caçar o controle.
+   *
+   * Agora cada recorte vira uma pílula que se nomeia e se remove sozinha. É o
+   * mesmo princípio do resto do BI: estado precisa de pista visual, e número
+   * sem rótulo não é pista. */
+  const mesNome = (m) => (window.BIT && window.BIT.MONTHS_FULL ? window.BIT.MONTHS_FULL[m - 1] : "") || ("mês " + m);
+  const limparDia = () => {
+    if (setDay) setDay(0);
+    if (setDayFrom) setDayFrom(0);
+    if (setDayTo) setDayTo(0);
+    if (setWeek) setWeek(0);
+    if (setDayMode) setDayMode("dia");
+  };
+  const chips = [];
+  if (month > 0) {
+    chips.push({ k: "mes", txt: mesNome(month).replace(/^./, c => c.toUpperCase()), limpa: () => { setMonth(0); limparDia(); } });
+    if (dayMode === "dia" && day > 0) chips.push({ k: "dia", txt: "dia " + day, limpa: limparDia });
+    if (dayMode === "intervalo" && dayFrom > 0 && dayTo > 0) chips.push({ k: "int", txt: "dias " + dayFrom + "–" + dayTo, limpa: limparDia });
+    if (dayMode === "semana" && week > 0) {
+      const w = WEEK_RANGES.find(x => x.v === week);
+      chips.push({ k: "sem", txt: w ? w.label : "semana " + week, limpa: limparDia });
+    }
+  }
+  const listaChip = (arr, rotulo, setter) => {
+    const a = arr || [];
+    if (!a.length) return;
+    chips.push({
+      k: rotulo, limpa: () => setter([]),
+      txt: a.length === 1 ? a[0] : a.length + " " + rotulo + (rotulo.endsWith("a") ? "s" : "s"),
+      dica: a.length > 1 ? a.join(" · ") : undefined,
+    });
+  };
+  listaChip(filterEmpresa, "empresa", setFilterEmpresa);
+  listaChip(filterConta, "conta", setFilterConta);
+  listaChip(filterCentroCusto, "natureza", setFilterCentroCusto);
+  listaChip(filterCategoria, "categoria", setFilterCategoria);
+
   const limpar = () => {
     if (setFilterCentroCusto) setFilterCentroCusto([]);
     if (setFilterCategoria) setFilterCategoria([]);
     if (setFilterEmpresa) setFilterEmpresa([]);
     if (setFilterConta) setFilterConta([]);
     if (setMonth) setMonth(0);
+    limparDia();
   };
   return (
     <React.Fragment>
@@ -1186,7 +1353,7 @@ const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, se
           <FbGroup label="Mês" on={month > 0} dica="Recorta o período. Sem mês, mostra o ano inteiro">
             <MonthSelect value={month} onChange={setMonth} />
             {month > 0 && setDayMode && (
-              <DayFilterGroup dayMode={dayMode} setDayMode={setDayMode} day={day} setDay={setDay}
+              <DayFilterGroup year={year} month={month} dayMode={dayMode} setDayMode={setDayMode} day={day} setDay={setDay}
                 dayFrom={dayFrom} setDayFrom={setDayFrom} dayTo={dayTo} setDayTo={setDayTo} week={week} setWeek={setWeek} />
             )}
           </FbGroup>
@@ -1208,9 +1375,20 @@ const Header = ({ page, onToggleSidebar, statusFilter, setStatusFilter, year, se
           </FbGroup>
         )}
         <div style={{ flex: 1 }} />
-        {nRecorte > 0
-          ? <button className="fb-clear" onClick={limpar} title="Volta pro ano inteiro, sem recorte">limpar recorte ({nRecorte})</button>
-          : <span className="fb-hint">sem recorte — mostrando {year} inteiro</span>}
+        {chips.length > 0 ? (
+          <div className="fb-resumo">
+            <span className="fb-resumo-lbl">vendo</span>
+            {chips.map(c => (
+              <button key={c.k} className="fb-chip" title={c.dica ? c.dica + " — clique pra tirar" : "clique pra tirar este recorte"}
+                onClick={c.limpa}>
+                {c.txt}<span className="x">✕</span>
+              </button>
+            ))}
+            <button className="fb-clear" onClick={limpar} title="Volta pro ano inteiro, sem recorte nenhum">limpar tudo</button>
+          </div>
+        ) : (
+          <span className="fb-hint">sem recorte — mostrando {year} inteiro</span>
+        )}
       </div>
     </React.Fragment>
   );

@@ -863,6 +863,13 @@ function aggregateTx(txList, year) {
   const extratoArr = [];
   const extratoRecArr = [], extratoDespArr = [];
   let totalReceita = 0, totalDespesa = 0;
+  // RECEITA_DIA / DESPESA_DIA: series diarias. NAO eram emitidas aqui, so no
+  // buildSegment em build-time. Como o recomputeBit faz Object.assign({}, base,
+  // agg, ...), o valor pre-computado sobrevivia e os "Pulso de receitas/
+  // despesas" da Tesouraria ficavam congelados: reagiam ao status (sao 3
+  // segmentos prontos) e ignoravam regime, conta, categoria e visao.
+  const RECEITA_DIA = new Array(31).fill(0);
+  const DESPESA_DIA = new Array(31).fill(0);
 
   for (const row of txList) {
     const [kind, mes, dia, categoria, cliente, valor, realizado, fornecedor, cc] = row;
@@ -871,14 +878,17 @@ function aggregateTx(txList, year) {
     if (Number(ymonth) !== year) continue;
     const mIdx = parseInt(mes.slice(5,7), 10) - 1;
     if (mIdx < 0 || mIdx > 11) continue;
+    const dIdx = (dia >= 1 && dia <= 31) ? dia - 1 : -1;
     if (kind === 'r') {
       MONTH_DATA[mIdx].receita += valor;
       totalReceita += valor;
+      if (dIdx >= 0) RECEITA_DIA[dIdx] += valor;
       recCat.set(categoria, (recCat.get(categoria) || 0) + valor);
       if (cliente) recCli.set(cliente, (recCli.get(cliente) || 0) + valor);
     } else {
       MONTH_DATA[mIdx].despesa += valor;
       totalDespesa += valor;
+      if (dIdx >= 0) DESPESA_DIA[dIdx] += valor;
       despCat.set(categoria, (despCat.get(categoria) || 0) + valor);
       if (fornecedor) despForn.set(fornecedor, (despForn.get(fornecedor) || 0) + valor);
     }
@@ -922,6 +932,14 @@ function aggregateTx(txList, year) {
     EXTRATO: extratoArr,
     EXTRATO_RECEITAS: extratoRecArr,
     EXTRATO_DESPESAS: extratoDespArr,
+    RECEITA_DIA,
+    DESPESA_DIA,
+    // SALDOS_MES sai daqui pelo mesmo motivo. Cuidado ao consumir: ele JA E
+    // CUMULATIVO, e acumular de novo dobra a conta.
+    SALDOS_MES: (function () {
+      let s = 0;
+      return MONTH_DATA.map(m => { s += m.receita - m.despesa; return s; });
+    })(),
     KPIS: {
       TOTAL_RECEITA: totalReceita,
       TOTAL_DESPESA: totalDespesa,
@@ -948,7 +966,18 @@ function filterTx(allTx, statusFilter, drilldown) {
     else if (drilldown.type === 'categoria') out = out.filter(r => r[3] === drilldown.value);
     else if (drilldown.type === 'cliente') out = out.filter(r => r[0] === 'r' && r[4] === drilldown.value);
     else if (drilldown.type === 'fornecedor') out = out.filter(r => r[0] === 'd' && r[7] === drilldown.value);
-    else if (drilldown.type === 'dia') out = out.filter(r => r[2] === drilldown.value);
+    // Recorte de dia. O campo ym vem junto no drilldown (montado no build-jsx)
+    // e preserva o mes. (Sem crase neste comentario: ele mora DENTRO do
+    // template literal que gera o data.js, e crase aqui fecha a string.)
+    else if (drilldown.type === 'dia') {
+      out = out.filter(r => r[2] === drilldown.value && (!drilldown.ym || r[1] === drilldown.ym));
+    }
+    // dia_range: os modos Intervalo e Semana. Este ramo NAO EXISTIA — o
+    // drilldown era emitido, caia fora de todos os testes e nao filtrava nada,
+    // enquanto o mes ja tinha sido descartado. Filtro que alargava o numero.
+    else if (drilldown.type === 'dia_range') {
+      out = out.filter(r => r[2] >= drilldown.from && r[2] <= drilldown.to && (!drilldown.ym || r[1] === drilldown.ym));
+    }
   }
   return out;
 }
@@ -1122,12 +1151,21 @@ window.recomputeBit = function (statusFilter, drilldown, year, semInv, extraFilt
   const agg = aggregateTx(filtered, year || REF_YEAR);
   // Mescla com BIT base pra preservar META, helpers (fmt, fmtK), MONTHS etc.
   const base = window.BIT || {};
-  return Object.assign({}, base, agg, {
+  const bit = Object.assign({}, base, agg, {
     TOTAL_RECEITA: agg.KPIS.TOTAL_RECEITA,
     TOTAL_DESPESA: agg.KPIS.TOTAL_DESPESA,
     VALOR_LIQUIDO: agg.KPIS.VALOR_LIQUIDO,
     MARGEM_LIQUIDA: agg.KPIS.MARGEM_LIQUIDA,
   });
+  // Estes tres sao montados em build-time com mapas que nao existem no browser.
+  // O aggregateTx nao tem como recalcular, e vindos do BIT base passavam por
+  // dado filtrado. Nenhuma tela le mais deles — Fluxo e Comparativo montam os
+  // proprios a partir do txNoContexto. Entrega NADA em vez de valor velho:
+  // quem consumir quebra na hora em vez de exibir numero de outro recorte.
+  delete bit.FLUXO_RECEITA;
+  delete bit.FLUXO_DESPESA;
+  delete bit.COMP_DATA;
+  return bit;
 };
 // computePE: indicadores de Ponto de Equilibrio (break-even) sob o MESMO contexto
 // de filtro do resto da Visao Geral (statusFilter + drilldown + ano/mes + semInv),
