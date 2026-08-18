@@ -135,12 +135,27 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
       if (d < 1 || d > 31) continue;
       if (r[0] === "r") entradas[d] += r[5]; else saidas[d] += r[5];
     }
-    // Sem intervalo no cabeçalho: do dia 1 até o último com movimento (mínimo
-    // 28, pra a linha não terminar no meio e parecer que o mês acabou ali).
+    /* Até onde a linha vai, sem intervalo no cabeçalho.
+     *
+     * Era `Math.max(ultimo, 28)` — "pra a linha não terminar no meio". O efeito
+     * foi o oposto: em agosto o último movimento é dia 17, então 11 dos 28
+     * pontos (40% da largura) viravam uma reta morta, e os dias 19 a 28, que
+     * AINDA NÃO ACONTECERAM, apareciam desenhados como dias de movimento zero.
+     * O gráfico dizia "não teve nada" onde a verdade é "ainda não chegou" —
+     * mesma família do estado vazio que mente sobre mês fechado.
+     *
+     * Mês corrente para em HOJE; mês fechado desenha o mês inteiro, porque aí
+     * a reta no fim é informação de verdade (não teve movimento mesmo). */
     let ultimo = 0;
     for (let d = 1; d <= 31; d++) if (entradas[d] || saidas[d]) ultimo = d;
+    const hoje = new Date();
+    const ultimoDoMes = new Date(year, mesIdx + 1, 0).getDate();
+    const ehMesCorrente = year === hoje.getFullYear() && mesIdx === hoje.getMonth();
+    const limite = ehMesCorrente ? hoje.getDate() : ultimoDoMes;
     const de = diaDe || 1;
-    const ate = diaAte || Math.max(ultimo, Math.min(28, new Date(year, mesIdx + 1, 0).getDate()));
+    // max(ultimo, limite): se houver lançamento datado à frente de hoje (PAGO
+    // futuro existe), ele não some do gráfico por causa do corte.
+    const ate = diaAte || Math.min(Math.max(ultimo, limite), ultimoDoMes);
 
     /* SALDO tem que partir da posição REAL do primeiro dia da janela.
      *
@@ -161,10 +176,12 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
       rA += entradas[d]; dA += saidas[d]; sd += entradas[d] - saidas[d];
       dias.push(d); recAcum.push(rA); despAcum.push(dA); saldos.push(sd);
     }
-    return { dias, recAcum, despAcum, saldos, entradas, saidas, de, ate, saldoNaAbertura, netAntes };
+    return { dias, recAcum, despAcum, saldos, entradas, saidas, de, ate, saldoNaAbertura, netAntes, ehMesCorrente };
   }, [txCtx, mesIdx, year, saldoInicial, diaDe, diaAte]);
 
-  const { dias, recAcum, despAcum, saldos, saldoNaAbertura, netAntes } = dados;
+  const { dias, recAcum, despAcum, saldos, saldoNaAbertura, netAntes, ehMesCorrente } = dados;
+  const diaAte0 = dados.ate;
+  const diaHoje = new Date().getDate();
   // Há âncora bancária? No Omie sim; no F360 não existe endpoint de saldo.
   const temAncoraBanco = ((window.FLUXO_PROJETADO || {}).contas || []).length > 0;
   const n = dias.length;
@@ -234,6 +251,17 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
               <b> {diaDe}–{diaAte}</b>.</>
           : <> (fechamento do mês anterior).</>}
         {" "}Dia com saldo negativo aparece em vermelho.
+        {/* Por que a linha para onde para. Sem isto o corte vira mais uma
+            decisao silenciosa: quem olha nao sabe se acabou o mes ou o dado. */}
+        {!diaDe && ehMesCorrente && diaAte0 <= diaHoje && <> A linha vai até <b>hoje
+          ({diaAte0}/{String(mesIdx + 1).padStart(2, "0")})</b>; o resto do mês ainda não aconteceu.</>}
+        {/* Lançamento liquidado com data À FRENTE de hoje existe (antecipação de
+            cartão, agendamento baixado). Nesse caso a linha passa de hoje, e
+            dizer "vai até hoje" seria falso — o eixo é maior que o presente. */}
+        {!diaDe && ehMesCorrente && diaAte0 > diaHoje && <> A linha vai até
+          <b> {diaAte0}/{String(mesIdx + 1).padStart(2, "0")}</b>: há lançamento já liquidado com
+          data à frente de hoje ({diaHoje}). O resto do mês ainda não aconteceu.</>}
+        {!diaDe && !ehMesCorrente && <> Mês fechado — a linha cobre os {diaAte0} dias.</>}
       </div>
 
       {/* A legenda carrega o VALOR, igual à do gráfico de Receitas e despesas da
