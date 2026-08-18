@@ -24,6 +24,11 @@ COPY components.jsx pages-1.jsx pages-2.jsx pages-3.jsx pages-4.jsx page-dre.jsx
 
 # Site estático servido pelo nginx
 COPY index.html styles.css /usr/share/nginx/html/
+# Documento de entrega pra cliente, servido como pagina propria em /entrega-*.html.
+# Autocontido (CSS inline, nenhum asset externo) e nao referenciado pelo BI — o
+# nginx serve por try_files $uri antes de cair no fallback do index. Cobre este BI
+# e o irmao ifinance-bi-web: a mesma controladora opera os dois.
+COPY entrega-18-08-2026.html /usr/share/nginx/html/
 COPY assets /usr/share/nginx/html/assets
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
