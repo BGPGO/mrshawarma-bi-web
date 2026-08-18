@@ -268,16 +268,46 @@ window.peEhReceitaBase = peEhReceitaBase;
 window.BIT_HAS_PE = Array.isArray(window.ALL_TX)
   && window.ALL_TX.some(r => r[0] === "d" && (peClassOf(r[3]) === "F" || peClassOf(r[3]) === "V"));
 
+/* O que classificamos SEM frase dela. A linha 4 e a unica com residuo: ela
+ * falou de CMV, embalagens e "salarios da operacao", e sobrou o resto. Nao da
+ * pra derivar isso da linha (a linha 4 inteira seria suposicao, incluindo o
+ * que ela respondeu) nem da ausencia de classe (cobertura da 100%, porque nos
+ * classificamos). Entao a lista do que ela CONFIRMOU e explicita — e tudo que
+ * cair na linha 4 fora dela e suposicao nossa, declarada na tela. */
+const PE_LINHA_RESIDUO = "4";
+const PE_CONFIRMADAS = new Set([
+  "400-0 - Custo de Mercadorias Vendidas",  // "variam com o faturamento"
+  "400-0 - Custo de Embalagens",            // idem
+  "201-6 - OP Salarios",                    // "salarios da operacao, que sao fixos"
+  "201-6 - OP Freelancer",                  // idem
+  "403-9 - OP Vale Transporte",             // idem
+]);
+const peSuposto = (categoria) => {
+  const cat = String(categoria || "").trim();
+  return dreClassify(cat).dre === PE_LINHA_RESIDUO && !PE_CONFIRMADAS.has(cat);
+};
+window.peSuposto = peSuposto;
+
 /* Cobertura da classificação, pra tela declarar em vez de mostrar saúde por
  * omissão. Devolve os totais por classe e a lista do que ficou de fora. */
 const peCobertura = (rows) => {
-  const out = { F: 0, V: 0, fora: 0, semClasse: 0, receita: 0, categorias: { F: {}, V: {}, fora: {}, semClasse: {} } };
+  const out = { F: 0, V: 0, fora: 0, semClasse: 0, suposto: 0, receita: 0,
+                categorias: { F: {}, V: {}, fora: {}, semClasse: {}, suposto: {} } };
   for (const r of rows || []) {
     if (r[0] === "r") { out.receita += r[5]; continue; }
     const c = peClassOf(r[3]);
     const bucket = c === "F" ? "F" : c === "V" ? "V" : c === "-" ? "fora" : "semClasse";
     out[bucket] += r[5];
     out.categorias[bucket][r[3]] = (out.categorias[bucket][r[3]] || 0) + r[5];
+    // Suposicao NOSSA, nao instrucao dela: a linha 4 (Outras Despesas
+    // Operacionais) nao foi respondida e esta entrando como FIXA. Cobertura
+    // 100% esconde isso — a categoria some da lista de "sem classificacao"
+    // exatamente porque nos a classificamos. Entao ela sai por fora, pra tela
+    // poder dizer o que foi assumido em vez de mostrar saude por omissao.
+    if (peSuposto(r[3])) {
+      out.suposto += r[5];
+      out.categorias.suposto[r[3]] = (out.categorias.suposto[r[3]] || 0) + r[5];
+    }
   }
   return out;
 };

@@ -254,6 +254,7 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
   const pontoEquilibrio = peMcPct > 0 ? peCob.F / peMcPct : 0;
   const peMargemSeg = (pontoEquilibrio > 0 && receitaBruta) ? (receitaBruta - pontoEquilibrio) / receitaBruta : 0;
   const peSemClasse = Object.keys(peCob.categorias.semClasse);
+  const peSupostas = Object.keys(peCob.categorias.suposto);
 
   // Invariante: a cascata mais as não mapeadas têm que reproduzir a soma
   // assinada de TODAS as rows do período. Se não, algo está sendo engolido.
@@ -562,6 +563,20 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                 <strong>{peSemClasse.length} categoria(s) sem classificação fixo/variável</strong>
                 {" "}({fmt(peCob.semClasse)}) ficaram fora do cálculo: {peSemClasse.join(" · ")}.
                 Isso é defeito, não modelagem — reportar.
+              </div>
+            ) : null}
+            {/* Cobertura 100% nao quer dizer "tudo confirmado": quer dizer que
+                nao sobrou categoria sem classe. O que ela NAO respondeu esta
+                dentro do numero, classificado por nos. Sem este aviso o painel
+                mostra saude por omissao — o mesmo defeito que o bloco acima
+                existe pra evitar. */}
+            {peSupostas.length > 0 ? (
+              <div className="dre-aviso" style={{ marginTop: 8 }}>
+                <strong>{peSupostas.length} categoria(s) classificadas como fixas por suposição
+                nossa</strong> ({fmt(peCob.suposto)}) — são as de <em>Outras Despesas
+                Operacionais</em>, que não estavam nas definições de 16/08:{" "}
+                {peSupostas.join(" · ")}. Estão dentro do cálculo. Se alguma for variável,
+                é só avisar que trocamos.
               </div>
             ) : null}
           </div>
