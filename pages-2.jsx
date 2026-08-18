@@ -187,19 +187,42 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
   const n = dias.length;
   if (!n) return <div className="status-line" style={{ padding: 18 }}>Sem lançamento neste mês.</div>;
 
-  const todos = recAcum.concat(despAcum, saldos, [0]);
-  const minY = Math.min(...todos);
-  const maxY = Math.max(...todos, 1);
-  const rangeY = (maxY - minY) || 1;
+  /* DUAS ESCALAS, e nao uma.
+   *
+   * Receita e despesa acumuladas partem de ZERO; o saldo parte da posicao da
+   * conta (R$ 328 mil na abertura de agosto). Num eixo unico o dominio ia de 0
+   * a R$ 467 mil: as duas acumuladas ficavam achatadas no rodape e a do saldo
+   * sozinha na faixa de cima, com o miolo do grafico vazio. Pior, o desenho do
+   * saldo -- que e a linha que importa -- virava quase uma reta, porque uma
+   * variacao de R$ 140 mil num eixo de R$ 467 mil ocupa 30% da altura.
+   *
+   * O PRECO: com dois eixos, ALTURA DEIXA DE SER COMPARAVEL entre a linha verde
+   * e as outras duas. Cruzamento passa a ser artefato da escala, nao fato. Isso
+   * esta declarado embaixo do grafico -- eixo duplo sem aviso convida a leitura
+   * errada ("o saldo passou a receita"), e o aviso e o que paga o preco. */
+  const maxFlow = Math.max(...recAcum, ...despAcum, 1);
+  const fMin = 0, fMax = maxFlow * 1.06;
+  const sLo = Math.min(...saldos), sHi = Math.max(...saldos);
+  // Folga pra a linha nao encostar nas bordas. Saldo constante (mes sem
+  // movimento) tem amplitude zero: cai no fallback pelo proprio valor.
+  const sPad = ((sHi - sLo) || Math.abs(sHi) || 1) * 0.12;
+  const sMax = sHi + sPad;
+  // Saldo negativo em algum dia => o ZERO tem que estar no eixo: e a linha que
+  // separa "tem dinheiro" de "nao tem", e some se o eixo comecar acima dela.
+  // Saldo sempre positivo => nao inventar area negativa que nao existe.
+  const sMin = sLo < 0 ? sLo - sPad : Math.max(0, sLo - sPad);
 
   // padT menor agora que a legenda saiu do SVG — aquele espaço era só dela.
+  // padR cresceu de 28 pra 78: e onde moram os rotulos do eixo do saldo.
   const W = 1200, H = 330;
-  const padL = 78, padR = 28, padT = 22, padB = 44;
+  const padL = 78, padR = 78, padT = 30, padB = 44;
   const cW = W - padL - padR, cH = H - padT - padB;
   const stepX = n > 1 ? cW / (n - 1) : cW;
   const toX = (i) => padL + i * stepX;
-  const toY = (v) => padT + cH - ((v - minY) / rangeY) * cH;
+  const toY = (v) => padT + cH - ((v - fMin) / ((fMax - fMin) || 1)) * cH;   // acumuladas
+  const toYS = (v) => padT + cH - ((v - sMin) / ((sMax - sMin) || 1)) * cH;  // saldo
   const pts = (arr) => arr.map((v, i) => toX(i) + "," + toY(v)).join(" ");
+  const ptsS = (arr) => arr.map((v, i) => toX(i) + "," + toYS(v)).join(" ");
 
   const hover = (e, i) => {
     const svg = e.currentTarget.closest("svg");
@@ -207,7 +230,11 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
     const q = p.matrixTransform(svg.getScreenCTM().inverse());
     setTip({ x: q.x, y: q.y, i });
   };
-  const ticks = Array.from({ length: 6 }, (_, i) => minY + (rangeY * i) / 5);
+  // Os dois eixos compartilham as MESMAS 6 alturas de linha-guia; o que muda e
+  // o valor rotulado de cada lado. Duas grades sobrepostas seriam ilegiveis.
+  const ticks = Array.from({ length: 6 }, (_, i) => i / 5);
+  const tickF = (t) => fMin + (fMax - fMin) * t;
+  const tickS = (t) => sMin + (sMax - sMin) * t;
 
   const baixarCsv = () => {
     const linhas = [["Dia", "Receita acumulada", "Despesa acumulada", "Saldo"].join(";")];
@@ -286,15 +313,31 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
       <div style={{ position: "relative" }}>
         <svg viewBox={"0 0 " + W + " " + H} style={{ width: "100%", height: "auto", display: "block" }}
              preserveAspectRatio="xMidYMid meet" onMouseLeave={() => setTip(null)}>
-          {ticks.map((v, i) => (
+          {/* Titulo de cada eixo. Sem isto o leitor tem que adivinhar qual
+              coluna de numeros pertence a qual linha — e com escalas diferentes
+              adivinhar errado muda a conclusao, nao so a estetica. */}
+          <text x={padL - 8} y={padT - 12} textAnchor="end" fill="var(--fg-3)" fontSize="9"
+                fontFamily="var(--font-mono)" letterSpacing="0.5">ACUMULADO</text>
+          <text x={W - padR + 8} y={padT - 12} textAnchor="start" fill="var(--green)" fontSize="9"
+                fontFamily="var(--font-mono)" letterSpacing="0.5">SALDO</text>
+          {ticks.map((t, i) => (
             <g key={"g" + i}>
-              <line x1={padL} y1={toY(v)} x2={W - padR} y2={toY(v)} stroke="var(--border)" strokeDasharray="3 5" />
-              <text x={padL - 8} y={toY(v) + 4} textAnchor="end" fill="var(--fg-3)" fontSize="10"
-                    fontFamily="var(--font-mono)">{B.fmtK(v)}</text>
+              <line x1={padL} y1={toY(tickF(t))} x2={W - padR} y2={toY(tickF(t))} stroke="var(--border)" strokeDasharray="3 5" />
+              <text x={padL - 8} y={toY(tickF(t)) + 4} textAnchor="end" fill="var(--fg-3)" fontSize="10"
+                    fontFamily="var(--font-mono)">{B.fmtK(tickF(t))}</text>
+              {/* Rotulo do saldo na cor da linha do saldo: e o unico jeito de
+                  ligar coluna de numero a linha desenhada sem legenda extra. */}
+              <text x={W - padR + 8} y={toY(tickF(t)) + 4} textAnchor="start" fill="var(--green)" fontSize="10"
+                    fontFamily="var(--font-mono)" opacity="0.85">{B.fmtK(tickS(t))}</text>
             </g>
           ))}
-          {minY < 0 && maxY > 0 && (
-            <line x1={padL} y1={toY(0)} x2={W - padR} y2={toY(0)} stroke="var(--fg-3)" strokeWidth="1" opacity="0.5" />
+          {/* Zero do eixo do SALDO — a fronteira entre ter e nao ter caixa. As
+              acumuladas nunca ficam negativas, entao o zero delas e o rodape. */}
+          {sMin < 0 && sMax > 0 && (
+            <g>
+              <line x1={padL} y1={toYS(0)} x2={W - padR} y2={toYS(0)} stroke="var(--red)" strokeWidth="1" opacity="0.55" />
+              <text x={W - padR + 8} y={toYS(0) + 4} fill="var(--red)" fontSize="9" fontFamily="var(--font-mono)">0</text>
+            </g>
           )}
           {dias.map((d, i) => (
             <rect key={"h" + i} x={toX(i) - stepX / 2} y={padT} width={stepX} height={cH} fill="transparent"
@@ -316,9 +359,10 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
             <rect key={"dm" + i} x={toX(i) - 4} y={toY(v) - 4} width={8} height={8} rx="1"
                   fill="var(--red)" stroke="#7f1d1d" strokeWidth="1" />
           ))}
-          <polyline points={pts(saldos)} fill="none" stroke="var(--green)" strokeWidth="2" strokeDasharray="4 4" strokeLinejoin="round" strokeLinecap="round" />
+          {/* Saldo no eixo da DIREITA (toYS), nao no das acumuladas. */}
+          <polyline points={ptsS(saldos)} fill="none" stroke="var(--green)" strokeWidth="2" strokeDasharray="4 4" strokeLinejoin="round" strokeLinecap="round" />
           {saldos.map((v, i) => (
-            <circle key={"s" + i} cx={toX(i)} cy={toY(v)} r={3.5}
+            <circle key={"s" + i} cx={toX(i)} cy={toYS(v)} r={3.5}
                     fill={v < 0 ? "var(--red)" : "var(--green)"}
                     stroke={v < 0 ? "#7f1d1d" : "#14532d"} strokeWidth="1" />
           ))}
@@ -356,18 +400,31 @@ const FluxoDiarioAcumulado = ({ txCtx, mesIdx, year, saldoInicial, diaDe, diaAte
             do card: ela descreve o fim do eixo, e no topo ficava no canto oposto
             ao que descreve — com a pagina rolada some da tela junto com o titulo,
             que foi exatamente como o Henrique nao a encontrou. */}
-        {!diaDe && (
-          <div className="status-line" style={{ fontSize: 10.5, textAlign: "right", marginTop: 2, paddingRight: 28 }}>
-            {ehMesCorrente && diaAte0 <= diaHoje &&
-              <>A linha termina em <b>hoje ({diaAte0}/{String(mesIdx + 1).padStart(2, "0")})</b> — o resto do mês ainda não aconteceu.</>}
-            {/* Lançamento liquidado com data À FRENTE de hoje existe (antecipação
-                de cartão, agendamento baixado): aí dizer "até hoje" seria falso. */}
-            {ehMesCorrente && diaAte0 > diaHoje &&
-              <>A linha termina em <b>{diaAte0}/{String(mesIdx + 1).padStart(2, "0")}</b>, além de hoje ({diaHoje}):
-                há lançamento já liquidado com data à frente.</>}
-            {!ehMesCorrente && <>Mês fechado — a linha cobre os {diaAte0} dias.</>}
-          </div>
-        )}
+        <div className="status-line" style={{ fontSize: 10.5, marginTop: 4, display: "flex",
+             justifyContent: "space-between", gap: 14, flexWrap: "wrap", lineHeight: 1.5 }}>
+          {/* O aviso do eixo duplo e obrigatorio, nao decorativo: e ele que
+              impede a leitura "o saldo cruzou a receita", que com escalas
+              diferentes e artefato do desenho e nao fato do caixa. */}
+          <span>
+            Escalas separadas — <b>esquerda</b>: receita e despesa acumuladas, que partem do zero;
+            {" "}<b style={{ color: "var(--green)" }}>direita</b>: {temAncoraBanco
+              ? "saldo, que parte da posição da conta"
+              : "acumulado, que parte de zero — o F360 não informa saldo bancário"}.
+            {" "}<b>Altura não é comparável</b> entre as duas: onde as linhas se cruzam é efeito da escala, não do caixa.
+          </span>
+          {!diaDe && (
+            <span style={{ textAlign: "right", whiteSpace: "nowrap" }}>
+              {ehMesCorrente && diaAte0 <= diaHoje &&
+                <>A linha termina em <b>hoje ({diaAte0}/{String(mesIdx + 1).padStart(2, "0")})</b> — o resto do mês ainda não aconteceu.</>}
+              {/* Lançamento liquidado com data À FRENTE de hoje existe (antecipação
+                  de cartão, agendamento baixado): aí dizer "até hoje" seria falso. */}
+              {ehMesCorrente && diaAte0 > diaHoje &&
+                <>A linha termina em <b>{diaAte0}/{String(mesIdx + 1).padStart(2, "0")}</b>, além de hoje ({diaHoje}):
+                  há lançamento já liquidado com data à frente.</>}
+              {!ehMesCorrente && <>Mês fechado — a linha cobre os {diaAte0} dias.</>}
+            </span>
+          )}
+        </div>
       </div>
     </div>
   );
