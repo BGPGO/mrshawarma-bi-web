@@ -97,9 +97,11 @@ const DRE_MAP = {
   "432-0 - Juros Passivos":                                                     { grupo: "Despesas Financeiras",              dre: "12" },
   "Falta de Caixa":                                                             { grupo: "Despesas Financeiras",              dre: "12" },
   // Via codigo irmao (431-5 Despesas Bancarias ja esta aqui) e por natureza:
-  // multa e juros de conta paga em atraso e despesa financeira. Nao estava na
-  // planilha dela; 1 lancamento, R$ 164,19 em mai/2026. Confirmar com ela —
-  // com esta entrada a DRE fica com ZERO categorias nao mapeadas.
+  // Multa e juros de conta paga em atraso e despesa financeira.
+  // CONFIRMADO pela Silmara em 19/08/2026: "431-8, Multa e Juros sobre Contas
+  // Pagas em Atraso - OK despesas financeiras". Era a ultima categoria fora da
+  // cascata; com ela a DRE fica com ZERO nao mapeadas.
+  // 1 lancamento, R$ 164,19 em mai/2026.
   "431-8 - Multa e Juros Sobre Contas Pg em Atraso":                            { grupo: "Despesas Financeiras",              dre: "12" },
   // linha 14 — Investimentos e Outros
   "112-5 - Maquinas e Equipamentos":                                            { grupo: "Investimentos e Outros",            dre: "14" },
