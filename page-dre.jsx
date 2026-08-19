@@ -187,7 +187,31 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
   const txCtx = useMemo(() => window.txNoContexto(statusFilter, ddNaoMes, semInvestimento, ef),
     [statusFilter, ddNaoMes, semInvestimento, ef]);
 
-  const mesesIdx = useMemo(() => window.janelaMeses(txJanela, refYear, range), [txJanela, refYear, range]);
+  /* "A coluna lateral ocupa espaco e fica ruim pra ver a tabela" (Silmara, no
+   * iFinance -- a tela aqui e a mesma). A DRE tem 2 colunas por mes; com os
+   * Indicadores ao lado sobram poucos meses antes da barra de rolagem.
+   * Expandir colapsa a grade: a tabela pega a largura toda e os indicadores
+   * descem pra baixo dela em vez de sumir. */
+  const [dreExp, setDreExp] = useState(false);
+
+  /* "Consigo ver somente o mes selecionado no filtro" (Silmara).
+   *
+   * A tabela ignora o recorte de mes DE PROPOSITO -- as colunas sao contexto de
+   * comparacao. Isso continua valendo pra quem quer comparar, entao entra como
+   * TERCEIRA opcao do seletor, nao como troca de default. */
+  const mesesHeader = useMemo(() => {
+    const m = Array.isArray(month) ? month : (month ? [month] : []);
+    return m.filter(x => x >= 1 && x <= 12).map(x => x - 1).sort((a, b) => a - b);
+  }, [month]);
+  const podeSoMes = mesesHeader.length > 0;
+  // Guard: escolheu "so o mes" e depois limpou o filtro -> volta ao anterior,
+  // em vez de tabela vazia.
+  const rangeEfetivo = (range === "mes" && !podeSoMes) ? "dado" : range;
+
+  const mesesIdx = useMemo(() => {
+    if (rangeEfetivo === "mes") return mesesHeader;
+    return window.janelaMeses(txJanela, refYear, rangeEfetivo);
+  }, [txJanela, refYear, rangeEfetivo, mesesHeader]);
   const D = useMemo(() => buildDRE(txCtx, refYear), [txCtx, refYear]);
 
   // Quantos lançamentos do período entraram na competência pela data de caixa
@@ -329,14 +353,11 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
           <div className="status-line">
             Modelo da iFinance · regime <strong>{DRE_REGIME_LABEL[regime]}</strong>
             {" · "}
-            {mesesIdx.length === 12 ? "jan–dez" : `${B.MONTHS_FULL[mesesIdx[0]]}–${B.MONTHS_FULL[mesesIdx[mesesIdx.length - 1]]}`}
+            {mesesIdx.length === 0 ? "sem mês" :
+             mesesIdx.length === 1 ? B.MONTHS_FULL[mesesIdx[0]] :
+             mesesIdx.length === 12 ? "jan–dez" :
+             `${B.MONTHS_FULL[mesesIdx[0]]}–${B.MONTHS_FULL[mesesIdx[mesesIdx.length - 1]]}`}
             {" de "}{refYear}
-          </div>
-        </div>
-        <div className="actions">
-          <div className="seg" title="Quais meses aparecem nas colunas">
-            <button className={range === "dado" ? "active" : ""} onClick={() => setRange("dado")}>Meses com lançamento</button>
-            <button className={range === "ano" ? "active" : ""} onClick={() => setRange("ano")}>Ano inteiro</button>
           </div>
         </div>
       </div>
@@ -366,11 +387,33 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
         )}
       </div>
 
-      <div className="row" style={{ gridTemplateColumns: isMobile ? "1fr" : "minmax(0, 3fr) minmax(260px, 1fr)" }}>
+      <div className="row" style={{ gridTemplateColumns: (isMobile || dreExp) ? "1fr" : "minmax(0, 3fr) minmax(260px, 1fr)" }}>
         <div className="card">
+          {/* Os controles moram AQUI, no card, e nao no cabecalho da pagina:
+              quem quer mexer nas colunas ou na largura ja rolou ate a tabela, e
+              la em cima o botao sai da tela. No iFinance eu errei isso primeiro
+              e a Silmara nao achou o Expandir. */}
           <div className="card-title-row">
             <h2 className="card-title">Demonstração de Resultado</h2>
-            <span className="status-line" style={{ fontSize: 11 }}>% da Receita Operacional Líquida</span>
+            <div style={{ display: "flex", alignItems: "center", gap: 12, marginLeft: "auto" }}>
+              <span className="status-line" style={{ fontSize: 11 }}>% da Receita Operacional Líquida</span>
+              <button className="btn-ghost no-print" style={{ fontSize: 11, whiteSpace: "nowrap" }}
+                      title={dreExp ? "Voltar ao tamanho normal" : "Ocupar a largura toda — os indicadores descem pra baixo da tabela"}
+                      onClick={() => setDreExp(v => !v)}>
+                {dreExp ? "↙ Recolher" : "↗ Expandir"}
+              </button>
+            </div>
+          </div>
+          <div className="seg" title="Quais meses aparecem nas colunas"
+               style={{ margin: "0 0 12px", alignSelf: "flex-start" }}>
+            <button className={rangeEfetivo === "mes" ? "active" : ""}
+                    disabled={!podeSoMes}
+                    title={podeSoMes
+                      ? "Só o mês escolhido no filtro do cabeçalho"
+                      : "Escolha um mês no filtro do cabeçalho para usar esta opção"}
+                    onClick={() => setRange("mes")}>Só o mês do filtro</button>
+            <button className={rangeEfetivo === "dado" ? "active" : ""} onClick={() => setRange("dado")}>Meses com lançamento</button>
+            <button className={rangeEfetivo === "ano" ? "active" : ""} onClick={() => setRange("ano")}>Ano inteiro</button>
           </div>
           <div className="t-scroll" style={{ maxHeight: 620 }}>
             <table className="t t-dre">

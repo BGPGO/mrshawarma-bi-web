@@ -1,4 +1,4 @@
-/* BGP BI — gerado por build-data.cjs em 2026-08-19T20:45:00.788Z */
+/* BGP BI — gerado por build-data.cjs em 2026-08-19T21:28:22.451Z */
 /* Empresa: MR SHAWARMA FOOD LTDA | Ano ref: 2026 */
 const MONTHS = ["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
 const MONTHS_FULL = ["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
