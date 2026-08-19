@@ -281,6 +281,14 @@ const PE_CONFIRMADAS = new Set([
   "201-6 - OP Salarios",                    // "salarios da operacao, que sao fixos"
   "201-6 - OP Freelancer",                  // idem
   "403-9 - OP Vale Transporte",             // idem
+  // Confirmadas por ela em 19/08/2026, respondendo a pergunta 3 do relatorio:
+  // "Quatro categorias que classificamos por conta propria - OK". Saem da lista
+  // de suposicao -- o painel tem que parar de pedir confirmacao que ja veio,
+  // senao o aviso vira ruido e ela para de ler os avisos que importam.
+  "410-5 - OP Servicos Tecnicos",
+  "112-9 - Moveis e Utensilios",
+  "421-8 - OP Fretes e carretos",
+  "410-9 - OP Outros Servicos Prestados",
 ]);
 const peSuposto = (categoria) => {
   const cat = String(categoria || "").trim();
