@@ -3798,6 +3798,16 @@ table.t tr.total td {
 }
 .t-dre th.active { color: var(--cyan); }
 
+/* TERCEIRO NIVEL — os lancamentos dentro de uma categoria (DRE e Fluxo de
+ * Caixa). Precisa se distinguir do segundo nivel SEM depender de hover: a
+ * controladora printa a tela pra colar no e-mail, e print nao tem hover. */
+.lanc-row > td {
+  color: var(--fg-3);
+  border-bottom: 1px dotted var(--border-2);
+  line-height: 1.5;
+}
+.lanc-row:hover > td { color: var(--fg-2); }
+
 .t-ind td { padding: 5px 8px; font-size: 12px; }
 .t-ind td.num { font-variant-numeric: tabular-nums; }
 .t-ind tr.total td { font-weight: 700; border-top: 1px solid var(--border-2); }

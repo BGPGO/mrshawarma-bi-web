@@ -167,6 +167,11 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
   const [range, setRange] = useState("dado");
   const [aberto, setAberto] = useState({});
   const [abertoNM, setAbertoNM] = useState(false);
+  /* TERCEIRO NIVEL — os lancamentos dentro da categoria. Pedido da Silmara em
+   * 20/08/2026, na DRE do BI irmao: "trazer as linhas abaixo dessa categoria,
+   * para sabermos o que esta lancado nos custos". Ela cobra nos dois BIs. */
+  const [abertoLanc, setAbertoLanc] = useState({});
+  const toggleLanc = (k) => setAbertoLanc(prev => ({ ...prev, [k]: !prev[k] }));
   const toggle = (id) => setAberto(prev => ({ ...prev, [id]: !prev[id] }));
 
   // Completo sempre — ver decisão 1 no topo do arquivo.
@@ -213,6 +218,30 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
     return window.janelaMeses(txJanela, refYear, rangeEfetivo);
   }, [txJanela, refYear, rangeEfetivo, mesesHeader]);
   const D = useMemo(() => buildDRE(txCtx, refYear), [txCtx, refYear]);
+
+  /* A coluna de um lancamento e a MESMA do total que ele compoe: mes do ano de
+   * referencia, na data que o regime escolhido definir (o txCtx ja vem com a
+   * data de competencia no lugar da de caixa quando e o caso). */
+  const idxMesDre = useMemo(
+    () => (row) => (!row[1] || Number(row[1].slice(0, 4)) !== refYear)
+      ? -1
+      : parseInt(row[1].slice(5, 7), 10) - 1,
+    [refYear]
+  );
+  // Cache por categoria: so filtra o ALL_TX da categoria que ela abriu, e uma
+  // vez so por contexto.
+  const lancsDe = useMemo(() => {
+    const cache = new Map();
+    return (cat) => {
+      if (!cache.has(cat)) cache.set(cat, window.lancamentosDe(txCtx, cat, 12, idxMesDre));
+      return cache.get(cat);
+    };
+  }, [txCtx, idxMesDre]);
+  const sinalDe = useMemo(() => {
+    const m = {};
+    for (const d of window.DRE_ESTRUTURA) if (!d.tipo && !d.calc) m[d.id] = d.sinal || 1;
+    return m;
+  }, []);
 
   // Quantos lançamentos do período entraram na competência pela data de caixa
   // por não ter emissão. Declarar isso é o que separa aproximação de mentira.
@@ -341,7 +370,10 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
     && refYear === anoRef
     && mesesIdx.includes(mesRefIdx);
 
-  const colSpanTotal = 2 + mesesIdx.length * 2;
+  // Conta + (mes, %V) por mes + Total + %V. Estava em 2 + n*2 desde que nasceu,
+  // uma coluna a menos que a tabela real — nao aparecia porque a variavel nao
+  // era usada. Agora e ela que define a largura da linha "mais N lancamentos".
+  const colSpanTotal = 3 + mesesIdx.length * 2;
 
   const linhaCls = (l) => l.calc ? "dre-calc" : (l.tipo ? "dre-tipo" : "dre-grupo");
 
@@ -459,19 +491,40 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                         </td>
                         <td className="num" style={{ fontWeight: 600, color: "var(--fg-3)" }}>{pctV(l.values, -1)}</td>
                       </tr>
-                      {temCats && isOpen && l.cats.map(c => (
-                        <tr key={l.id + "|" + c.cat} className="child-row" style={{ opacity: 0.85 }}>
-                          <td style={{ paddingLeft: 40, fontSize: 11 }}>{c.cat}</td>
-                          {mesesIdx.map(i => (
-                            <React.Fragment key={i}>
-                              <td className="num" style={{ fontSize: 11 }}>{fmt(c.values[i])}</td>
-                              <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, i)}</td>
-                            </React.Fragment>
-                          ))}
-                          <td className="num" style={{ fontSize: 11 }}>{fmt(somaJanela(c.values))}</td>
-                          <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, -1)}</td>
-                        </tr>
-                      ))}
+                      {temCats && isOpen && l.cats.map(c => {
+                        const kc = l.id + "|" + c.cat;
+                        const lancsAbertos = !!abertoLanc[kc];
+                        return (
+                          <React.Fragment key={kc}>
+                            <tr className="child-row" style={{ opacity: 0.85, cursor: "pointer" }}
+                                onClick={() => toggleLanc(kc)}
+                                title="Clique pra ver os lançamentos que compõem esta categoria">
+                              <td style={{ paddingLeft: 28, fontSize: 11 }}>
+                                <span className="chev" style={{ display: "inline-block", transition: "transform .2s", transform: lancsAbertos ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
+                                {c.cat}
+                              </td>
+                              {mesesIdx.map(i => (
+                                <React.Fragment key={i}>
+                                  <td className="num" style={{ fontSize: 11 }}>{fmt(c.values[i])}</td>
+                                  <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, i)}</td>
+                                </React.Fragment>
+                              ))}
+                              <td className="num" style={{ fontSize: 11 }}>{fmt(somaJanela(c.values))}</td>
+                              <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, -1)}</td>
+                            </tr>
+                            {lancsAbertos && (
+                              <LancamentoRows lancs={lancsDe(c.cat)} cols={mesesIdx} fmt={fmt} pctDe={pctV}
+                                              sinal={sinalDe[l.id] || 1} keyPrefix={kc} colSpanTotal={colSpanTotal}
+                                              trailing={(vals) => (
+                                                <React.Fragment>
+                                                  <td className="num" style={{ fontSize: 10.5 }}>{fmt(somaJanela(vals))}</td>
+                                                  <td className="num" style={{ fontSize: 10.5, color: "var(--fg-3)" }}>{pctV(vals, -1)}</td>
+                                                </React.Fragment>
+                                              )} />
+                            )}
+                          </React.Fragment>
+                        );
+                      })}
                     </React.Fragment>
                   );
                 })}
@@ -498,19 +551,40 @@ const PageDRE = ({ statusFilter, drilldown, setDrilldown, year, month, semInvest
                       <td className="num" style={{ fontWeight: 700 }}>{fmt(somaJanela(D.naoMapeadas.values))}</td>
                       <td className="num" style={{ color: "var(--fg-3)" }}>{pctV(D.naoMapeadas.values, -1)}</td>
                     </tr>
-                    {abertoNM && D.naoMapeadas.cats.map(c => (
-                      <tr key={"nm|" + c.cat} className="child-row" style={{ opacity: 0.85 }}>
-                        <td style={{ paddingLeft: 40, fontSize: 11 }}>{c.cat}</td>
-                        {mesesIdx.map(i => (
-                          <React.Fragment key={i}>
-                            <td className="num" style={{ fontSize: 11 }}>{fmt(c.values[i])}</td>
-                            <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, i)}</td>
-                          </React.Fragment>
-                        ))}
-                        <td className="num" style={{ fontSize: 11 }}>{fmt(somaJanela(c.values))}</td>
-                        <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, -1)}</td>
-                      </tr>
-                    ))}
+                    {abertoNM && D.naoMapeadas.cats.map(c => {
+                      const kc = "nm|" + c.cat;
+                      const lancsAbertos = !!abertoLanc[kc];
+                      return (
+                        <React.Fragment key={kc}>
+                          <tr className="child-row" style={{ opacity: 0.85, cursor: "pointer" }}
+                              onClick={() => toggleLanc(kc)}
+                              title="Clique pra ver os lançamentos que compõem esta categoria">
+                            <td style={{ paddingLeft: 28, fontSize: 11 }}>
+                              <span className="chev" style={{ display: "inline-block", transition: "transform .2s", transform: lancsAbertos ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
+                              {c.cat}
+                            </td>
+                            {mesesIdx.map(i => (
+                              <React.Fragment key={i}>
+                                <td className="num" style={{ fontSize: 11 }}>{fmt(c.values[i])}</td>
+                                <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, i)}</td>
+                              </React.Fragment>
+                            ))}
+                            <td className="num" style={{ fontSize: 11 }}>{fmt(somaJanela(c.values))}</td>
+                            <td className="num" style={{ fontSize: 11, color: "var(--fg-3)" }}>{pctV(c.values, -1)}</td>
+                          </tr>
+                          {lancsAbertos && (
+                            <LancamentoRows lancs={lancsDe(c.cat)} cols={mesesIdx} fmt={fmt} pctDe={pctV}
+                                            keyPrefix={kc} colSpanTotal={colSpanTotal}
+                                            trailing={(vals) => (
+                                              <React.Fragment>
+                                                <td className="num" style={{ fontSize: 10.5 }}>{fmt(somaJanela(vals))}</td>
+                                                <td className="num" style={{ fontSize: 10.5, color: "var(--fg-3)" }}>{pctV(vals, -1)}</td>
+                                              </React.Fragment>
+                                            )} />
+                          )}
+                        </React.Fragment>
+                      );
+                    })}
                   </React.Fragment>
                 )}
 

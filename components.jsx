@@ -191,6 +191,126 @@ window.DRE_ESTRUTURA = DRE_ESTRUTURA;
 window.GRUPO_OMIE_ORDEM = GRUPO_OMIE_ORDEM;
 
 /* ==========================================================================
+ * TERCEIRO NÍVEL — os lançamentos que compõem uma categoria
+ * ==========================================================================
+ * Pedido da Silmara em 20/08/2026, olhando a DRE de agosto: "trazer as linhas
+ * abaixo dessa categoria, para sabermos o que está lançado nos custos" — sobre
+ * os R$ 25.117,39 de "400-1 - Custo de Prestacao de Servicos". No mesmo dia,
+ * sobre o pró-labore: "seria possível trazer mais uma linha com as informações
+ * do que compõem esse valor".
+ *
+ * Portado do ifinance-bi-web (Omie) em 20/08/2026 — mesma controladora, mesmo
+ * gesto. Aqui os lançamentos não têm parcela nem percentual de rateio: o F360
+ * já entrega cada perna do rateio como linha própria, com o valor dela.
+ *
+ * Mora aqui, e não dentro da página, porque a DRE e o Fluxo de Caixa abrem a
+ * MESMA categoria em hierarquias diferentes (a cascata dela × o grupo do Omie).
+ * Duas cópias divergiriam na primeira correção.
+ *
+ * TRÊS DECISÕES
+ *
+ * 1. A linha diz o que o número esconde. Perna de rateio mostra "16,2% de
+ *    R$ 10.000,00" — é exatamente o pró-labore que ela reportou em 19/08, e
+ *    responder "R$ 1.621,00" sem dizer de que título saiu gera o mesmo ticket
+ *    de novo. Título em aberto mostra "previsto"; vencido, "atrasado".
+ * 2. Nada de tooltip. Ela printa a tela pra colar no e-mail, e print não tem
+ *    hover — o que precisa ser lido está na célula.
+ * 3. Corte declarado. Acima de LANC_CAP a lista mostra os maiores e diz, na
+ *    própria tabela, quantos ficaram de fora E quanto somam, com um clique pra
+ *    abrir todos. Corte silencioso em tabela de conferência é o defeito que
+ *    gera o ticket seguinte.
+ * ========================================================================== */
+const LANC_CAP = 25;
+
+/* lancamentosDe — as rows de UMA categoria, cada uma com o array de valores na
+ * MESMA indexação de coluna que a linha de cima usa (mês na DRE, mês ou dia no
+ * Fluxo). Recebendo idxOf de fora, o lançamento nunca cai numa coluna diferente
+ * da do total que ele compõe. */
+const lancamentosDe = (txList, categoria, nCols, idxOf) => {
+  const out = [];
+  for (const row of txList) {
+    if (row[3] !== categoria) continue;
+    const i = idxOf(row);
+    if (i < 0 || i >= nCols) continue;
+    const values = Array(nCols).fill(0);
+    values[i] = row[5];
+    out.push({ row, col: i, valor: row[5], values });
+  }
+  // maior primeiro, como o nível de cima: assim o corte esconde os menores.
+  return out.sort((a, b) => b.valor - a.valor);
+};
+
+/* O texto da célula: data, contraparte e o que mais o lançamento precisa dizer
+ * sobre si. `fmt` vem de fora porque é o formatador do BIT. */
+const lancDescricao = (row, fmt) => {
+  const dd = row[2] ? String(row[2]).padStart(2, "0") : "??";
+  const mm = String(row[1] || "").slice(5, 7);
+  const quem = (row[0] === "r" ? row[4] : row[7]) || "sem contraparte";
+  const tags = [];
+  if (row[19] > 0) {
+    const pct = Number(row[19]).toFixed(1).replace(".", ",");
+    tags.push("rateio " + pct + "% de " + fmt(row[20]));
+  }
+  if (row[21]) tags.push("parcela " + row[21]);
+  if (!row[6]) tags.push(row[13] ? "atrasado" : "previsto");
+  return { data: dd + "/" + mm, quem, tags };
+};
+
+/* LancamentoRows — as linhas de lançamento de uma categoria já aberta.
+ * `cols` = os índices de coluna visíveis; `trailing(values)` desenha as colunas
+ * que vêm depois dos meses (a DRE tem Total e % V; o Fluxo não tem). */
+const LancamentoRows = ({ lancs, cols, fmt, pctDe, mostrarPct = true, sinal = 1,
+                         indent = 56, tone = "", trailing, colSpanTotal, keyPrefix = "" }) => {
+  const [todos, setTodos] = useState(false);
+  const corte = todos ? lancs.length : LANC_CAP;
+  const visiveis = lancs.slice(0, corte);
+  const ocultos = lancs.slice(corte);
+  const somaOcultos = ocultos.reduce((s, l) => s + l.valor, 0);
+  return (
+    <React.Fragment>
+      {visiveis.map((l, n) => {
+        const d = lancDescricao(l.row, fmt);
+        const vals = sinal === 1 ? l.values : l.values.map(v => v * sinal);
+        return (
+          <tr key={keyPrefix + "|l" + n} className="child-row lanc-row">
+            <td style={{ paddingLeft: indent, fontSize: 10.5, whiteSpace: "normal" }}>
+              <span style={{ color: "var(--fg-3)" }}>{d.data}</span>{" · "}{d.quem}
+              {d.tags.length > 0 && (
+                <span style={{ color: "var(--fg-3)" }}>{" · " + d.tags.join(" · ")}</span>
+              )}
+            </td>
+            {cols.map(i => (
+              <React.Fragment key={i}>
+                <td className={"num " + tone} style={{ fontSize: 10.5 }}>
+                  {vals[i] ? fmt(vals[i]) : ""}
+                </td>
+                {mostrarPct && (
+                  <td className="num" style={{ fontSize: 10.5, color: "var(--fg-3)" }}>
+                    {vals[i] && pctDe ? pctDe(vals, i) : ""}
+                  </td>
+                )}
+              </React.Fragment>
+            ))}
+            {trailing && trailing(vals)}
+          </tr>
+        );
+      })}
+      {ocultos.length > 0 && (
+        <tr className="child-row lanc-row" style={{ cursor: "pointer" }}
+            onClick={() => setTodos(true)}>
+          <td colSpan={colSpanTotal || (1 + cols.length * (mostrarPct ? 2 : 1))}
+              style={{ paddingLeft: indent, fontSize: 10.5, color: "var(--fg-3)" }}>
+            ▾ mais {ocultos.length} lançamento{ocultos.length > 1 ? "s" : ""}, somando {fmt(somaOcultos)} — clique pra abrir
+          </td>
+        </tr>
+      )}
+    </React.Fragment>
+  );
+};
+window.lancamentosDe = lancamentosDe;
+window.LancamentoRows = LancamentoRows;
+
+/* ==========================================================================
  * FIXO x VARIÁVEL — o que alimenta o Ponto de Equilíbrio
  * ==========================================================================
  * Definido pela Silmara em 16/08/2026, respondendo à pergunta do ponto de

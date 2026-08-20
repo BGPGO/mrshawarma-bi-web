@@ -58,8 +58,14 @@ const buildFluxoOmie = (txList, year, eixo) => {
 
 /* FluxoRows — uma linha de grupo + as categorias dentro dela. A lógica de %
  * vive no `pctDe` do pai (era duplicada 6× na versão anterior desta tabela). */
-const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe, mostrarPct = true }) => {
+const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe, mostrarPct = true,
+                    lancsDe, keyPrefix = "" }) => {
   const hasKids = row.children && row.children.length > 0;
+  /* Terceiro nivel: os lancamentos da categoria. Mesmo pedido que abriu a DRE
+   * em 20/08/2026 -- ela abre a categoria pra saber o que esta lancado dentro.
+   * `lancsDe` vem da pagina porque so ela sabe em que coluna a row cai (o eixo
+   * aqui pode ser mes OU dia). Sem ela, o componente segue com 2 niveis. */
+  const [abertoLanc, setAbertoLanc] = useState({});
   return (
     <React.Fragment>
       <tr style={hasKids ? { cursor: "pointer" } : undefined}
@@ -82,17 +88,35 @@ const FluxoRows = ({ row, mesesIdx, open, onToggle, tone, fmt, pctDe, mostrarPct
           </React.Fragment>
         ))}
       </tr>
-      {hasKids && open && row.children.map(kid => (
-        <tr key={kid.cat} className="child-row" style={{ opacity: 0.85 }}>
-          <td style={{ paddingLeft: 28 }}>{kid.cat}</td>
-          {mesesIdx.map(i => (
-            <React.Fragment key={i}>
-              <td className={"num " + tone} style={{ fontSize: 11 }}>{fmt(kid.values[i] || 0)}</td>
-              {mostrarPct && <td className="num" style={{ color: "var(--fg-3)", fontSize: 11 }}>{pctDe(kid.values, i)}</td>}
-            </React.Fragment>
-          ))}
-        </tr>
-      ))}
+      {hasKids && open && row.children.map(kid => {
+        const podeAbrir = !!lancsDe;
+        const lancsAbertos = !!abertoLanc[kid.cat];
+        return (
+          <React.Fragment key={kid.cat}>
+            <tr className="child-row" style={{ opacity: 0.85, cursor: podeAbrir ? "pointer" : undefined }}
+                onClick={podeAbrir ? () => setAbertoLanc(p => ({ ...p, [kid.cat]: !p[kid.cat] })) : undefined}
+                title={podeAbrir ? "Clique pra ver os lançamentos que compõem esta categoria" : undefined}>
+              <td style={{ paddingLeft: 28 }}>
+                {podeAbrir && (
+                  <span className="chev" style={{ display: "inline-block", transition: "transform .2s", transform: lancsAbertos ? "rotate(90deg)" : "rotate(0)" }}>▶</span>
+                )}
+                {kid.cat}
+              </td>
+              {mesesIdx.map(i => (
+                <React.Fragment key={i}>
+                  <td className={"num " + tone} style={{ fontSize: 11 }}>{fmt(kid.values[i] || 0)}</td>
+                  {mostrarPct && <td className="num" style={{ color: "var(--fg-3)", fontSize: 11 }}>{pctDe(kid.values, i)}</td>}
+                </React.Fragment>
+              ))}
+            </tr>
+            {podeAbrir && lancsAbertos && (
+              <LancamentoRows lancs={lancsDe(kid.cat)} cols={mesesIdx} fmt={fmt} pctDe={pctDe}
+                              mostrarPct={mostrarPct} tone={tone} indent={44}
+                              keyPrefix={keyPrefix + "|" + kid.cat} />
+            )}
+          </React.Fragment>
+        );
+      })}
     </React.Fragment>
   );
 };
@@ -509,6 +533,16 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
     [porDia, eixo, txJanela, refYear, range]
   );
   const FX = useMemo(() => buildFluxoOmie(txCtx, refYear, eixo), [txCtx, refYear, eixo]);
+  /* Os lancamentos de uma categoria, na MESMA coluna em que o total dela cai —
+   * por isso passa o `eixo.idx`, que ja sabe se a coluna e mes ou dia. Cache
+   * por categoria: so filtra o ALL_TX da que ela abriu, uma vez por contexto. */
+  const lancsDe = useMemo(() => {
+    const cache = new Map();
+    return (cat) => {
+      if (!cache.has(cat)) cache.set(cat, window.lancamentosDe(txCtx, cat, eixo.n, eixo.idx));
+      return cache.get(cat);
+    };
+  }, [txCtx, eixo]);
   const FLUXO_RECEITA = FX.rec;
   const FLUXO_DESPESA = FX.desp;
   const totalMesRec = (i) => FLUXO_RECEITA.reduce((s, r) => s + (r.values[i] || 0), 0);
@@ -694,7 +728,8 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                 </tr>
                 {FLUXO_RECEITA.map(row => (
                   <FluxoRows key={"r-" + row.cat} row={row} mesesIdx={mesesIdx} open={!!expandedRec[row.cat]}
-                             onToggle={() => toggleRec(row.cat)} tone="green" fmt={B.fmt} pctDe={pctDe} />
+                             onToggle={() => toggleRec(row.cat)} tone="green" fmt={B.fmt} pctDe={pctDe}
+                             mostrarPct={mostrarPct} lancsDe={lancsDe} keyPrefix={"r-" + row.cat} />
                 ))}
                 <tr className="section">
                   <td>Despesa</td>
@@ -720,7 +755,8 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                 </tr>
                 {FLUXO_DESPESA.map(row => (
                   <FluxoRows key={"d-" + row.cat} row={row} mesesIdx={mesesIdx} open={!!expandedDesp[row.cat]}
-                             onToggle={() => toggleDesp(row.cat)} tone="red" fmt={B.fmt} pctDe={pctDe} />
+                             onToggle={() => toggleDesp(row.cat)} tone="red" fmt={B.fmt} pctDe={pctDe}
+                             mostrarPct={mostrarPct} lancsDe={lancsDe} keyPrefix={"d-" + row.cat} />
                 ))}
                 <tr className="total">
                   <td>Total Líquido</td>
@@ -737,7 +773,10 @@ const PageFluxo = ({ filters, setFilters, onOpenFilters, statusFilter, drilldown
                     return (
                       <React.Fragment key={i}>
                         <td className="num" style={{ color: liq >= 0 ? "var(--green)" : "var(--red)" }}>{B.fmt(liq)}</td>
-                        <td className="num" style={{ color: liq >= 0 ? "var(--green)" : "var(--red)", fontWeight: 600 }}>{pctLabel}</td>
+                        {/* a coluna de % nao existe no eixo diario (mostrarPct); sem esta
+                            guarda a linha do Total Liquido saia com o DOBRO de celulas do
+                            cabecalho e desalinhava a tabela inteira no recorte de dias. */}
+                        {mostrarPct && <td className="num" style={{ color: liq >= 0 ? "var(--green)" : "var(--red)", fontWeight: 600 }}>{pctLabel}</td>}
                       </React.Fragment>
                     );
                   })}
